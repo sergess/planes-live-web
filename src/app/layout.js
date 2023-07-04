@@ -1,8 +1,11 @@
 import React from 'react';
-
-import './globals.css';
-import './normalize.css';
 import { Inter } from 'next/font/google';
+
+import '@/styles/globals.css';
+import '@/styles/normalize.css';
+import PrimaryButton from '@/components/Buttons/primary';
+import LogoSvg from '@/assets/svg/logo';
+import styles from './layout.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,8 +17,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <header>header</header>
+      <body className={inter.className} style={{ fontSize: '10px' }}>
+        <header className={styles.header}>
+          <div className={styles.labelWrapper}>
+            <LogoSvg />
+            <div className={styles.label}>Planes Live</div>
+          </div>
+          <PrimaryButton>Download app</PrimaryButton>
+        </header>
         {children}
       </body>
     </html>
