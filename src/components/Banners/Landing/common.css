@@ -1,0 +1,9 @@
+.container {
+    margin: 16rem 2.5rem 0 2.5rem;
+}
+.primaryText {
+    color: var(--color-primary);
+}
+.buttonContainer {
+    text-align: center;
+}

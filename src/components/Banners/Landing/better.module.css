@@ -1,12 +1,12 @@
 .primaryText {
-    color: var(--color-primary);
+    composes: primaryText from "./common.css";
     margin-left: .5rem;
 }
 .container {
+    composes: container from "./common.css";
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-dark);
-    margin: 16rem 2.5rem 0 2.5rem;
 }
 .title {
     margin-bottom: 2rem;

@@ -5,6 +5,7 @@ import Input from '@/components/Input';
 import TrafficBanner from '@/components/Banners/Landing/traffic';
 import BetterBanner from '@/components/Banners/Landing/better';
 import FeaturesBanner from '@/components/Banners/Landing/features';
+import Notification from '@/components/Banners/Landing/notification';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <BetterBanner />
       <TrafficBanner />
       <FeaturesBanner />
+      <Notification />
     </main>
   );
 }

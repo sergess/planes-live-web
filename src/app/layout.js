@@ -26,6 +26,7 @@ export default function RootLayout({ children }) {
           <PrimaryButton>Download app</PrimaryButton>
         </header>
         {children}
+        <footer />
       </body>
     </html>
   );

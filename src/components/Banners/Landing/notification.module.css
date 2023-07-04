@@ -1,14 +1,27 @@
 @value primaryText from "./common.css";
-@value container from "./common.css";
 @value buttonContainer from "./common.css";
 .header {
     font-size: 2.8rem;
     font-weight: 700;
     line-height: 33px;
+    text-align: center;
+}
+.container {
+    margin: 16rem 0 0 0;
 }
 .text {
     font-size: 1.6rem;
     font-weight: 400;
     margin-bottom: 5.5rem;
 }
-
+.description {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: 15px;
+}
+.img {
+    width: 100%;
+    height: auto;
+    margin-top: 4rem;
+    margin-bottom: 2.5rem;
+}

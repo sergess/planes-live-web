@@ -1,12 +1,8 @@
-.container {
-    margin: 16rem 2.5rem 0 2.5rem;
-}
+@value container from "./common.css";
+@value buttonContainer from "./common.css";
 .row {
     margin-bottom: 4rem;
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
-}
-.buttonContainer {
-    text-align: center;
 }
