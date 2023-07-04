@@ -6,12 +6,12 @@ import styles from './better.module.css';
 export default function Better() {
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
+      <h1 className={styles.title}>
         Planes Live is better
         {' '}
         <br />
         with the app
-      </div>
+      </h1>
       <OutlineButton>Find out why</OutlineButton>
     </div>
   );

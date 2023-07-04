@@ -9,7 +9,7 @@ import styles from './page.module.css';
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.searchWrapper}>
+      <h4 className={styles.searchWrapper}>
         Track
         {' '}
         <PlaneSvg />
@@ -19,7 +19,7 @@ export default function Home() {
         {' '}
         <br />
         worldwide
-      </div>
+      </h4>
       <Input placeholder="Search by flight number, airline, or airport" />
       <BetterBanner />
       <TrafficBanner />
