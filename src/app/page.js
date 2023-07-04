@@ -4,6 +4,7 @@ import PlaneSvg from '@/assets/svg/plane';
 import Input from '@/components/Input';
 import TrafficBanner from '@/components/Banners/Landing/traffic';
 import BetterBanner from '@/components/Banners/Landing/better';
+import FeaturesBanner from '@/components/Banners/Landing/features';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
       <Input placeholder="Search by flight number, airline, or airport" />
       <BetterBanner />
       <TrafficBanner />
+      <FeaturesBanner />
     </main>
   );
 }
