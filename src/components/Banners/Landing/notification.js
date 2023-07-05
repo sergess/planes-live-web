@@ -15,7 +15,7 @@ export default function Notification() {
         when you need them
       </div>
       <p className={styles.description}>Be the first to know when flights change</p>
-      <Image src={Notifications_Slider} alt="" className={styles.img} />
+      {false && <Image src={Notifications_Slider} alt="" className={styles.img} />}
       <div className={styles.buttonContainer}>
         <PrimaryButton>Download app</PrimaryButton>
       </div>

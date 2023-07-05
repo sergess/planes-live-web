@@ -2,9 +2,9 @@ import React from 'react';
 import { Inter } from 'next/font/google';
 
 import '@/styles/globals.css';
-import '@/styles/normalize.css';
 import PrimaryButton from '@/components/Buttons/primary';
 import LogoSvg from '@/assets/svg/logo';
+import Footer from '@/components/Footer';
 import styles from './layout.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -21,12 +21,12 @@ export default function RootLayout({ children }) {
         <header className={styles.header}>
           <div className={styles.labelWrapper}>
             <LogoSvg />
-            <div className={styles.label}>Planes Live</div>
+            <p className={styles.label}>Planes Live</p>
           </div>
           <PrimaryButton>Download app</PrimaryButton>
         </header>
         {children}
-        <footer />
+        <Footer />
       </body>
     </html>
   );

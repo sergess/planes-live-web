@@ -1,22 +1,5 @@
-:root {
-  --max-width: 1100px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  --color-primary: #573CFF;
-  --color-secondary: #33CC55;
-  --color-dark: #292838;
-  --color-dark-50: #94949C;
-  --color-dark-05: #F4F4F5;
-  --input-height: 4rem;
-  --button-height: 4rem;
-  --color-white: #fff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
+@import "variables.css";
+@import "normalize.css";
 
 * {
   box-sizing: border-box;
