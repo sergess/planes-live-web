@@ -1,5 +1,5 @@
-@value primaryText from "./common.css";
-@value buttonContainer from "./common.css";
+@value primaryText from "../common.css";
+@value buttonContainer from "../common.css";
 .header {
     font-size: 2.8rem;
     font-weight: 700;
@@ -8,6 +8,7 @@
 }
 .container {
     margin: 16rem 0 0 0;
+    padding-bottom: 9.5rem;
 }
 .text {
     font-size: 1.6rem;
@@ -18,10 +19,14 @@
     text-align: center;
     font-size: 1.6rem;
     margin-top: 15px;
+    margin-bottom: 4rem;
 }
 .img {
     width: 100%;
     height: auto;
     margin-top: 4rem;
     margin-bottom: 2.5rem;
+}
+.button {
+    composes: buttonContainer from "../common.css";
 }

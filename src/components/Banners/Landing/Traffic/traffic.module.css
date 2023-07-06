@@ -1,0 +1,24 @@
+@value primaryText from "../common.css";
+@value buttonContainer from "../common.css";
+
+.header {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 33px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+.container {
+    margin: 0;
+    background-image: url(../../../../assets/img/Image_Globe.png);
+    background-size: 100% auto;
+    padding: 6.5rem 2.5rem 0 2.5rem;
+    text-align: center;
+}
+.text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 5.5rem;
+    text-align: left;
+}
+

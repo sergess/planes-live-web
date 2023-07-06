@@ -1,11 +1,10 @@
 import React from 'react';
 
 import PrimaryButton from '@/components/Buttons/primary';
-import Notifications_Slider from '@/assets/img/Notifications_Slider.png';
-import Image from 'next/image';
+import Notifications from '@/components/Notifications';
 import styles from './notification.module.css';
 
-export default function Notification() {
+export default function Index() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -15,7 +14,7 @@ export default function Notification() {
         when you need them
       </div>
       <p className={styles.description}>Be the first to know when flights change</p>
-      {false && <Image src={Notifications_Slider} alt="" className={styles.img} />}
+      <Notifications />
       <div className={styles.buttonContainer}>
         <PrimaryButton>Download app</PrimaryButton>
       </div>

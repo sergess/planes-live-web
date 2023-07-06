@@ -1,0 +1,17 @@
+.primaryText {
+    composes: primaryText from "../common.css";
+    margin-left: .5rem;
+}
+.container {
+    composes: container from "../common.css";
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    height: 30rem;
+    background-image: url(../../../../assets/img/plane_bg.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+}
+.title {
+    margin: 0 0 2rem 0;
+}

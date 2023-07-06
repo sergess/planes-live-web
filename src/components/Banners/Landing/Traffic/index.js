@@ -3,7 +3,7 @@ import React from 'react';
 import PrimaryButton from '@/components/Buttons/primary';
 import styles from './traffic.module.css';
 
-export default function Traffic() {
+export default function Index() {
   return (
     <div className={styles.container}>
       <p className={styles.header}>

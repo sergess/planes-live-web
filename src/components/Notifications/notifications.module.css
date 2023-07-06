@@ -1,0 +1,30 @@
+@value notificationWidth: 23rem;
+@value notificationMargin: .8rem;
+@value notificationCount: 4;
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc((-1 * (notificationWidth + notificationMargin) * notificationCount) / 2))}
+}
+@keyframes scroll_reverse {
+    0% { transform: translateX(calc((-1 * (notificationWidth + notificationMargin) * notificationCount) / 2))}
+    100% { transform: translateX(0); }
+}
+.row {
+    padding: 12px;
+    display: flex;
+}
+.rowTop {
+    padding: 12px;
+    display: flex;
+    animation: scroll 12s linear infinite;
+    width: calc((notificationWidth + notificationMargin) * notificationCount);
+}
+.rowBottom {
+    padding: 12px;
+    display: flex;
+    animation: scroll_reverse 20s linear infinite;
+    width: calc((notificationWidth + notificationMargin) * notificationCount);
+}
+.container {
+    padding-bottom: 4rem;
+}

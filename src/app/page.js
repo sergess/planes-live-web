@@ -2,10 +2,11 @@ import React from 'react';
 
 import PlaneSvg from '@/assets/svg/plane';
 import Input from '@/components/Input';
-import TrafficBanner from '@/components/Banners/Landing/traffic';
-import BetterBanner from '@/components/Banners/Landing/better';
-import FeaturesBanner from '@/components/Banners/Landing/features';
-import Notification from '@/components/Banners/Landing/notification';
+import TrafficBanner from '@/components/Banners/Landing/Traffic';
+import BetterBanner from '@/components/Banners/Landing/Better';
+import FeaturesBanner from '@/components/Banners/Landing/Features';
+import Index from '@/components/Banners/Landing/Notification';
+import Slider from '@/components/Slider';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -25,8 +26,9 @@ export default function Home() {
       <Input placeholder="Search by flight number, airline, or airport" />
       <BetterBanner />
       <TrafficBanner />
+      <Slider />
       <FeaturesBanner />
-      <Notification />
+      <Index />
     </main>
   );
 }
