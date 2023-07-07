@@ -9,6 +9,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": 0,
     "react/jsx-props-no-spreading": 0,
+    "react/no-unknown-property": ["error", { "ignore": ["jsx", "global"] }],
     "react-hooks/exhaustive-deps": 0,
     "max-len": [2, { "code": 120, "ignoreTemplateLiterals": true, "ignoreStrings": true}],
     "camelcase": 0,
