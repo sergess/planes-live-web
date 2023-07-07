@@ -8,11 +8,15 @@ import FeaturesBanner from '@/components/Banners/Landing/Features';
 import NotificationBanner from '@/components/Banners/Landing/Notification';
 import AirportBanner from '@/components/Banners/Landing/Airport';
 import Slider from '@/components/Slider';
+import KnowMore from '@/components/Banners/Landing/KnowMore';
+import { Inter } from 'next/font/google';
 import styles from './page.module.css';
+
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${inter.className}`}>
       <h4 className={styles.searchWrapper}>
         Track
         {' '}
@@ -31,6 +35,7 @@ export default function Home() {
       <FeaturesBanner />
       <NotificationBanner />
       <AirportBanner />
+      <KnowMore />
     </main>
   );
 }
