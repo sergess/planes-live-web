@@ -4,7 +4,7 @@ import PrimaryButton from '@/components/Buttons/primary';
 import Notifications from '@/components/Notifications';
 import styles from './notification.module.css';
 
-export default function Index() {
+export default function Notification() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>

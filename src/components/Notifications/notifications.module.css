@@ -10,17 +10,17 @@
     100% { transform: translateX(0); }
 }
 .row {
-    padding: 12px;
+    padding: 1.2rem;
     display: flex;
 }
 .rowTop {
-    padding: 12px;
+    padding: 1.2rem;
     display: flex;
     animation: scroll 12s linear infinite;
     width: calc((notificationWidth + notificationMargin) * notificationCount);
 }
 .rowBottom {
-    padding: 12px;
+    padding: 1.2rem;
     display: flex;
     animation: scroll_reverse 20s linear infinite;
     width: calc((notificationWidth + notificationMargin) * notificationCount);

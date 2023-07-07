@@ -1,0 +1,22 @@
+@value primaryText from "../common.css";
+.title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 3.3rem;
+    text-align: center;
+}
+.description {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 8.5rem;
+}
+.container {
+    padding: 1rem 0 11.5rem 0;
+    background-image: url("../../../../assets/svg/map_background.svg");
+}
+.buttonContainer {
+    text-align: center;
+    margin-top: 8.5rem;
+}

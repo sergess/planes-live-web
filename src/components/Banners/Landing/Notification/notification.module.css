@@ -1,9 +1,10 @@
 @value primaryText from "../common.css";
 @value buttonContainer from "../common.css";
+
 .header {
     font-size: 2.8rem;
     font-weight: 700;
-    line-height: 33px;
+    line-height: 3.3rem;
     text-align: center;
 }
 .container {
@@ -18,7 +19,7 @@
 .description {
     text-align: center;
     font-size: 1.6rem;
-    margin-top: 15px;
+    margin-top: 1.5rem;
     margin-bottom: 4rem;
 }
 .img {
@@ -27,6 +28,4 @@
     margin-top: 4rem;
     margin-bottom: 2.5rem;
 }
-.button {
-    composes: buttonContainer from "../common.css";
-}
+

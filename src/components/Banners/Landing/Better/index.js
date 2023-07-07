@@ -3,7 +3,7 @@ import React from 'react';
 import OutlineButton from '@/components/Buttons/outline';
 import styles from './better.module.css';
 
-export default function Index() {
+export default function Better() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>

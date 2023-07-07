@@ -17,7 +17,7 @@ const BANNER_MAP = [
   { text: 'Security wait times', Icon: () => <Security /> },
 ];
 
-export default function Index() {
+export default function Features() {
   return (
     <div className={styles.container}>
       <div>

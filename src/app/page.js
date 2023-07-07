@@ -5,7 +5,8 @@ import Input from '@/components/Input';
 import TrafficBanner from '@/components/Banners/Landing/Traffic';
 import BetterBanner from '@/components/Banners/Landing/Better';
 import FeaturesBanner from '@/components/Banners/Landing/Features';
-import Index from '@/components/Banners/Landing/Notification';
+import NotificationBanner from '@/components/Banners/Landing/Notification';
+import AirportBanner from '@/components/Banners/Landing/Airport';
 import Slider from '@/components/Slider';
 import styles from './page.module.css';
 
@@ -28,7 +29,8 @@ export default function Home() {
       <TrafficBanner />
       <Slider />
       <FeaturesBanner />
-      <Index />
+      <NotificationBanner />
+      <AirportBanner />
     </main>
   );
 }

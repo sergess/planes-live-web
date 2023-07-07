@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{ fontSize: '10px' }}>
+      <body className={inter.className}>
         <header className={styles.header}>
           <div className={styles.labelWrapper}>
             <LogoSvg />

@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-
+    z-index: var(--header-z-index);
     font-size: 2rem;
     background: var(--color-white);
 }
