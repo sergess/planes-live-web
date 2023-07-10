@@ -1,7 +1,8 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
 
-import '@/styles/globals.css';
+// relative path to avoid warning
+import './styles/globals.css';
 import PrimaryButton from '@/components/Buttons/primary';
 import LogoSvg from '@/assets/svg/logo';
 import Footer from '@/components/Footer';
