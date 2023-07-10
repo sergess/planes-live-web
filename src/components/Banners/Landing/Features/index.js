@@ -11,21 +11,45 @@ const BANNER_MAP = [
   {
     text: 'Flight updates',
     Icon: () => <Notification />,
+    description: 'If flights arrive earlier or later '
+      + 'than expected, our flight tracker will '
+      + 'send you change notifications. Customize them to your own needs.',
   },
-  { text: 'Detailed plane information', Icon: () => <Plane /> },
-  { text: 'Airport maps and timetables', Icon: () => <Airport /> },
-  { text: 'Security wait times', Icon: () => <Security /> },
+  {
+    text: 'Detailed plane information',
+    Icon: () => <Plane />,
+    description: 'Want to know it all? Get the plane model '
+      + 'information with photo, age, call sign, '
+      + 'registration number, and more.',
+  },
+  {
+    text: 'Airport maps and timetables',
+    Icon: () => <Airport />,
+    description: 'Looking for a place to grab a snack before departure '
+      + 'or a parking lot near the arrival '
+      + 'gates? Find it all on the airport maps. '
+      + 'Keep tabs on timetables, too.',
+  },
+  {
+    text: 'Security wait times',
+    Icon: () => <Security />,
+    description: 'Pre-flight jitters? Know the airport\'s '
++ 'busy times to better plan your arrival and spend less time in the security lines.',
+  },
 ];
 
 export default function Features() {
   return (
     <div className={styles.container}>
-      <div>
-        {BANNER_MAP.map(({ text, Icon }) => (
+      <div className={styles.rowWrapper}>
+        {BANNER_MAP.map(({ text, Icon, description }) => (
           <div className={styles.row}>
             <Icon />
-            <div>
+            <div className={styles.title}>
               {text}
+            </div>
+            <div className={styles.description}>
+              {description}
             </div>
           </div>
         ))}

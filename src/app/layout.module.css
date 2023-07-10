@@ -17,3 +17,10 @@
     background: var(--color-white);
 }
 
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .header {
+        max-width: 954px;
+        margin: 0 auto;
+    }
+}

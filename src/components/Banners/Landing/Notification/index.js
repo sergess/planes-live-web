@@ -2,6 +2,7 @@ import React from 'react';
 
 import PrimaryButton from '@/components/Buttons/primary';
 import Notifications from '@/components/Notifications';
+import StoreBadge from '@/components/StoreBadge';
 import localFont from 'next/font/local';
 import styles from './notification.module.css';
 
@@ -22,6 +23,7 @@ export default function Notification() {
       <Notifications />
       <div className={styles.buttonContainer}>
         <PrimaryButton>Download app</PrimaryButton>
+        <StoreBadge />
       </div>
     </div>
   );

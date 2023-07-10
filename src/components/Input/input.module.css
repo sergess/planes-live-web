@@ -3,8 +3,16 @@
     background: var(--color-dark-05);
     min-height: var(--input-height);
     border-radius: 7.2rem;
-    margin: 15px 25px 0 25px;
+    margin: 1.5rem 2.5rem 0 2.5rem;
     padding: 10px 15px;
     border: none;
     font-size: var(--font-body-1);
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .input {
+        width: 59rem;
+        margin: 1.5rem auto 0 auto;
+    }
 }

@@ -29,3 +29,33 @@
 .container {
     padding-bottom: 4rem;
 }
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .rowBottom {
+        animation: none;
+        margin: 0 auto;
+        min-width: auto;
+        justify-content: center;
+        width: auto;
+    }
+    .rowBottom div:nth-child(n+5) {
+        display: none;
+        margin: 0 auto;
+    }
+    .rowBottom div {
+        min-width: auto;
+    }
+    .rowTop {
+        animation: none;
+        margin: 0 auto;
+        min-width: auto;
+        justify-content: center;
+        width: auto;
+    }
+    .rowTop div {
+        min-width: auto;
+    }
+    .rowTop div:nth-child(n+5) {
+        display: none;
+    }
+}

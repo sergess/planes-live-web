@@ -6,7 +6,7 @@
 .logo {
     display: flex;
     align-items: center;
-    padding: 1rem 0rem;
+    padding: 1rem 0;
 }
 .label {
     font-weight: 700;
@@ -29,4 +29,22 @@
 .privacy {
     padding-bottom: 1rem;
     color: var(--color-white-70);
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .footer {
+        text-align: center;
+    }
+    .logo {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    .blocks {
+        display: flex;
+        justify-content: center;
+    }
+    .blocks p {
+        margin-right: 4.4rem;
+    }
 }

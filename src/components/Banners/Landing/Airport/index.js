@@ -2,6 +2,7 @@ import React from 'react';
 
 import PrimaryButton from '@/components/Buttons/primary';
 import localFont from 'next/font/local';
+import StoreBadge from '@/components/StoreBadge';
 import styles from './airport.module.css';
 import Card from './Card';
 
@@ -26,8 +27,9 @@ export default function Airport() {
         and security wait times
       </p>
       <Card />
-      <div className={styles.buttonContainer}>
+      <div className={`${styles.buttonContainer} ${styles.localButtonContainer}`}>
         <PrimaryButton>Download app</PrimaryButton>
+        <StoreBadge />
       </div>
     </div>
   );

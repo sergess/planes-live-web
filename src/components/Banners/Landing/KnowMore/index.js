@@ -1,8 +1,10 @@
 import React from 'react';
+import { Bebas_Neue } from 'next/font/google';
 
 import PrimaryButton from '@/components/Buttons/primary';
 import LogoSvg from '@/assets/svg/logo';
-import { Bebas_Neue } from 'next/font/google';
+import StoreBadge from '@/components/StoreBadge';
+
 import styles from './knowMore.module.css';
 
 const bebas = Bebas_Neue({ subsets: ['latin'], weight: ['400'] });
@@ -29,6 +31,7 @@ export default function KnowMore() {
       </p>
       <div className={styles.buttonContainer}>
         <PrimaryButton>Download app</PrimaryButton>
+        <StoreBadge />
       </div>
     </div>
   );

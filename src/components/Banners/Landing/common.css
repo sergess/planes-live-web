@@ -7,3 +7,16 @@
 .buttonContainer {
     text-align: center;
 }
+
+/* Mobile */
+@media (max-width: 701px) {
+    .buttonContainer svg {
+        display: none;
+    }
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .buttonContainer button {
+        display: none;
+    }
+}

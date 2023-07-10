@@ -22,3 +22,14 @@
     text-align: left;
 }
 
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .container {
+        width: 59rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .text, .header {
+        text-align: center;
+    }
+}

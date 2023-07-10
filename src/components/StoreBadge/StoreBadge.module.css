@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+.space {
+    margin-right: 1.5rem;
+}

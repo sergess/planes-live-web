@@ -8,3 +8,36 @@
 .container {
     margin: 9.6rem 2.5rem 0 2.5rem;
 }
+.description {
+    display: none;
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .title {
+        padding: 1.6rem 0;
+    }
+    .rowWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 66.5rem;
+        margin: 0 auto;
+    }
+    .row {
+        flex-basis: 50%;
+        max-width: 30rem;
+        text-align: left;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .description {
+        display: flex;
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+}

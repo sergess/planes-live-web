@@ -1,4 +1,6 @@
 @value primaryText from "../common.css";
+@value buttonContainer from "../common.css";
+
 .title {
     font-size: var(--font-h3);
     font-weight: 700;
@@ -16,7 +18,19 @@
     padding: 1rem 0 11.5rem 0;
     background-image: url("../../../../assets/svg/map_background.svg");
 }
-.buttonContainer {
+.localButtonContainer {
     text-align: center;
     margin-top: 8.5rem;
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .localButtonContainer {
+        margin-top: 22.8rem;
+    }
+    .container {
+        padding-bottom: 0;
+        background-repeat: no-repeat;
+        background-position: top;
+    }
 }
