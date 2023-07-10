@@ -2,7 +2,7 @@
 @value buttonContainer from "../common.css";
 
 .header {
-    font-size: 2.8rem;
+    font-size: var(--font-h3);
     font-weight: 700;
     line-height: 3.3rem;
     margin-bottom: 1.5rem;
@@ -16,7 +16,7 @@
     text-align: center;
 }
 .text {
-    font-size: 1.6rem;
+    font-size: var(--font-body-2);
     font-weight: 400;
     margin-bottom: 5.5rem;
     text-align: left;

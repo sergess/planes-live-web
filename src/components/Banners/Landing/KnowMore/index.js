@@ -16,11 +16,11 @@ export default function KnowMore() {
         </div>
         <p className={`${styles.logoText} ${bebas.className}`}>PLANES LIVE</p>
       </div>
-      <p className={styles.knowMore}>
+      <h3 className={styles.knowMore}>
         Know more.
         <br />
         Guess less.
-      </p>
+      </h3>
       <p className={styles.description}>
         Track flights in real time
         {' '}

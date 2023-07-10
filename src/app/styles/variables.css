@@ -7,6 +7,15 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+    --font-caption: 1.2rem;
+    --font-body-1: 1.4rem;
+    --font-body-2: 1.6rem;
+    --font-subheadline: 1.8rem;
+    --font-h1: 2rem;
+    --font-h2: 2.4rem;
+    --font-h3: 2.8rem;
+    --font-h4: 3.4rem;
+
     --color-primary: #573CFF;
     --color-secondary: #33CC55;
     --color-dark: #292838;
