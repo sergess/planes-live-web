@@ -17,8 +17,7 @@
     font-size: 1.4rem;
     font-weight: 400;
 }
-.blocks br {
-    display: block;
+.blocks p {
     margin-bottom: 1.2rem;
 }
 .copyright {

@@ -6,9 +6,10 @@
     font-weight: 700;
     line-height: 3.3rem;
     text-align: center;
+    /*font-family: SF Pro Text;*/
 }
 .container {
-    margin: 16rem 0 0 0;
+    margin: 19.2rem 0 0 0;
     padding-bottom: 9.5rem;
 }
 .text {

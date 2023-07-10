@@ -1,6 +1,7 @@
 @value notificationWidth: 24rem;
 @value notificationMargin: .8rem;
 @value notificationCount: 4;
+@value animationTime: 30s;
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc((-1 * (notificationWidth + notificationMargin) * notificationCount) / 2))}
@@ -16,13 +17,13 @@
 .rowTop {
     padding: 1.2rem;
     display: flex;
-    animation: scroll 12s linear infinite;
+    animation: scroll animationTime linear infinite;
     width: calc((notificationWidth + notificationMargin) * notificationCount);
 }
 .rowBottom {
     padding: 1.2rem;
     display: flex;
-    animation: scroll_reverse 20s linear infinite;
+    animation: scroll_reverse animationTime linear infinite;
     width: calc((notificationWidth + notificationMargin) * notificationCount);
 }
 .container {

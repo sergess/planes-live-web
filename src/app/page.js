@@ -20,7 +20,7 @@ export default function Home() {
       <h4 className={styles.searchWrapper}>
         Track
         {' '}
-        <PlaneSvg />
+        <span className={styles.svg}><PlaneSvg /></span>
         <span className={styles.primaryText}>
           flights
         </span>

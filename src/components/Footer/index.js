@@ -10,14 +10,11 @@ export default function Footer() {
         <LogoSvg />
         <p className={styles.label}>Planes Live</p>
       </div>
-      <p className={styles.blocks}>
-        Search for flights
-        <br />
-        Contact support
-        <br />
-        More apps
-        <br />
-      </p>
+      <div className={styles.blocks}>
+        <p>Search for flights</p>
+        <p>Contact support</p>
+        <p>More apps</p>
+      </div>
       <p className={styles.copyright}>
         Copyright @ 2022 Apalon Apps. All rights reserved.
       </p>
