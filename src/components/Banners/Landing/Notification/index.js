@@ -2,12 +2,17 @@ import React from 'react';
 
 import PrimaryButton from '@/components/Buttons/primary';
 import Notifications from '@/components/Notifications';
+import localFont from 'next/font/local';
 import styles from './notification.module.css';
 
+const SF_PRO = localFont({
+  src: './../../../../app/fonts/SanFranciscoProDisplay/SF-Pro-Display-Bold.otf',
+  display: 'swap',
+});
 export default function Notification() {
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
+      <div className={`${styles.header} ${SF_PRO.className}`}>
         <span className={styles.primaryText}>Notifications</span>
         {' '}
         <br />
