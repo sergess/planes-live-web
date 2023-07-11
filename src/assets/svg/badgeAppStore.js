@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function badgeAS({ className }) {
+export default function badgeAppStore({ className }) {
   return (
     <svg
       className={className}

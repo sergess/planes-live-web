@@ -1,15 +1,15 @@
 import React from 'react';
 
-import BadgeAS from '@/assets/svg/badgeAS';
-import BadgeGP from '@/assets/svg/badgeGP';
+import BadgeAppStore from '@/assets/svg/badgeAppStore';
+import BadgeGooglePlay from '@/assets/svg/badgeGooglePlay';
 
 import styles from './StoreBadge.module.css';
 
 export default function StoreBadge() {
   return (
     <>
-      <BadgeAS className={styles.space} />
-      <BadgeGP />
+      <BadgeAppStore className={styles.space} />
+      <BadgeGooglePlay />
     </>
   );
 }
