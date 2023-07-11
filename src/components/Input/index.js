@@ -5,7 +5,9 @@ import React from 'react';
 import debounce from 'lodash.debounce';
 import styles from './input.module.css';
 
-export default function Input({ placeholder, onChange, options = [] }) {
+export default function Input({ placeholder, options = [] }) {
+  const onChange = () => {
+  };
   const debouncedChangeHandler = React.useCallback(
     debounce(onChange, 300),
     [],
