@@ -1,4 +1,5 @@
 @value buttonContainer from "../common.css";
+
 .row {
     margin-bottom: 4rem;
     text-align: center;
@@ -10,6 +11,9 @@
 }
 .description {
     display: none;
+}
+.button {
+    composes: buttonContainer;
 }
 
 /* Tablet and Smaller Desktop */
@@ -33,11 +37,14 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        margin: 0 auto;
+        margin: 5rem auto 0 auto;
     }
     .description {
         display: flex;
         font-size: 1.8rem;
         font-weight: 400;
+    }
+    .button {
+        margin-top: 6rem;
     }
 }

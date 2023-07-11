@@ -4,7 +4,7 @@
     min-height: var(--input-height);
     border-radius: 7.2rem;
     margin: 1.5rem 2.5rem 0 2.5rem;
-    padding: 10px 15px;
+    padding: 1rem 1.5rem;
     border: none;
     font-size: var(--font-body-1);
 }

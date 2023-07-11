@@ -5,6 +5,7 @@ import Notification from '@/assets/svg/notification';
 import Plane from '@/assets/svg/plane';
 import Airport from '@/assets/svg/airport';
 import Security from '@/assets/svg/security';
+import StoreBadge from '@/components/StoreBadge';
 import styles from './features.module.css';
 
 const BANNER_MAP = [
@@ -54,8 +55,9 @@ export default function Features() {
           </div>
         ))}
       </div>
-      <div className={styles.buttonContainer}>
+      <div className={styles.button}>
         <PrimaryButton>Download app</PrimaryButton>
+        <StoreBadge />
       </div>
     </div>
   );

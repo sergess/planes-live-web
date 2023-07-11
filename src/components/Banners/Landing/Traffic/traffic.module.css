@@ -28,6 +28,8 @@
         width: 59rem;
         margin-left: auto;
         margin-right: auto;
+        padding-top: 16.5rem;
+        margin-top: 4rem;
     }
     .text, .header {
         text-align: center;

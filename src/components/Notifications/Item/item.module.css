@@ -1,13 +1,13 @@
 @value values: "./../notifications.module.css";
 @value notificationWidth, notificationMargin from values;
 .container {
-    padding: 10px 16px 10px 16px;
-    box-shadow: -8px 11px 22px 0px rgba(0, 0, 0, 0.25);
+    padding: 1rem 1.6rem 1rem 1.6rem;
+    box-shadow: -8px 11px 22px 0 rgba(0, 0, 0, 0.25);
     background: linear-gradient(260.27deg, #FFFFFF -2.91%, rgba(255, 255, 255, 0) 102.73%),
     linear-gradient(85.42deg, #FFFFFF 0%, #F3F3F3 85.22%);
     border: thin solid;
     border-image-source: linear-gradient(260.27deg, #FFFFFF -2.91%, rgba(255, 255, 255, 0) 102.73%);
-    border-radius: 51px;
+    border-radius: 5.1rem;
     font-size: 1.7rem;
     font-weight: 500;
     display: flex;

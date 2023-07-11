@@ -32,5 +32,9 @@
         padding-bottom: 0;
         background-repeat: no-repeat;
         background-position: top;
+        margin-top: 18.5rem;
+    }
+    .description br {
+        display: none;
     }
 }

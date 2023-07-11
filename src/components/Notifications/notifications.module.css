@@ -58,4 +58,7 @@
     .rowTop div:nth-child(n+5) {
         display: none;
     }
+    .container {
+        padding-bottom: 6rem;
+    }
 }

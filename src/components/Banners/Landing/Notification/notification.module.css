@@ -29,3 +29,8 @@
     margin-bottom: 2.5rem;
 }
 
+@media (min-width: 701px) {
+    .container {
+        margin: 32rem auto 0 auto;
+    }
+}
