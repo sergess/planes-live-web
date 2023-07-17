@@ -6,12 +6,12 @@ import Input from '@/components/Input';
 import { useRouter } from 'next/navigation';
 import md5 from 'md5';
 import {
-  BASE_API, MIN_SYMBOL_COUNT, SECRET_API_KEY, request_uri,
+  BASE_API, MIN_SYMBOL_COUNT, SECRET_API_KEY, request_uri, UNIX_TO_SECOND,
 } from '@/constants/index';
 
 const fetchData = async (text) => {
   try {
-    const unixTimeStamp = Math.floor(new Date().getTime() / 1000);
+    const unixTimeStamp = Math.floor(new Date().getTime() / UNIX_TO_SECOND);
     const signature = md5(request_uri + unixTimeStamp + SECRET_API_KEY);
 
     const response = await fetch(`${BASE_API}${request_uri}`, {
