@@ -44,7 +44,7 @@ export default function Features() {
     <div className={styles.container}>
       <div className={styles.rowWrapper}>
         {BANNER_MAP.map(({ text, Icon, description }) => (
-          <div className={styles.row}>
+          <div className={styles.row} key={text}>
             <Icon />
             <div className={styles.title}>
               {text}
