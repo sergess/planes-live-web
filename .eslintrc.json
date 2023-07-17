@@ -24,6 +24,7 @@
       "alias": {
         "map": [
           ["@/components", "./src/components"],
+          ["@/constants", "./src/constants"],
           ["@/pages/*", "./src/app/pages"],
           ["@/styles/*", "./src/app/styles"],
           ["@/assets/*", "./src/assets"]
