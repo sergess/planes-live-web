@@ -1,0 +1,16 @@
+@value containerShadow: 0 1.5rem 3rem 0 rgba(54, 55, 66, 0.16);
+
+.container {
+    box-shadow: containerShadow;
+    background: var(--color-white);
+    border-radius: 1.6rem;
+}
+.label {
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+}
+.label p {
+    margin-left: .5rem;
+    color: var(--color-dark-50);
+}

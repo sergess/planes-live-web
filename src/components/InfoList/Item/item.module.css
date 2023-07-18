@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: thin solid var(--color-dark-10);
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding: 0 3rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: var(--font-body-2);
+    text-align: left;
+}
+.timeLg {
+    width: 6rem;
+    font-size: var(--font-body-2);
+}
+.timeSm {
+    font-size: var(--font-caption);
+    color: var(--color-dark-50);
+    font-weight: 400;
+    text-decoration: line-through;
+}
+.city {
+    font-size: var(--font-body-1);
+}

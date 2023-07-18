@@ -1,0 +1,33 @@
+.label {
+    font-weight: 700;
+}
+.labelWrapper {
+    display: flex;
+    align-items: center;
+}
+.headerStyles {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    z-index: var(--header-z-index);
+    font-size: 2rem;
+}
+.header {
+    composes: headerStyles;
+    background: var(--color-white);
+}
+.pageHeader {
+    composes: headerStyles;
+    background: var(--surfaces-base);
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .header {
+        max-width: 95.4rem;
+        margin: 0 auto;
+    }
+}
