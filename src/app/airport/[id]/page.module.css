@@ -1,0 +1,7 @@
+.container {
+    background: var(--surfaces-base);
+    padding: 0 1.5rem;
+}
+.title {
+    margin-bottom: 4rem;
+}

@@ -38,6 +38,7 @@ export default function SearchFlight() {
 
   const onChange = (e) => {
     if (options.map((o) => o.value).includes(e.target.value)) {
+      setText('');
       router.push(`airport/${e.target.value}`);
     } else {
       setText(e.target.value);

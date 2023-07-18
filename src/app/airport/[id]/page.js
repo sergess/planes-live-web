@@ -5,6 +5,9 @@ import {
 } from '@/constants/index';
 import { getHeaders } from '@/utils/api';
 
+import AirportContacts from '@/components/AirportContacts';
+import styles from './page.module.css';
+
 const fetchData = async (code) => {
   const uri = `${request_uri}airport/${code}`;
   const headers = getHeaders(uri);
@@ -24,14 +27,21 @@ const fetchData = async (code) => {
 };
 
 export default async function Page({ params }) {
-  const res = await fetchData(params.id);
-  console.log(res, 'headers');
+  const { airport } = await fetchData(params.id);
+  console.log(airport, 'headers');
 
   return (
-    <div>
-      Airport:
-      {' '}
-      {params.id}
-    </div>
+    <main className={styles.container}>
+      <h3 className={styles.title}>
+        {airport.city}
+        <br />
+        {airport.name}
+      </h3>
+      <AirportContacts
+        city={airport.city}
+        country={airport.country}
+        iata={airport.iata}
+      />
+    </main>
   );
 }
