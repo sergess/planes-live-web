@@ -30,6 +30,7 @@
         margin-right: auto;
         padding-top: 16.5rem;
         margin-top: 4rem;
+        background-image: url(../../../../assets/img/globe_desk.png);
     }
     .text, .header {
         text-align: center;

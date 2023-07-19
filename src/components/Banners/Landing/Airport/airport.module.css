@@ -32,7 +32,9 @@
         padding-bottom: 0;
         background-repeat: no-repeat;
         background-position: top;
-        margin-top: 18.5rem;
+        margin: 18.5rem 10rem 0;
+        background-image: url("../../../../assets/img/map.png");
+        background-size: contain;
     }
     .description br {
         display: none;

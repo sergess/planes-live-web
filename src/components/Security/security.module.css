@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: var(--info-box-container-shadow);
+    background: var(--color-white);
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url(./../../../src/assets/img/airport_security.png);
+    height: 23rem;
+}
+.label {
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+}
+.label p {
+    margin-left: .5rem;
+    color: var(--color-dark-50);
+}
+
