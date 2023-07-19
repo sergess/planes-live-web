@@ -6,8 +6,8 @@ import { getHeaders } from '@/utils/api';
 import Item from './Item';
 import styles from './infoList.module.css';
 
-const fetchData = async (code) => {
-  const uri = `${request_uri}airport/${code}/arrivals`;
+const fetchData = async (code, query) => {
+  const uri = `${request_uri}airport/${code}/${query}`;
   const headers = getHeaders(uri);
 
   const response = await fetch(`${BASE_API}${uri}`, {
@@ -24,8 +24,8 @@ const fetchData = async (code) => {
   return data;
 };
 
-export default async function InfoList({ label, code }) {
-  const response = await fetchData(code);
+export default async function InfoList({ label, code, query }) {
+  const response = await fetchData(code, query);
 
   return (
     <div className={styles.wrapper}>

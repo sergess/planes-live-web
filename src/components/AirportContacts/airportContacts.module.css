@@ -1,7 +1,6 @@
-@value containerShadow: 0 1.5rem 3rem 0 rgba(54, 55, 66, 0.16);
 
 .container {
-    box-shadow: containerShadow;
+    box-shadow: var(--info-box-container-shadow);
     background: var(--color-white);
     border-radius: 1.6rem;
 }

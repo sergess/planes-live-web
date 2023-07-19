@@ -7,6 +7,7 @@ import { getHeaders } from '@/utils/api';
 
 import AirportContacts from '@/components/AirportContacts';
 import InfoList from '@/components/InfoList';
+import Statistics from '@/components/Statistics';
 import styles from './page.module.css';
 
 const fetchData = async (code) => {
@@ -28,7 +29,7 @@ const fetchData = async (code) => {
 };
 
 export default async function Page({ params }) {
-  const { airport } = await fetchData(params.id);
+  const { airport, statistic } = await fetchData(params.id);
 
   return (
     <div className={styles.container}>
@@ -42,7 +43,17 @@ export default async function Page({ params }) {
         country={airport.country}
         iata={airport.iata}
       />
-      <InfoList label="ARRIVALS" code={params.id} />
+      <InfoList
+        label="ARRIVALS"
+        code={params.id}
+        query="arrivals"
+      />
+      <InfoList
+        label="DEPARTURES"
+        code={params.id}
+        query="departures"
+      />
+      <Statistics {...statistic} />
     </div>
   );
 }
