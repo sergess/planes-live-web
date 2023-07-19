@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import Left from '@/assets/svg/chevronLeft';
 
@@ -8,7 +9,7 @@ export default function PageHeader() {
   return (
     <header className={styles.pageHeader}>
       <div>
-        <Left />
+        <Link href="/"><Left /></Link>
       </div>
     </header>
   );
