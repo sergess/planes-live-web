@@ -1,0 +1,14 @@
+.container {
+    box-shadow: var(--info-box-container-shadow);
+    background: var(--color-white);
+    border-radius: 1.6rem;
+}
+.label {
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+}
+.label p {
+    margin-left: .5rem;
+    color: var(--color-dark-50);
+}

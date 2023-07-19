@@ -7,9 +7,12 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+    --font-weight-bold: 700;
+
     --font-caption: 1.2rem;
     --font-body-1: 1.4rem;
     --font-body-2: 1.6rem;
+    --font-body-3: 1.7rem;
     --font-subheadline: 1.8rem;
     --font-h1: 2rem;
     --font-h2: 2.4rem;
@@ -25,7 +28,11 @@
     --color-dark-70: rgba(41, 40, 56, .7);
     --color-dark-10: rgba(41, 40, 56, .1);
     --color-dark-05: #F4F4F5;
+    --color-white: #fff;
+    --surfaces-base: rgba(238, 239, 245, 1);
+
+    --info-box-container-shadow: 0 1.5rem 3rem 0 rgba(54, 55, 66, 0.16);
+
     --input-height: 4rem;
     --button-height: 4rem;
-    --color-white: #fff;
 }

@@ -25,3 +25,7 @@ body {
     color-scheme: dark;
   }
 }
+
+h3 {
+  font-size: var(--font-h3);
+}
