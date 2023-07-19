@@ -5,4 +5,7 @@ module.exports = {
     domains: ['https://web-dev-28887a.planeslive.com/'],
     formats: ['image/webp'],
   },
+  experimental: {
+    appDir: true,
+  },
 };
