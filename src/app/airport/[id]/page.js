@@ -8,6 +8,7 @@ import { getHeaders } from '@/utils/api';
 import AirportContacts from '@/components/AirportContacts';
 import InfoList from '@/components/InfoList';
 import Statistics from '@/components/Statistics';
+import Security from '@/components/Security';
 import styles from './page.module.css';
 
 const fetchData = async (code) => {
@@ -54,6 +55,7 @@ export default async function Page({ params }) {
         query="departures"
       />
       <Statistics {...statistic} />
+      <Security />
     </div>
   );
 }
