@@ -35,8 +35,6 @@ export default async function Page({ params }) {
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>
-        {airport.city}
-        <br />
         {airport.name}
       </h3>
       <AirportContacts
