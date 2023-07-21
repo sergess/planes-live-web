@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <LandingHeader />
       <main className={`${styles.main} ${inter.className}`}>
-        <h4 className={styles.searchWrapper}>
+        <h1 className={styles.searchWrapper}>
           Track
           {' '}
           <span className={styles.svg}><PlaneSvg /></span>
@@ -30,7 +30,7 @@ export default function Home() {
           {' '}
           <br />
           worldwide
-        </h4>
+        </h1>
         <SearchFlight />
         <BetterBanner />
         <TrafficBanner />

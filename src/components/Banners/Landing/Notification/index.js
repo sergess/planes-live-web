@@ -13,12 +13,12 @@ const SF_PRO = localFont({
 export default function Notification() {
   return (
     <div className={styles.container}>
-      <h3 className={`${styles.header} ${SF_PRO.className}`}>
+      <h2 className={`${styles.header} ${SF_PRO.className}`}>
         <span className={styles.primaryText}>Notifications</span>
         {' '}
         <br />
         when you need them
-      </h3>
+      </h2>
       <p className={styles.description}>Be the first to know when flights change</p>
       <Notifications />
       <div className={styles.buttonContainer}>
