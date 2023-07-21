@@ -24,8 +24,12 @@ const fetchData = async (code, query) => {
   return data;
 };
 
-export default async function InfoList({ label, code, query }) {
+export default async function InfoList({
+  label, code, query, isArrival,
+}) {
   const response = await fetchData(code, query);
+  const dateKey = isArrival ? 'arrival' : 'departure';
+  const airportLabel = isArrival ? 'origin:' : 'destination';
 
   return (
     <div className={styles.wrapper}>
@@ -36,10 +40,10 @@ export default async function InfoList({ label, code, query }) {
       <div className={styles.container}>
         {response.map(({ flight }) => (
           <Item
-            departure={flight.departure}
             icao={flight.icao}
-            airlineIcao={flight.airline_icao}
-            arrival={flight.arrival}
+            airportLabel={flight[airportLabel]}
+            dateValue={flight[dateKey]}
+            actualDateValue={flight[`${dateKey}_actual`]}
           />
         ))}
       </div>

@@ -41,6 +41,7 @@ export default async function Page({ params }) {
         city={airport.city}
         country={airport.country}
         iata={airport.iata}
+        phone={airport.phone}
       />
       <InfoList
         label="ARRIVALS"

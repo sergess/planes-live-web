@@ -3,7 +3,9 @@ import React from 'react';
 import Phone from '@/assets/svg/phoneMd';
 import styles from './airportContacts.module.css';
 
-export default async function AirportContacts({ city, country, iata }) {
+export default async function AirportContacts({
+  city, country, iata, phone,
+}) {
   const date = new Date();
   const currentTimeZoneOffsetInHours = date.getTimezoneOffset() / 60;
   const [day, month] = date.toString().split(' ');
@@ -13,7 +15,7 @@ export default async function AirportContacts({ city, country, iata }) {
       <div className={styles.phone}>
         <Phone />
         <p>
-          +1 (800) 897-1910
+          {phone}
         </p>
       </div>
       <div className={styles.name}>
