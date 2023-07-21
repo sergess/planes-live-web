@@ -7,8 +7,9 @@ import './styles/globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Planes live web',
-  description: 'web version of planes live app',
+  title: 'Planes Live - Flight Tracker in Real Time',
+  description: 'Track planes on an air traffic map, check aircraft flights, airline '
+    + 'flight delays & cancellations, airport arrival & departure times and other flight info!',
 };
 
 export default function RootLayout({ children }) {
