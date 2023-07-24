@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function ({
-  height = '1rem',
-  width = '1rem',
+  height = '10',
+  width = '10',
 }) {
   return (
     <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" xmlns="http://www.w3.org/2000/svg">
