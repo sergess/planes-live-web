@@ -29,8 +29,11 @@ const fetchData = async (code) => {
   return data;
 };
 
-export default async function Page({ params }) {
+export default async function Page({ params, searchParams }) {
   const { airport, statistic } = await fetchData(params.id);
+
+  const show_departures = searchParams?.show_departures || 6;
+  const show_arrivals = searchParams?.show_arrivals || 6;
 
   return (
     <div className={styles.container}>
@@ -47,11 +50,15 @@ export default async function Page({ params }) {
         label="ARRIVALS"
         code={params.id}
         query="arrivals"
+        showAll={show_arrivals}
+        otherQuery={`show_departures=${show_departures}`}
       />
       <InfoList
         label="DEPARTURES"
         code={params.id}
         query="departures"
+        showAll={show_departures}
+        otherQuery={`show_arrivals=${show_arrivals}`}
       />
       <Statistics {...statistic} />
       <Security />

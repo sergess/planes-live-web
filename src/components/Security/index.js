@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '@/components/Buttons/primary';
+import LinkTo from '@/components/Link';
 import styles from './security.module.css';
 
 export default function Security() {
@@ -10,7 +10,7 @@ export default function Security() {
         <p>Security</p>
       </div>
       <div className={styles.container}>
-        <Button>Open in the app</Button>
+        <LinkTo href="">Open in the app</LinkTo>
       </div>
     </div>
   );

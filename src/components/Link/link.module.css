@@ -1,0 +1,11 @@
+.showAll {
+    padding: 1rem 2.5rem;
+    margin: 1.5rem;
+    z-index: 2;
+
+    border-radius: 4.2rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--font-body-2);
+}
