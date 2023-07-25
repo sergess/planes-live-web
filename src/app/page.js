@@ -11,6 +11,7 @@ import KnowMore from '@/components/Banners/Landing/KnowMore';
 import { Inter } from 'next/font/google';
 import SearchRedirect from '@/components/SearchRedirect';
 import LandingHeader from '@/components/Header/landingHeader';
+import Footer from '@/components/Footer';
 import styles from './page.module.css';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
@@ -40,6 +41,7 @@ export default function Home() {
         <AirportBanner />
         <KnowMore />
       </main>
+      <Footer />
     </>
   );
 }

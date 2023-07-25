@@ -1,0 +1,15 @@
+/* Mobile */
+@media (min-width: 701px) {
+    .footerContainer {
+        display: none;
+    }
+    .container {
+        height: 100vh;
+        overflow: auto;
+        position: absolute;
+        left:0;
+        top: 0;
+        width: 37rem;
+        z-index: 100;
+    }
+}
