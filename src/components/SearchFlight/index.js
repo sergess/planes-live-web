@@ -3,7 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
-import Input from '@/components/Input';
+import Input from '@/components/Input/Search';
 import {
   BASE_API, MIN_SYMBOL_COUNT, request_uri,
 } from '@/constants/index';
@@ -25,8 +25,6 @@ const fetchData = async (text) => {
 
     return data;
   } catch (err) {
-    console.log({ err });
-
     return [];
   }
 };
@@ -44,9 +42,12 @@ export default function SearchFlight() {
       setText(e.target.value);
     }
   };
+  const onSelect = (value) => {
+    router.push(`airport/${value}`);
+  };
 
   React.useEffect(() => {
-    const asyncFetchDailyData = async (t) => {
+    const asyncFetch = async (t) => {
       const response = await fetchData(t);
       setOptions(response.airports.map((a) => ({
         label: a.name,
@@ -54,7 +55,7 @@ export default function SearchFlight() {
       })));
     };
     if (text.length > MIN_SYMBOL_COUNT) {
-      asyncFetchDailyData(text);
+      asyncFetch(text);
     }
   }, [text]);
 
@@ -63,6 +64,7 @@ export default function SearchFlight() {
       placeholder="Search by flight number, airline, or airport"
       onChange={onChange}
       options={options}
+      onSelect={onSelect}
     />
   );
 }

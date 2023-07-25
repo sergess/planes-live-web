@@ -29,3 +29,6 @@
 .city {
     font-size: var(--font-body-1);
 }
+.container:last-of-type {
+    border: none;
+}

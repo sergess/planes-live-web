@@ -9,7 +9,7 @@ import AirportBanner from '@/components/Banners/Landing/Airport';
 import Slider from '@/components/Slider';
 import KnowMore from '@/components/Banners/Landing/KnowMore';
 import { Inter } from 'next/font/google';
-import SearchFlight from '@/components/SearchFlight';
+import SearchRedirect from '@/components/SearchRedirect';
 import LandingHeader from '@/components/Header/landingHeader';
 import styles from './page.module.css';
 
@@ -31,7 +31,7 @@ export default function Home() {
           <br />
           worldwide
         </h1>
-        <SearchFlight />
+        <SearchRedirect />
         <BetterBanner />
         <TrafficBanner />
         <Slider />
