@@ -1,13 +1,14 @@
 import React from 'react';
+import Image from 'next/image';
 
-import LogoSvg from '@/assets/svg/logo';
+import LogoSvg from '@/assets/svg/logo.svg';
 import styles from './footer.module.css';
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.logo}>
-        <LogoSvg />
+        <Image src="/assets/svg/logo.svg" width={40} height={41} alt="" />
         <p className={styles.label}>Planes Live</p>
       </div>
       <div className={styles.blocks}>

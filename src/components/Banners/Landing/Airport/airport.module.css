@@ -16,7 +16,7 @@
 }
 .container {
     padding: 1rem 0 11.5rem 0;
-    background-image: url("../../../../assets/svg/map_background.svg");
+    background-image: url("/assets/svg/map_background.svg");
 }
 .localButtonContainer {
     text-align: center;
