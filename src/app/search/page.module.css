@@ -1,7 +1,29 @@
-.container {
+.mobile {
     background: var(--color-white);
     height: 100vh;
     width: 100vw;
     z-index: 3;
     position: absolute;
+}
+.desktopContainer {
+    box-shadow: 0 -.4rem 2.4rem 0 rgba(18, 17, 21, 0.16);
+    height: 100vh;
+    /*overflow: auto;*/
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 37rem;
+    z-index: 100;
+    background: var(--surfaces-base);
+}
+/*!* Desktop *!*/
+@media (min-width: 701px) {
+    .mobile {
+        display: none;
+    }
+}/*!* Mobile *!*/
+@media (max-width: 701px) {
+    .desktop {
+        display: none;
+    }
 }
