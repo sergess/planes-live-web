@@ -6,6 +6,7 @@
     font-weight: 600;
     color: white;
     border: none;
+    text-decoration: none;
 }
 .outline {
     border-radius: 5rem;
