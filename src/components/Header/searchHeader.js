@@ -10,7 +10,7 @@ import styles from './header.module.css';
 
 export default function SearchHeader() {
   const {
-    onChange, onSelect, options, setText,
+    onChange, onSelect, options, setText, text,
   } = useSearchFlight();
 
   return (
@@ -21,6 +21,7 @@ export default function SearchHeader() {
         onSelect={onSelect}
         setText={setText}
         options={options}
+        text={text}
       />
     </header>
   );

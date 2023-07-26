@@ -12,7 +12,6 @@ export default function Input({
       type="text"
       placeholder={placeholder}
       className={styles.input}
-      list="options"
       onClick={onClick}
     />
   );

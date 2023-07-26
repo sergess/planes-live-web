@@ -13,29 +13,30 @@ export default function DesktopSearch({
   onChange = () => {}, options = [], onSelect, setText,
 }) {
   const [isShow, setIsShow] = React.useState(false);
+  const ref = React.useRef();
   const debouncedChangeHandler = React.useCallback(
     debounce(onChange, DEBOUNCE),
     [options.length],
   );
-  const onOptionClick = (e) => {
-    onSelect(options[e.target.value].value);
+  const onOptionClick = (index) => {
+    onSelect(options[index].value);
   };
   const onClose = () => {
     setText('');
+
     setIsShow(false);
+    ref.current.value = '';
   };
 
   return (
     <>
       <div className={styles.wrapper}>
         <input
+          ref={ref}
           type="text"
-          onChange={(e) => debouncedChangeHandler(e)}
+          onChange={debouncedChangeHandler}
           onFocus={() => {
             setIsShow(true);
-          }}
-          onBlur={() => {
-            setIsShow(false);
           }}
           className={styles.search}
           list="options"
@@ -51,14 +52,14 @@ export default function DesktopSearch({
 
       {isShow && (
       <ul className={styles.searchList}>
-        {options.map(({ label, value }) => (
+        {options.map(({ label, value }, index) => (
           <li
             /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
             role="button"
-            onKeyDown={onOptionClick}
-            onClick={(e) => {
+            onKeyDown={() => onOptionClick(index)}
+            onClick={() => {
               setIsShow(false);
-              onOptionClick(e);
+              onOptionClick(index);
             }}
             tabIndex="0"
             key={value}

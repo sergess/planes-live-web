@@ -1,6 +1,6 @@
 .container {
     background: var(--surfaces-base);
-    padding: 2.4rem 1.5rem 4rem 1.5rem;
+    padding: 0 1.5rem 4rem 1.5rem;
 }
 .title {
     margin-bottom: 4rem;
@@ -12,7 +12,7 @@
         width: 37rem;
         height: calc(100vh - var(--desktop-header-height));
         overflow: auto;
-        padding-top: 0;
+        padding-top: 2.4rem;
     }
 }
 
