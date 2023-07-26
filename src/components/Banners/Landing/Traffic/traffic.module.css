@@ -12,6 +12,7 @@
     margin: 0;
     background-image: url(../../../../assets/img/Image_Globe.png);
     background-size: 100% auto;
+    background-repeat: no-repeat;
     padding: 6.5rem 2.5rem 0 2.5rem;
     text-align: center;
 }
