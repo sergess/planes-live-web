@@ -9,19 +9,21 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './map.module.css';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoicGxhbmVzeXVyeSIsImEiOiJjbGtpZm9wd2cwMDFvM25uNjd2cnM3MDhsIn0.19JwNwLX4T9BhA1V5-m29g';
-export default function MapBox() {
+export default function MapBox({ latitude, longitude }) {
   const geoControlRef = React.useRef();
 
   return (
     <div className={styles.mapContainer}>
       <Map
         onLoad={() => {
-          geoControlRef.current?.trigger();
+          if (!latitude && !longitude) {
+            geoControlRef.current?.trigger();
+          }
         }}
         mapboxAccessToken={MAPBOX_TOKEN}
         initialViewState={{
-          longitude: -100,
-          latitude: 40,
+          longitude,
+          latitude,
           zoom: 3.5,
           interactive: false,
         }}

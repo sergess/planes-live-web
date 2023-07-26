@@ -9,6 +9,7 @@ import AirportContacts from '@/components/AirportContacts';
 import InfoList from '@/components/InfoList';
 import Statistics from '@/components/Statistics';
 import Security from '@/components/Security';
+import Map from '@/components/Map';
 import styles from './page.module.css';
 
 const fetchData = async (code) => {
@@ -36,32 +37,38 @@ export default async function Page({ params, searchParams }) {
   const show_arrivals = searchParams?.show_arrivals || 6;
 
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>
-        {airport.name}
-      </h3>
-      <AirportContacts
-        city={airport.city}
-        country={airport.country}
-        iata={airport.iata}
-        phone={airport.phone}
+    <>
+      <div className={styles.container}>
+        <h3 className={styles.title}>
+          {airport.name}
+        </h3>
+        <AirportContacts
+          city={airport.city}
+          country={airport.country}
+          iata={airport.iata}
+          phone={airport.phone}
+        />
+        <InfoList
+          label="ARRIVALS"
+          code={params.id}
+          query="arrivals"
+          showAll={show_arrivals}
+          otherQuery={`show_departures=${show_departures}`}
+        />
+        <InfoList
+          label="DEPARTURES"
+          code={params.id}
+          query="departures"
+          showAll={show_departures}
+          otherQuery={`show_arrivals=${show_arrivals}`}
+        />
+        <Statistics {...statistic} />
+        <Security />
+      </div>
+      <Map
+        latitude={airport.lat}
+        longitude={airport.lon}
       />
-      <InfoList
-        label="ARRIVALS"
-        code={params.id}
-        query="arrivals"
-        showAll={show_arrivals}
-        otherQuery={`show_departures=${show_departures}`}
-      />
-      <InfoList
-        label="DEPARTURES"
-        code={params.id}
-        query="departures"
-        showAll={show_departures}
-        otherQuery={`show_arrivals=${show_arrivals}`}
-      />
-      <Statistics {...statistic} />
-      <Security />
-    </div>
+    </>
   );
 }
