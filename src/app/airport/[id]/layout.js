@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PageHeader from '@/components/Header/pageHeader';
+import SearchHeader from '@/components/Header/searchHeader';
 import Footer from '@/components/Footer';
 import Map from '@/components/Map';
 
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
     <>
       <div className={styles.container}>
         <PageHeader />
+        <SearchHeader />
         <main>
           {children}
         </main>

@@ -1,19 +1,18 @@
 'use client';
 
 import React from 'react';
-
 import debounce from 'lodash.debounce';
+
 import Close from '@/assets/svg/close';
-import { useRouter } from 'next/navigation';
-import styles from './input.module.css';
+
+import styles from './desktopSearch.module.css';
 
 const DEBOUNCE = 200;
 
-export default function Input({
-  onChange = () => {}, options = [], onClick = () => {}, onSelect,
+export default function DesktopSearch({
+  onChange = () => {}, options = [], onSelect, setText,
 }) {
-  const router = useRouter();
-
+  const [isShow, setIsShow] = React.useState(false);
   const debouncedChangeHandler = React.useCallback(
     debounce(onChange, DEBOUNCE),
     [options.length],
@@ -22,7 +21,8 @@ export default function Input({
     onSelect(options[e.target.value].value);
   };
   const onClose = () => {
-    router.back();
+    setText('');
+    setIsShow(false);
   };
 
   return (
@@ -31,37 +31,46 @@ export default function Input({
         <input
           type="text"
           onChange={(e) => debouncedChangeHandler(e)}
+          onFocus={() => {
+            setIsShow(true);
+          }}
+          onBlur={() => {
+            setIsShow(false);
+          }}
           className={styles.search}
           list="options"
-          onClick={onClick}
-          autoFocus
         />
         <button
           type="button"
           className={styles.close}
           onClick={onClose}
         >
-          <Close />
+          <Close color="rgba(148, 148, 156, 1" />
         </button>
       </div>
 
+      {isShow && (
       <ul className={styles.searchList}>
         {options.map(({ label, value }) => (
           <li
             /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
             role="button"
             onKeyDown={onOptionClick}
+            onClick={(e) => {
+              setIsShow(false);
+              onOptionClick(e);
+            }}
             tabIndex="0"
             key={value}
             value={value}
             className={styles.option}
-            onClick={onOptionClick}
           >
             {label}
             <span>Airport</span>
           </li>
         ))}
       </ul>
+      )}
     </>
   );
 }

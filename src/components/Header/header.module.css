@@ -30,4 +30,22 @@
         max-width: 95.4rem;
         margin: 0 auto;
     }
+    .pageHeader {
+        display: none;
+    }
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    background: rgba(41, 40, 56, 1);
+}
+
+/* Mobile */
+@media (max-width: 701px) {
+    .searchContainer {
+        display: none;
+    }
 }

@@ -3,7 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
-import Input from '@/components/Input';
+import Input from '@/components/Controls/Input';
 
 export default function SearchRedirect() {
   const router = useRouter();

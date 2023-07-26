@@ -29,7 +29,8 @@
           ["@/pages/*", "./src/app/pages"],
           ["@/styles/*", "./src/app/styles"],
           ["@/utils/*", "./src/utils"],
-          ["@/assets/*", "./src/assets"]
+          ["@/assets/*", "./src/assets"],
+          ["@/hooks/*", "./src/hooks"]
         ],
         "extensions": [".js", ".jsx"]
       }

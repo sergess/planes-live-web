@@ -5,11 +5,14 @@
     }
     .container {
         height: 100vh;
-        overflow: auto;
+        /*overflow: auto;*/
         position: absolute;
         left:0;
         top: 0;
         width: 37rem;
         z-index: 100;
     }
+}
+.container {
+    box-shadow: 0 -.4rem 2.4rem 0 rgba(18, 17, 21, 0.16);
 }
