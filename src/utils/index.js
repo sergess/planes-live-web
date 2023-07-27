@@ -5,7 +5,7 @@ export const getMobileOperatingSystem = () => {
   if (typeof window !== 'undefined') {
     userAgent = window.opera;
   }
-  if (navigator) {
+  if (typeof navigator !== 'undefined') {
     userAgent = navigator?.userAgent || navigator?.vendor;
   }
 
