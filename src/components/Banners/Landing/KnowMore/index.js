@@ -2,7 +2,6 @@ import React from 'react';
 import { Bebas_Neue } from 'next/font/google';
 
 import PrimaryButton from '@/components/Buttons/primary';
-import LogoSvg from '@/assets/svg/logo';
 import StoreBadge from '@/components/StoreBadge';
 
 import styles from './knowMore.module.css';
@@ -13,9 +12,6 @@ export default function KnowMore() {
   return (
     <div className={styles.container}>
       <div className={styles.logoWrapper}>
-        <div className={styles.logoContainer}>
-          <LogoSvg />
-        </div>
         <p className={`${styles.logoText} ${bebas.className}`}>PLANES LIVE</p>
       </div>
       <h3 className={styles.knowMore}>

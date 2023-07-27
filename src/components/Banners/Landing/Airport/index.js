@@ -13,13 +13,13 @@ const SF_PRO = localFont({
 export default function Airport() {
   return (
     <div className={`${styles.container} ${SF_PRO.className}`}>
-      <h3 className={styles.title}>
+      <h2 className={styles.title}>
         Be an
         {' '}
         <span className={styles.primaryText}>airport</span>
         {' '}
         insider
-      </h3>
+      </h2>
       <p className={styles.description}>
         Check detailed airport maps
         <br />

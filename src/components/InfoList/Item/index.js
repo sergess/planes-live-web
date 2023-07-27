@@ -2,34 +2,36 @@ import React from 'react';
 
 import styles from './item.module.css';
 
+const formatDate = (d) => d.toLocaleTimeString('en-GB', {
+  hour: '2-digit',
+  minute: '2-digit',
+});
 export default async function Item({
-  departure, arrival, icao, airlineIcao,
+  dateValue, actualDateValue, icao, airportLabel,
 }) {
-  const departureDate = new Date(departure);
-  const arrivalDate = new Date(arrival);
+  const actual_date = actualDateValue ? new Date(actualDateValue) : null;
+  const date = new Date(dateValue);
 
   return (
     <div className={styles.container}>
       <div>
         <p className={styles.timeLg}>
-          {departureDate.getHours()}
-          :
-          {departureDate.getMinutes()}
+          {formatDate(actual_date || date)}
         </p>
+        {actual_date && (
         <p className={styles.timeSm}>
-          {arrivalDate.getHours()}
-          :
-          {arrivalDate.getMinutes()}
+          {formatDate(date)}
         </p>
+        )}
       </div>
       <div className={styles.title}>
         {icao}
       </div>
       <div>
         <div className={styles.city}>
-          London
+          {airportLabel}
         </div>
-        <div className={styles.timeSm} style={{ textAlign: 'right' }}>{airlineIcao}</div>
+        <div className={styles.timeSm} style={{ textAlign: 'right' }}>{airportLabel}</div>
       </div>
     </div>
   );

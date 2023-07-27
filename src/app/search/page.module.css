@@ -1,0 +1,30 @@
+.mobile {
+    background: var(--color-white);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    z-index: var(--mobile-search-z-index);
+    position: absolute;
+}
+.desktopContainer {
+    box-shadow: var(--left-panel-shadow);
+    height: 100vh;
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 37rem;
+    z-index: var(--desktop-search-z-index);
+    background: var(--surfaces-base);
+}
+/*!* Desktop *!*/
+@media (min-width: 701px) {
+    .mobile {
+        display: none;
+    }
+}/*!* Mobile *!*/
+@media (max-width: 701px) {
+    .desktop {
+        display: none;
+    }
+}

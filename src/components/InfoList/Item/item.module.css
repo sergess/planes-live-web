@@ -3,6 +3,7 @@
     justify-content: space-between;
     padding: 1rem;
     border-bottom: thin solid var(--color-dark-10);
+    width: 100%;
 }
 .title {
     display: flex;
@@ -27,4 +28,7 @@
 }
 .city {
     font-size: var(--font-body-1);
+}
+.container:last-of-type {
+    border: none;
 }

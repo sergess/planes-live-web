@@ -7,11 +7,11 @@ import styles from './traffic.module.css';
 export default function Traffic() {
   return (
     <div className={styles.container}>
-      <h3 className={styles.header}>
+      <h2 className={styles.header}>
         Check the
         {' '}
         <span className={styles.primaryText}>air traffic map</span>
-      </h3>
+      </h2>
       <p className={styles.text}>See flight routes across the globe in real time</p>
       <div className={styles.buttonContainer}>
         <PrimaryButton>Download app</PrimaryButton>

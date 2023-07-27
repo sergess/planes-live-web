@@ -17,7 +17,8 @@
     "padding-line-between-statements": [
       "error",
       { "blankLine": "always", "prev": "*", "next": "return" }
-    ]
+    ],
+    "jsx-a11y/no-autofocus": 0
   },
   "settings": {
     "import/resolver": {
@@ -28,7 +29,8 @@
           ["@/pages/*", "./src/app/pages"],
           ["@/styles/*", "./src/app/styles"],
           ["@/utils/*", "./src/utils"],
-          ["@/assets/*", "./src/assets"]
+          ["@/assets/*", "./src/assets"],
+          ["@/hooks/*", "./src/hooks"]
         ],
         "extensions": [".js", ".jsx"]
       }

@@ -3,8 +3,12 @@ import React from 'react';
 import Arrival from '@/assets/svg/arrival';
 import { BASE_API, request_uri } from '@/constants/index';
 import { getHeaders } from '@/utils/api';
+import LinkTo from '@/components/Link';
 import Item from './Item';
+
 import styles from './infoList.module.css';
+
+const SHOW_ITEMS_COUNT = 10;
 
 const fetchData = async (code, query) => {
   const uri = `${request_uri}airport/${code}/${query}`;
@@ -24,8 +28,13 @@ const fetchData = async (code, query) => {
   return data;
 };
 
-export default async function InfoList({ label, code, query }) {
+export default async function InfoList({
+  label, code, query, isArrival, showAll, otherQuery,
+}) {
   const response = await fetchData(code, query);
+  const dateKey = isArrival ? 'arrival' : 'departure';
+  const airportLabel = isArrival ? 'origin:' : 'destination';
+  const items = response.slice(0, +showAll);
 
   return (
     <div className={styles.wrapper}>
@@ -34,14 +43,19 @@ export default async function InfoList({ label, code, query }) {
         <p>{label}</p>
       </div>
       <div className={styles.container}>
-        {response.map(({ flight }) => (
+        {items.map(({ flight }) => (
           <Item
-            departure={flight.departure}
             icao={flight.icao}
-            airlineIcao={flight.airline_icao}
-            arrival={flight.arrival}
+            airportLabel={flight[airportLabel]}
+            dateValue={flight[dateKey]}
+            actualDateValue={flight[`${dateKey}_actual`]}
           />
         ))}
+        <LinkTo
+          href={`?show_${query}=${+showAll + SHOW_ITEMS_COUNT}&${otherQuery}`}
+        >
+          Show All
+        </LinkTo>
       </div>
     </div>
   );
