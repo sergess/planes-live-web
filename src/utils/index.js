@@ -1,7 +1,7 @@
 import { ANDROID_DOWNLOAD_LINK, IOS_DOWNLOAD_LINK, PLATFORM } from '@/constants/index';
 
 export const getMobileOperatingSystem = () => {
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const userAgent = navigator?.userAgent || navigator?.vendor || window.opera;
 
   if (/android/i.test(userAgent)) {
     return PLATFORM.Android;

@@ -16,7 +16,7 @@
 }
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) {
-    .buttonContainer button {
+    .buttonContainer > a {
         display: none;
     }
 }

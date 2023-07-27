@@ -5,3 +5,7 @@
 .space {
     margin-right: 1.5rem;
 }
+.link {
+    text-decoration: none;
+    cursor: pointer;
+}
