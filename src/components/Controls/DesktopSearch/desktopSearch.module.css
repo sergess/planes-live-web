@@ -25,6 +25,11 @@
     font-size: var(--font-body-1);
     caret-color: var(--color-primary);
 }
+.search::placeholder {
+    font-size: var(--font-body-1);
+    font-weight: 400;
+    color: rgba(255, 255, 255, .5);
+}
 .option {
     padding: 2.2rem;
 }

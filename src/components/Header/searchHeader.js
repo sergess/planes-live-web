@@ -22,6 +22,7 @@ export default function SearchHeader() {
         setText={setText}
         options={options}
         text={text}
+        placeholder="Search flights and airports"
       />
     </header>
   );

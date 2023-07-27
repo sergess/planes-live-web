@@ -9,7 +9,7 @@ import { INPUT_DEBOUNCE } from '@/constants/index';
 import styles from './desktopSearch.module.css';
 
 export default function DesktopSearch({
-  onChange = () => {}, options = [], onSelect, setText,
+  onChange = () => {}, options = [], onSelect, setText, placeholder,
 }) {
   const [isShow, setIsShow] = React.useState(false);
   const ref = React.useRef();
@@ -37,6 +37,7 @@ export default function DesktopSearch({
           onFocus={() => {
             setIsShow(true);
           }}
+          placeholder={placeholder}
           className={styles.search}
           list="options"
         />
