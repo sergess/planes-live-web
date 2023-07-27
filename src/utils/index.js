@@ -2,7 +2,7 @@ import { ANDROID_DOWNLOAD_LINK, IOS_DOWNLOAD_LINK, PLATFORM } from '@/constants/
 
 export const getMobileOperatingSystem = () => {
   let userAgent;
-  if (window) {
+  if (typeof window !== 'undefined') {
     userAgent = window.opera;
   }
   if (navigator) {
