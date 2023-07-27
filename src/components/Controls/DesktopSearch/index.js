@@ -51,26 +51,26 @@ export default function DesktopSearch({
       </div>
 
       {isShow && (
-      <ul className={styles.searchList}>
-        {options.map(({ label, value }, index) => (
-          <li
-            /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
-            role="button"
-            onKeyDown={() => onOptionClick(index)}
-            onClick={() => {
-              setIsShow(false);
-              onOptionClick(index);
-            }}
-            tabIndex="0"
-            key={value}
-            value={value}
-            className={styles.option}
-          >
-            {label}
-            <span>Airport</span>
-          </li>
-        ))}
-      </ul>
+        <ul className={styles.searchList}>
+            {options.map(({ label, value }, index) => (
+              <li
+                /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
+                role="button"
+                onKeyDown={() => onOptionClick(index)}
+                onClick={() => {
+                  setIsShow(false);
+                  onOptionClick(index);
+                }}
+                tabIndex="0"
+                key={value}
+                value={value}
+                className={styles.option}
+              >
+                {label}
+                <span>Airport</span>
+              </li>
+            ))}
+        </ul>
       )}
     </>
   );
