@@ -11,3 +11,8 @@ export const PLATFORM = {
   Android: 'Android',
   IOS: 'iOS',
 };
+
+export const BUTTON_SIZE = {
+  SM: 'sm',
+  LG: 'lg',
+};

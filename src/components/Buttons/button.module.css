@@ -1,7 +1,6 @@
 .primary {
     background-color: var(--color-primary);
     border-radius: 4.2rem;
-    padding: .6rem 1rem;
     font-size: var(--font-caption);
     font-weight: 600;
     color: white;
@@ -17,4 +16,14 @@
     border: thin solid var(--color-dark);
     background: var(--color-white);
     width: 15rem;
+}
+.large {
+    padding: 1rem 2rem;
+    font-size: var(--font-body-2);
+    font-weight: 600;
+}
+.small {
+    padding: .6rem 1rem;
+    font-size: var(--font-caption);
+    font-weight: 600;
 }
