@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-import Map, { GeolocateControl } from 'react-map-gl';
+import Map, { GeolocateControl, Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_TOKEN } from '@/constants/index';
 import styles from './map.module.css';
 
-export default function MapBox({ latitude, longitude }) {
+export default function MapBox({ latitude, longitude, code }) {
   const geoControlRef = React.useRef();
 
   return (
@@ -23,19 +23,25 @@ export default function MapBox({ latitude, longitude }) {
           longitude,
           latitude,
           zoom: 3.5,
-          interactive: false,
+          interactive: true,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
       >
         <GeolocateControl
           positionOptions={{
-            enableHighAccuracy: true,
-            showUserLocation: true,
+            enableHighAccuracy: false,
+            showUserLocation: false,
           }}
+          fitBoundsOptions={{ linear: true, maxZoom: 3.5, zoom: 3.5 }}
           trackUserLocation
-          showUserHeading
+          showUserHeading={false}
           ref={geoControlRef}
         />
+        {longitude && latitude && (
+        <Marker longitude={longitude} latitude={latitude} anchor="bottom">
+          <div className={styles.marker}>{code}</div>
+        </Marker>
+        )}
       </Map>
     </div>
   );

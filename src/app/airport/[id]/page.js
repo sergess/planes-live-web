@@ -68,6 +68,7 @@ export default async function Page({ params, searchParams }) {
       <Map
         latitude={airport.lat}
         longitude={airport.lon}
+        code={params.id}
       />
     </>
   );
