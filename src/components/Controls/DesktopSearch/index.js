@@ -5,11 +5,14 @@ import debounce from 'lodash.debounce';
 
 import Close from '@/assets/svg/close';
 
-import { INPUT_DEBOUNCE } from '@/constants/index';
+import { INPUT_DEBOUNCE, MIN_SYMBOL_COUNT } from '@/constants/index';
+import NoResult from '@/components/NoResult';
+import TrySearch from '@/components/TrySearch';
 import styles from './desktopSearch.module.css';
 
 export default function DesktopSearch({
   onChange = () => {}, options = [], onSelect, setText, placeholder,
+  text,
 }) {
   const [isShow, setIsShow] = React.useState(false);
   const ref = React.useRef();
@@ -52,24 +55,26 @@ export default function DesktopSearch({
 
       {isShow && (
         <ul className={styles.searchList}>
-            {options.map(({ label, value }, index) => (
-              <li
-                /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
-                role="button"
-                onKeyDown={() => onOptionClick(index)}
-                onClick={() => {
-                  setIsShow(false);
-                  onOptionClick(index);
-                }}
-                tabIndex="0"
-                key={value}
-                value={value}
-                className={styles.option}
-              >
-                {label}
-                <span>Airport</span>
-              </li>
-            ))}
+          {(!options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
+          {(!options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
+          {options.map(({ label, value }, index) => (
+            <li
+              /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
+              role="button"
+              onKeyDown={() => onOptionClick(index)}
+              onClick={() => {
+                setIsShow(false);
+                onOptionClick(index);
+              }}
+              tabIndex="0"
+              key={value}
+              value={value}
+              className={styles.option}
+            >
+              {label}
+              <span>Airport</span>
+            </li>
+          ))}
         </ul>
       )}
     </>

@@ -47,7 +47,7 @@ export default () => {
       setOptions(response.airports.map((a) => ({
         label: a.name,
         value: a.icao,
-      })));
+      })) || []);
     };
     if (text.length > MIN_SYMBOL_COUNT) {
       asyncFetch(text);
