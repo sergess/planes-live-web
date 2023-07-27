@@ -6,7 +6,7 @@
     margin-bottom: 4rem;
 }
 
-/* Mobile */
+/* Desktop */
 @media (min-width: 701px) {
     .container {
         width: 37rem;

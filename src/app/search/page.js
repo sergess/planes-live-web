@@ -9,10 +9,12 @@ export default async function Page() {
   return (
     <>
       <div className={styles.mobile}>
+        {/* mobile version */}
         <SearchFlight />
       </div>
       <div className={styles.desktop}>
         <div className={styles.desktopContainer}>
+          {/* desktop version */}
           <SearchHeader />
         </div>
         <Map />

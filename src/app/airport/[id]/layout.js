@@ -15,6 +15,7 @@ export default function Layout({ children }) {
         {children}
       </main>
       <div className={styles.footerContainer}>
+        {/* Mobile version */}
         <Footer />
       </div>
     </div>

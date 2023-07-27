@@ -6,9 +6,8 @@
     position: absolute;
 }
 .desktopContainer {
-    box-shadow: 0 -.4rem 2.4rem 0 rgba(18, 17, 21, 0.16);
+    box-shadow: var(--left-panel-shadow);
     height: 100vh;
-    /*overflow: auto;*/
     position: absolute;
     left:0;
     top: 0;
