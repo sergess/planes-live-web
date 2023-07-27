@@ -6,9 +6,8 @@ import { useRouter } from 'next/navigation';
 
 import Close from '@/assets/svg/close';
 
+import { INPUT_DEBOUNCE } from '@/constants/index';
 import styles from './mobileSearch.module.css';
-
-const DEBOUNCE = 200;
 
 export default function Input({
   onChange = () => {}, options = [], onClick = () => {}, onSelect,
@@ -16,7 +15,7 @@ export default function Input({
   const router = useRouter();
 
   const debouncedChangeHandler = React.useCallback(
-    debounce(onChange, DEBOUNCE),
+    debounce(onChange, INPUT_DEBOUNCE),
     [options.length],
   );
   const onOptionClick = (e) => {

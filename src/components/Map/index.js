@@ -2,13 +2,11 @@
 
 import React from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Map, { GeolocateControl } from 'react-map-gl';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { MAPBOX_TOKEN } from '@/constants/index';
 import styles from './map.module.css';
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoicGxhbmVzeXVyeSIsImEiOiJjbGtpZm9wd2cwMDFvM25uNjd2cnM3MDhsIn0.19JwNwLX4T9BhA1V5-m29g';
 export default function MapBox({ latitude, longitude }) {
   const geoControlRef = React.useRef();
 

@@ -5,9 +5,8 @@ import debounce from 'lodash.debounce';
 
 import Close from '@/assets/svg/close';
 
+import { INPUT_DEBOUNCE } from '@/constants/index';
 import styles from './desktopSearch.module.css';
-
-const DEBOUNCE = 200;
 
 export default function DesktopSearch({
   onChange = () => {}, options = [], onSelect, setText,
@@ -15,7 +14,7 @@ export default function DesktopSearch({
   const [isShow, setIsShow] = React.useState(false);
   const ref = React.useRef();
   const debouncedChangeHandler = React.useCallback(
-    debounce(onChange, DEBOUNCE),
+    debounce(onChange, INPUT_DEBOUNCE),
     [options.length],
   );
   const onOptionClick = (index) => {
