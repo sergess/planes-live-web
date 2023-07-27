@@ -2,7 +2,7 @@
     background: var(--color-white);
     height: 100vh;
     width: 100vw;
-    z-index: 3;
+    z-index: var(--mobile-search-z-index);
     position: absolute;
 }
 .desktopContainer {
@@ -13,7 +13,7 @@
     left:0;
     top: 0;
     width: 37rem;
-    z-index: 100;
+    z-index: var(--desktop-search-z-index);
     background: var(--surfaces-base);
 }
 /*!* Desktop *!*/

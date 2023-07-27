@@ -1,8 +1,6 @@
 :root {
     --max-width: 1100px;
 
-    --header-z-index: 2;
-
     --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
@@ -39,5 +37,11 @@
 
     --desktop-header-height: 6.4rem;
 
-    --option-list-index: 10;
+    --option-list-index: 3;
+    --map-z-index: -1;
+    --airport-container-z-index: 4;
+    --header-z-index: 2;
+    --show-all-z-index: 2;
+    --mobile-search-z-index: 3;
+    --desktop-search-z-index: 3;
 }
