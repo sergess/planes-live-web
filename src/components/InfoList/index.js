@@ -42,6 +42,7 @@ export default async function InfoList({
         <Arrival />
         <p>{label}</p>
       </div>
+      {items.length > 0 && (
       <div className={styles.container}>
         {items.map(({ flight }) => (
           <Item
@@ -57,6 +58,14 @@ export default async function InfoList({
           Show All
         </LinkTo>
       </div>
+      )}
+
+      {!items?.length && (
+      <div className={styles.empty}>
+        Can’t load the timetable
+        Try reloading the page or checking later
+      </div>
+      )}
     </div>
   );
 }
