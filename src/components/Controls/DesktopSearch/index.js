@@ -55,7 +55,7 @@ export default function DesktopSearch({
 
       {isShow && (
         <ul className={styles.searchList}>
-          {(!options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
+          {(!loading && !options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
           {(!loading && !options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
           {options.map(({ label, value }, index) => (
             <li
