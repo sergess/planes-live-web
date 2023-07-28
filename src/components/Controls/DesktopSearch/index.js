@@ -12,7 +12,7 @@ import styles from './desktopSearch.module.css';
 
 export default function DesktopSearch({
   onChange = () => {}, options = [], onSelect, setText, placeholder,
-  text,
+  text, loading,
 }) {
   const [isShow, setIsShow] = React.useState(false);
   const ref = React.useRef();
@@ -56,7 +56,7 @@ export default function DesktopSearch({
       {isShow && (
         <ul className={styles.searchList}>
           {(!options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
-          {(!options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
+          {(!loading && !options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
           {options.map(({ label, value }, index) => (
             <li
               /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
