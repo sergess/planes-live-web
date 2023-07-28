@@ -28,6 +28,7 @@ export default () => {
   const router = useRouter();
   const [options, setOptions] = React.useState([]);
   const [text, setText] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
 
   const onChange = (e) => {
     if (options.map((o) => o.value).includes(e.target.value)) {
@@ -43,7 +44,10 @@ export default () => {
 
   React.useEffect(() => {
     const asyncFetch = async (t) => {
+      setLoading(true);
       const response = await fetchData(t);
+      setLoading(false);
+
       setOptions(response.airports.map((a) => ({
         label: a.name,
         value: a.icao,
@@ -60,5 +64,6 @@ export default () => {
     options,
     text,
     setText,
+    loading,
   };
 };
