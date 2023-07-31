@@ -29,6 +29,7 @@
         margin: 0 auto;
     }
     .row {
+        margin-bottom: 8rem;
         flex-basis: 50%;
         max-width: 30rem;
         text-align: left;
@@ -37,7 +38,7 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        margin: 5rem auto 0 auto;
+        margin: 11rem auto 0 auto;
     }
     .description {
         display: flex;
@@ -45,6 +46,6 @@
         font-weight: 400;
     }
     .button {
-        margin-top: 6rem;
+        margin-top: 2rem;
     }
 }

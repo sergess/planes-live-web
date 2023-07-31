@@ -6,6 +6,7 @@ import Plane from '@/assets/svg/plane';
 import Airport from '@/assets/svg/airport';
 import Security from '@/assets/svg/security';
 import StoreBadge from '@/components/StoreBadge';
+import { FEATURES_ANCHOR } from '@/constants/index';
 import styles from './features.module.css';
 
 const BANNER_MAP = [
@@ -41,7 +42,7 @@ const BANNER_MAP = [
 
 export default function Features() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={FEATURES_ANCHOR}>
       <div className={styles.rowWrapper}>
         {BANNER_MAP.map(({ text, Icon, description }) => (
           <div className={styles.row} key={text}>

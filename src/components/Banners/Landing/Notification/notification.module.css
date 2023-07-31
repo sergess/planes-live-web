@@ -9,7 +9,6 @@
 }
 .container {
     margin: 19.2rem 0 0 0;
-    padding-bottom: 9.5rem;
 }
 .text {
     font-size: var(--font-body-2);
@@ -20,7 +19,7 @@
     text-align: center;
     font-size: var(--font-body-2);
     margin-top: 1.5rem;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
 }
 .img {
     width: 100%;

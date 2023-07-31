@@ -2,8 +2,14 @@ import React from 'react';
 
 import styles from './button.module.css';
 
-export default function Button({ children }) {
+export default function Button({ children, href }) {
   return (
-    <button className={styles.outline} type="button">{children}</button>
+    <a
+      className={styles.outline}
+      href={href}
+      type="button"
+    >
+      {children}
+    </a>
   );
 }

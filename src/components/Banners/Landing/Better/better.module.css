@@ -13,14 +13,17 @@
     background-position-x: right;
 }
 .title {
-    margin: 0 0 2rem 0;
+    margin-top: 0;
+    margin-bottom: 2rem;
 }
 
 /* Tablet and Smaller Desktop */
-
 @media (min-width: 701px) {
     .title > br {
         display: none;
+    }
+    .title {
+        margin: 2rem 0 2rem 0;
     }
     .container {
         width: 59rem;

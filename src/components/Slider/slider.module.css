@@ -24,7 +24,7 @@
 
 .wrapper {
     position: relative;
-    height: 48.5rem;
+    height: 46.5rem;
 }
 
 .iphone {
@@ -36,6 +36,12 @@
 
 /*noinspection CssInvalidPropertyValue*/
 @media (min-width: 701px) {
+    .iphone {
+        top: 5.5rem;
+    }
+    .img1 {
+        margin-top: 9.5rem;
+    }
     .wrapper {
         width: 100%;
         margin: 0 auto;

@@ -26,10 +26,12 @@ export default function Airport() {
         {' '}
         and security wait times
       </p>
-      <Card />
-      <div className={`${styles.buttonContainer} ${styles.localButtonContainer}`}>
-        <PrimaryButton>Download app</PrimaryButton>
-        <StoreBadge />
+      <div className={styles.cardWrapper}>
+        <Card />
+        <div className={`${styles.buttonContainer} ${styles.localButtonContainer}`}>
+          <PrimaryButton>Download app</PrimaryButton>
+          <StoreBadge />
+        </div>
       </div>
     </div>
   );

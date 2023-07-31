@@ -12,11 +12,17 @@
     font-weight: 400;
     text-align: center;
     margin-top: 1.5rem;
-    margin-bottom: 8.5rem;
+}
+.cardWrapper {
+    padding: 8rem 0 11rem 0;
+    background-image: url("../../../../assets/svg/map_background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
 }
 .container {
-    padding: 1rem 0 11.5rem 0;
-    background-image: url("../../../../assets/svg/map_background.svg");
+    padding: 1rem 0 0 0;
+    margin-top: 9.6rem;
 }
 .localButtonContainer {
     text-align: center;
@@ -25,16 +31,22 @@
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) {
+    .cardWrapper {
+        padding: 8rem 0 0 0;
+    }
     .localButtonContainer {
         margin-top: 22.8rem;
     }
     .container {
         padding-bottom: 0;
-        background-repeat: no-repeat;
-        background-position: top;
-        margin: 18.5rem 10rem 0;
+        margin: 28.5rem 10rem 0;
+    }
+    .cardWrapper {
+        padding-top: 8rem;
         background-image: url("../../../../assets/img/map.png");
-        background-size: contain;
+        background-size: auto;
+        background-position: top;
+        margin-top: 0;
     }
     .description br {
         display: none;

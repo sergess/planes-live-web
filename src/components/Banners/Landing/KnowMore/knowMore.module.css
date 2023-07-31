@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 9.5rem 0;
+    padding: 9.6rem 0 9.5rem 0;
 }
 .logoContainer {
     border-right: 1.9rem;
@@ -36,7 +36,7 @@
     margin-top: 11rem;
 }
 .knowMore {
-    margin-top: 6.5rem;
+    margin-top: 6.4rem;
     font-size: var(--font-h3);
     font-weight: 700;
     text-align: center;
@@ -47,4 +47,16 @@
     font-weight: 400;
     line-height: 1.9rem;
     text-align: center;
+}
+
+@media (min-width: 701px) {
+    .container {
+        padding: 25.7rem 0 14.3rem 0;
+    }
+    .knowMore {
+        margin-top: 5.7rem;
+    }
+    .description {
+        margin: 3.2rem 0 3.9rem 0;
+    }
 }
