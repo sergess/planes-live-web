@@ -14,6 +14,7 @@ export default function SearchRedirect() {
       }}
     >
       <input
+        disabled
         type="text"
         placeholder="Search by flight number, airline, or airpor"
         className={styles.input}
