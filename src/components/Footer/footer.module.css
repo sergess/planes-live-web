@@ -1,7 +1,7 @@
 .footer {
     background: var(--color-dark);
     color: var(--color-white);
-    padding: 0 2rem;
+    padding: 0 2rem 1rem 2rem;
 }
 .logo {
     display: flex;
@@ -17,7 +17,7 @@
     font-size: var(--font-body-1);
     font-weight: 400;
 }
-.blocks p {
+.blocks p, .blocks a {
     margin-bottom: 1.2rem;
 }
 .copyright {
@@ -27,14 +27,17 @@
     color: var(--color-white-30);
 }
 .privacy {
-    padding-bottom: 1rem;
+    /*padding-bottom: 1rem;*/
     color: var(--color-white-70);
+    text-decoration: none;
 }
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) {
     .footer {
         text-align: center;
+        padding-bottom: 4rem;
+        padding-top: 2rem;
     }
     .logo {
         justify-content: center;
@@ -44,7 +47,14 @@
         display: flex;
         justify-content: center;
     }
-    .blocks p {
-        margin-right: 4.4rem;
+    .blocks p,.blocks a {
+        margin: 0 4.4rem 0 0 ;
     }
+}
+.support {
+    text-decoration: none;
+    font-size: var(--font-body-1);
+    font-weight: 400;
+    color: var(--color-white);
+    display: inline-block;
 }
