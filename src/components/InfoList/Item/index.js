@@ -6,7 +6,7 @@ const formatDate = (d) => d.toLocaleTimeString('en-GB', {
   hour: '2-digit',
   minute: '2-digit',
 });
-export default async function Item({
+export default function Item({
   dateValue, actualDateValue, icao, airportLabel,
 }) {
   const actual_date = actualDateValue ? new Date(actualDateValue) : null;
