@@ -8,7 +8,7 @@ import Item from './Item';
 
 import styles from './infoList.module.css';
 
-const SHOW_ITEMS_COUNT = 10;
+const SHOW_ITEMS_COUNT = 6;
 
 const fetchData = async (code, query) => {
   const uri = `${request_uri}airport/${code}/${query}`;

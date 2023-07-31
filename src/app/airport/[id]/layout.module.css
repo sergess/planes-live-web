@@ -1,8 +1,8 @@
+.footerContainer {
+    display: none;
+}
 /* Desktop */
 @media (min-width: 701px) {
-    .footerContainer {
-        display: none;
-    }
     .container {
         height: 100vh;
         position: absolute;

@@ -1,3 +1,5 @@
+@value rowPadding:1.2rem 1.2rem;
+
 .container {
     box-shadow: var(--info-box-container-shadow);
     background: var(--color-white);
@@ -9,7 +11,7 @@
     color: var(--color-primary);
     align-items: center;
     border-bottom: thin solid var(--color-dark-10);
-    padding: .8rem 1.2rem;
+    padding: rowPadding;
 }
 .phone p {
     margin-left: .5rem;
@@ -17,16 +19,22 @@
 .name {
     display: flex;
     align-items: center;
-    padding: .8rem 1.2rem;
+    padding: rowPadding;
     border-bottom: thin solid var(--color-dark-10);
 }
 .name p{
     margin-left: 1.5rem;
 }
-
+.iata {
+    font-weight: 600;
+}
 .date {
     display: flex;
     justify-content: space-between;
-    padding: .8rem 1.2rem;
+    padding: rowPadding;
+    font-size: var(--font-body-1);
     color: var(--color-dark-50);
+}
+.location {
+    font-size: var(--font-body-1);
 }

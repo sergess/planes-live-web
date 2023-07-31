@@ -36,4 +36,5 @@
 .label p {
     margin-left: .5rem;
     color: var(--color-dark-50);
+    font-size: var(--font-caption);
 }

@@ -19,8 +19,8 @@ export default async function AirportContacts({
         </p>
       </div>
       <div className={styles.name}>
-        <h3>{iata}</h3>
-        <p>
+        <h3 className={styles.iata}>{iata}</h3>
+        <p className={styles.location}>
           {city}
           ,
           {' '}
