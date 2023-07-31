@@ -1,21 +1,23 @@
-'use client';
-
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
-import Input from '@/components/Controls/Input';
+import styles from '@/components/Controls/Input/input.module.css';
 
 export default function SearchRedirect() {
-  const router = useRouter();
-
-  const onClick = () => {
-    router.push('search');
-  };
-
   return (
-    <Input
-      placeholder="Search by flight number, airline, or airport"
-      onClick={onClick}
-    />
+    <Link
+      href="/search"
+      style={{
+        textDecoration: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <input
+        type="text"
+        placeholder="Search by flight number, airline, or airpor"
+        className={styles.input}
+      />
+    </Link>
   );
 }
