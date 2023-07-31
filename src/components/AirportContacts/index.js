@@ -3,7 +3,7 @@ import React from 'react';
 import Phone from '@/assets/svg/phoneMd';
 import styles from './airportContacts.module.css';
 
-export default async function AirportContacts({
+export default function AirportContacts({
   city, country, iata, phone,
 }) {
   const date = new Date();

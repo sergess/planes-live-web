@@ -5,7 +5,7 @@ import SearchHeader from '@/components/Header/searchHeader';
 import Map from '@/components/Map';
 import styles from './page.module.css';
 
-export default async function Page() {
+export default function Search() {
   return (
     <>
       <div className={styles.mobile}>
