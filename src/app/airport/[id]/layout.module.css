@@ -1,6 +1,3 @@
-.footerContainer {
-    display: none;
-}
 /* Desktop */
 @media (min-width: 701px) {
     .container {
