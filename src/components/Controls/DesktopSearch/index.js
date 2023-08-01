@@ -8,6 +8,8 @@ import Close from '@/assets/svg/close';
 import { INPUT_DEBOUNCE, MIN_SYMBOL_COUNT } from '@/constants/index';
 import NoResult from '@/components/NoResult';
 import TrySearch from '@/components/TrySearch';
+import Lottie from 'lottie-react';
+import skeletonAnimation from '@/assets/skeleton/search-skeleton.json';
 import styles from './desktopSearch.module.css';
 
 export default function DesktopSearch({
@@ -55,26 +57,34 @@ export default function DesktopSearch({
 
       {isShow && (
         <ul className={styles.searchList}>
-          {(!loading && !options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
-          {(!loading && !options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
-          {options.map(({ label, value, type }, index) => (
-            <li
-              /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
-              role="button"
-              onKeyDown={() => onOptionClick(index, type)}
-              onClick={() => {
-                setIsShow(false);
-                onOptionClick(index, type);
-              }}
-              tabIndex="0"
-              key={value}
-              value={value}
-              className={styles.option}
-            >
-              {label}
-              <span>{type}</span>
-            </li>
-          ))}
+          {loading ? (
+            <div className={styles.lottie}>
+              <Lottie animationData={skeletonAnimation} loop />
+            </div>
+          ) : (
+            <>
+              {(!options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
+              {(!options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
+              {options.map(({ label, value, type }, index) => (
+                <li
+                /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
+                  role="button"
+                  onKeyDown={() => onOptionClick(index, type)}
+                  onClick={() => {
+                    setIsShow(false);
+                    onOptionClick(index, type);
+                  }}
+                  tabIndex="0"
+                  key={value}
+                  value={value}
+                  className={styles.option}
+                >
+                  {label}
+                  <span>{type}</span>
+                </li>
+              ))}
+            </>
+          )}
         </ul>
       )}
     </>
