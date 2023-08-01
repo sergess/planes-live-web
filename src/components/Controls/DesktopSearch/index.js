@@ -20,8 +20,8 @@ export default function DesktopSearch({
     debounce(onChange, INPUT_DEBOUNCE),
     [options.length],
   );
-  const onOptionClick = (index) => {
-    onSelect(options[index].value);
+  const onOptionClick = (index, type) => {
+    onSelect(options[index].value, type);
   };
   const onClose = () => {
     setText('');
@@ -57,14 +57,14 @@ export default function DesktopSearch({
         <ul className={styles.searchList}>
           {(!loading && !options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
           {(!loading && !options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
-          {options.map(({ label, value }, index) => (
+          {options.map(({ label, value, type }, index) => (
             <li
               /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
               role="button"
-              onKeyDown={() => onOptionClick(index)}
+              onKeyDown={() => onOptionClick(index, type)}
               onClick={() => {
                 setIsShow(false);
-                onOptionClick(index);
+                onOptionClick(index, type);
               }}
               tabIndex="0"
               key={value}
@@ -72,7 +72,7 @@ export default function DesktopSearch({
               className={styles.option}
             >
               {label}
-              <span>Airport</span>
+              <span>{type}</span>
             </li>
           ))}
         </ul>

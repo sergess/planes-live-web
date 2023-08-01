@@ -1,7 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
-import { BASE_API, MIN_SYMBOL_COUNT, request_uri } from '@/constants/index';
+import {
+  BASE_API, MIN_SYMBOL_COUNT, OPTION_TYPE, request_uri, ROUTE_BY_TYPE,
+} from '@/constants/index';
 import { getHeaders } from '@/utils/api';
 
 const fetchData = async (text) => {
@@ -31,15 +33,10 @@ export default () => {
   const [loading, setLoading] = React.useState(false);
 
   const onChange = (e) => {
-    if (options.map((o) => o.value).includes(e.target.value)) {
-      setText('');
-      router.push(`airport/${e.target.value}`);
-    } else {
-      setText(e.target.value);
-    }
+    setText(e.target.value);
   };
-  const onSelect = (value) => {
-    router.push(`/airport/${value}`);
+  const onSelect = (value, type) => {
+    router.push(`/${ROUTE_BY_TYPE[type]}/${value}`);
   };
 
   React.useEffect(() => {
@@ -48,10 +45,15 @@ export default () => {
       const response = await fetchData(t);
       setLoading(false);
 
-      setOptions(response.airports.map((a) => ({
+      setOptions([...response.airports.map((a) => ({
         label: a.name,
         value: a.icao,
-      })) || []);
+        type: OPTION_TYPE.airport,
+      })), ...response.flights.map((a) => ({
+        label: a.icao,
+        value: a.icao,
+        type: OPTION_TYPE.flight,
+      }))]);
     };
     if (text.length > MIN_SYMBOL_COUNT) {
       asyncFetch(text);
