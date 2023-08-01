@@ -2,13 +2,13 @@
 
 import React from 'react';
 
-import Map, { GeolocateControl, Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_TOKEN } from '@/constants/index';
 import styles from './map.module.css';
 
-export default function MapBox({ latitude, longitude, code }) {
+export default async function MapBox({ latitude, longitude, code }) {
   const geoControlRef = React.useRef();
+  const { Map, GeolocateControl, Marker } = (await import('react-map-gl'));
 
   return (
     <div className={styles.mapContainer}>
