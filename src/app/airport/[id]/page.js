@@ -1,16 +1,18 @@
 import React, { cache } from 'react';
+import dynamic from 'next/dynamic';
 
 import {
   BASE_API, request_uri,
 } from '@/constants/index';
 import { getHeaders } from '@/utils/api';
-
 import AirportContacts from '@/components/AirportContacts';
 import InfoList from '@/components/InfoList';
 import Statistics from '@/components/Statistics';
 import Security from '@/components/Security';
-import Map from '@/components/Map';
+
 import styles from './page.module.css';
+
+const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
 const fetchData = cache(async (code) => {
   const uri = `${request_uri}airport/${code}`;
