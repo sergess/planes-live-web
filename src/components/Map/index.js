@@ -8,7 +8,7 @@ import styles from './map.module.css';
 
 export default async function MapBox({ latitude, longitude, code }) {
   const geoControlRef = React.useRef();
-  if (window.matchMedia('(max-width: 701px)').matches) {
+  if (window?.matchMedia('(max-width: 701px)').matches) {
     return null;
   }
 
