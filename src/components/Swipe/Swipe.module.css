@@ -1,0 +1,6 @@
+.gripWrapper {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    align-items: center;
+}

@@ -1,7 +1,7 @@
-.container {
-    background: var(--surfaces-base);
-    padding: 0 1.5rem 4rem 1.5rem;
-}
+@value topHeight: calc(100vh - var(--desktop-header-height));
+@value middleHeight: 80vh;
+@value bottomHeight: 20vh;
+@value drawerRadius: 15.359999656677246px 15.359999656677246px 0 0;
 
 /* Desktop */
 @media (min-width: 701px) {
@@ -13,3 +13,39 @@
     }
 }
 
+.drawer {
+    background: var(--surfaces-base);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    box-shadow: var(--drawer-shadow);
+    border-radius: drawerRadius;
+    transition: height 400ms;
+    padding: 0 .8rem .8rem;
+}
+
+.middle {
+    height: middleHeight;
+}
+.top {
+    height: topHeight;
+}
+.bottom {
+    height: bottomHeight;
+}
+
+.date {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.changeLabel {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
