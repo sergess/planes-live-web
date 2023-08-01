@@ -12,3 +12,16 @@
 .container {
     box-shadow: var(--left-panel-shadow)
 }
+
+/* Mobile */
+@media (max-width: 701px) {
+    .desktop {
+        display: none;
+    }
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .mobile {
+        display: none;
+    }
+}

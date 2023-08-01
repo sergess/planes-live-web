@@ -8,10 +8,14 @@ import styles from './layout.module.css';
 export default function Layout({ children }) {
   return (
     <div className={styles.container}>
-      {/* Mobile version */}
-      <PageHeader />
-      {/* desktop version */}
-      <SearchHeader />
+      <div className={styles.mobile}>
+        {/* Mobile version */}
+        <PageHeader />
+      </div>
+      <div className={styles.desktop}>
+        {/* desktop version */}
+        <SearchHeader />
+      </div>
       <main>
         {children}
       </main>
