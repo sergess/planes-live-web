@@ -30,9 +30,6 @@
 
     background: rgba(41, 40, 56, 1);
 }
-.mobile {
-    display: none;
-}
 .desktop {
     display: flex;
     align-items: center;
@@ -52,12 +49,6 @@ a.icon:nth-child(2) {
 
 /* Mobile */
 @media (max-width: 701px) {
-    .searchContainer {
-        display: none;
-    }
-    .mobile {
-        display: flex;
-    }
     .desktop {
         display: none;
     }
@@ -68,7 +59,7 @@ a.icon:nth-child(2) {
         max-width: 95.4rem;
         margin: 0 auto;
     }
-    .pageHeader {
+    .mobile {
         display: none;
     }
 }

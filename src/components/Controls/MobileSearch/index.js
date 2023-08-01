@@ -18,8 +18,8 @@ export default function Input({
     debounce(onChange, INPUT_DEBOUNCE),
     [options.length],
   );
-  const onOptionClick = (e) => {
-    onSelect(options[e.target.value].value);
+  const onOptionClick = (e, type) => {
+    onSelect(options[e.target.value].value, type);
   };
   const onClose = () => {
     router.back();
@@ -45,16 +45,16 @@ export default function Input({
       </div>
 
       <ul className={styles.searchList}>
-        {options.map(({ label, value }) => (
+        {options.map(({ label, value, type }) => (
           <li
             /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
             role="button"
-            onKeyDown={onOptionClick}
+            onKeyDown={(e) => onOptionClick(e, type)}
             tabIndex="0"
             key={value}
             value={value}
             className={styles.option}
-            onClick={onOptionClick}
+            onClick={(e) => onOptionClick(e, type)}
           >
             {label}
             <span>Airport</span>
