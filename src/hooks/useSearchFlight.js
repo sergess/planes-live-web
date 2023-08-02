@@ -45,15 +45,18 @@ export default () => {
       const response = await fetchData(t);
       setLoading(false);
 
-      setOptions([...response.airports.map((a) => ({
-        label: a.name,
-        value: a.icao,
-        type: OPTION_TYPE.airport,
-      })), ...response.flights.map((a) => ({
-        label: a.icao,
-        value: a.icao,
-        type: OPTION_TYPE.flight,
-      }))]);
+      setOptions([...response.airports
+        .map((a) => ({
+          label: a.name,
+          value: a.icao,
+          type: OPTION_TYPE.airport,
+        })), ...response.autosuggest
+        .filter((e) => e.type === 'icao')
+        .map((a) => ({
+          label: a.code,
+          value: a.code,
+          type: OPTION_TYPE.flight,
+        }))]);
     };
     if (text.length > MIN_SYMBOL_COUNT) {
       asyncFetch(text);
