@@ -49,3 +49,20 @@
     justify-content: space-between;
     padding: 1rem;
 }
+
+.box {
+    box-shadow: var(--info-box-container-shadow);
+    border-radius: 1.5rem;
+    background: var(--color-white);
+}
+.boxHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    border-bottom: thin solid var(--color-dark-10);
+}
+.flightLabel {
+    font-size: var(--font-body-2);
+    font-weight: 500;
+}

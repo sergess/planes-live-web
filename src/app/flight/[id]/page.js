@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { cache } from 'react';
 
 import Swipe from '@/components/Swipe';
 
+import { BASE_API, request_uri } from '@/constants/index';
+import { getHeaders } from '@/utils/api';
+import Status from '@/components/Status';
+import FlightCard from '@/components/FlightCard';
 import styles from './page.module.css';
 
 const getDrawerState = (state = 0) => {
@@ -17,6 +21,25 @@ const getDrawerState = (state = 0) => {
 
   return '';
 };
+
+const fetchData = cache(async (code) => {
+  const uri = `${request_uri}position/icao/${code}`;
+  const headers = getHeaders(uri);
+
+  const response = await fetch(`${BASE_API}${uri}`, {
+    headers,
+  });
+  // Recommendation: handle errors
+  if (!response.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  const { data } = await response.json();
+
+  return data;
+});
+
 export default async function Page({
   params, searchParams = {
     drawer: 0,
@@ -24,6 +47,8 @@ export default async function Page({
 }) {
   const date = new Date();
   const [day, month] = date.toString().split(' ');
+  const response = await fetchData(params.id);
+  const { flight } = response[0];
 
   return (
     <div className={styles.container}>
@@ -42,7 +67,15 @@ export default async function Page({
             Change date
           </span>
         </p>
-
+        <div className={styles.box}>
+          <div className={styles.boxHeader}>
+            <span className={styles.flightLabel}>
+              {flight.iata}
+            </span>
+            <Status />
+          </div>
+          <FlightCard />
+        </div>
       </div>
     </div>
   );
