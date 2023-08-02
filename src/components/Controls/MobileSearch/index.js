@@ -57,7 +57,7 @@ export default function Input({
             onClick={(e) => onOptionClick(e, type)}
           >
             {label}
-            <span>Airport</span>
+            <span>{type}</span>
           </li>
         ))}
       </ul>
