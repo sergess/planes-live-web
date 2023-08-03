@@ -54,6 +54,7 @@
     box-shadow: var(--info-box-container-shadow);
     border-radius: 1.5rem;
     background: var(--color-white);
+    margin-bottom: 1.5rem;
 }
 .boxHeader {
     display: flex;

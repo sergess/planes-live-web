@@ -1,0 +1,59 @@
+.boxBody {
+    padding: 1rem;
+    display: flex;
+}
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    font-size: var(--font-h1);
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+.description {
+    font-size: var(--font-caption);
+    color: var(--color-primary);
+    margin-bottom: .5rem;
+}
+.info {
+    font-size: var(--font-small);
+    margin-bottom: .5rem;
+}
+.line {
+    display: flex;
+    padding: .8rem 1rem 0;
+}
+.middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+.timeDiff {
+    padding: 0 .8rem;
+    font-weight: 400;
+    font-size: var(--font-caption);
+    color: var(--color-dark-50);
+}
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.timeInfo {
+    text-align: right;
+    align-self: flex-start;
+}
+.time {
+    font-weight: 500;
+    font-size: var(--font-h1);
+    color: var(--color-secondary);
+    margin-bottom: .5rem;
+}
+.onTime {
+    font-size: var(--font-caption);
+}

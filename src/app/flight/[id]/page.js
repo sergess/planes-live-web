@@ -5,7 +5,9 @@ import Swipe from '@/components/Swipe';
 import { BASE_API, request_uri } from '@/constants/index';
 import { getHeaders } from '@/utils/api';
 import Status from '@/components/Status';
-import FlightCard from '@/components/FlightCard';
+import FlightCard from '@/components/FlightInfo/FlightCard';
+import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
+import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 import styles from './page.module.css';
 
 const getDrawerState = (state = 0) => {
@@ -39,7 +41,24 @@ const fetchData = cache(async (code) => {
 
   return data;
 });
+const fetchData2 = async () => {
+  const uri = `${request_uri}data`;
+  const headers = getHeaders(uri);
 
+  const response = await fetch(`${BASE_API}${uri}`, {
+    cache: 'no-store',
+    headers,
+  });
+  // Recommendation: handle errors
+  if (!response.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  const { data } = await response.json();
+
+  return data;
+};
 export default async function Page({
   params, searchParams = {
     drawer: 0,
@@ -47,8 +66,14 @@ export default async function Page({
 }) {
   const date = new Date();
   const [day, month] = date.toString().split(' ');
-  const response = await fetchData(params.id);
-  const { flight } = response[0];
+  const flightRequest = fetchData(params.id);
+  const commonRequest = fetchData2();
+
+  const [flightData] = await Promise.all([flightRequest, commonRequest]);
+  const { flight } = flightData[0];
+  // const { airports } = commonData;
+  // console.log(airports.length, 'airports');
+  // console.log(flight, airports.find((a) => a.origin === flight.icao));
 
   return (
     <div className={styles.container}>
@@ -76,6 +101,8 @@ export default async function Page({
           </div>
           <FlightCard />
         </div>
+        <LastUpdateCard />
+        <DelayHistoryCard />
       </div>
     </div>
   );

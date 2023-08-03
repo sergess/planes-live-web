@@ -51,7 +51,7 @@ export default () => {
           value: a.icao,
           type: OPTION_TYPE.airport,
         })), ...response.autosuggest
-        .filter((e) => e.type === 'icao')
+        // .filter((e) => e.type === 'icao')
         .map((a) => ({
           label: a.code,
           value: a.code,
