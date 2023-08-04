@@ -79,30 +79,32 @@ export default async function Page({
     <div className={styles.container}>
       <div className={`${styles.drawer} ${getDrawerState(+searchParams.drawer || 0)}`}>
         <Swipe id={params.id} state={+searchParams.drawer || 0} />
-        <p className={styles.label}>
-          <span className={styles.date}>
-            {day}
-            ,
-            {' '}
-            {month}
-            {' '}
-            {date.getDate()}
-          </span>
-          <span className={styles.changeLabel}>
-            Change date
-          </span>
-        </p>
-        <div className={styles.box}>
-          <div className={styles.boxHeader}>
-            <span className={styles.flightLabel}>
-              {flight.iata}
+        <div className={styles.body}>
+          <p className={styles.label}>
+            <span className={styles.date}>
+              {day}
+              ,
+              {' '}
+              {month}
+              {' '}
+              {date.getDate()}
             </span>
-            <Status />
+            <span className={styles.changeLabel}>
+              Change date
+            </span>
+          </p>
+          <div className={styles.box}>
+            <div className={styles.boxHeader}>
+              <span className={styles.flightLabel}>
+                {flight.iata}
+              </span>
+              <Status />
+            </div>
+            <FlightCard />
           </div>
-          <FlightCard />
+          <LastUpdateCard />
+          <DelayHistoryCard />
         </div>
-        <LastUpdateCard />
-        <DelayHistoryCard />
       </div>
     </div>
   );

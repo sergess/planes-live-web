@@ -38,3 +38,48 @@
     border-radius: .8rem;
     width: 50%;
 }
+
+.label {
+    margin: 0 2rem;
+    font-size: var(--font-subheadline);
+}
+.progress[value]::-webkit-progress-bar {
+    background-color: var(--surfaces-base);
+    border-radius: .4rem;
+}
+.progress[value] {
+    margin: 0 2rem;
+    width: calc(100% - 4rem);
+    height: 1.6rem;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.progressWrapper {
+    margin-top: 1.5rem;
+    border-radius: .4rem;
+}
+.progress:not([value]) {
+    border-radius: 3rem;
+}
+.progress::-webkit-progress-value {
+    min-height: 1.6rem;
+    border-bottom-left-radius: .4rem;
+    border-top-left-radius: .4rem;
+}
+.progressWrapper:first-child .progress::-webkit-progress-value {
+    background: var(--color-secondary);
+}
+.progressWrapper:nth-child(2)  .progress::-webkit-progress-value {
+    background: var(--color-secondary-mango);
+}
+.progressWrapper:nth-child(3)  .progress::-webkit-progress-value {
+    background: var(--color-secondary-red);
+}
+.progressWrapper:nth-child(4)  .progress::-webkit-progress-value {
+    background: var(--color-secondary-red);
+}
+.labelText {
+    display: flex;
+    margin: 0 2rem;
+    justify-content: space-between;
+}

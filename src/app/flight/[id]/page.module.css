@@ -67,3 +67,7 @@
     font-size: var(--font-body-2);
     font-weight: 500;
 }
+.body {
+    overflow: auto;
+    height: calc(100% - 2rem);
+}
