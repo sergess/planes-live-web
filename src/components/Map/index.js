@@ -8,10 +8,6 @@ import styles from './map.module.css';
 
 export default async function MapBox({ latitude, longitude, code }) {
   const geoControlRef = React.useRef();
-  if (typeof window === 'undefined') return null;
-  if (window?.matchMedia('(max-width: 701px)').matches) {
-    return null;
-  }
 
   const { Map, GeolocateControl, Marker } = (await import('react-map-gl'));
 

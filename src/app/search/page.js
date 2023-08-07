@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 
 import SearchFlight from '@/components/SearchFlight';
 import SearchHeader from '@/components/Header/searchHeader';
+import { isMobile } from '@/utils/serverComponent';
 import styles from './page.module.css';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
@@ -19,7 +20,9 @@ export default function Search() {
           {/* desktop version */}
           <SearchHeader />
         </div>
-        <Map />
+        {!isMobile() && (
+          <Map />
+        )}
       </div>
     </>
   );

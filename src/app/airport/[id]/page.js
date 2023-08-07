@@ -9,7 +9,7 @@ import AirportContacts from '@/components/AirportContacts';
 import InfoList from '@/components/InfoList';
 import Statistics from '@/components/Statistics';
 import Security from '@/components/Security';
-
+import { isMobile } from '@/utils/serverComponent';
 import styles from './page.module.css';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
@@ -31,7 +31,6 @@ const fetchData = cache(async (code) => {
 
   return data;
 });
-
 export const generateMetadata = async ({ params }) => {
   const { airport } = await fetchData(params.id);
 
@@ -80,11 +79,13 @@ export default async function Page({ params, searchParams }) {
         <Statistics {...statistic} />
         <Security />
       </div>
+      {!isMobile() && (
       <Map
         latitude={airport.lat}
         longitude={airport.lon}
         code={params.id}
       />
+      )}
     </>
   );
 }
