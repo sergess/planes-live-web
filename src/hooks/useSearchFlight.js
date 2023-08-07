@@ -2,29 +2,9 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 
 import {
-  BASE_API, MIN_SYMBOL_COUNT, OPTION_TYPE, request_uri, ROUTE_BY_TYPE,
+  MIN_SYMBOL_COUNT, OPTION_TYPE, ROUTE_BY_TYPE,
 } from '@/constants/index';
-import { getHeaders } from '@/utils/api';
-
-const fetchData = async (text) => {
-  try {
-    const uri = `${request_uri}search`;
-    const headers = getHeaders(uri);
-
-    const response = await fetch(`${BASE_API}${uri}`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        query: text,
-      }),
-    });
-    const { data } = await response.json();
-
-    return data;
-  } catch (err) {
-    return [];
-  }
-};
+import { searchRequest } from '@/api/index';
 
 export default () => {
   const router = useRouter();
@@ -42,7 +22,7 @@ export default () => {
   React.useEffect(() => {
     const asyncFetch = async (t) => {
       setLoading(true);
-      const response = await fetchData(t);
+      const response = await searchRequest(t);
       setLoading(false);
 
       setOptions([...response.airports

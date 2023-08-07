@@ -1,37 +1,18 @@
 import React from 'react';
 
 import Arrival from '@/assets/svg/arrival';
-import { BASE_API, request_uri } from '@/constants/index';
-import { getHeaders } from '@/utils/api';
 import LinkTo from '@/components/Link';
+import { getAirportFlightsByQuery } from '@/api/airport';
 import Item from './Item';
 
 import styles from './infoList.module.css';
 
 const SHOW_ITEMS_COUNT = 6;
 
-const fetchData = async (code, query) => {
-  const uri = `${request_uri}airport/${code}/${query}`;
-  const headers = getHeaders(uri);
-
-  const response = await fetch(`${BASE_API}${uri}`, {
-    headers,
-  });
-  // Recommendation: handle errors
-  if (!response.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  const { data } = await response.json();
-
-  return data;
-};
-
 export default async function InfoList({
   label, code, query, isArrival, showAll, otherQuery,
 }) {
-  const response = await fetchData(code, query);
+  const response = await getAirportFlightsByQuery(code, query);
   const dateKey = isArrival ? 'arrival' : 'departure';
   const airportLabel = isArrival ? 'origin:' : 'destination';
   const items = response.slice(0, +showAll);
