@@ -1,0 +1,14 @@
+.date {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.changeLabel {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}

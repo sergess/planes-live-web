@@ -77,7 +77,7 @@ export default function DelayHistoryCard() {
             <progress
               className={styles.progress}
               style={{
-                '::-webkit-progress-value': {
+                '::WebkitProgressValue': {
                   background: 'grey',
                 },
               }}

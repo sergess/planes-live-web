@@ -1,0 +1,39 @@
+@value topHeight: calc(100vh - var(--desktop-header-height));
+@value middleHeight: 80vh;
+@value bottomHeight: 20vh;
+@value drawerRadius: 15.359999656677246px 15.359999656677246px 0 0;
+
+/* Desktop */
+@media (min-width: 701px) {
+    .container {
+        width: 37rem;
+        height: calc(100vh - var(--desktop-header-height));
+        overflow: auto;
+        padding-top: 2.4rem;
+    }
+}
+
+.drawer {
+    background: var(--surfaces-base);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    box-shadow: var(--drawer-shadow);
+    border-radius: drawerRadius;
+    transition: height 400ms;
+}
+
+.middle {
+    height: middleHeight;
+}
+.top {
+    height: topHeight;
+}
+.bottom {
+    height: bottomHeight;
+}
+.body {
+    overflow: auto;
+    height: calc(100% - 2rem);
+}

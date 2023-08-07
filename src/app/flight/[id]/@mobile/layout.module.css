@@ -1,0 +1,14 @@
+/* Desktop */
+/*@media (min-width: 701px) {*/
+/*    .container {*/
+/*        height: 100vh;*/
+/*        position: absolute;*/
+/*        left:0;*/
+/*        top: 0;*/
+/*        width: 37rem;*/
+/*        z-index: var(--airport-container-z-index);*/
+/*    }*/
+/*}*/
+.container {
+    box-shadow: var(--left-panel-shadow)
+}

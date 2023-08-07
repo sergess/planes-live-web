@@ -1,21 +1,9 @@
-import React from 'react';
+import { isMobile } from '@/utils/serverComponent';
 
-import SearchHeader from '@/components/Header/searchHeader';
-import Footer from '@/components/Footer';
+export default function Layout({ desktop, mobile }) {
+  if (isMobile()) {
+    return mobile;
+  }
 
-import styles from './layout.module.css';
-
-export default function Layout({ children }) {
-  return (
-    <div className={styles.container}>
-      <SearchHeader />
-      <main>
-        {children}
-      </main>
-      <div className={styles.footerContainer}>
-        {/* Mobile version */}
-        <Footer />
-      </div>
-    </div>
-  );
+  return desktop;
 }

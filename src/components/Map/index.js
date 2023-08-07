@@ -6,10 +6,15 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_TOKEN } from '@/constants/index';
 import styles from './map.module.css';
 
-export default async function MapBox({ latitude, longitude, code }) {
+export default async function MapBox({
+  latitude, longitude, code,
+  longitudeEnd, latitudeEnd,
+}) {
   const geoControlRef = React.useRef();
 
-  const { Map, GeolocateControl, Marker } = (await import('react-map-gl'));
+  const {
+    Map, GeolocateControl, Marker, Source, Layer,
+  } = (await import('react-map-gl'));
 
   return (
     <div className={styles.mapContainer}>
@@ -21,13 +26,44 @@ export default async function MapBox({ latitude, longitude, code }) {
         }}
         mapboxAccessToken={MAPBOX_TOKEN}
         initialViewState={{
-          longitude,
           latitude,
+          longitude,
           zoom: 3.5,
           interactive: true,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
       >
+        {longitudeEnd && latitudeEnd && (
+        <Source
+          id="polylineLayer"
+          type="geojson"
+          data={{
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              type: 'LineString',
+              coordinates: [
+                [longitude, latitude],
+                [longitudeEnd, latitudeEnd],
+              ],
+            },
+          }}
+        >
+          <Layer
+            id="lineLayer"
+            type="line"
+            source="my-data"
+            layout={{
+              'line-join': 'bevel',
+              'line-cap': 'round',
+            }}
+            paint={{
+              'line-color': '#2166EE',
+              'line-width': 1,
+            }}
+          />
+        </Source>
+        )}
         <GeolocateControl
           positionOptions={{
             enableHighAccuracy: false,
@@ -39,9 +75,14 @@ export default async function MapBox({ latitude, longitude, code }) {
           ref={geoControlRef}
         />
         {longitude && latitude && (
-        <Marker longitude={longitude} latitude={latitude} anchor="bottom">
-          <div className={styles.marker}>{code}</div>
-        </Marker>
+          <Marker longitude={longitude} latitude={latitude} anchor="bottom">
+            <div className={styles.marker}>{code}</div>
+          </Marker>
+        )}
+        {longitudeEnd && latitudeEnd && (
+          <Marker longitude={longitudeEnd} latitude={latitudeEnd} anchor="bottom">
+            <div className={styles.marker}>{code}</div>
+          </Marker>
         )}
       </Map>
     </div>
