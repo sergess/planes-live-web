@@ -1,0 +1,19 @@
+.timeInfo {
+    text-align: right;
+    align-self: flex-start;
+    min-width: 8rem;
+}
+.onTime {
+    font-weight: 500;
+    font-size: var(--font-h1);
+    color: var(--color-secondary);
+    margin-bottom: .5rem;
+}
+.text {
+    font-size: var(--font-caption);
+    margin-bottom: 0.5rem;
+}
+.crossed {
+    color: #94949C;
+    text-decoration: line-through;
+}

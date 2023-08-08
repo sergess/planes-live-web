@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PrimaryButton from '@/components/Buttons/primary';
+import PrimaryButton from '@/components/Controls/Buttons/primary';
 import StoreBadge from '@/components/StoreBadge';
 import styles from './traffic.module.css';
 

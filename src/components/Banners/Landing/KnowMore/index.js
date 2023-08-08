@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bebas_Neue } from 'next/font/google';
 
-import PrimaryButton from '@/components/Buttons/primary';
+import PrimaryButton from '@/components/Controls/Buttons/primary';
 import StoreBadge from '@/components/StoreBadge';
 
 import styles from './knowMore.module.css';

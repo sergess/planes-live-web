@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PrimaryButton from '@/components/Buttons/primary';
+import PrimaryButton from '@/components/Controls/Buttons/primary';
 import Notification from '@/assets/svg/notification';
 import Plane from '@/assets/svg/plane';
 import Airport from '@/assets/svg/airport';

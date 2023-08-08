@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LinkTo from '@/components/Link';
+import LinkTo from '@/components/Controls/Link';
 import styles from './security.module.css';
 
 export default function Security() {

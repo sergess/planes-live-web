@@ -14,5 +14,5 @@
     justify-content: space-between;
     background: var(--color-dark);
     padding: 0 1.8rem;
-    height: 5.6rem;
+    height: var(--mobile-header-height);
 }

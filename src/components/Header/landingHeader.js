@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PrimaryButton from '@/components/Buttons/primary';
+import PrimaryButton from '@/components/Controls/Buttons/primary';
 import LogoSvg from '@/assets/svg/logo';
 import Android from '@/assets/svg/android';
 import Apple from '@/assets/svg/apple';

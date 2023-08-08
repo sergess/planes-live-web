@@ -1,6 +1,7 @@
-@value topHeight: calc(100vh - var(--desktop-header-height));
-@value middleHeight: 80vh;
-@value bottomHeight: 20vh;
+
+@value topHeight: calc(100vh - var(--mobile-header-height));
+@value middleHeight: calc(100vh - var(--mobile-header-height) - 2.4rem);
+@value bottomHeight: calc(100vh - var(--mobile-header-height) - 50rem - 6.4rem - 1.6rem);
 @value drawerRadius: 15.359999656677246px 15.359999656677246px 0 0;
 
 /* Desktop */
@@ -36,4 +37,8 @@
 .body {
     overflow: auto;
     height: calc(100% - 2rem);
+}
+.logo {
+    width: 2.4rem;
+    height: 2.4rem;
 }

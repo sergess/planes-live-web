@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Arrival from '@/assets/svg/arrival';
-import LinkTo from '@/components/Link';
+import LinkTo from '@/components/Controls/Link';
 import { getAirportFlightsByQuery } from '@/api/airport';
 import Item from './Item';
 

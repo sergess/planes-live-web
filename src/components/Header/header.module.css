@@ -24,6 +24,7 @@
     background: var(--surfaces-base);
 }
 .searchContainer {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 1rem;

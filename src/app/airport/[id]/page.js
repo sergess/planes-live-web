@@ -1,10 +1,10 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-import AirportContacts from '@/components/AirportContacts';
-import InfoList from '@/components/InfoList';
-import Statistics from '@/components/Statistics';
-import Security from '@/components/Security';
+import AirportContacts from '@/components/Airport/AirportContacts';
+import InfoList from '@/components/Airport/InfoList';
+import Statistics from '@/components/Airport/Statistics';
+import Security from '@/components/Airport/Security';
 import { isMobile } from '@/utils/serverComponent';
 import { getAirport } from '@/api/airport';
 import styles from './page.module.css';

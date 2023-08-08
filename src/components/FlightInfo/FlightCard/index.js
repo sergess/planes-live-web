@@ -1,17 +1,27 @@
 import React from 'react';
+import Image from 'next/image';
 
 import VertLine from '@/assets/svg/vertLine';
 import HorLine from '@/assets/svg/horLine';
 import Status from '@/components/Status';
+import Time from '@/components/FlightInfo/FlightCard/time/time';
 import styles from './flightCard.module.css';
 
-export default function FlightCard({ iata }) {
+export default function FlightCard({
+  iata, logoUrl, city, name, destinationCity, destinationName,
+  originIata, destinationIata, departureTime, arrivalTime,
+  actualDepartureTime, actualArrivalTime,
+}) {
   return (
     <div className={styles.box}>
       <div className={styles.boxHeader}>
-        <span className={styles.flightLabel}>
-          {iata}
-        </span>
+        <div className={styles.flexContainer}>
+          {logoUrl && <Image width={24} height={24} className={styles.logo} src={logoUrl} alt="" />}
+          <p className={styles.flightLabel}>
+            {iata}
+          </p>
+        </div>
+
         <Status />
       </div>
       <div className={styles.boxBody}>
@@ -21,14 +31,17 @@ export default function FlightCard({ iata }) {
         <div className={styles.container}>
           <div className={styles.block}>
             <div>
-              <p className={styles.title}>Miami</p>
-              <p className={styles.description}>MIA — Miami International Airport</p>
+              <p className={styles.title}>{city}</p>
+              <p className={styles.description}>
+                {originIata}
+                {' '}
+                —
+                {' '}
+                {name}
+              </p>
               <p className={styles.info}>Terminal 1 • Check-in 7236 • Gate B4C</p>
             </div>
-            <div className={styles.timeInfo}>
-              <p className={styles.time}>11:27 AM</p>
-              <p className={styles.onTime}>On time</p>
-            </div>
+            <Time time={departureTime} actual={actualDepartureTime} />
           </div>
           <div className={styles.middle}>
             <HorLine />
@@ -37,14 +50,17 @@ export default function FlightCard({ iata }) {
           </div>
           <div className={styles.block}>
             <div>
-              <p className={styles.title}>Miami</p>
-              <p className={styles.description}>MIA — Miami International Airport</p>
+              <p className={styles.title}>{destinationCity}</p>
+              <p className={styles.description}>
+                {destinationIata}
+                {' '}
+                —
+                {' '}
+                {destinationName}
+              </p>
               <p className={styles.info}>Terminal 1 • Check-in 7236 • Gate B4C</p>
             </div>
-            <div className={styles.timeInfo}>
-              <p className={styles.time}>11:27 AM</p>
-              <p className={styles.onTime}>On time</p>
-            </div>
+            <Time time={arrivalTime} actual={actualArrivalTime} />
           </div>
         </div>
       </div>

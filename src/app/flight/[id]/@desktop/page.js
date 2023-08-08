@@ -2,7 +2,7 @@ import React from 'react';
 
 import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
-import { getFlightInfo } from '@/api/flight';
+import { getCommonData, getFlightInfo } from '@/api/flight';
 import DateBlock from '@/components/FlightInfo/DateBlock';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 import dynamic from 'next/dynamic';
@@ -12,14 +12,35 @@ const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 export default async function Page({ params }) {
   const flightRequest = getFlightInfo(params.id);
 
-  const [flightData] = await Promise.all([flightRequest]);
-
+  const [flightData, commonData] = await Promise.all([flightRequest, getCommonData()]);
   const { flight } = flightData[0];
+
+  const airport = commonData.airports.find((a) => a.icao === flight.origin);
+  const airline = commonData.airlines.find((a) => a.icao === flight.airline_icao);
+  const destinationAirport = commonData.airports.find((a) => a.icao === flight.destination);
+  // const hasActualTime = !!flight.arrival_actual;
+  // console.log('airline', airline);
+  // console.log('airport', airport);
+  // console.log('flight', flight);
+  // console.log(arrivalTime, departureTime);
 
   return (
     <div>
       <DateBlock />
-      <FlightCard iata={flight?.iata} />
+      <FlightCard
+        city={airport.city}
+        logoUrl={airline.logo_url_s}
+        iata={flight?.iata}
+        name={airport.name}
+        originIata={airport.iata}
+        destinationIata={destinationAirport.iata}
+        destinationCity={destinationAirport.city}
+        destinationName={destinationAirport.name}
+        departureTime={flight.departure}
+        arrivalTime={flight.arrival}
+        actualArrivalTime={new Date()}
+        actualDepartureTime={new Date()}
+      />
       <LastUpdateCard />
       <DelayHistoryCard />
       <Map

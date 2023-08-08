@@ -47,19 +47,6 @@
     flex: 1;
     flex-direction: column;
 }
-.timeInfo {
-    text-align: right;
-    align-self: flex-start;
-}
-.time {
-    font-weight: 500;
-    font-size: var(--font-h1);
-    color: var(--color-secondary);
-    margin-bottom: .5rem;
-}
-.onTime {
-    font-size: var(--font-caption);
-}
 .box {
     box-shadow: var(--info-box-container-shadow);
     border-radius: 1.5rem;
@@ -79,4 +66,15 @@
 .flightLabel {
     font-size: var(--font-body-2);
     font-weight: 500;
+}
+.logo {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: .8rem;
+    border: .2rem solid #EEEFF5;
+    border-radius: 2.4rem;
+}
+.flexContainer {
+    display: flex;
+    align-items: center;
 }

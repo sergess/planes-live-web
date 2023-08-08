@@ -1,7 +1,7 @@
 .container {
     height: 100vh;
     position: initial;
-    width: 37rem;
+    width: 39rem;
     z-index: var(--airport-container-z-index);
     box-shadow: var(--left-panel-shadow);
     background: var(--surfaces-base);

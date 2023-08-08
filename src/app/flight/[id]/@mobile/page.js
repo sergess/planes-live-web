@@ -4,7 +4,7 @@ import Swipe from '@/components/Swipe';
 import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
-import { getFlightInfo } from '@/api/flight';
+import { getCommonData, getFlightInfo } from '@/api/flight';
 import DateBlock from '@/components/FlightInfo/DateBlock';
 
 import styles from './page.module.css';
@@ -30,16 +30,34 @@ export default async function Page({
 }) {
   const flightRequest = getFlightInfo(params.id);
 
-  const [flightData] = await Promise.all([flightRequest]);
+  const [flightData, commonData] = await Promise.all([flightRequest, getCommonData()]);
   const { flight } = flightData[0];
+  const airport = commonData.airports.find((a) => a.icao === flight.origin);
+  const airline = commonData.airlines.find((a) => a.icao === flight.airline_icao);
+  const destinationAirport = commonData.airports.find((a) => a.icao === flight.destination);
+  const departureTime = flight.departure_actual || flight.departure;
+  const arrivalTime = flight.arrival_actual || flight.arrival;
+  console.log('flight', flight);
 
+  // flight.departure_actual || flight.departure
   return (
     <div className={styles.container}>
       <div className={`${styles.drawer} ${getDrawerState(+searchParams.drawer || 0)}`}>
         <Swipe id={params.id} state={+searchParams.drawer || 0} />
         <div className={styles.body}>
           <DateBlock />
-          <FlightCard iata={flight.iata} />
+          <FlightCard
+            city={airport.city}
+            logoUrl={airline.logo_url_s}
+            iata={flight?.iata}
+            name={airport.name}
+            originIata={airport.iata}
+            destinationIata={destinationAirport.iata}
+            destinationCity={destinationAirport.city}
+            destinationName={destinationAirport.name}
+            departureTime={departureTime}
+            arrivalTime={arrivalTime}
+          />
           <LastUpdateCard />
           <DelayHistoryCard />
         </div>
