@@ -14,11 +14,7 @@ export default function MobileRedirectSearch() {
       </div>
       <Link
         href="/search"
-        style={{
-          textDecoration: 'none',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
+        style={styles.link}
       >
         <Search />
       </Link>
