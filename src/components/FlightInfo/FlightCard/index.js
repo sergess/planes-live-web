@@ -5,6 +5,7 @@ import VertLine from '@/assets/svg/vertLine';
 import HorLine from '@/assets/svg/horLine';
 import Status from '@/components/Status';
 import Time from '@/components/FlightInfo/FlightCard/Time/time';
+import dayjs from 'dayjs';
 import styles from './flightCard.module.css';
 
 export default function FlightCard({
@@ -12,6 +13,11 @@ export default function FlightCard({
   originIata, destinationIata, departureTime, arrivalTime,
   actualDepartureTime, actualArrivalTime,
 }) {
+  const total = dayjs(actualArrivalTime || arrivalTime)
+    .diff(dayjs(actualDepartureTime || departureTime), 'minutes');
+  const totalHours = Math.floor(total / 60);
+  const totalMinutes = total % 60;
+
   return (
     <div className={styles.box}>
       <div className={styles.boxHeader}>
@@ -45,7 +51,11 @@ export default function FlightCard({
           </div>
           <div className={styles.middle}>
             <HorLine />
-            <p className={styles.timeDiff}>Total 1h 40m</p>
+            <p className={styles.timeDiff}>
+              Total
+              {!!totalHours && ` ${totalHours}h `}
+              {` ${totalMinutes}m`}
+            </p>
             <HorLine />
           </div>
           <div className={styles.block}>

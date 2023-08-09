@@ -5,7 +5,7 @@ import styles from './time.module.css';
 
 const orange = '#FF7E47';
 const red = '#F33E3E';
-const DATE_FORMAT = 'H:MM A';
+const DATE_FORMAT = 'H:mm A';
 
 const getColor = (isLater) => {
   if (isLater) {
@@ -18,11 +18,12 @@ export default function Time({
   actual,
   time,
 }) {
-  const actualDate = new Date(actual);
-  const timeDate = new Date(time);
+  const actualDate = dayjs(actual);
+  const timeDate = dayjs(time);
+
   if (actual) {
-    const isLater = new Date(actualDate) > new Date(timeDate);
     const diff = dayjs(actualDate).diff(dayjs(timeDate), 'minute');
+    const isLater = diff > 0;
 
     return (
       <div
@@ -34,7 +35,7 @@ export default function Time({
             color: getColor(isLater),
           }}
         >
-          {formatDate(actual, DATE_FORMAT)}
+          {formatDate(actualDate, DATE_FORMAT)}
         </p>
 
         {isLater ? (
@@ -60,14 +61,14 @@ export default function Time({
               earlier
             </p>
           )}
-        <p className={styles.crossed}>{formatDate(time, DATE_FORMAT)}</p>
+        <p className={styles.crossed}>{formatDate(timeDate, DATE_FORMAT)}</p>
       </div>
     );
   }
 
   return (
     <div className={styles.timeInfo}>
-      <p className={styles.onTime}>{formatDate(time, DATE_FORMAT)}</p>
+      <p className={styles.onTime}>{formatDate(timeDate, DATE_FORMAT)}</p>
       <p className={styles.text}>On time</p>
     </div>
   );

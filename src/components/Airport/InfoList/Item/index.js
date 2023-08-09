@@ -3,7 +3,7 @@ import React from 'react';
 import { formatDate } from '@/utils/date';
 import styles from './item.module.css';
 
-const DATE_FORMAT = 'H:MM';
+const DATE_FORMAT = 'H:mm';
 export default function Item({
   dateValue, actualDateValue, icao, airportLabel,
 }) {

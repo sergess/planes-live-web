@@ -4,7 +4,7 @@ import Phone from '@/assets/svg/phoneMd';
 import { formatDate } from '@/utils/date';
 import styles from './airportContacts.module.css';
 
-const DATE_FORMAT = 'HH:MM';
+const DATE_FORMAT = 'HH:mm';
 const MONTH_DATE_FORMAT = 'ddd, MMM D';
 
 export default function AirportContacts({
