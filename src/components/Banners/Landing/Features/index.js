@@ -36,7 +36,7 @@ const BANNER_MAP = [
     text: 'Security wait times',
     Icon: () => <Security />,
     description: 'Pre-flight jitters? Know the airport\'s '
-+ 'busy times to better plan your arrival and spend less time in the security lines.',
++ 'busy times to better plan your arrival and spend less Time in the security lines.',
   },
 ];
 

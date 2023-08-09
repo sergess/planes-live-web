@@ -1,12 +1,9 @@
 import React from 'react';
 
+import { formatDate } from '@/utils/date';
 import styles from './item.module.css';
 
-const formatDate = (d) => d.toLocaleTimeString('en-GB', {
-  hour: '2-digit',
-  minute: '2-digit',
-});
-
+const DATE_FORMAT = 'H:MM';
 export default function Item({
   dateValue, actualDateValue, icao, airportLabel,
 }) {
@@ -17,11 +14,11 @@ export default function Item({
     <div className={styles.container}>
       <div>
         <p className={styles.timeLg}>
-          {formatDate(actual_date || date)}
+          {formatDate(actual_date || date, DATE_FORMAT)}
         </p>
         {actual_date && (
         <p className={styles.timeSm}>
-          {formatDate(date)}
+          {formatDate(date, DATE_FORMAT)}
         </p>
         )}
       </div>

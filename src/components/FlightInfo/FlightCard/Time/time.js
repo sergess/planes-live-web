@@ -1,13 +1,12 @@
 import React from 'react';
+import { formatDate } from '@/utils/date';
+import dayjs from 'dayjs';
 import styles from './time.module.css';
 
-const formatDate = (date) => {
-  const d = new Date(date);
-
-  return d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-};
 const orange = '#FF7E47';
 const red = '#F33E3E';
+const DATE_FORMAT = 'H:MM A';
+
 const getColor = (isLater) => {
   if (isLater) {
     return red;
@@ -22,7 +21,8 @@ export default function Time({
   const actualDate = new Date(actual);
   const timeDate = new Date(time);
   if (actual) {
-    const isLater = new Date(actualDate) < new Date(timeDate);
+    const isLater = new Date(actualDate) > new Date(timeDate);
+    const diff = dayjs(actualDate).diff(dayjs(timeDate), 'minute');
 
     return (
       <div
@@ -34,7 +34,7 @@ export default function Time({
             color: getColor(isLater),
           }}
         >
-          {formatDate(actual)}
+          {formatDate(actual, DATE_FORMAT)}
         </p>
 
         {isLater ? (
@@ -44,6 +44,9 @@ export default function Time({
               color: red,
             }}
           >
+            {diff}
+            m
+            {' '}
             late
           </p>
         )
@@ -57,14 +60,14 @@ export default function Time({
               earlier
             </p>
           )}
-        <p className={styles.crossed}>{formatDate(time)}</p>
+        <p className={styles.crossed}>{formatDate(time, DATE_FORMAT)}</p>
       </div>
     );
   }
 
   return (
     <div className={styles.timeInfo}>
-      <p className={styles.onTime}>{formatDate(time)}</p>
+      <p className={styles.onTime}>{formatDate(time, DATE_FORMAT)}</p>
       <p className={styles.text}>On time</p>
     </div>
   );

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import VertLine from '@/assets/svg/vertLine';
 import HorLine from '@/assets/svg/horLine';
 import Status from '@/components/Status';
-import Time from '@/components/FlightInfo/FlightCard/time/time';
+import Time from '@/components/FlightInfo/FlightCard/Time/time';
 import styles from './flightCard.module.css';
 
 export default function FlightCard({

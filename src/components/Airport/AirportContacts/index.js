@@ -1,14 +1,17 @@
 import React from 'react';
 
 import Phone from '@/assets/svg/phoneMd';
+import { formatDate } from '@/utils/date';
 import styles from './airportContacts.module.css';
+
+const DATE_FORMAT = 'HH:MM';
+const MONTH_DATE_FORMAT = 'ddd, MMM D';
 
 export default function AirportContacts({
   city, country, iata, phone,
 }) {
   const date = new Date();
   const currentTimeZoneOffsetInHours = date.getTimezoneOffset() / 60;
-  const [day, month] = date.toString().split(' ');
 
   return (
     <div className={styles.container}>
@@ -29,20 +32,13 @@ export default function AirportContacts({
       </div>
       <div className={styles.date}>
         <p>
-          {date.getHours()}
-          :
-          {date.getMinutes()}
+          {formatDate(date, DATE_FORMAT)}
           {' '}
           • GMT
           {currentTimeZoneOffsetInHours}
         </p>
         <p>
-          {day}
-          ,
-          {' '}
-          {month}
-          {' '}
-          {date.getDate()}
+          {formatDate(date, MONTH_DATE_FORMAT)}
         </p>
       </div>
     </div>

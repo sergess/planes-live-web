@@ -18,11 +18,6 @@ export default async function Page({ params }) {
   const airport = commonData.airports.find((a) => a.icao === flight.origin);
   const airline = commonData.airlines.find((a) => a.icao === flight.airline_icao);
   const destinationAirport = commonData.airports.find((a) => a.icao === flight.destination);
-  // const hasActualTime = !!flight.arrival_actual;
-  // console.log('airline', airline);
-  // console.log('airport', airport);
-  // console.log('flight', flight);
-  // console.log(arrivalTime, departureTime);
 
   return (
     <div>
@@ -38,8 +33,8 @@ export default async function Page({ params }) {
         destinationName={destinationAirport.name}
         departureTime={flight.departure}
         arrivalTime={flight.arrival}
-        actualArrivalTime={new Date()}
-        actualDepartureTime={new Date()}
+        actualArrivalTime={flight.arrival_actual}
+        actualDepartureTime={flight.departure_actual}
       />
       <LastUpdateCard />
       <DelayHistoryCard />

@@ -37,9 +37,7 @@ export default async function Page({
   const destinationAirport = commonData.airports.find((a) => a.icao === flight.destination);
   const departureTime = flight.departure_actual || flight.departure;
   const arrivalTime = flight.arrival_actual || flight.arrival;
-  console.log('flight', flight);
 
-  // flight.departure_actual || flight.departure
   return (
     <div className={styles.container}>
       <div className={`${styles.drawer} ${getDrawerState(+searchParams.drawer || 0)}`}>

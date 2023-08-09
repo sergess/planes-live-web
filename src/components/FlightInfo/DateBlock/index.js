@@ -1,20 +1,17 @@
 import React from 'react';
 
+import { formatDate } from '@/utils/date';
 import styles from './dateBlock.module.css';
+
+const MONTH_DATE_FORMAT = 'ddd, MMM D';
 
 export default function DateBlock() {
   const date = new Date();
-  const [day, month] = date.toString().split(' ');
 
   return (
     <p className={styles.label}>
       <span className={styles.date}>
-        {day}
-        ,
-        {' '}
-        {month}
-        {' '}
-        {date.getDate()}
+        {formatDate(date, MONTH_DATE_FORMAT)}
       </span>
       <span className={styles.changeLabel}>
         Change date
