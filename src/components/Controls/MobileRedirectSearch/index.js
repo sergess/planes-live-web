@@ -14,7 +14,7 @@ export default function MobileRedirectSearch() {
       </div>
       <Link
         href="/search"
-        style={styles.link}
+        className={styles.link}
       >
         <Search />
       </Link>

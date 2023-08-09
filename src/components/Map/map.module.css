@@ -8,7 +8,10 @@
 }
 @media (max-width: 701px) {
     .mapContainer {
-        display: none;
+        position: fixed;
+        height: calc(100vh - var(--mobile-header-height));
+        top: var(--mobile-header-height);
+        width: 100vw;
     }
 }
 
