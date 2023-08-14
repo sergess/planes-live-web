@@ -5,13 +5,10 @@ import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import { getCommonData, getFlightInfo } from '@/api/flight';
 import DateBlock from '@/components/FlightInfo/DateBlock';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
-import dynamic from 'next/dynamic';
-
-const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
 export default async function PageTemplate({ params }) {
+  // React will automatically dedupe the requests
   const flightRequest = getFlightInfo(params.id);
-
   const [flightData, commonData] = await Promise.all([flightRequest, getCommonData()]);
   const { flight } = flightData[0];
 
@@ -38,13 +35,6 @@ export default async function PageTemplate({ params }) {
       />
       <LastUpdateCard />
       <DelayHistoryCard />
-      <Map
-        latitude={flight.waypoints[0].lat}
-        longitude={flight.waypoints[0].lon}
-        latitudeEnd={flight.waypoints[1].lat}
-        longitudeEnd={flight.waypoints[1].lon}
-        code={params.id}
-      />
     </>
   );
 }

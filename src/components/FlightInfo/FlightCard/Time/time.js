@@ -18,11 +18,11 @@ export default function Time({
   actual,
   time,
 }) {
-  const actualDate = dayjs(actual);
-  const timeDate = dayjs(time);
+  const actualDate = actual ? dayjs(actual) : null;
+  const timeDate = time ? dayjs(time) : null;
+  const diff = dayjs(actualDate).diff(dayjs(timeDate), 'minute');
 
-  if (actual) {
-    const diff = dayjs(actualDate).diff(dayjs(timeDate), 'minute');
+  if (actual && diff !== 0) {
     const isLater = diff > 0;
 
     return (
@@ -58,6 +58,9 @@ export default function Time({
                 color: orange,
               }}
             >
+              {diff}
+              m
+              {' '}
               earlier
             </p>
           )}

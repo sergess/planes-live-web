@@ -44,7 +44,7 @@
 }
 .label {
     margin: 0 2rem;
-    font-size: var(--font-subheadline);
+    font-size: 1.5rem;
 }
 .progress[value]::-webkit-progress-bar {
     background-color: var(--surfaces-base);
@@ -52,7 +52,7 @@
 }
 .progress[value] {
     margin: 0 2rem;
-    width: calc(100% - 6rem);
+    width: calc(100% - 4rem);
     height: 1.6rem;
     -webkit-appearance: none;
     appearance: none;
@@ -85,4 +85,5 @@
     display: flex;
     padding: 0 2rem;
     justify-content: space-between;
+    font-size: 1.5rem;
 }

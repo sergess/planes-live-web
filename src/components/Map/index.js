@@ -13,7 +13,7 @@ export default async function MapBox({
   const geoControlRef = React.useRef();
 
   const {
-    Map, GeolocateControl, Marker, Source, Layer,
+    Map, GeolocateControl, Marker, Source, Layer, NavigationControl,
   } = (await import('react-map-gl'));
 
   return (
@@ -29,7 +29,6 @@ export default async function MapBox({
           latitude,
           longitude,
           zoom: 3.5,
-          interactive: true,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
       >
@@ -84,6 +83,7 @@ export default async function MapBox({
             <div className={styles.marker}>{code}</div>
           </Marker>
         )}
+        <NavigationControl />
       </Map>
     </div>
   );

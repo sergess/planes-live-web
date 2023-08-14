@@ -15,6 +15,13 @@
 .button {
     composes: buttonContainer;
 }
+/*logic for flight page*/
+:global(.flightLayout) .container {
+    margin: 0 !important;
+}
+:global(.flightLayout) .container {
+    margin: 0 !important;
+}
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) {
