@@ -11,7 +11,8 @@ import styles from './flightCard.module.css';
 export default function FlightCard({
   iata, logoUrl, city, name, destinationCity, destinationName,
   originIata, destinationIata, departureTime, arrivalTime,
-  actualDepartureTime, actualArrivalTime,
+  actualDepartureTime, actualArrivalTime, arrivalTerminal,
+  departureTerminal, arrivalGate, departureGate,
 }) {
   const total = dayjs(actualArrivalTime || arrivalTime)
     .diff(dayjs(actualDepartureTime || departureTime), 'minutes');
@@ -45,7 +46,14 @@ export default function FlightCard({
                 {' '}
                 {name}
               </p>
-              <p className={styles.info}>Terminal 1 • Check-in 7236 • Gate B4C</p>
+              <p className={styles.info}>
+                Terminal
+                {` ${departureTerminal}`}
+                {' '}
+                • Check-in 7236 • Gate
+                {' '}
+                {departureGate}
+              </p>
             </div>
             <Time time={departureTime} actual={actualDepartureTime} />
           </div>
@@ -68,7 +76,14 @@ export default function FlightCard({
                 {' '}
                 {destinationName}
               </p>
-              <p className={styles.info}>Terminal 1 • Check-in 7236 • Gate B4C</p>
+              <p className={styles.info}>
+                Terminal
+                {` ${arrivalTerminal}`}
+                {' '}
+                • Check-in 7236 • Gate
+                {' '}
+                {arrivalGate}
+              </p>
             </div>
             <Time time={arrivalTime} actual={actualArrivalTime} />
           </div>

@@ -32,6 +32,10 @@ export default async function PageTemplate({ params }) {
         arrivalTime={flight.arrival}
         actualArrivalTime={flight.arrival_actual}
         actualDepartureTime={flight.departure_actual}
+        arrivalTerminal={flight.arrival_terminal}
+        departureTerminal={flight.departure_terminal}
+        arrivalGate={flight.arrival_gate}
+        departureGate={flight.departure_gate}
       />
       <LastUpdateCard />
       <DelayHistoryCard />
