@@ -8,6 +8,7 @@
     text-align: center;
 }
 .container {
+    overflow: hidden;
     margin: 19.2rem 0 0 0;
 }
 .text {
@@ -30,6 +31,7 @@
 
 @media (min-width: 701px) {
     .container {
+        overflow: inherit;
         margin: 32rem auto 0 auto;
     }
 }

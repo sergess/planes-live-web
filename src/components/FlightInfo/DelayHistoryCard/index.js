@@ -23,7 +23,7 @@ export default function DelayHistoryCard() {
           Arrivals
         </Link>
       </div>
-      <div>
+      <div className={styles.progressContainer}>
         <div className={styles.progressWrapper}>
           <label className={styles.label} htmlFor="file">
             <div className={styles.labelText}>

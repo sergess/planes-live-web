@@ -28,7 +28,8 @@ export default function Swipe({ id, state = 0 }) {
         const isTopSwipe = distance > minSwipeDistance;
         const isBottomSwipe = distance < -minSwipeDistance;
         if (isTopSwipe) {
-          router.replace(`/flight/${id}?drawer=${state + 1}`);
+          const newState = state === 1 ? state : state + 1;
+          router.replace(`/flight/${id}?drawer=${newState}`);
         } else if (isBottomSwipe) {
           const newState = state === -1 ? -1 : state - 1;
           router.replace(`/flight/${id}?drawer=${newState}`);
