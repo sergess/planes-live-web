@@ -1,6 +1,3 @@
-import { request_uri } from '@/constants/index';
-
-// eslint-disable-next-line import/prefer-default-export
 export const searchRequest = async (text) => {
   try {
     const response = await fetch('api/search', {
@@ -9,10 +6,17 @@ export const searchRequest = async (text) => {
         query: text,
       }),
     });
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
     const { data } = await response.json();
 
     return data;
   } catch (err) {
-    return [];
+    return null;
   }
 };
+
+export default searchRequest;

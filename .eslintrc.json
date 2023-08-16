@@ -31,7 +31,9 @@
           ["@/utils/*", "./src/utils"],
           ["@/assets/*", "./src/assets"],
           ["@/hooks/*", "./src/hooks"],
-          ["@/api/*", "./src/api"]
+          ["@/api/*", "./src/api"],
+          ["@/services/*", "./src/services"],
+          ["@/requests/*", "./src/requests"]
         ],
         "extensions": [".js", ".jsx"]
       }
