@@ -2,26 +2,25 @@ import React from 'react';
 
 import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
-import { getCommonData, getFlightInfo } from '@/api/flight';
+import { getFlightInfo } from '@/api/flight';
 import DateBlock from '@/components/FlightInfo/DateBlock';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
+import { getAirport } from '@/api/airport';
 
 export default async function PageTemplate({ params }) {
   // React will automatically dedupe the requests
-  const flightRequest = getFlightInfo(params.id);
-  const [flightData, commonData] = await Promise.all([flightRequest, getCommonData()]);
+  const flightData = await getFlightInfo(params.id);
   const { flight } = flightData[0];
-
-  const airport = commonData.airports.find((a) => a.icao === flight.origin);
-  const airline = commonData.airlines.find((a) => a.icao === flight.airline_icao);
-  const destinationAirport = commonData.airports.find((a) => a.icao === flight.destination);
+  const [{ airport: destinationAirport }, { airport }] = await Promise.all(
+    [getAirport(flight?.destination), getAirport(flight?.origin)],
+  );
 
   return (
     <>
       <DateBlock />
       <FlightCard
         city={airport.city}
-        logoUrl={airline.logo_url_s}
+        logoUrl=""
         iata={flight?.iata}
         name={airport.name}
         originIata={airport.iata}
