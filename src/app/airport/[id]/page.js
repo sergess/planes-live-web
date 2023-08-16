@@ -1,18 +1,20 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { notFound } from 'next/navigation';
 
 import AirportContacts from '@/components/Airport/AirportContacts';
 import InfoList from '@/components/Airport/InfoList';
 import Statistics from '@/components/Airport/Statistics';
 import Security from '@/components/Airport/Security';
 import { isMobile } from '@/utils/serverComponent';
-import { getAirport } from '@/api/airport';
+import { Flight } from '@/services/index';
 import styles from './page.module.css';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
 export const generateMetadata = async ({ params }) => {
-  const { airport } = await getAirport(params.id);
+  const flightService = new Flight();
+  const { airport } = await flightService.getAirport(params.id);
 
   return {
     title: `JFK, John F. Kennedy International Airport - Arrivals, 
@@ -25,7 +27,14 @@ export const generateMetadata = async ({ params }) => {
 };
 
 export default async function Page({ params, searchParams }) {
-  const { airport, statistic } = await getAirport(params.id);
+  const flightService = new Flight();
+  const response = await flightService.getAirport(params.id);
+
+  if (!response) {
+    notFound();
+  }
+
+  const { airport, statistic } = response;
 
   const show_departures = searchParams?.show_departures || 6;
   const show_arrivals = searchParams?.show_arrivals || 6;

@@ -1,13 +1,15 @@
-import { isMobile } from '@/utils/serverComponent';
-import { getFlightInfo } from '@/api/flight';
 import React from 'react';
 import dynamic from 'next/dynamic';
+
+import { isMobile } from '@/utils/serverComponent';
+import { Flight } from '@/services/index';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
 export default async function Layout({ desktop, mobile, params }) {
   // React will automatically dedupe the request
-  const flightData = await getFlightInfo(params.id);
+  const flightService = new Flight();
+  const flightData = await flightService.getFlightInfo(params.id);
 
   const { flight } = flightData[0];
 
