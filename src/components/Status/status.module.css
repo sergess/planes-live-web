@@ -3,8 +3,22 @@
     align-items: center;
     padding: .1rem .6rem;
     font-size: var(--font-caption);
-    background: var(--color-secondary);
     font-weight: 600;
     color: var(--color-white);
     border-radius: .4rem;
+}
+.scheduled {
+    background: var(--color-secondary);
+}
+.filed {
+    background: var(--color-secondary-mango);
+}
+.active {
+    background: var(--color-blue);
+}
+.completed {
+    background: var(--color-violet);
+}
+.cancelled {
+    background: var(--color-secondary-red);
 }

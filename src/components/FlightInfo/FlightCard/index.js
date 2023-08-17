@@ -12,7 +12,7 @@ export default function FlightCard({
   iata, logoUrl, city, name, destinationCity, destinationName,
   originIata, destinationIata, departureTime, arrivalTime,
   actualDepartureTime, actualArrivalTime, arrivalTerminal,
-  departureTerminal, arrivalGate, departureGate,
+  departureTerminal, arrivalGate, departureGate, status,
 }) {
   const total = dayjs(actualArrivalTime || arrivalTime)
     .diff(dayjs(actualDepartureTime || departureTime), 'minutes');
@@ -29,7 +29,7 @@ export default function FlightCard({
           </p>
         </div>
 
-        <Status />
+        <Status status={status} />
       </div>
       <div className={styles.boxBody}>
         <div className={styles.line}>

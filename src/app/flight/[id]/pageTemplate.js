@@ -24,6 +24,7 @@ export default async function PageTemplate({ params }) {
         iata={flight?.iata}
         name={airport.name}
         originIata={airport.iata}
+        status={flight.status}
         destinationIata={destinationAirport.iata}
         destinationCity={destinationAirport.city}
         destinationName={destinationAirport.name}
