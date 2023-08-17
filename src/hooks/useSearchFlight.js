@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import {
   MIN_SYMBOL_COUNT, OPTION_TYPE, ROUTE_BY_TYPE,
 } from '@/constants/index';
-import { searchRequest } from '@/api/index';
+import { searchRequest } from '@/requests/index';
 
 export default () => {
   const router = useRouter();
@@ -23,9 +23,11 @@ export default () => {
     const asyncFetch = async (t) => {
       setLoading(true);
       const response = await searchRequest(t);
+
       setLoading(false);
 
-      setOptions([...response.airports
+      // [TODO] Think about better way how it could be done
+      response && setOptions([...response.airports
         .map((a) => ({
           label: a.name,
           value: a.icao,

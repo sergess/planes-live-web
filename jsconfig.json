@@ -10,7 +10,9 @@
       "@/assets/*": ["./src/assets/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/hooks/*": ["./src/hooks/*"],
-      "@/api/*": ["./src/api/*"]
+      "@/api/*": ["./src/api/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/requests/*": ["./src/requests/*"]
     }
   }
 }
