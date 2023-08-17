@@ -6,13 +6,15 @@ import HorLine from '@/assets/svg/horLine';
 import Status from '@/components/Status';
 import Time from '@/components/FlightInfo/FlightCard/Time/time';
 import dayjs from 'dayjs';
+import InfoBlock from '@/components/FlightInfo/FlightCard/InfoBlock';
+import DescriptionBlock from '@/components/FlightInfo/FlightCard/DescriptionBlock';
 import styles from './flightCard.module.css';
 
 export default function FlightCard({
   iata, logoUrl, city, name, destinationCity, destinationName,
   originIata, destinationIata, departureTime, arrivalTime,
   actualDepartureTime, actualArrivalTime, arrivalTerminal,
-  departureTerminal, arrivalGate, departureGate, status,
+  departureTerminal, arrivalGate, departureGate, status, arrivalBaggageClaim,
 }) {
   const total = dayjs(actualArrivalTime || arrivalTime)
     .diff(dayjs(actualDepartureTime || departureTime), 'minutes');
@@ -21,6 +23,20 @@ export default function FlightCard({
 
   return (
     <div className={styles.box}>
+      <div className={styles.infoContainer}>
+        <InfoBlock
+          status={status}
+          departureTime={departureTime}
+          arrivalTime={arrivalTime}
+        />
+        <DescriptionBlock
+          status={status}
+          departureGate={departureGate}
+          departureTerminal={departureTerminal}
+          arrivalTerminal={arrivalTerminal}
+          arrivalBaggageClaim={arrivalBaggageClaim}
+        />
+      </div>
       <div className={styles.boxHeader}>
         <div className={styles.flexContainer}>
           {logoUrl && <Image width={24} height={24} className={styles.logo} src={logoUrl} alt="" />}

@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex: 1;
+    background:var(--color-dark-05);
+    padding: 1.2rem;
+    border-radius: .8rem;
+    flex-direction: column;
+}
+.label {
+    font-size: var(--font-small);
+    color: var(--color-dark-70);
+}
+.value {
+    margin-top: .4rem;
+    font-size: var(--font-body-3);
+    font-weight: 600;
+}
