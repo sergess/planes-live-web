@@ -48,7 +48,7 @@ export default function FlightCard({
               </p>
               <p className={styles.info}>
                 Terminal
-                {` ${departureTerminal}`}
+                {` ${departureTerminal || ''}`}
                 {' '}
                 • Check-in 7236 • Gate
                 {' '}
@@ -78,7 +78,7 @@ export default function FlightCard({
               </p>
               <p className={styles.info}>
                 Terminal
-                {` ${arrivalTerminal}`}
+                {` ${arrivalTerminal || ''}`}
                 {' '}
                 • Check-in 7236 • Gate
                 {' '}
