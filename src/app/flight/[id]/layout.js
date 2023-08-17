@@ -6,9 +6,10 @@ import { Flight } from '@/services/index';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
+const flightService = new Flight();
+
 export default async function Layout({ desktop, mobile, params }) {
   // React will automatically dedupe the request
-  const flightService = new Flight();
   const flightData = await flightService.getFlightInfo(params.id);
 
   const { flight } = flightData[0];

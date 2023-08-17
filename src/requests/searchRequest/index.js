@@ -1,6 +1,6 @@
 export const searchRequest = async (text) => {
   try {
-    const response = await fetch('api/search', {
+    const response = await fetch('/api/search', {
       method: 'POST',
       body: JSON.stringify({
         query: text,

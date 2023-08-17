@@ -2,18 +2,19 @@ import React from 'react';
 
 import Arrival from '@/assets/svg/arrival';
 import LinkTo from '@/components/Controls/Link';
-import { Flight } from '@/services/index';
+import { Airport } from '@/services/index';
 import Item from './Item';
 
 import styles from './infoList.module.css';
 
 const SHOW_ITEMS_COUNT = 6;
 
+const airportService = new Airport();
+
 export default async function InfoList({
   label, code, query, isArrival, showAll, otherQuery,
 }) {
-  const flightService = new Flight();
-  const response = await flightService.getAirportFlightsByQuery(code, query);
+  const response = await airportService.getAirportFlightsByQuery(code, query);
   const dateKey = isArrival ? 'arrival' : 'departure';
   const airportLabel = isArrival ? 'origin:' : 'destination';
   const items = response.slice(0, +showAll);

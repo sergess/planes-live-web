@@ -1,10 +1,10 @@
 import { getHeaders } from '@/utils/api';
 import { requestJson } from '@/utils/requestJson';
 
-import { BASE_API } from '@/constants/index';
+import { request_uri } from '@/constants/index';
 
 export class ApiV212 {
-  baseUrl = BASE_API;
+  baseUrl = process.env.API_BASE_URL;
 
   async callAsync(
     uri,
@@ -18,6 +18,21 @@ export class ApiV212 {
     });
 
     return response;
+  }
+
+  async querySearch(query) {
+    const { ok, data } = await this.callAsync(`${request_uri}search`, {
+      method: 'POST',
+      body: JSON.stringify({
+        query,
+      }),
+    });
+
+    if (!ok) {
+      return null;
+    }
+
+    return data;
   }
 }
 

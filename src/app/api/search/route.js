@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 
-import { Flight } from '@/services/index';
+import { ApiV212 } from '@/services/api-v2.12';
 
 export async function POST(request) {
   const { query } = await request.json();
 
-  const flightService = new Flight();
+  const apiV212Service = new ApiV212();
 
-  const searchSuggestions = await flightService.querySearch(query);
+  const searchSuggestions = await apiV212Service.querySearch(query);
 
   if (!searchSuggestions) {
     return NextResponse.json({ error: 'Bad request' }, { status: 500 });

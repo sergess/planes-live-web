@@ -1,19 +1,20 @@
 import React from 'react';
 
+import { Flight, Airport } from '@/services/index';
 import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DateBlock from '@/components/FlightInfo/DateBlock';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
-import { Flight } from '@/services/index';
-import { getAirport } from '@/api/airport';
+
+const flightService = new Flight();
+const airportService = new Airport();
 
 export default async function PageTemplate({ params }) {
   // React will automatically dedupe the requests
-  const flightService = new Flight();
   const flightRequest = await flightService.getFlightInfo(params.id);
   const { flight } = flightRequest[0];
   const [{ airport: destinationAirport }, { airport }] = await Promise.all(
-    [getAirport(flight?.destination), getAirport(flight?.origin)],
+    [airportService.getAirport(flight?.destination), airportService.getAirport(flight?.origin)],
   );
 
   return (
