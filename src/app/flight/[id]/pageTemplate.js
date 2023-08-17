@@ -36,7 +36,7 @@ export default async function PageTemplate({ params }) {
         arrivalGate={flight.arrival_gate}
         departureGate={flight.departure_gate}
       />
-      <LastUpdateCard />
+      <LastUpdateCard actions={flight.actions} />
       <DelayHistoryCard />
     </>
   );
