@@ -38,6 +38,7 @@ export default async function PageTemplate({ params }) {
         departureTerminal={flight.departure_terminal}
         arrivalGate={flight.arrival_gate}
         arrivalBaggageClaim={flight.arrival_baggage_claim}
+        departureCheckInDesk={flight.departure_check_in_desk}
       />
       {!!flight?.actions?.length
         && (

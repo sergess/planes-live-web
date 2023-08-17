@@ -15,6 +15,7 @@ export default function FlightCard({
   originIata, destinationIata, departureTime, arrivalTime,
   actualDepartureTime, actualArrivalTime, arrivalTerminal,
   departureTerminal, arrivalGate, departureGate, status, arrivalBaggageClaim,
+  departureCheckInDesk,
 }) {
   const total = dayjs(actualArrivalTime || arrivalTime)
     .diff(dayjs(actualDepartureTime || departureTime), 'minutes');
@@ -66,7 +67,11 @@ export default function FlightCard({
                 Terminal
                 {` ${departureTerminal || ''}`}
                 {' '}
-                • Check-in 7236 • Gate
+                • Check-in
+                {' '}
+                {departureCheckInDesk}
+                {' '}
+                • Gate
                 {' '}
                 {departureGate}
               </p>
@@ -96,9 +101,13 @@ export default function FlightCard({
                 Terminal
                 {` ${arrivalTerminal || ''}`}
                 {' '}
-                • Check-in 7236 • Gate
+                • Gate
                 {' '}
                 {arrivalGate}
+                {' '}
+                • Bag claim
+                {' '}
+                {arrivalBaggageClaim}
               </p>
             </div>
             <Time time={arrivalTime} actual={actualArrivalTime} />

@@ -27,7 +27,7 @@ export default function InfoBlock({
             <p className={styles.value}>
               in
               {' '}
-              {`${dayjs().diff(arrivalTime, 'minute')}m`}
+              {`${dayjs(arrivalTime).diff(dayjs(), 'minute')}m`}
             </p>
           </>),
         [STATUS.COMPLETED]: (
