@@ -4,28 +4,17 @@ import PrimaryButton from '@/components/Controls/Buttons/primary';
 import { BUTTON_SIZE } from '@/constants/index';
 import dayjs from 'dayjs';
 import { UPDATE_LABELS } from '@/constants/flight';
+import { formatDate } from '@/utils/date';
 import styles from './lastUpdateCard.module.css';
 
-const getValue = (action) => {
-  switch (action) {
-    case 'value1':
-      return 1;
+const DATE_VALUES = [
+  26,
+  27,
+];
+const DATE_FORMAT = 'H:mm A';
 
-    case 'value2':
-      return 1;
-
-    default: {
-      return '';
-    }
-  }
-};
 export default function LastUpdateCard({
   actions = [],
-  departureTime,
-  arrivalGate,
-  arrivalTerminal,
-  arrivalTime,
-  departureTerminal,
 }) {
   const action = actions.reduce(
     (prev, current) => (prev.priority > current.priority ? prev : current),
@@ -45,18 +34,8 @@ export default function LastUpdateCard({
         <div className={styles.list}>
           <p>
             {`${UPDATE_LABELS[action.action]} `}
-            {getValue(action.action)}
-            {{
-              23: '',
-              24: '',
-              25: '',
-              26: (departureTime),
-              27: (arrivalTime),
-              40: (departureTerminal),
-              41: (arrivalTerminal),
-              42: '',
-              43: (arrivalGate),
-            }[action.action]}
+            {DATE_VALUES.includes(action.action) ? formatDate(action.value, DATE_FORMAT)
+              : action.value}
           </p>
         </div>
         <PrimaryButton size={BUTTON_SIZE.SM}>

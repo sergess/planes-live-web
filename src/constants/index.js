@@ -26,3 +26,5 @@ export const ROUTE_BY_TYPE = {
   Airport: 'airport',
   Flight: 'flight',
 };
+
+export const EMPTY_FIELD = 'n/a';

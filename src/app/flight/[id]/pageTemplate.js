@@ -44,11 +44,6 @@ export default async function PageTemplate({ params }) {
         && (
         <LastUpdateCard
           actions={flight.actions}
-          departureTime={flight.departure}
-          arrivalTime={flight.arrival}
-          arrivalGate={flight.arrival_gate}
-          arrivalTerminal={flight.arrival_terminal}
-          departureTerminal={flight.departure_terminal}
         />
         )}
       <DelayHistoryCard />

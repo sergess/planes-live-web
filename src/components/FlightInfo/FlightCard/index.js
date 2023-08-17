@@ -8,6 +8,7 @@ import Time from '@/components/FlightInfo/FlightCard/Time/time';
 import dayjs from 'dayjs';
 import InfoBlock from '@/components/FlightInfo/FlightCard/InfoBlock';
 import DescriptionBlock from '@/components/FlightInfo/FlightCard/DescriptionBlock';
+import { EMPTY_FIELD } from '@/constants/index';
 import styles from './flightCard.module.css';
 
 export default function FlightCard({
@@ -65,15 +66,15 @@ export default function FlightCard({
               </p>
               <p className={styles.info}>
                 Terminal
-                {` ${departureTerminal || ''}`}
+                {` ${departureTerminal || EMPTY_FIELD}`}
                 {' '}
                 • Check-in
                 {' '}
-                {departureCheckInDesk}
+                {departureCheckInDesk || EMPTY_FIELD}
                 {' '}
                 • Gate
                 {' '}
-                {departureGate}
+                {departureGate || EMPTY_FIELD}
               </p>
             </div>
             <Time time={departureTime} actual={actualDepartureTime} />
@@ -99,15 +100,15 @@ export default function FlightCard({
               </p>
               <p className={styles.info}>
                 Terminal
-                {` ${arrivalTerminal || ''}`}
+                {` ${arrivalTerminal || EMPTY_FIELD}`}
                 {' '}
                 • Gate
                 {' '}
-                {arrivalGate}
+                {arrivalGate || EMPTY_FIELD}
                 {' '}
                 • Bag claim
                 {' '}
-                {arrivalBaggageClaim}
+                {arrivalBaggageClaim || EMPTY_FIELD}
               </p>
             </div>
             <Time time={arrivalTime} actual={actualArrivalTime} />
