@@ -14,10 +14,13 @@ export const STATUS_LABELS = {
 };
 
 export const UPDATE_LABELS = {
+  23: 'Departed',
+  24: 'Landed',
   25: 'Flight canceled',
+  26: 'New departure, ',
+  27: 'New arrival, : ',
   40: 'New departure terminal: ',
-  42: 'New departure gate: ',
-  27: 'New arrival time: ',
   41: 'New arrival terminal: ',
+  42: 'New departure gate: ',
   43: 'New arrival gate: ',
 };
