@@ -23,6 +23,16 @@ export default function FlightCard({
 
   return (
     <div className={styles.box}>
+      <div className={styles.boxHeader}>
+        <div className={styles.flexContainer}>
+          {logoUrl && <Image width={24} height={24} className={styles.logo} src={logoUrl} alt="" />}
+          <p className={styles.flightLabel}>
+            {iata}
+          </p>
+        </div>
+
+        <Status status={status} />
+      </div>
       <div className={styles.infoContainer}>
         <InfoBlock
           status={status}
@@ -36,16 +46,6 @@ export default function FlightCard({
           arrivalTerminal={arrivalTerminal}
           arrivalBaggageClaim={arrivalBaggageClaim}
         />
-      </div>
-      <div className={styles.boxHeader}>
-        <div className={styles.flexContainer}>
-          {logoUrl && <Image width={24} height={24} className={styles.logo} src={logoUrl} alt="" />}
-          <p className={styles.flightLabel}>
-            {iata}
-          </p>
-        </div>
-
-        <Status status={status} />
       </div>
       <div className={styles.boxBody}>
         <div className={styles.line}>
