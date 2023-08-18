@@ -2,6 +2,7 @@ import React from 'react';
 
 import { STATUS } from '@/constants/flight';
 import styles from '@/components/FlightInfo/FlightCard/InfoBlock/infoBlock.module.css';
+import { EMPTY_FIELD } from '@/constants/index';
 
 export default function DescriptionBlock({
   status,
@@ -23,7 +24,7 @@ export default function DescriptionBlock({
             <p className={styles.value}>
               Gate
               {' '}
-              {departureGate}
+              {departureGate || EMPTY_FIELD}
             </p>
           </>),
         [STATUS.ACTIVE]: (
@@ -31,12 +32,12 @@ export default function DescriptionBlock({
             <p className={styles.label}>
               TERMINAL
               {' '}
-              {arrivalTerminal}
+              {arrivalTerminal || EMPTY_FIELD}
             </p>
             <p className={styles.value}>
               Bag claim
               {' '}
-              {arrivalBaggageClaim}
+              {arrivalBaggageClaim || EMPTY_FIELD}
             </p>
           </>),
         [STATUS.COMPLETED]: (
