@@ -9,7 +9,7 @@ export default function Card() {
       <figure className={styles.figure}>
         <Image
           className={styles.img}
-          src="/kennedyAirport.png"
+          src="/kennedy_airport.png"
           width={41}
           height={31}
           alt=""

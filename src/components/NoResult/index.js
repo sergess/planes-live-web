@@ -7,7 +7,7 @@ export default function NoResult() {
   return (
     <div className={styles.container}>
       <Image
-        src="/NoSearchResults.png"
+        src="/no_search_results.png"
         width={121}
         height={111}
         alt=""

@@ -28,7 +28,6 @@ export default function MobileRedirectSearch() {
           height={28}
           alt="Search"
         />
-        <Search />
       </Link>
     </header>
   );

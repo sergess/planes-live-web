@@ -8,7 +8,7 @@ export default function Slider() {
     <div className={styles.wrapper}>
       <Image
         className={styles.iphone}
-        src="/iPhone_Mockup.png"
+        src="/iphone_mockup.png"
         width={200}
         height={405}
         alt=""
