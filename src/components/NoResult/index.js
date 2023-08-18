@@ -1,15 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 
-import NoSearchResults from '@/assets/img/NoSearchResults.png';
-
 import styles from './NoResult.module.css';
 
 export default function NoResult() {
   return (
     <div className={styles.container}>
       <Image
-        src={NoSearchResults}
+        src="/NoSearchResults.png"
+        width={121}
+        height={111}
         alt=""
       />
       <p className={styles.label}>No Results</p>

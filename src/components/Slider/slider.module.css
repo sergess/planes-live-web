@@ -9,17 +9,20 @@
 
 .img1 {
     margin-top: 8rem;
-    background-image: url(./../../../src/assets/img/band_1.png);
+    background-image: url("/band_1.png");
     height: 10rem;
     animation: animation 20s linear infinite;
     will-change: background-position;
     margin-bottom: .8rem;
 }
 .img2 {
-    background-image: url(./../../../src/assets/img/band_2.png);
     height: 10rem;
     animation: animation_reverse 20s linear infinite ;
     will-change: background-position;
+}
+
+.img2 {
+    background-image: url("/band_2.png");
 }
 
 .wrapper {

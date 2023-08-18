@@ -1,7 +1,6 @@
 import React from 'react';
-
 import Image from 'next/image';
-import iPhone_Mockup from '@/assets/img/iPhone_Mockup.png';
+
 import styles from './slider.module.css';
 
 export default function Slider() {
@@ -9,7 +8,9 @@ export default function Slider() {
     <div className={styles.wrapper}>
       <Image
         className={styles.iphone}
-        src={iPhone_Mockup}
+        src="/iPhone_Mockup.png"
+        width={200}
+        height={405}
         alt=""
       />
       <div className={styles.img1} />

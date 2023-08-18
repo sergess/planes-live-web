@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import CardGrip from '@/assets/svg/cardGrip';
+import Image from 'next/image';
 
 import { useRouter } from 'next/navigation';
 import styles from './Swipe.module.css';
@@ -37,7 +37,12 @@ export default function Swipe({ id, state = 0 }) {
       }}
       className={styles.gripWrapper}
     >
-      <CardGrip />
+      <Image
+        src="/svg/card_grip.svg"
+        width={32}
+        height={4}
+        alt=""
+      />
     </div>
   );
 }

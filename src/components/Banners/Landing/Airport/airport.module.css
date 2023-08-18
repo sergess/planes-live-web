@@ -15,7 +15,7 @@
 }
 .cardWrapper {
     padding: 8rem 0 11rem 0;
-    background-image: url("../../../../assets/svg/map_background.svg");
+    background-image: url("/svg/map_background.svg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
@@ -43,7 +43,7 @@
     }
     .cardWrapper {
         padding-top: 8rem;
-        background-image: url("../../../../assets/img/map.png");
+        background-image: url("/map.png");
         background-size: auto;
         background-position: top;
         margin-top: 0;

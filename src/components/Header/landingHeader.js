@@ -1,12 +1,10 @@
 import React from 'react';
 
 import PrimaryButton from '@/components/Controls/Buttons/primary';
-import LogoSvg from '@/assets/svg/logo';
-import Android from '@/assets/svg/android';
-import Apple from '@/assets/svg/apple';
 import { ANDROID_DOWNLOAD_LINK, BUTTON_SIZE, IOS_DOWNLOAD_LINK } from '@/constants/index';
 
 import { getHref } from '@/utils/index';
+import Image from 'next/image';
 import styles from './header.module.css';
 
 export default function LandingHeader() {
@@ -15,7 +13,13 @@ export default function LandingHeader() {
   return (
     <header className={styles.header}>
       <div className={styles.labelWrapper}>
-        <LogoSvg />
+        <Image
+          src="/svg/app_icon.svg"
+          priority
+          width={40}
+          height={41}
+          alt="Planes Live - Flight Tracker app"
+        />
         <p className={styles.label}>Planes Live</p>
       </div>
       <div className={styles.mobile}>
@@ -36,7 +40,13 @@ export default function LandingHeader() {
           href={ANDROID_DOWNLOAD_LINK}
           rel="noreferrer"
         >
-          <Android />
+          <Image
+            src="/svg/store_android.svg"
+            priority
+            width={28}
+            height={28}
+            alt="Android logo"
+          />
         </a>
         <a
           className={styles.icon}
@@ -44,7 +54,13 @@ export default function LandingHeader() {
           href={IOS_DOWNLOAD_LINK}
           rel="noreferrer"
         >
-          <Apple />
+          <Image
+            src="/svg/store_apple.svg"
+            priority
+            width={28}
+            height={28}
+            alt="Apple logo"
+          />
         </a>
       </div>
     </header>

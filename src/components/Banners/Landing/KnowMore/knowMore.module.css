@@ -23,7 +23,7 @@
     flex-direction: column;
     height: 12rem;
 
-    background-image: url("../../../../assets/img/img_app_icon.png");
+    background-image: url("/img_app_icon.png");
     background-position: bottom;
     background-repeat: no-repeat;
 }
