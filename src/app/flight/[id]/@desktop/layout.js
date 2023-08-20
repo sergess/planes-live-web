@@ -10,7 +10,7 @@ export default function Layout({ children }) {
       <div>
         <SearchHeader />
       </div>
-      <main>
+      <main className={styles.main}>
         {children}
       </main>
     </div>

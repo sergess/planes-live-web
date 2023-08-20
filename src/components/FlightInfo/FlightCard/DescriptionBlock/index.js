@@ -11,6 +11,8 @@ export default function DescriptionBlock({
   arrivalTerminal,
   arrivalBaggageClaim,
 }) {
+  if (status === STATUS.CANCELLED) return null;
+
   return (
     <div className={styles.container}>
       {{

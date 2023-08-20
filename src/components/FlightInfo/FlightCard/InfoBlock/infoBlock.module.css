@@ -16,3 +16,26 @@
     font-size: var(--font-body-3);
     font-weight: 600;
 }
+.cancel {
+    border: 1px solid var(--color-secondary-coral);
+    background: var(--color-secondary-coral-light);
+}
+.cancelLabel {
+    font-size: var(--font-small);
+}
+.cancelText {
+    font-size: var(--font-m);
+    font-weight: 600;
+    margin-bottom: .8rem;
+}
+.cancelUpdates {
+    font-size: 1.3rem;
+}
+.wrapper {
+    display: flex;
+    color: var(--color-secondary-red);
+}
+.svg {
+    margin-right: 1.2rem;
+    margin-top: .7rem;
+}

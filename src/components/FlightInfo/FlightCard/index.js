@@ -9,6 +9,8 @@ import dayjs from 'dayjs';
 import InfoBlock from '@/components/FlightInfo/FlightCard/InfoBlock';
 import DescriptionBlock from '@/components/FlightInfo/FlightCard/DescriptionBlock';
 import { EMPTY_FIELD } from '@/constants/index';
+import { STATUS } from '@/constants/flight';
+
 import styles from './flightCard.module.css';
 
 export default function FlightCard({
@@ -37,12 +39,12 @@ export default function FlightCard({
       </div>
       <div className={styles.infoContainer}>
         <InfoBlock
-          status={status}
+          status={STATUS.CANCELLED}
           departureTime={departureTime}
           arrivalTime={arrivalTime}
         />
         <DescriptionBlock
-          status={status}
+          status={STATUS.CANCELLED}
           departureGate={departureGate}
           departureTerminal={departureTerminal}
           arrivalTerminal={arrivalTerminal}

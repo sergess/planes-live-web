@@ -25,12 +25,6 @@ body {
     color-scheme: dark;
   }
 }
-@media (max-width: 701px) {
-  html,
-  body {
-    overflow: hidden;
-  }
-}
 h3 {
   font-size: var(--font-h3);
 }

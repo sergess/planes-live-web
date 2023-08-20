@@ -12,7 +12,10 @@
 .container {
     box-shadow: var(--left-panel-shadow)
 }
-
+.mobile {
+    position: sticky;
+    top: 0;
+}
 /* Mobile */
 @media (max-width: 701px) {
     .desktop {

@@ -11,7 +11,10 @@ export default function InfoBlock({
   status,
 }) {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${
+      STATUS.CANCELLED && styles.cancel
+    }`}
+    >
       {{
         [STATUS.SCHEDULED]: (
           <>
@@ -39,6 +42,21 @@ export default function InfoBlock({
               ago
             </p>
           </>),
+        [STATUS.CANCELLED]: (
+          <div className={styles.wrapper}>
+            <div className={styles.svg}>
+              svg
+            </div>
+            <div>
+              <p className={styles.cancelLabel}>3 MIN AGO</p>
+              <p className={styles.cancelText}>
+                Flight canceled
+              </p>
+              <div>
+                <p className={styles.cancelUpdates}>2 more updates</p>
+              </div>
+            </div>
+          </div>),
       }[status]}
     </div>
   );

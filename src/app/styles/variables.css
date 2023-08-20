@@ -10,6 +10,7 @@
     --font-small: 1.1rem;
     --font-caption: 1.2rem;
     --font-body-1: 1.4rem;
+    --font-m: 1.5rem;
     --font-body-2: 1.6rem;
     --font-body-3: 1.7rem;
     --font-subheadline: 1.8rem;
@@ -24,6 +25,8 @@
     --color-secondary: #33CC55;
     --color-secondary-mango: #FF7E47;
     --color-secondary-red: #F33E3E;
+    --color-secondary-coral: #FCCCCC;
+    --color-secondary-coral-light: #FEF0F0;
 
     --color-dark: #292838;
     --color-dark-50: #94949C;

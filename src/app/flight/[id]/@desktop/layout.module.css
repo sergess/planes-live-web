@@ -7,7 +7,7 @@
     box-shadow: var(--left-panel-shadow);
     background: var(--surfaces-base);
 }
-.layout {
+.main {
     height: calc(100vh - var(--desktop-header-height));
     overflow: auto;
 }
