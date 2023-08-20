@@ -2,8 +2,7 @@
 
 import React from 'react';
 import debounce from 'lodash.debounce';
-
-import Close from '@/assets/svg/close';
+import Image from 'next/image';
 
 import { INPUT_DEBOUNCE, MIN_SYMBOL_COUNT } from '@/constants/index';
 import NoResult from '@/components/NoResult';
@@ -51,7 +50,13 @@ export default function DesktopSearch({
           className={styles.close}
           onClick={onClose}
         >
-          <Close color="rgba(148, 148, 156, 1" />
+          <Image
+            src="/svg/ic_close_dark.svg"
+            priority
+            width={28}
+            height={28}
+            alt="Close"
+          />
         </button>
       </div>
 

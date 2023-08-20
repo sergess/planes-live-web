@@ -1,6 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 
-import Arrival from '@/assets/svg/arrival';
 import LinkTo from '@/components/Controls/Link';
 import { Airport } from '@/services/index';
 import Item from './Item';
@@ -22,7 +22,12 @@ export default async function InfoList({
   return (
     <div className={styles.wrapper}>
       <div className={styles.label}>
-        <Arrival />
+        <Image
+          src="/svg/ic_departure.svg"
+          width={12}
+          height={12}
+          alt="Departure icon"
+        />
         <p>{label}</p>
       </div>
       {items.length > 0 && (

@@ -1,8 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-import VertLine from '@/assets/svg/vertLine';
-import HorLine from '@/assets/svg/horLine';
 import Status from '@/components/Status';
 import Time from '@/components/FlightInfo/FlightCard/Time/time';
 import dayjs from 'dayjs';
@@ -53,7 +51,12 @@ export default function FlightCard({
       </div>
       <div className={styles.boxBody}>
         <div className={styles.line}>
-          <VertLine />
+          <Image
+            src="/svg/vert_line.svg"
+            width={6}
+            height={117}
+            alt=""
+          />
         </div>
         <div className={styles.container}>
           <div className={styles.block}>
@@ -82,13 +85,23 @@ export default function FlightCard({
             <Time time={departureTime} actual={actualDepartureTime} />
           </div>
           <div className={styles.middle}>
-            <HorLine />
+            <Image
+              src="/svg/hor_line.svg"
+              width={109}
+              height={2}
+              alt=""
+            />
             <p className={styles.timeDiff}>
               Total
               {!!totalHours && ` ${totalHours}h `}
               {` ${totalMinutes}m`}
             </p>
-            <HorLine />
+            <Image
+              src="/svg/hor_line.svg"
+              width={109}
+              height={2}
+              alt=""
+            />
           </div>
           <div className={styles.block}>
             <div>
