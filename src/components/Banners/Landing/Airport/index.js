@@ -1,18 +1,13 @@
 import React from 'react';
 
 import PrimaryButton from '@/components/Controls/Buttons/primary';
-import localFont from 'next/font/local';
 import StoreBadge from '@/components/StoreBadge';
 import styles from './airport.module.css';
 import Card from './Card';
 
-const SF_PRO = localFont({
-  src: './../../../../app/fonts/SanFranciscoProDisplay/SF-Pro-Display-Regular.otf',
-  display: 'swap',
-});
 export default function Airport() {
   return (
-    <div className={`${styles.container} ${SF_PRO.className}`}>
+    <div className={styles.container}>
       <h2 className={styles.title}>
         Be an
         {' '}

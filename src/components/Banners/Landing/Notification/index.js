@@ -3,17 +3,13 @@ import React from 'react';
 import PrimaryButton from '@/components/Controls/Buttons/primary';
 import Notifications from '@/components/Notifications';
 import StoreBadge from '@/components/StoreBadge';
-import localFont from 'next/font/local';
+
 import styles from './notification.module.css';
 
-const SF_PRO = localFont({
-  src: './../../../../app/fonts/SanFranciscoProDisplay/SF-Pro-Display-Bold.otf',
-  display: 'swap',
-});
 export default function Notification() {
   return (
     <div className={styles.container}>
-      <h2 className={`${styles.header} ${SF_PRO.className}`}>
+      <h2 className={styles.header}>
         <span className={styles.primaryText}>Notifications</span>
         {' '}
         <br />

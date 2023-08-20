@@ -1,6 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 
-import Phone from '@/assets/svg/phoneMd';
 import { formatDate } from '@/utils/date';
 import styles from './airportContacts.module.css';
 
@@ -16,7 +16,12 @@ export default function AirportContacts({
   return (
     <div className={styles.container}>
       <div className={styles.phone}>
-        <Phone />
+        <Image
+          src="/svg/phone.svg"
+          width={16}
+          height={16}
+          alt=""
+        />
         <p>
           {phone}
         </p>

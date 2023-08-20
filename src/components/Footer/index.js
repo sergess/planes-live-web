@@ -1,6 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 
-import LogoSvg from '@/assets/svg/logo';
 import styles from './footer.module.css';
 
 const TERMS_REF = 'http://planeslive.com/terms';
@@ -10,7 +10,12 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.logo}>
-        <LogoSvg />
+        <Image
+          src="/svg/app_icon.svg"
+          width={40}
+          height={41}
+          alt="Planes Live - Flight Tracker app"
+        />
         <p className={styles.label}>Planes Live</p>
       </div>
       <div className={styles.blocks}>

@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
-import LogoSvg from '@/assets/svg/logo';
 import DesktopSearch from '@/components/Controls/DesktopSearch';
 import useSearchFlight from '@/hooks/useSearchFlight';
 
@@ -15,7 +15,13 @@ export default function SearchHeader() {
 
   return (
     <header className={styles.searchContainer}>
-      <LogoSvg />
+      <Image
+        src="/svg/app_icon.svg"
+        priority
+        width={40}
+        height={41}
+        alt="Planes Live - Flight Tracker app"
+      />
       <DesktopSearch
         onChange={onChange}
         onSelect={onSelect}

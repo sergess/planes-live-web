@@ -3,8 +3,7 @@
 import React from 'react';
 import debounce from 'lodash.debounce';
 import { useRouter } from 'next/navigation';
-
-import Close from '@/assets/svg/close';
+import Image from 'next/image';
 
 import { INPUT_DEBOUNCE } from '@/constants/index';
 import styles from './mobileSearch.module.css';
@@ -40,7 +39,13 @@ export default function Input({
           className={styles.close}
           onClick={onClose}
         >
-          <Close />
+          <Image
+            src="/svg/ic_close.svg"
+            priority
+            width={28}
+            height={28}
+            alt="Close"
+          />
         </button>
       </div>
 
