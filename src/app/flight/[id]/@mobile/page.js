@@ -12,42 +12,39 @@ import Footer from '@/components/Footer';
 import styles from './page.module.css';
 import PageTemplate from '../pageTemplate';
 
-const getDrawerState = (state = 0) => {
-  if (+state === 0) {
-    return styles.middle;
-  }
-  if (+state === 1) {
-    return styles.top;
-  }
-  if (+state === -1) {
-    return styles.bottom;
-  }
-
-  return '';
-};
+// const getDrawerState = (state = 0) => {
+//   if (+state === 0) {
+//     return styles.middle;
+//   }
+//   if (+state === 1) {
+//     return styles.top;
+//   }
+//   if (+state === -1) {
+//     return styles.bottom;
+//   }
+//
+//   return '';
+// };
 
 export default async function Page({
-  params, searchParams = {
-    drawer: 0,
-  },
+  params
 }) {
   return (
     <div className={styles.container}>
-      <div className={`${styles.drawer} ${getDrawerState(+searchParams.drawer || 0)}`}>
-        <Swipe id={params.id} state={+searchParams.drawer || 0} />
-        <div className={styles.body}>
-          <PageTemplate params={params} />
-          <div className={styles.bannersContainer}>
-            <Features isMobileView />
-            <Traffic />
-            <Slider />
-            <NotificationBanner />
-            <AirportBanner />
-            <KnowMore />
+        <Swipe id={params.id}>
+          <div className={styles.body}>
+            <PageTemplate params={params} />
+            <div className={styles.bannersContainer}>
+              <Features isMobileView />
+              <Traffic />
+              <Slider />
+              <NotificationBanner />
+              <AirportBanner />
+              <KnowMore />
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </div>
+        </Swipe>
     </div>
   );
 }
