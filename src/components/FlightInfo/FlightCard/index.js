@@ -7,7 +7,6 @@ import dayjs from 'dayjs';
 import InfoBlock from '@/components/FlightInfo/FlightCard/InfoBlock';
 import DescriptionBlock from '@/components/FlightInfo/FlightCard/DescriptionBlock';
 import { EMPTY_FIELD } from '@/constants/index';
-import { STATUS } from '@/constants/flight';
 
 import styles from './flightCard.module.css';
 
@@ -16,7 +15,7 @@ export default function FlightCard({
   originIata, destinationIata, departureTime, arrivalTime,
   actualDepartureTime, actualArrivalTime, arrivalTerminal,
   departureTerminal, arrivalGate, departureGate, status, arrivalBaggageClaim,
-  departureCheckInDesk,
+  departureCheckInDesk, actions,
 }) {
   const total = dayjs(actualArrivalTime || arrivalTime)
     .diff(dayjs(actualDepartureTime || departureTime), 'minutes');
@@ -37,12 +36,13 @@ export default function FlightCard({
       </div>
       <div className={styles.infoContainer}>
         <InfoBlock
-          status={STATUS.CANCELLED}
+          status={status}
           departureTime={departureTime}
           arrivalTime={arrivalTime}
+          countOfUpdates={actions?.length}
         />
         <DescriptionBlock
-          status={STATUS.CANCELLED}
+          status={status}
           departureGate={departureGate}
           departureTerminal={departureTerminal}
           arrivalTerminal={arrivalTerminal}

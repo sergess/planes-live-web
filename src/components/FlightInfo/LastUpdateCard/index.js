@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 import PrimaryButton from '@/components/Controls/Buttons/primary';
 import { BUTTON_SIZE } from '@/constants/index';
@@ -13,6 +14,31 @@ const DATE_VALUES = [
 ];
 const DATE_FORMAT = 'H:mm A';
 
+const getIconPath = (code) => {
+  switch (code) {
+    case 23:
+      return '/svg/notifications/gateDepartureAlt.svg';
+    case 24:
+      return '/svg/notifications/timeArrival.svg';
+    case 25:
+      return '/svg/notifications/closeOutlined.svg';
+    case 26:
+      return '/svg/notifications/timeDeparture.svg';
+    case 27:
+      return '/svg/notifications/timeArrival.svg';
+    case 40:
+      return '/svg/notifications/locationEntry.svg';
+    case 41:
+      return '/svg/notifications/locationLeft.svg';
+    case 42:
+      return '/svg/notifications/gateDepartureAlt.svg';
+    case 43:
+      return '/svg/notifications/gateArrivalAlt.svg';
+
+    default:
+      return '';
+  }
+};
 export default function LastUpdateCard({
   actions = [],
 }) {
@@ -32,6 +58,13 @@ export default function LastUpdateCard({
       </div>
       <div className={styles.body}>
         <div className={styles.list}>
+          <Image
+            src={getIconPath(action.action)}
+            width={21}
+            height={21}
+            alt={UPDATE_LABELS[action.action]}
+            style={{ marginRight: '.8rem' }}
+          />
           <p>
             {`${UPDATE_LABELS[action.action]} `}
             {DATE_VALUES.includes(action.action) ? formatDate(action.value, DATE_FORMAT)
@@ -40,7 +73,7 @@ export default function LastUpdateCard({
         </div>
         <PrimaryButton size={BUTTON_SIZE.SM}>
           View all updates (
-          {actions.length || 0}
+          {actions?.length || 0}
           )
         </PrimaryButton>
       </div>

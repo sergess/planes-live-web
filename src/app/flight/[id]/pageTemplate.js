@@ -39,8 +39,9 @@ export default async function PageTemplate({ params }) {
         arrivalGate={flight.arrival_gate}
         arrivalBaggageClaim={flight.arrival_baggage_claim}
         departureCheckInDesk={flight.departure_check_in_desk}
+        actions={flight.actions}
       />
-      {!!flight?.actions?.length
+      {flight?.actions.length
         && (
         <LastUpdateCard
           actions={flight.actions}

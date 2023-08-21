@@ -3,16 +3,18 @@ import dayjs from 'dayjs';
 
 import { STATUS } from '@/constants/flight';
 import { EMPTY_FIELD } from '@/constants/index';
+import Image from 'next/image';
 import styles from './infoBlock.module.css';
 
 export default function InfoBlock({
   departureTime,
   arrivalTime,
   status,
+  countOfUpdates = 0,
 }) {
   return (
     <div className={`${styles.container} ${
-      STATUS.CANCELLED && styles.cancel
+      status === STATUS.CANCELLED && styles.cancel
     }`}
     >
       {{
@@ -45,7 +47,12 @@ export default function InfoBlock({
         [STATUS.CANCELLED]: (
           <div className={styles.wrapper}>
             <div className={styles.svg}>
-              svg
+              <Image
+                src="/svg/close_squared.svg"
+                width={24}
+                height={24}
+                alt="Close"
+              />
             </div>
             <div>
               <p className={styles.cancelLabel}>3 MIN AGO</p>
@@ -53,7 +60,20 @@ export default function InfoBlock({
                 Flight canceled
               </p>
               <div>
-                <p className={styles.cancelUpdates}>2 more updates</p>
+                <p className={styles.cancelUpdates}>
+                  {countOfUpdates - 1 > 0 && (
+                  <>
+                    {`${countOfUpdates - 1} `}
+                    more updates
+                    <Image
+                      src="/svg/chevron_right.svg"
+                      width={12}
+                      height={12}
+                      alt="Right arrow"
+                    />
+                  </>
+                  )}
+                </p>
               </div>
             </div>
           </div>),

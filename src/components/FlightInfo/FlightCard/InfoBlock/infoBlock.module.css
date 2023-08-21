@@ -29,6 +29,8 @@
     margin-bottom: .8rem;
 }
 .cancelUpdates {
+    display: flex;
+    align-items: center;
     font-size: 1.3rem;
 }
 .wrapper {
