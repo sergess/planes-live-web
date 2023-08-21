@@ -1,9 +1,0 @@
-import React from 'react';
-
-export default function () {
-  return (
-    <svg width="109" height="2" viewBox="0 0 109 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M108 1H1" stroke="#EAEAEC" strokeLinecap="round" />
-    </svg>
-  );
-}

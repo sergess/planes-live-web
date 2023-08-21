@@ -17,23 +17,23 @@ const DATE_VALUES = [
 const getIconPath = (code) => {
   switch (code) {
     case 23:
-      return '/svg/notifications/gateDepartureAlt.svg';
+      return '/svg/notifications/gate_departure_alt.svg';
     case 24:
-      return '/svg/notifications/timeArrival.svg';
+      return '/svg/notifications/time_arrival.svg';
     case 25:
-      return '/svg/notifications/closeOutlined.svg';
+      return '/svg/notifications/close_outlined.svg';
     case 26:
-      return '/svg/notifications/timeDeparture.svg';
+      return '/svg/notifications/time_departure.svg';
     case 27:
-      return '/svg/notifications/timeArrival.svg';
+      return '/svg/notifications/time_arrival.svg';
     case 40:
-      return '/svg/notifications/locationEntry.svg';
+      return '/svg/notifications/location_entry.svg';
     case 41:
-      return '/svg/notifications/locationLeft.svg';
+      return '/svg/notifications/location_left.svg';
     case 42:
-      return '/svg/notifications/gateDepartureAlt.svg';
+      return '/svg/notifications/gate_departure_alt.svg';
     case 43:
-      return '/svg/notifications/gateArrivalAlt.svg';
+      return '/svg/notifications/gate_arrival_alt.svg';
 
     default:
       return '';
