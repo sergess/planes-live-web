@@ -1,13 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
-
-import PrimaryButton from '@/components/Controls/Buttons/primary';
-import { BUTTON_SIZE } from '@/constants/index';
 import dayjs from 'dayjs';
+import dynamic from 'next/dynamic';
+
+import { BUTTON_SIZE } from '@/constants/index';
 import { UPDATE_LABELS } from '@/constants/flight';
 import { formatDate, getDateDifference } from '@/utils/date';
 import { M_TIME_FORMAT } from '@/constants/date';
 import styles from './lastUpdateCard.module.css';
+
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 
 const DATE_VALUES = [
   26,

@@ -1,11 +1,13 @@
 import React from 'react';
-
-import PrimaryButton from '@/components/Controls/Buttons/primary';
-import { ANDROID_DOWNLOAD_LINK, BUTTON_SIZE, IOS_DOWNLOAD_LINK } from '@/constants/index';
-
-import { getHref } from '@/utils/index';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+import { ANDROID_DOWNLOAD_LINK, BUTTON_SIZE, IOS_DOWNLOAD_LINK } from '@/constants/index';
+import { getHref } from '@/utils/index';
+
 import styles from './header.module.css';
+
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 
 export default function LandingHeader() {
   const href = getHref();

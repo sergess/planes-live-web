@@ -1,9 +1,11 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
-import PrimaryButton from '@/components/Controls/Buttons/primary';
 import StoreBadge from '@/components/StoreBadge';
-import styles from './airport.module.css';
 import Card from './Card';
+import styles from './airport.module.css';
+
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 
 export default function Airport() {
   return (

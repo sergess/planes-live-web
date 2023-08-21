@@ -1,10 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
-import PrimaryButton from '@/components/Controls/Buttons/primary';
 import StoreBadge from '@/components/StoreBadge';
 import { FEATURES_ANCHOR } from '@/constants/index';
 import styles from './features.module.css';
+
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 
 const BANNER_MAP = [
   {

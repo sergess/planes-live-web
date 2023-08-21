@@ -1,10 +1,12 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
-import PrimaryButton from '@/components/Controls/Buttons/primary';
 import Notifications from '@/components/Notifications';
 import StoreBadge from '@/components/StoreBadge';
 
 import styles from './notification.module.css';
+
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 
 export default function Notification() {
   return (
