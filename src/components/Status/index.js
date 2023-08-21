@@ -1,22 +1,22 @@
 import React from 'react';
 
-import { STATUS_LABELS } from '@/constants/flight';
+import { STATUS, STATUS_LABELS } from '@/constants/flight';
 import styles from './status.module.css';
 
 const getStyles = (status) => {
-  if (status === 1) {
+  if (status === STATUS.SCHEDULED) {
     return styles.scheduled;
   }
-  if (status === 2) {
+  if (status === STATUS.FILED) {
     return styles.filed;
   }
-  if (status === 3) {
+  if (status === STATUS.ACTIVE) {
     return styles.active;
   }
-  if (status === 4) {
+  if (status === STATUS.COMPLETED) {
     return styles.completed;
   }
-  if (status === 5) {
+  if (status === STATUS.CANCELLED) {
     return styles.cancelled;
   }
 

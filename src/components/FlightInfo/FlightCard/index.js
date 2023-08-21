@@ -8,6 +8,7 @@ import InfoBlock from '@/components/FlightInfo/FlightCard/InfoBlock';
 import DescriptionBlock from '@/components/FlightInfo/FlightCard/DescriptionBlock';
 import { EMPTY_FIELD } from '@/constants/index';
 
+import { MIN_TO_HOUR } from '@/constants/date';
 import styles from './flightCard.module.css';
 
 export default function FlightCard({
@@ -19,8 +20,8 @@ export default function FlightCard({
 }) {
   const total = dayjs(actualArrivalTime || arrivalTime)
     .diff(dayjs(actualDepartureTime || departureTime), 'minutes');
-  const totalHours = Math.floor(total / 60);
-  const totalMinutes = total % 60;
+  const totalHours = Math.floor(total / MIN_TO_HOUR);
+  const totalMinutes = total % MIN_TO_HOUR;
 
   return (
     <div className={styles.box}>

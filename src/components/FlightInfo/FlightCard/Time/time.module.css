@@ -14,6 +14,6 @@
     margin-bottom: 0.5rem;
 }
 .crossed {
-    color: #94949C;
+    color: var(--color-dark-50);
     text-decoration: line-through;
 }

@@ -4,15 +4,16 @@ import dayjs from 'dayjs';
 import { M_TIME_FORMAT } from '@/constants/date';
 import styles from './time.module.css';
 
-const orange = '#FF7E47';
-const red = '#F33E3E';
+const EARLIER_COLOR = '#FF7E47';
+const LATER_COLOR = '#F33E3E';
+const TIME_UNIT = 'minute';
 
 const getColor = (isLater) => {
   if (isLater) {
-    return red;
+    return LATER_COLOR;
   }
 
-  return orange;
+  return EARLIER_COLOR;
 };
 export default function Time({
   actual,
@@ -20,7 +21,7 @@ export default function Time({
 }) {
   const actualDate = actual ? dayjs(actual) : null;
   const timeDate = time ? dayjs(time) : null;
-  const diff = dayjs(actualDate).diff(dayjs(timeDate), 'minute');
+  const diff = dayjs(actualDate).diff(dayjs(timeDate), TIME_UNIT);
 
   if (actual && diff !== 0) {
     const isLater = diff > 0;
@@ -42,7 +43,7 @@ export default function Time({
           <p
             className={styles.text}
             style={{
-              color: red,
+              color: LATER_COLOR,
             }}
           >
             {diff}
@@ -55,7 +56,7 @@ export default function Time({
             <p
               className={styles.text}
               style={{
-                color: orange,
+                color: EARLIER_COLOR,
               }}
             >
               {diff}

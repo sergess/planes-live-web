@@ -6,6 +6,7 @@ import { EMPTY_FIELD } from '@/constants/index';
 import Image from 'next/image';
 import styles from './infoBlock.module.css';
 
+const TIME_UNIT = 'minute';
 export default function InfoBlock({
   departureTime,
   arrivalTime,
@@ -24,7 +25,7 @@ export default function InfoBlock({
             <p className={styles.value}>
               in
               {' '}
-              {departureTime ? `${dayjs(departureTime).diff(dayjs(), 'minute')}m` : EMPTY_FIELD}
+              {departureTime ? `${dayjs(departureTime).diff(dayjs(), TIME_UNIT)}m` : EMPTY_FIELD}
             </p>
           </>),
         [STATUS.ACTIVE]: (
@@ -33,14 +34,14 @@ export default function InfoBlock({
             <p className={styles.value}>
               in
               {' '}
-              {arrivalTime ? `${dayjs(arrivalTime).diff(dayjs(), 'minute')}m` : EMPTY_FIELD}
+              {arrivalTime ? `${dayjs(arrivalTime).diff(dayjs(), TIME_UNIT)}m` : EMPTY_FIELD}
             </p>
           </>),
         [STATUS.COMPLETED]: (
           <>
             <p className={styles.label}>Arrived</p>
             <p className={styles.value}>
-              {arrivalTime ? `${dayjs(arrivalTime).diff(dayjs(), 'minute')}m` : EMPTY_FIELD}
+              {arrivalTime ? `${dayjs(arrivalTime).diff(dayjs(), TIME_UNIT)}m` : EMPTY_FIELD}
               ago
             </p>
           </>),

@@ -2,14 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 
 import { formatDate } from '@/utils/date';
-import { DAY_MONTH_DATE_FORMAT, DEFAULT_TIME_FORMAT } from '@/constants/date';
+import { DAY_MONTH_DATE_FORMAT, DEFAULT_TIME_FORMAT, MIN_TO_HOUR } from '@/constants/date';
 import styles from './airportContacts.module.css';
 
 export default function AirportContacts({
   city, country, iata, phone,
 }) {
   const date = new Date();
-  const currentTimeZoneOffsetInHours = date.getTimezoneOffset() / 60;
+  const currentTimeZoneOffsetInHours = date.getTimezoneOffset() / MIN_TO_HOUR;
 
   return (
     <div className={styles.container}>
