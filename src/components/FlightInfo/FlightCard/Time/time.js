@@ -1,12 +1,11 @@
 import React from 'react';
-import { formatDate } from '@/utils/date';
+import { formatDate, getDateDifference } from '@/utils/date';
 import dayjs from 'dayjs';
 import { M_TIME_FORMAT } from '@/constants/date';
 import styles from './time.module.css';
 
 const EARLIER_COLOR = '#FF7E47';
 const LATER_COLOR = '#F33E3E';
-const TIME_UNIT = 'minute';
 
 const getColor = (isLater) => {
   if (isLater) {
@@ -21,9 +20,9 @@ export default function Time({
 }) {
   const actualDate = actual ? dayjs(actual) : null;
   const timeDate = time ? dayjs(time) : null;
-  const diff = dayjs(actualDate).diff(dayjs(timeDate), TIME_UNIT);
+  const diff = getDateDifference(actualDate, timeDate);
 
-  if (actual && diff !== 0) {
+  if (actual && +diff !== 0) {
     const isLater = diff > 0;
 
     return (

@@ -5,7 +5,7 @@ import PrimaryButton from '@/components/Controls/Buttons/primary';
 import { BUTTON_SIZE } from '@/constants/index';
 import dayjs from 'dayjs';
 import { UPDATE_LABELS } from '@/constants/flight';
-import { formatDate } from '@/utils/date';
+import { formatDate, getDateDifference } from '@/utils/date';
 import { M_TIME_FORMAT } from '@/constants/date';
 import styles from './lastUpdateCard.module.css';
 
@@ -51,7 +51,7 @@ export default function LastUpdateCard({
       <div className={styles.header}>
         <p>LATEST UPDATE</p>
         <p>
-          {dayjs().diff(dayjs(actions[0].time), 'minute')}
+          {getDateDifference(dayjs(), action.time)}
           {' '}
           min ago
         </p>
