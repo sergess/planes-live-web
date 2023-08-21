@@ -6,13 +6,13 @@ import { BUTTON_SIZE } from '@/constants/index';
 import dayjs from 'dayjs';
 import { UPDATE_LABELS } from '@/constants/flight';
 import { formatDate } from '@/utils/date';
+import { M_TIME_FORMAT } from '@/constants/date';
 import styles from './lastUpdateCard.module.css';
 
 const DATE_VALUES = [
   26,
   27,
 ];
-const DATE_FORMAT = 'H:mm A';
 
 const getIconPath = (code) => {
   switch (code) {
@@ -67,7 +67,7 @@ export default function LastUpdateCard({
           />
           <p>
             {`${UPDATE_LABELS[action.action]} `}
-            {DATE_VALUES.includes(action.action) ? formatDate(action.value, DATE_FORMAT)
+            {DATE_VALUES.includes(action.action) ? formatDate(action.value, M_TIME_FORMAT)
               : action.value}
           </p>
         </div>

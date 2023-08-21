@@ -2,10 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 
 import { formatDate } from '@/utils/date';
+import { DAY_MONTH_DATE_FORMAT, DEFAULT_TIME_FORMAT } from '@/constants/date';
 import styles from './airportContacts.module.css';
-
-const DATE_FORMAT = 'HH:mm';
-const MONTH_DATE_FORMAT = 'ddd, MMM D';
 
 export default function AirportContacts({
   city, country, iata, phone,
@@ -37,13 +35,13 @@ export default function AirportContacts({
       </div>
       <div className={styles.date}>
         <p>
-          {formatDate(date, DATE_FORMAT)}
+          {formatDate(date, DEFAULT_TIME_FORMAT)}
           {' '}
           • GMT
           {currentTimeZoneOffsetInHours}
         </p>
         <p>
-          {formatDate(date, MONTH_DATE_FORMAT)}
+          {formatDate(date, DAY_MONTH_DATE_FORMAT)}
         </p>
       </div>
     </div>

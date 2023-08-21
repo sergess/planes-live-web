@@ -1,11 +1,11 @@
 import React from 'react';
 import { formatDate } from '@/utils/date';
 import dayjs from 'dayjs';
+import { M_TIME_FORMAT } from '@/constants/date';
 import styles from './time.module.css';
 
 const orange = '#FF7E47';
 const red = '#F33E3E';
-const DATE_FORMAT = 'H:mm A';
 
 const getColor = (isLater) => {
   if (isLater) {
@@ -35,7 +35,7 @@ export default function Time({
             color: getColor(isLater),
           }}
         >
-          {formatDate(actualDate, DATE_FORMAT)}
+          {formatDate(actualDate, M_TIME_FORMAT)}
         </p>
 
         {isLater ? (
@@ -64,14 +64,14 @@ export default function Time({
               earlier
             </p>
           )}
-        <p className={styles.crossed}>{formatDate(timeDate, DATE_FORMAT)}</p>
+        <p className={styles.crossed}>{formatDate(timeDate, M_TIME_FORMAT)}</p>
       </div>
     );
   }
 
   return (
     <div className={styles.timeInfo}>
-      <p className={styles.onTime}>{formatDate(timeDate, DATE_FORMAT)}</p>
+      <p className={styles.onTime}>{formatDate(timeDate, M_TIME_FORMAT)}</p>
       <p className={styles.text}>On time</p>
     </div>
   );

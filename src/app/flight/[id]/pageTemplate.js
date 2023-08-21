@@ -41,7 +41,7 @@ export default async function PageTemplate({ params }) {
         departureCheckInDesk={flight.departure_check_in_desk}
         actions={flight.actions}
       />
-      {flight?.actions.length
+      {flight?.actions?.length
         && (
         <LastUpdateCard
           actions={flight.actions}

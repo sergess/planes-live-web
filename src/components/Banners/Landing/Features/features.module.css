@@ -17,10 +17,7 @@
 }
 /*logic for flight page*/
 :global(.flightLayout) .container {
-    margin: 0 !important;
-}
-:global(.flightLayout) .container {
-    margin: 0 !important;
+    margin: 0;
 }
 
 /* Tablet and Smaller Desktop */
