@@ -3,31 +3,41 @@
 @value bottomHeight: calc(100vh - var(--mobile-header-height) - 50rem - 6.4rem - 1.6rem);
 @value drawerRadius: 15px 15px 0 0;
 
-.gripWrapper {
-    display: flex;
-    justify-content: center;
-    height: 20px;
-    align-items: center;
+/* Mobile */
+@media (max-width: 701px) {
+    .gripWrapper {
+        display: flex;
+        justify-content: center;
+        height: 20px;
+        align-items: center;
+    }
+    .drawer {
+        z-index: var(--header-z-index);
+        background: var(--surfaces-base);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        box-shadow: var(--drawer-shadow);
+        border-radius: drawerRadius;
+        transition: height 400ms;
+        overflow: auto;
+    }
+    .middle {
+        height: middleHeight;
+    }
+    .top {
+        height: topHeight;
+        border-radius: 0;
+    }
+    .bottom {
+        height: bottomHeight;
+    }
 }
-.drawer {
-    z-index: var(--header-z-index);
-    background: var(--surfaces-base);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    box-shadow: var(--drawer-shadow);
-    border-radius: drawerRadius;
-    transition: height 400ms;
-    overflow: auto;
-}
-.middle {
-    height: middleHeight;
-}
-.top {
-    height: topHeight;
-    border-radius: 0;
-}
-.bottom {
-    height: bottomHeight;
+
+/* Desktop */
+@media (min-width: 701px) {
+    .gripWrapper {
+        display: none;
+    }
 }

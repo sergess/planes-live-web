@@ -74,15 +74,15 @@ export default async function Page({ params }) {
                 />
               )}
             <DelayHistoryCard />
-            <div className={styles.bannersContainer}>
+            <div className={styles.mobContent}>
               <Features isMobileView />
               <Traffic />
               <Slider />
               <NotificationBanner />
               <AirportBanner />
               <KnowMore />
+              <Footer />
             </div>
-            <Footer />
           </div>
         </Swipe>
     </div>
