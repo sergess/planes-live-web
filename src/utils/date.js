@@ -22,5 +22,5 @@ export const getDateDifferenceHM = (
   const hours = diff.hours();
   const min = diff.minutes();
 
-  return `${hours > 0 ? `${hours}h` : ''} ${min > 0 ? min : ''}m`;
+  return `${hours !== 0 ? `${hours}h` : ''} ${min !== 0 ? min : ''}m`;
 };

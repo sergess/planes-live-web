@@ -41,7 +41,7 @@ export default function InfoBlock({
           <>
             <p className={styles.label}>Arrived</p>
             <p className={styles.value}>
-              {arrivalTime ? `${getDateDifferenceHM(arrivalTime, dayjs())}` : EMPTY_FIELD}
+              {arrivalTime ? `${getDateDifferenceHM(dayjs(), arrivalTime)}` : EMPTY_FIELD}
               {' '}
               ago
             </p>
