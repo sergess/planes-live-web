@@ -1,7 +1,7 @@
 .timeInfo {
     text-align: right;
     align-self: flex-start;
-    min-width: 8rem;
+    min-width: 9rem;
 }
 .onTime {
     font-weight: 500;

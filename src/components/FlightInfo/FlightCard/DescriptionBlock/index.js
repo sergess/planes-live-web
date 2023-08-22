@@ -11,7 +11,7 @@ export default function DescriptionBlock({
   arrivalTerminal,
   arrivalBaggageClaim,
 }) {
-  if (status === STATUS.CANCELLED) return null;
+  if ([STATUS.CANCELLED, STATUS.COMPLETED].includes(status)) return null;
 
   return (
     <div className={styles.container}>
@@ -41,10 +41,6 @@ export default function DescriptionBlock({
               {' '}
               {arrivalBaggageClaim || EMPTY_FIELD}
             </p>
-          </>),
-        [STATUS.COMPLETED]: (
-          <>
-            cancelled
           </>),
       }[status]}
     </div>
