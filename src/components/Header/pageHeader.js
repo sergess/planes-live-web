@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-
-import Left from '@/assets/svg/chevronLeft';
+import Image from 'next/image';
 
 import styles from './header.module.css';
 
@@ -9,7 +8,14 @@ export default function PageHeader() {
   return (
     <header className={styles.pageHeader}>
       <div>
-        <Link href="/"><Left /></Link>
+        <Link href="/">
+          <Image
+            src="/svg/ic_chevron_left.svg"
+            width={24}
+            height={24}
+            alt="Left arrow"
+          />
+        </Link>
       </div>
     </header>
   );

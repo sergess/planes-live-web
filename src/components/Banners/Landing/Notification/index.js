@@ -1,19 +1,17 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
-import PrimaryButton from '@/components/Buttons/primary';
 import Notifications from '@/components/Notifications';
 import StoreBadge from '@/components/StoreBadge';
-import localFont from 'next/font/local';
+
 import styles from './notification.module.css';
 
-const SF_PRO = localFont({
-  src: './../../../../app/fonts/SanFranciscoProDisplay/SF-Pro-Display-Bold.otf',
-  display: 'swap',
-});
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
+
 export default function Notification() {
   return (
     <div className={styles.container}>
-      <h2 className={`${styles.header} ${SF_PRO.className}`}>
+      <h2 className={styles.header}>
         <span className={styles.primaryText}>Notifications</span>
         {' '}
         <br />

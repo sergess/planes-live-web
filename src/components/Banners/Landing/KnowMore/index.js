@@ -1,10 +1,11 @@
 import React from 'react';
 import { Bebas_Neue } from 'next/font/google';
+import dynamic from 'next/dynamic';
 
-import PrimaryButton from '@/components/Buttons/primary';
 import StoreBadge from '@/components/StoreBadge';
-
 import styles from './knowMore.module.css';
+
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 
 const bebas = Bebas_Neue({ subsets: ['latin'], weight: ['400'] });
 

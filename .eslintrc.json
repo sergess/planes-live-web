@@ -30,7 +30,10 @@
           ["@/styles/*", "./src/app/styles"],
           ["@/utils/*", "./src/utils"],
           ["@/assets/*", "./src/assets"],
-          ["@/hooks/*", "./src/hooks"]
+          ["@/hooks/*", "./src/hooks"],
+          ["@/api/*", "./src/api"],
+          ["@/services/*", "./src/services"],
+          ["@/requests/*", "./src/requests"]
         ],
         "extensions": [".js", ".jsx"]
       }

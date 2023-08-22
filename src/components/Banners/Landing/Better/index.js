@@ -1,6 +1,6 @@
 import React from 'react';
 
-import OutlineButton from '@/components/Buttons/outline';
+import OutlineButton from '@/components/Controls/Buttons/outline';
 import { FEATURES_ANCHOR } from '@/constants/index';
 import styles from './better.module.css';
 

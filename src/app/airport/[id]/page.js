@@ -1,39 +1,21 @@
-import React, { cache } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
+import { notFound } from 'next/navigation';
 
-import {
-  BASE_API, request_uri,
-} from '@/constants/index';
-import { getHeaders } from '@/utils/api';
-import AirportContacts from '@/components/AirportContacts';
-import InfoList from '@/components/InfoList';
-import Statistics from '@/components/Statistics';
-import Security from '@/components/Security';
-
+import AirportContacts from '@/components/Airport/AirportContacts';
+import InfoList from '@/components/Airport/InfoList';
+import Statistics from '@/components/Airport/Statistics';
+import Security from '@/components/Airport/Security';
+import { isMobile } from '@/utils/serverComponent';
+import { Airport } from '@/services/index';
 import styles from './page.module.css';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
-const fetchData = cache(async (code) => {
-  const uri = `${request_uri}airport/${code}`;
-  const headers = getHeaders(uri);
-
-  const response = await fetch(`${BASE_API}${uri}`, {
-    headers,
-  });
-    // Recommendation: handle errors
-  if (!response.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  const { data } = await response.json();
-
-  return data;
-});
+const airportService = new Airport();
 
 export const generateMetadata = async ({ params }) => {
-  const { airport } = await fetchData(params.id);
+  const { airport } = await airportService.getAirport(params.id);
 
   return {
     title: `JFK, John F. Kennedy International Airport - Arrivals, 
@@ -46,7 +28,13 @@ export const generateMetadata = async ({ params }) => {
 };
 
 export default async function Page({ params, searchParams }) {
-  const { airport, statistic } = await fetchData(params.id);
+  const response = await airportService.getAirport(params.id);
+
+  if (!response) {
+    notFound();
+  }
+
+  const { airport, statistic } = response;
 
   const show_departures = searchParams?.show_departures || 6;
   const show_arrivals = searchParams?.show_arrivals || 6;
@@ -80,11 +68,13 @@ export default async function Page({ params, searchParams }) {
         <Statistics {...statistic} />
         <Security />
       </div>
+      {!isMobile() && (
       <Map
         latitude={airport.lat}
         longitude={airport.lon}
         code={params.id}
       />
+      )}
     </>
   );
 }

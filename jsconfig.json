@@ -9,7 +9,10 @@
       "@/app/*": ["./src/app/*"],
       "@/assets/*": ["./src/assets/*"],
       "@/utils/*": ["./src/utils/*"],
-      "@/hooks/*": ["./src/hooks/*"]
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/api/*": ["./src/api/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/requests/*": ["./src/requests/*"]
     }
   }
 }

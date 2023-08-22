@@ -1,18 +1,15 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
-import PrimaryButton from '@/components/Buttons/primary';
-import localFont from 'next/font/local';
 import StoreBadge from '@/components/StoreBadge';
-import styles from './airport.module.css';
 import Card from './Card';
+import styles from './airport.module.css';
 
-const SF_PRO = localFont({
-  src: './../../../../app/fonts/SanFranciscoProDisplay/SF-Pro-Display-Regular.otf',
-  display: 'swap',
-});
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
+
 export default function Airport() {
   return (
-    <div className={`${styles.container} ${SF_PRO.className}`}>
+    <div className={styles.container}>
       <h2 className={styles.title}>
         Be an
         {' '}

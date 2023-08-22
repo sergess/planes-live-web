@@ -1,0 +1,88 @@
+.boxBody {
+    padding: 1rem;
+    display: flex;
+
+    margin-right: .8rem;
+    margin-left: .8rem;
+}
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    font-size: var(--font-h1);
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+.description {
+    font-size: var(--font-caption);
+    color: var(--color-primary);
+    margin-bottom: .5rem;
+}
+.info {
+    font-size: var(--font-small);
+    margin-bottom: .5rem;
+}
+.line {
+    display: flex;
+    padding: .8rem 1rem 0;
+}
+.middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+.timeDiff {
+    padding: 0 .8rem;
+    font-weight: 400;
+    font-size: var(--font-caption);
+    color: var(--color-dark-50);
+}
+.container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.box {
+    box-shadow: var(--info-box-container-shadow);
+    border-radius: 1.5rem;
+    background: var(--color-white);
+    margin-bottom: 1.5rem;
+
+    margin-right: .8rem;
+    margin-left: .8rem;
+}
+.boxHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    border-bottom: thin solid var(--color-dark-10);
+}
+.flightLabel {
+    font-size: var(--font-body-2);
+    font-weight: 500;
+}
+.logo {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: .8rem;
+    border: .2rem solid #EEEFF5;
+    border-radius: 2.4rem;
+}
+.flexContainer {
+    display: flex;
+    align-items: center;
+}
+.infoContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem;
+}
+.infoContainer > div:nth-child(2) {
+    margin-left: 1.2rem;
+}

@@ -12,7 +12,7 @@
 
 /* Mobile */
 @media (max-width: 701px) {
-    .buttonContainer svg {
+    .buttonContainer img {
         display: none;
     }
 }

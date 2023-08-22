@@ -1,9 +1,6 @@
 import React from 'react';
-
-import kennedyAirport from '@/assets/img/kennedyAirport.png';
 import Image from 'next/image';
-import Phone from '@/assets/svg/phone';
-import Weather from '@/assets/svg/weather';
+
 import styles from './card.module.css';
 
 export default function Card() {
@@ -12,7 +9,9 @@ export default function Card() {
       <figure className={styles.figure}>
         <Image
           className={styles.img}
-          src={kennedyAirport}
+          src="/kennedy_airport.png"
+          width={41}
+          height={31}
           alt=""
         />
         <figcaption className={styles.figCaption}>
@@ -23,11 +22,21 @@ export default function Card() {
       </figure>
       <div className={styles.row}>
         <span className={styles.primaryText}>
-          <Phone />
+          <Image
+            src="/svg/phone.svg"
+            width={10}
+            height={10}
+            alt=""
+          />
           <span className={styles.text}>+1 206-787-5388</span>
         </span>
         <span>
-          <Weather />
+          <Image
+            src="/svg/weather.svg"
+            width={14}
+            height={15}
+            alt=""
+          />
           <span className={styles.text}>22°</span>
         </span>
       </div>
