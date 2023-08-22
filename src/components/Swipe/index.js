@@ -1,49 +1,69 @@
 'use client';
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import Image from 'next/image';
 
-import { useRouter } from 'next/navigation';
 import styles from './Swipe.module.css';
 
 const minSwipeDistance = 1;
+const getDrawerState = (state = 0) => {
+  if (+state === 0) {
+    return styles.middle;
+  }
+  if (+state === 1) {
+    return styles.top;
+  }
+  if (+state === -1) {
+    return styles.bottom;
+  }
+
+  return '';
+};
 
 export default function Swipe({ children }) {
   const [touchStart, setTouchStart] = React.useState(null);
   const [touchEnd, setTouchEnd] = React.useState(null);
-  const [opened, setOpened] = React.useState(false);
+  const [drawerState, setDrawerState] = React.useState(0);
 
   return (
-      <div className={styles.drawer} style={{backgroundColor: opened ? 'auto' : 'red'}}>
-    <div
-      onTouchStart={(e) => {
-        setTouchEnd(null);
-        setTouchStart(e.targetTouches[0].clientY);
-      }}
-      onTouchMove={(e) => {
-        setTouchEnd(e.targetTouches[0].clientY);
-      }}
-      onTouchEnd={() => {
-        if (!touchStart || !touchEnd) return;
-        const distance = touchStart - touchEnd;
-        const isTopSwipe = distance > minSwipeDistance;
-        const isBottomSwipe = distance < -minSwipeDistance;
-        if (isTopSwipe) {
-          setOpened(false);
-        } else if (isBottomSwipe) {
-          setOpened(true);
-        }
-      }}
-      className={styles.gripWrapper}
+    <div className={`${styles.drawer} 
+      ${getDrawerState(drawerState)}`}
     >
-      <Image
-        src="/svg/card_grip.svg"
-        width={32}
-        height={4}
-        alt=""
-      />
-    </div>
-        {children}
+      <div
+        onPointerEnter={(e) => {
+          setTouchEnd(null);
+          setTouchStart(e.screenY);
+        }}
+        onPointerMove={(e) => {
+          setTouchEnd(e.screenY);
+        }}
+        onPointerLeave={() => {
+          if (!touchStart || !touchEnd) return;
+          const distance = touchStart - touchEnd;
+          const isTopSwipe = distance > minSwipeDistance;
+          const isBottomSwipe = distance < -minSwipeDistance;
+
+          setDrawerState((state) => {
+            if (isTopSwipe && state !== 1) {
+              return state + 1;
+            }
+            if (isBottomSwipe && state !== -1) {
+              return state - 1;
+            }
+
+            return state;
+          });
+        }}
+        className={styles.gripWrapper}
+      >
+        <Image
+          src="/svg/card_grip.svg"
+          width={32}
+          height={4}
+          alt=""
+        />
       </div>
+      {children}
+    </div>
   );
 }

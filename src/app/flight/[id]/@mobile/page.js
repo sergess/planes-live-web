@@ -9,28 +9,15 @@ import NotificationBanner from '@/components/Banners/Landing/Notification';
 import AirportBanner from '@/components/Banners/Landing/Airport';
 import KnowMore from '@/components/Banners/Landing/KnowMore';
 import Footer from '@/components/Footer';
-import styles from './page.module.css';
 import PageTemplate from '../pageTemplate';
-
-// const getDrawerState = (state = 0) => {
-//   if (+state === 0) {
-//     return styles.middle;
-//   }
-//   if (+state === 1) {
-//     return styles.top;
-//   }
-//   if (+state === -1) {
-//     return styles.bottom;
-//   }
-//
-//   return '';
-// };
+import styles from './page.module.css';
 
 export default async function Page({
-  params
+  params,
 }) {
   return (
     <div className={styles.container}>
+      <div className={styles.drawer}>
         <Swipe id={params.id}>
           <div className={styles.body}>
             <PageTemplate params={params} />
@@ -45,6 +32,7 @@ export default async function Page({
             <Footer />
           </div>
         </Swipe>
+      </div>
     </div>
   );
 }
