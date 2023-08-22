@@ -1,7 +1,9 @@
+@value timeBlockSize from "./../flightCard.module.css";
+
 .timeInfo {
     text-align: right;
     align-self: flex-start;
-    min-width: 9rem;
+    width: timeBlockSize;
 }
 .onTime {
     font-weight: 500;
