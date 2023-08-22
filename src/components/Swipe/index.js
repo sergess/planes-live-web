@@ -40,13 +40,17 @@ export default function Swipe({ children }) {
           const distance = touchStart - touchEnd;
           const isTopSwipe = distance > minSwipeDistance;
           const isBottomSwipe = distance < -minSwipeDistance;
-          let newState;
-          if (isTopSwipe) {
-            newState = drawerState === 1 ? drawerState : drawerState + 1;
-          } else if (isBottomSwipe) {
-            newState = drawerState === -1 ? -1 : drawerState - 1;
-          }
-          setDrawerState(newState);
+
+          setDrawerState((state) => {
+            if (isTopSwipe && state !== 1) {
+              return state + 1;
+            }
+            if (isBottomSwipe && state !== -1) {
+              return state - 1;
+            }
+
+            return state;
+          });
         }}
         className={styles.gripWrapper}
       >
