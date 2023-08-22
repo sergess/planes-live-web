@@ -6,18 +6,10 @@ import Image from 'next/image';
 import styles from './Swipe.module.css';
 
 const minSwipeDistance = 1;
-const getDrawerState = (state = 0) => {
-  if (+state === 0) {
-    return styles.middle;
-  }
-  if (+state === 1) {
-    return styles.top;
-  }
-  if (+state === -1) {
-    return styles.bottom;
-  }
-
-  return '';
+const DRAWER_STATE = {
+  [-1]: styles.bottom,
+  0: styles.middle,
+  1: styles.top,
 };
 
 export default function Swipe({ children }) {
@@ -27,7 +19,7 @@ export default function Swipe({ children }) {
 
   return (
     <div className={`${styles.drawer} 
-      ${getDrawerState(drawerState)}`}
+      ${DRAWER_STATE[drawerState]}`}
     >
       <div
         onPointerEnter={(e) => {
