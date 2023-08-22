@@ -1,22 +1,22 @@
 import React from 'react';
-import { notFound } from "next/navigation";
-import dynamic from "next/dynamic";
+import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
-import Swipe from "@/components/Swipe";
-import Features from "@/components/Banners/Landing/Features";
-import Traffic from "@/components/Banners/Landing/Traffic";
-import Slider from "@/components/Slider";
-import NotificationBanner from "@/components/Banners/Landing/Notification";
-import AirportBanner from "@/components/Banners/Landing/Airport";
-import KnowMore from "@/components/Banners/Landing/KnowMore";
-import Footer from "@/components/Footer";
-import {Airport, Flight} from "@/services/index";
-import DateBlock from "@/components/FlightInfo/DateBlock";
-import FlightCard from "@/components/FlightInfo/FlightCard";
-import LastUpdateCard from "@/components/FlightInfo/LastUpdateCard";
-import DelayHistoryCard from "@/components/FlightInfo/DelayHistoryCard";
+import Swipe from '@/components/Swipe';
+import Features from '@/components/Banners/Landing/Features';
+import Traffic from '@/components/Banners/Landing/Traffic';
+import Slider from '@/components/Slider';
+import NotificationBanner from '@/components/Banners/Landing/Notification';
+import AirportBanner from '@/components/Banners/Landing/Airport';
+import KnowMore from '@/components/Banners/Landing/KnowMore';
+import Footer from '@/components/Footer';
+import { Airport, Flight } from '@/services/index';
+import DateBlock from '@/components/FlightInfo/DateBlock';
+import FlightCard from '@/components/FlightInfo/FlightCard';
+import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
+import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 
-import styles from "@/app/flight/[id]/page.module.css";
+import styles from './page.module.css';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
@@ -42,7 +42,7 @@ export default async function Page({ params }) {
 
   return (
     <>
-    <div className={styles.container}>
+      <div className={styles.container}>
         <Swipe id={params.id}>
           <div className={styles.body}>
             <DateBlock />
@@ -85,14 +85,14 @@ export default async function Page({ params }) {
             </div>
           </div>
         </Swipe>
-    </div>
-  <Map
-    latitude={flight.waypoints[0].lat}
-    longitude={flight.waypoints[0].lon}
-    latitudeEnd={flight.waypoints[1].lat}
-    longitudeEnd={flight.waypoints[1].lon}
-    code={params.id}
-  />
+      </div>
+      <Map
+        latitude={flight.waypoints[0].lat}
+        longitude={flight.waypoints[0].lon}
+        latitudeEnd={flight.waypoints[1].lat}
+        longitudeEnd={flight.waypoints[1].lon}
+        code={params.id}
+      />
     </>
   );
 }
