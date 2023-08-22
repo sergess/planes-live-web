@@ -8,7 +8,6 @@
     }
 }
 .body {
-    overflow: auto;
     height: calc(100% - 2rem);
 }
 .logo {

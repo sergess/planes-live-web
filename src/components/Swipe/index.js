@@ -26,7 +26,9 @@ export default function Swipe({ children }) {
   const [drawerState, setDrawerState] = React.useState(0);
 
   return (
-    <div className={`${styles.drawer} ${getDrawerState(drawerState)}`}>
+    <div className={`${styles.drawer} 
+      ${getDrawerState(drawerState)}`}
+    >
       <div
         onPointerEnter={(e) => {
           setTouchEnd(null);

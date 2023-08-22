@@ -19,12 +19,14 @@
     box-shadow: var(--drawer-shadow);
     border-radius: drawerRadius;
     transition: height 400ms;
+    overflow: auto;
 }
 .middle {
     height: middleHeight;
 }
 .top {
     height: topHeight;
+    border-radius: 0;
 }
 .bottom {
     height: bottomHeight;
