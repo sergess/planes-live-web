@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import { STATUS } from '@/constants/flight';
 import { EMPTY_FIELD } from '@/constants/index';
 import Image from 'next/image';
-import { getDateDifference } from '@/utils/date';
+import { getDateDifferenceHM } from '@/utils/date';
 import styles from './infoBlock.module.css';
 
 export default function InfoBlock({
@@ -25,7 +25,7 @@ export default function InfoBlock({
             <p className={styles.value}>
               in
               {' '}
-              {departureTime ? `${getDateDifference(departureTime, dayjs())}m` : EMPTY_FIELD}
+              {departureTime ? `${getDateDifferenceHM(departureTime, dayjs())}` : EMPTY_FIELD}
             </p>
           </>),
         [STATUS.ACTIVE]: (
@@ -34,14 +34,15 @@ export default function InfoBlock({
             <p className={styles.value}>
               in
               {' '}
-              {arrivalTime ? `${getDateDifference(arrivalTime, dayjs())}m` : EMPTY_FIELD}
+              {arrivalTime ? `${getDateDifferenceHM(arrivalTime, dayjs())}` : EMPTY_FIELD}
             </p>
           </>),
         [STATUS.COMPLETED]: (
           <>
             <p className={styles.label}>Arrived</p>
             <p className={styles.value}>
-              {arrivalTime ? `${getDateDifference(arrivalTime, dayjs())}m` : EMPTY_FIELD}
+              {arrivalTime ? `${getDateDifferenceHM(arrivalTime, dayjs())}` : EMPTY_FIELD}
+              {' '}
               ago
             </p>
           </>),

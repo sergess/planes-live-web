@@ -20,7 +20,7 @@ export default function Time({
 }) {
   const actualDate = actual ? dayjs(actual) : null;
   const timeDate = time ? dayjs(time) : null;
-  const diff = getDateDifference(actualDate, timeDate);
+  const diff = getDateDifference(actualDate, timeDate).minutes();
 
   if (actual && +diff !== 0) {
     const isLater = diff > 0;
@@ -58,7 +58,7 @@ export default function Time({
                 color: EARLIER_COLOR,
               }}
             >
-              {diff}
+              {Math.abs(diff)}
               m
               {' '}
               earlier

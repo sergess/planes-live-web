@@ -7,8 +7,7 @@ import InfoBlock from '@/components/FlightInfo/FlightCard/InfoBlock';
 import DescriptionBlock from '@/components/FlightInfo/FlightCard/DescriptionBlock';
 import { EMPTY_FIELD } from '@/constants/index';
 
-import { MIN_TO_HOUR } from '@/constants/date';
-import { getDateDifference } from '@/utils/date';
+import { getDateDifferenceHM } from '@/utils/date';
 import styles from './flightCard.module.css';
 
 export default function FlightCard({
@@ -18,12 +17,10 @@ export default function FlightCard({
   departureTerminal, arrivalGate, departureGate, status, arrivalBaggageClaim,
   departureCheckInDesk, actions,
 }) {
-  const total = getDateDifference(
+  const total = getDateDifferenceHM(
     actualArrivalTime || arrivalTime,
     actualDepartureTime || departureTime,
   );
-  const totalHours = Math.floor(total / MIN_TO_HOUR);
-  const totalMinutes = total % MIN_TO_HOUR;
 
   return (
     <div className={styles.box}>
@@ -96,8 +93,7 @@ export default function FlightCard({
             />
             <p className={styles.timeDiff}>
               Total
-              {!!totalHours && ` ${totalHours}h `}
-              {` ${totalMinutes}m`}
+              {` ${total}`}
             </p>
             <Image
               src="/svg/hor_line.svg"

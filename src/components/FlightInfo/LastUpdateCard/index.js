@@ -53,7 +53,7 @@ export default function LastUpdateCard({
       <div className={styles.header}>
         <p>LATEST UPDATE</p>
         <p>
-          {getDateDifference(dayjs(), action.time)}
+          {getDateDifference(dayjs(), action.time).minutes()}
           {' '}
           min ago
         </p>
