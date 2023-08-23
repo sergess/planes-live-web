@@ -17,8 +17,8 @@ export default function Input({
     debounce(onChange, INPUT_DEBOUNCE),
     [options.length],
   );
-  const onOptionClick = (e, type) => {
-    onSelect(options[e.target.value].value, type);
+  const onOptionClick = (e, value, type) => {
+    onSelect(value, type);
   };
   const onClose = () => {
     router.back();
@@ -54,12 +54,11 @@ export default function Input({
           <li
             /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
             role="button"
-            onKeyDown={(e) => onOptionClick(e, type)}
+            onKeyDown={(e) => onOptionClick(e, value, type)}
             tabIndex="0"
             key={value}
-            value={value}
             className={styles.option}
-            onClick={(e) => onOptionClick(e, type)}
+            onClick={(e) => onOptionClick(e, value, type)}
           >
             {label}
             <span>{type}</span>

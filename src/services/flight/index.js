@@ -3,7 +3,7 @@ import { request_uri } from '@/constants/index';
 
 export class Flight extends ApiV212 {
   async getFlightInfo(code) {
-    const { ok, data: response } = await this.callAsync(`${request_uri}position/icao/${code}`);
+    const { ok, data: response } = await this.callAsync(`${request_uri}position/nearest/icao/${code}`);
 
     const { data } = response;
 
