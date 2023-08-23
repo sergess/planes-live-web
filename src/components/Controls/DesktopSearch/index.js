@@ -21,8 +21,8 @@ export default function DesktopSearch({
     debounce(onChange, INPUT_DEBOUNCE),
     [options.length],
   );
-  const onOptionClick = (index, type) => {
-    onSelect(options[index].value, type);
+  const onOptionClick = (value, type) => {
+    onSelect(value, type);
   };
   const onClose = () => {
     setText('');
@@ -70,18 +70,17 @@ export default function DesktopSearch({
             <>
               {(!options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
               {(!options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
-              {options.map(({ label, value, type }, index) => (
+              {options.map(({ label, value, type }) => (
                 <li
                 /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
                   role="button"
-                  onKeyDown={() => onOptionClick(index, type)}
+                  onKeyDown={() => onOptionClick(value, type)}
                   onClick={() => {
                     setIsShow(false);
-                    onOptionClick(index, type);
+                    onOptionClick(value, type);
                   }}
                   tabIndex="0"
                   key={value}
-                  value={value}
                   className={styles.option}
                 >
                   {label}
