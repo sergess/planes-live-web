@@ -17,6 +17,7 @@ export const requestJson = async (
     const ok = isResponseOk(body);
 
     if (!ok) {
+      // eslint-disable-next-line no-console
       console.error('[requestJson]: response is not ok', {
         ok,
         url,
@@ -30,6 +31,7 @@ export const requestJson = async (
       data: ok ? (body) : null,
     };
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error('[requestJson]: ', err);
 
     return { ok: false, data: null };

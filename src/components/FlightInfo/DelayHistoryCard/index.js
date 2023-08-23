@@ -12,13 +12,13 @@ export default function DelayHistoryCard() {
       <div className={styles.tabs}>
         <Link
           href="/"
-          className={`${styles.tab}`}
+          className={styles.tab}
         >
           Departures
         </Link>
         <Link
           href="/"
-          className={`${styles.tab}`}
+          className={styles.tab}
         >
           Arrivals
         </Link>
