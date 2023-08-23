@@ -2,6 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
+import { withAirport, withFlight } from '@/middlewares/get-server-side-data';
 import Swipe from '@/components/Swipe';
 import Features from '@/components/Banners/Landing/Features';
 import Traffic from '@/components/Banners/Landing/Traffic';
@@ -10,7 +11,6 @@ import NotificationBanner from '@/components/Banners/Landing/Notification';
 import AirportBanner from '@/components/Banners/Landing/Airport';
 import KnowMore from '@/components/Banners/Landing/KnowMore';
 import Footer from '@/components/Footer';
-import { Airport, Flight } from '@/services/index';
 import DateBlock from '@/components/FlightInfo/DateBlock';
 import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
@@ -20,38 +20,32 @@ import styles from './page.module.css';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
-const flightService = new Flight();
-const airportService = new Airport();
-
 export default async function Page({ params }) {
-  const response = await flightService.getFlightInfo(params.id);
+  const { id: flightId } = params;
+  const flight = await withFlight(flightId);
 
-  if (!response) {
+  if (!flight) {
     notFound();
   }
 
-  const { flight } = response[0];
+  const { destinationAirport, departureAirport } = await withAirport(flight);
 
-  const [{ airport: destinationAirport }, { airport }] = await Promise.all(
-    [airportService.getAirport(flight?.destination), airportService.getAirport(flight?.origin)],
-  );
-
-  if (!destinationAirport || !airport) {
+  if (!destinationAirport || !departureAirport) {
     notFound();
   }
 
   return (
     <>
       <div className={styles.container}>
-        <Swipe id={params.id}>
+        <Swipe id={flightId}>
           <div className={styles.body}>
             <DateBlock />
             <FlightCard
-              city={airport.city}
+              city={departureAirport.city}
               logoUrl=""
               iata={flight?.iata}
-              name={airport.name}
-              originIata={airport.iata}
+              name={departureAirport.name}
+              originIata={departureAirport.iata}
               status={flight.status}
               destinationIata={destinationAirport.iata}
               destinationCity={destinationAirport.city}
@@ -91,7 +85,7 @@ export default async function Page({ params }) {
         longitude={flight.waypoints[0].lon}
         latitudeEnd={flight.waypoints[1].lat}
         longitudeEnd={flight.waypoints[1].lon}
-        code={params.id}
+        code={flightId}
       />
     </>
   );
