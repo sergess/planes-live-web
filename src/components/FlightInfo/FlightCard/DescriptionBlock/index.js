@@ -3,6 +3,7 @@ import React from 'react';
 import { STATUS } from '@/constants/flight';
 import styles from '@/components/FlightInfo/FlightCard/InfoBlock/infoBlock.module.css';
 import { EMPTY_FIELD } from '@/constants/index';
+import GateCard from '@/components/GateCard';
 
 export default function DescriptionBlock({
   status,
@@ -23,11 +24,17 @@ export default function DescriptionBlock({
               {' '}
               {departureTerminal}
             </p>
-            <p className={styles.value}>
-              Gate
-              {' '}
-              {departureGate || EMPTY_FIELD}
-            </p>
+            <div className={styles.value}>
+              <span className={styles.valueTitle}>
+                Gate
+              </span>
+              {departureGate ? (
+                <GateCard
+                  gate={departureGate}
+                  isDeparture
+                />
+              ) : EMPTY_FIELD}
+            </div>
           </>),
         [STATUS.ACTIVE]: (
           <>
@@ -36,11 +43,19 @@ export default function DescriptionBlock({
               {' '}
               {arrivalTerminal || EMPTY_FIELD}
             </p>
-            <p className={styles.value}>
-              Bag claim
-              {' '}
-              {arrivalBaggageClaim || EMPTY_FIELD}
-            </p>
+            <div className={styles.value}>
+              <span className={styles.valueTitle}>
+                Bag claim
+              </span>
+              <div>
+                {arrivalBaggageClaim ? (
+                  <GateCard
+                    gate={arrivalBaggageClaim}
+                    isDeparture={false}
+                  />
+                ) : EMPTY_FIELD}
+              </div>
+            </div>
           </>),
       }[status]}
     </div>
