@@ -27,6 +27,7 @@ export default () => {
       setLoading(false);
 
       // [TODO] Think about better way how it could be done
+      // eslint-disable-next-line no-unused-expressions
       response && setOptions([...response.airports
         .map((a) => ({
           label: a.name,

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 import { ApiV212 } from '@/services/api-v2.12';
 
+// eslint-disable-next-line import/prefer-default-export, func-style
 export async function POST(request) {
   const { query } = await request.json();
 
