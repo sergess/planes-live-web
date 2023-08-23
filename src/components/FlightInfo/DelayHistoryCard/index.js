@@ -11,14 +11,14 @@ export default function DelayHistoryCard() {
       </div>
       <div className={styles.tabs}>
         <Link
-          href="https://web-dev-28887a.planeslive.com/"
-          className={`${styles.tab} ${true && styles.active}`}
+          href="/"
+          className={styles.tab}
         >
           Departures
         </Link>
         <Link
-          href="https://web-dev-28887a.planeslive.com/"
-          className={`${styles.tab} ${false && styles.active}`}
+          href="/"
+          className={styles.tab}
         >
           Arrivals
         </Link>

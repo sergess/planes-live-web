@@ -27,19 +27,20 @@ export default () => {
       setLoading(false);
 
       // [TODO] Think about better way how it could be done
-      // eslint-disable-next-line no-unused-expressions
-      response && setOptions([...response.airports
-        .map((a) => ({
-          label: a.name,
-          value: a.icao,
-          type: OPTION_TYPE.airport,
-        })), ...response.autosuggest
-        .filter((e) => e.type === 'icao')
-        .map((a) => ({
-          label: a.code,
-          value: a.code,
-          type: OPTION_TYPE.flight,
-        }))]);
+      if (response) {
+        setOptions([...response.airports
+          .map((a) => ({
+            label: a.name,
+            value: a.icao,
+            type: OPTION_TYPE.airport,
+          })), ...response.autosuggest
+          .filter((e) => e.type === 'icao')
+          .map((a) => ({
+            label: a.code,
+            value: a.code,
+            type: OPTION_TYPE.flight,
+          }))]);
+      }
     };
     if (text.length > MIN_SYMBOL_COUNT) {
       asyncFetch(text);

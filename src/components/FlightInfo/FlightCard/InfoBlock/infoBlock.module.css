@@ -12,9 +12,14 @@
     text-transform: uppercase;
 }
 .value {
+    display: flex;
+    align-items: center;
     margin-top: .4rem;
     font-size: var(--font-body-3);
     font-weight: 600;
+}
+.valueTitle {
+    margin-right: .8rem;
 }
 .cancel {
     border: 1px solid var(--color-secondary-coral);
