@@ -19,8 +19,8 @@ export const getDateDifferenceHM = (
     startDate,
     endDate,
   );
-  const hours = diff.hours();
-  const min = diff.minutes();
+  const hours = Math.abs(diff.hours());
+  const min = Math.abs(diff.minutes());
 
   return `${hours !== 0 ? `${hours}h` : ''} ${min !== 0 ? min : ''}m`;
 };
