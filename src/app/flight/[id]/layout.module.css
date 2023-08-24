@@ -1,0 +1,34 @@
+.container {
+    box-shadow: var(--left-panel-shadow)
+}
+/* Desktop */
+@media (min-width: 701px) {
+    .container {
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        width: 39rem;
+        z-index: var(--airport-container-z-index);
+        background: var(--surfaces-base);
+    }
+    .main {
+        height: calc(100vh - var(--desktop-header-height));
+        overflow: auto;
+    }
+}
+.mobile {
+    position: sticky;
+    top: 0;
+}
+/* Mobile */
+@media (max-width: 701px) {
+    .desktop {
+        display: none;
+    }
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    .mobile {
+        display: none;
+    }
+}

@@ -33,7 +33,8 @@
           ["@/hooks/*", "./src/hooks"],
           ["@/api/*", "./src/api"],
           ["@/services/*", "./src/services"],
-          ["@/requests/*", "./src/requests"]
+          ["@/requests/*", "./src/requests"],
+          ["@/middlewares/*", "./src/middlewares"]
         ],
         "extensions": [".js", ".jsx"]
       }

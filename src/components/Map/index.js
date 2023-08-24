@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+import Map, {
+  Marker, GeolocateControl, Source, Layer, NavigationControl,
+} from 'react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_TOKEN } from '@/constants/index';
@@ -8,17 +11,14 @@ import styles from './map.module.css';
 
 export default async function MapBox({
   latitude, longitude, code,
-  longitudeEnd, latitudeEnd,
+  longitudeEnd, latitudeEnd, mapRef = null,
 }) {
   const geoControlRef = React.useRef();
-
-  const {
-    Map, GeolocateControl, Marker, Source, Layer, NavigationControl,
-  } = (await import('react-map-gl'));
 
   return (
     <div className={styles.mapContainer}>
       <Map
+        ref={mapRef}
         onLoad={() => {
           if (!latitude && !longitude) {
             geoControlRef.current?.trigger();

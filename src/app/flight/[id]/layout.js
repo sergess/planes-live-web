@@ -1,44 +1,22 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 
-import { isMobile } from '@/utils/serverComponent';
-import { Flight } from '@/services/index';
+import SearchHeader from '@/components/Header/searchHeader';
+import MobileRedirectSearch from '@/components/Controls/MobileRedirectSearch';
 
-const Map = dynamic(() => import('@/components/Map'), { ssr: false });
+import styles from './layout.module.css';
 
-const flightService = new Flight();
-
-export default async function Layout({ desktop, mobile, params }) {
-  // React will automatically dedupe the request
-  const flightData = await flightService.getFlightInfo(params.id);
-
-  const { flight } = flightData[0];
-
-  if (isMobile()) {
-    return (
-      <div className="mobile flightLayout">
-        <Map
-          latitude={flight.waypoints[0].lat}
-          longitude={flight.waypoints[0].lon}
-          latitudeEnd={flight.waypoints[1].lat}
-          longitudeEnd={flight.waypoints[1].lon}
-          code={params.id}
-        />
-        {mobile}
-      </div>
-    );
-  }
-
+export default async function Layout({ children }) {
   return (
-    <div className="flight flightLayout">
-      {desktop}
-      <Map
-        latitude={flight.waypoints[0].lat}
-        longitude={flight.waypoints[0].lon}
-        latitudeEnd={flight.waypoints[1].lat}
-        longitudeEnd={flight.waypoints[1].lon}
-        code={params.id}
-      />
+    <div className={styles.container}>
+      <div className={styles.mobile}>
+        <MobileRedirectSearch />
+      </div>
+      <div className={styles.desktop}>
+        <SearchHeader />
+      </div>
+      <main>
+        {children}
+      </main>
     </div>
   );
 }
