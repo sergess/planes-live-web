@@ -68,7 +68,8 @@ export default async function Page({ params }) {
                 />
               )}
             <DelayHistoryCard />
-            <div className={styles.mobContent}>
+            {/* applyMobile,landingBanners - classes for flight page styles */}
+            <div className={`${styles.mobContent} landingBanners applyMobile`}>
               <Features isMobileView />
               <Traffic />
               <Slider />

@@ -1,3 +1,4 @@
+@import 'src/app/styles/variables';
 @value primaryText from "../common.css";
 @value buttonContainer from "../common.css";
 
@@ -30,25 +31,27 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
-    .cardWrapper {
-        padding: 8rem 0 0 0;
-    }
-    .localButtonContainer {
-        margin-top: 22.8rem;
-    }
-    .container {
-        padding-bottom: 0;
-        margin: 28.5rem 10rem 0;
-    }
-    .cardWrapper {
-        padding-top: 8rem;
-        background-image: url("/map.png");
-        background-size: auto;
-        background-position: top;
-        margin-top: 0;
-    }
-    .description br {
-        display: none;
+@media (min-width: $mobile-breakpoint) {
+    :global(.landingBanners:not(.applyMobile)) {
+        .cardWrapper {
+            padding: 8rem 0 0 0;
+        }
+        .localButtonContainer {
+            margin-top: 22.8rem;
+        }
+        .container {
+            padding-bottom: 0;
+            margin: 28.5rem 10rem 0;
+        }
+        .cardWrapper {
+            padding-top: 8rem;
+            background-image: url("/map.png");
+            background-size: auto;
+            background-position: top;
+            margin-top: 0;
+        }
+        .description br {
+            display: none;
+        }
     }
 }

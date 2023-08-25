@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 
 import StoreBadge from '@/components/StoreBadge';
 import Card from './Card';
-import styles from './airport.module.css';
+import styles from './airport.module.scss';
 
 const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 

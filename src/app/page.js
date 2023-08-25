@@ -18,7 +18,8 @@ const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '
 
 export default function Home() {
   return (
-    <>
+    /* class for flight page styles */
+    <div className="landingBanners">
       <LandingHeader />
       <main className={`${styles.main} ${inter.className}`}>
         <h1 className={styles.searchWrapper}>
@@ -49,6 +50,6 @@ export default function Home() {
         <KnowMore />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

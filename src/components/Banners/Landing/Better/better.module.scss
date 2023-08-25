@@ -1,3 +1,5 @@
+@import 'src/app/styles/variables';
+
 .primaryText {
     composes: primaryText from "../common.css";
     margin-left: .5rem;
@@ -18,17 +20,19 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
-    .title > br {
-        display: none;
-    }
-    .title {
-        margin: 2rem 0 2rem 0;
-    }
-    .container {
-        width: 59rem;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 36.5rem;
+@media (min-width: $mobile-breakpoint) {
+    :global(.landingBanners:not(.applyMobile)) {
+        .title > br {
+            display: none;
+        }
+        .title {
+            margin: 2rem 0 2rem 0;
+        }
+        .container {
+            width: 59rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 36.5rem;
+        }
     }
 }

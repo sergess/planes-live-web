@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 
 import StoreBadge from '@/components/StoreBadge';
 
-import styles from './traffic.module.css';
+import styles from './traffic.module.scss';
 
 const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 
