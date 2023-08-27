@@ -4,7 +4,7 @@ import SearchFlight from '@/components/SearchFlight';
 import SearchHeader from '@/components/Header/searchHeader';
 
 import dynamic from 'next/dynamic';
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
 

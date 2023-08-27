@@ -1,5 +1,5 @@
 /* Desktop */
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     .container {
         height: 100vh;
         position: absolute;
@@ -17,13 +17,13 @@
     top: 0;
 }
 /* Mobile */
-@media (max-width: 701px) {
+@media (max-width: $mobile-breakpoint) {
     .desktop {
         display: none;
     }
 }
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     .mobile {
         display: none;
     }

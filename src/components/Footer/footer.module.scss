@@ -33,7 +33,7 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     :global(.landingBanners:not(.applyMobile)) {
         .footer {
             text-align: center;

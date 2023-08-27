@@ -12,7 +12,7 @@
     height: 2.4rem;
 }
 /* Desktop */
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     .container {
         width: 100%;
         height: calc(100vh - var(--desktop-header-height));
