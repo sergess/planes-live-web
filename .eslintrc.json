@@ -18,7 +18,9 @@
       "error",
       { "blankLine": "always", "prev": "*", "next": "return" }
     ],
-    "jsx-a11y/no-autofocus": 0
+    "jsx-a11y/no-autofocus": 0,
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off"
   },
   "settings": {
     "import/resolver": {
@@ -34,7 +36,8 @@
           ["@/api/*", "./src/api"],
           ["@/services/*", "./src/services"],
           ["@/requests/*", "./src/requests"],
-          ["@/middlewares/*", "./src/middlewares"]
+          ["@/middlewares/*", "./src/middlewares"],
+          ["@/state/*", "./src/state"]
         ],
         "extensions": [".js", ".jsx"]
       }
