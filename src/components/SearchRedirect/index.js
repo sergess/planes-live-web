@@ -16,7 +16,7 @@ export default function SearchRedirect() {
       <input
         disabled
         type="text"
-        placeholder="Search by flight number, airline, or airpor"
+        placeholder="Search by flight number, airline, or airport"
         className={styles.input}
       />
     </Link>
