@@ -1,5 +1,6 @@
 @value primaryText from "../common.css";
 @value buttonContainer from "../common.css";
+@import 'src/app/styles/variables';
 
 .header {
     font-size: var(--font-h3);
@@ -24,20 +25,24 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
-    .container {
-        width: 59rem;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 16.5rem;
-        margin-top: 4rem;
-        background-image: url("/globe_desk.png");
-    }
-    .text, .header {
-        text-align: center;
-    }
-    .text {
-        font-size: var(--font-subheadline);
-        margin-bottom: 5.9rem;
+@media (min-width: $mobile-breakpoint) {
+    :global(.landingBanners:not(.applyMobile)) {
+        .container {
+            width: 59rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 16.5rem;
+            margin-top: 4rem;
+            background-image: url("/globe_desk.png");
+        }
+
+        .text, .header {
+            text-align: center;
+        }
+
+        .text {
+            font-size: var(--font-subheadline);
+            margin-bottom: 5.9rem;
+        }
     }
 }

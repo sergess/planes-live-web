@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import Notifications from '@/components/Notifications';
 import StoreBadge from '@/components/StoreBadge';
 
-import styles from './notification.module.css';
+import styles from './notification.module.scss';
 
 const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 

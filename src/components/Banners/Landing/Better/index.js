@@ -2,7 +2,7 @@ import React from 'react';
 
 import OutlineButton from '@/components/Controls/Buttons/outline';
 import { FEATURES_ANCHOR } from '@/constants/index';
-import styles from './better.module.css';
+import styles from './better.module.scss';
 
 export default function Better() {
   return (

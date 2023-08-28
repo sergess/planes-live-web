@@ -18,7 +18,10 @@
 }
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) {
-    .buttonContainer > a {
+    :global(.landingBanners:not(.applyMobile)) .buttonContainer > a {
+        display: none;
+    }
+    :global(.applyMobile) .buttonContainer img {
         display: none;
     }
 }

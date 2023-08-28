@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './notifications.module.css';
+import styles from './notifications.module.scss';
 import Item from './Item';
 
 const TOP_ROW_ITEMS = [

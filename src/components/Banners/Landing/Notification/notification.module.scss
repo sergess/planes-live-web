@@ -1,5 +1,6 @@
 @value primaryText from "../common.css";
 @value buttonContainer from "../common.css";
+@import 'src/app/styles/variables';
 
 .header {
     font-size: var(--font-h3);
@@ -28,10 +29,14 @@
     margin-top: 4rem;
     margin-bottom: 2.5rem;
 }
-
-@media (min-width: 701px) {
-    .container {
-        overflow: inherit;
-        margin: 32rem auto 0 auto;
+:global(.applyMobile) .container {
+    margin: 9.2rem 0 0 0;
+}
+@media (min-width: $mobile-breakpoint) {
+    :global(.landingBanners:not(.applyMobile)) {
+        .container {
+            overflow: inherit;
+            margin: 32rem auto 0 auto;
+        }
     }
 }

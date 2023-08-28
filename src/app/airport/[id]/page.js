@@ -8,7 +8,7 @@ import Statistics from '@/components/Airport/Statistics';
 import Security from '@/components/Airport/Security';
 import { isMobile } from '@/utils/serverComponent';
 import { Airport } from '@/services/index';
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 

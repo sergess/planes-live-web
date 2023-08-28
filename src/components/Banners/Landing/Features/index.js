@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 import StoreBadge from '@/components/StoreBadge';
 import { FEATURES_ANCHOR } from '@/constants/index';
-import styles from './features.module.css';
+import styles from './features.module.scss';
 
 const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 

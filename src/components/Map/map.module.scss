@@ -15,7 +15,7 @@
 :global(.mobile) .mapContainer {
     z-index: 1;
 }
-@media (max-width: 701px) {
+@media (max-width: $mobile-breakpoint) {
     .mapContainer {
         position: fixed;
         height: calc(100vh - var(--mobile-header-height));
