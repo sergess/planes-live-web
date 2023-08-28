@@ -8,6 +8,7 @@ import Statistics from '@/components/Airport/Statistics';
 import Security from '@/components/Airport/Security';
 import { isMobile } from '@/utils/serverComponent';
 import { Airport } from '@/services/index';
+import { withCommon } from '@/middlewares/get-server-side-data/with-common';
 import styles from './page.module.css';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
@@ -28,13 +29,14 @@ export const generateMetadata = async ({ params }) => {
 };
 
 export default async function Page({ params, searchParams }) {
-  const response = await airportService.getAirport(params.id);
+  const [airportResponse, commonData] = await Promise.all([
+    airportService.getAirport(params.id), withCommon(),
+  ]);
 
-  if (!response) {
+  if (!airportResponse) {
     notFound();
   }
-
-  const { airport, statistic } = response;
+  const { airport, statistic } = airportResponse;
 
   const show_departures = searchParams?.show_departures || 6;
   const show_arrivals = searchParams?.show_arrivals || 6;
@@ -57,6 +59,9 @@ export default async function Page({ params, searchParams }) {
           query="arrivals"
           showAll={show_arrivals}
           otherQuery={`show_departures=${show_departures}`}
+          airports={commonData.airports}
+          isArrival
+          findField="origin"
         />
         <InfoList
           label="DEPARTURES"
@@ -64,6 +69,9 @@ export default async function Page({ params, searchParams }) {
           query="departures"
           showAll={show_departures}
           otherQuery={`show_arrivals=${show_arrivals}`}
+          airports={commonData.airports}
+          isArrival={false}
+          findField="destination"
         />
         <Statistics {...statistic} />
         <Security />
