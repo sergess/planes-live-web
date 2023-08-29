@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
+import dayjs from 'dayjs';
 
-import { DAY_MONTH_DATE_FORMAT, DEFAULT_TIME_FORMAT } from '@/constants/date';
-import ClientFormatDate from '@/components/ClientComponent';
-import TimeZoneOffset from '@/components/TimeZoneOffset';
+import { DAY_MONTH_DATE_FORMAT, DEFAULT_TIME_FORMAT, MIN_TO_HOUR } from '@/constants/date';
+import { formatDate } from '@/utils/date';
 import styles from './airportContacts.module.css';
 
 export default function AirportContacts({
-  city, country, iata, phone,
+  city, country, iata, phone, tz,
 }) {
   const date = new Date();
 
@@ -35,12 +35,13 @@ export default function AirportContacts({
       </div>
       <div className={styles.date}>
         <p>
-          <ClientFormatDate format={DEFAULT_TIME_FORMAT} date={date.toString()} />
+          {formatDate(date, DEFAULT_TIME_FORMAT, tz)}
           {' '}
-          <TimeZoneOffset />
+          • GMT
+          {dayjs().tz(tz).$offset / MIN_TO_HOUR}
         </p>
         <p>
-          <ClientFormatDate format={DAY_MONTH_DATE_FORMAT} date={date.toString()} />
+          {formatDate(date, DAY_MONTH_DATE_FORMAT, tz)}
         </p>
       </div>
     </div>

@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import LinkTo from '@/components/Controls/Link';
 import { Airport } from '@/services/index';
+import { filterOnlyFutureFlights } from '@/utils/date';
 import Item from './Item';
 
 import styles from './infoList.module.css';
@@ -15,11 +16,12 @@ const ARRIVAL_ICON = '/svg/ic_arrival.svg';
 
 export default async function InfoList({
   label, code, query, isArrival, showAll, otherQuery, airports,
-  mapAirportField,
+  mapAirportField, tz,
 }) {
   const response = await airportService.getAirportFlightsByQuery(code, query);
   const dateKey = isArrival ? 'arrival' : 'departure';
-  const items = response.slice(0, +showAll);
+  const items = response.filter((item) => filterOnlyFutureFlights(item, dateKey, tz))
+    .slice(0, +showAll);
 
   return (
     <div className={styles.wrapper}>
@@ -41,6 +43,7 @@ export default async function InfoList({
             actualDateValue={flight[`${dateKey}_actual`]}
             airport={airports.find((air) => air.icao === flight[mapAirportField])}
             sharedCodes={flight.shared_codes}
+            tz={tz}
           />
         ))}
         <LinkTo

@@ -49,6 +49,7 @@ export default async function Page({ params, searchParams }) {
           country={airport.country}
           iata={airport.iata}
           phone={airport.phone}
+          tz={airport.timezone_name}
         />
         <InfoList
           label="ARRIVALS"
@@ -59,6 +60,7 @@ export default async function Page({ params, searchParams }) {
           airports={commonDataResponse.airports}
           isArrival
           mapAirportField="origin"
+          tz={airport.timezone_name}
         />
         <InfoList
           label="DEPARTURES"
@@ -69,6 +71,7 @@ export default async function Page({ params, searchParams }) {
           airports={commonDataResponse.airports}
           isArrival={false}
           mapAirportField="destination"
+          tz={airport.timezone_name}
         />
         <Statistics {...statistic} />
         <Security />
