@@ -7,7 +7,7 @@ import useScreenWidthSmallerThan from '@/hooks/useScreenWidthSmallerThan';
 
 const DESKTOP_WIDTH = 701;
 
-export default function CustomMap() {
+export default function CustomMap(props) {
   const { isSmaller: isScreenMob, screenWidth } = useScreenWidthSmallerThan(DESKTOP_WIDTH);
 
   const mapRef = useRef(null);
@@ -19,6 +19,6 @@ export default function CustomMap() {
   }, [isScreenMob, screenWidth]);
 
   return (
-    !isScreenMob && <MapBox mapRef={mapRef} />
+    !isScreenMob && <MapBox mapRef={mapRef} {...props} />
   );
 }

@@ -11,7 +11,7 @@ import { Airport } from '@/services/index';
 import { withCommon } from '@/middlewares/get-server-side-data/with-common';
 import styles from './page.module.scss';
 
-const Map = dynamic(() => import('@/components/Map'), { ssr: false });
+const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
 
 const airportService = new Airport();
 
@@ -76,13 +76,11 @@ export default async function Page({ params, searchParams }) {
         <Statistics {...statistic} />
         <Security />
       </div>
-      {!isMobile() && (
-      <Map
+      <CustomMap
         latitude={airport.lat}
         longitude={airport.lon}
         code={params.id}
       />
-      )}
     </>
   );
 }
