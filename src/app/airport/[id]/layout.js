@@ -3,7 +3,7 @@ import React from 'react';
 import PageHeader from '@/components/Header/pageHeader';
 import SearchHeader from '@/components/Header/searchHeader';
 
-import styles from './layout.module.css';
+import styles from './layout.module.scss';
 
 export default function Layout({ children }) {
   return (

@@ -4,7 +4,7 @@
 @value drawerRadius: 15px 15px 0 0;
 
 /* Mobile */
-@media (max-width: 701px) {
+@media (max-width: $mobile-breakpoint) {
     .gripWrapper {
         display: flex;
         justify-content: center;
@@ -36,7 +36,7 @@
 }
 
 /* Desktop */
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     .gripWrapper {
         display: none;
     }

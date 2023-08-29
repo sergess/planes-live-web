@@ -8,8 +8,8 @@ import Statistics from '@/components/Airport/Statistics';
 import Security from '@/components/Airport/Security';
 import { isMobile } from '@/utils/serverComponent';
 import { Airport } from '@/services/index';
+import styles from './page.module.scss';
 import { withCommon } from '@/middlewares/get-server-side-data/with-common';
-import styles from './page.module.css';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 

@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 module.exports = {
   output: 'standalone',
   images: {
@@ -15,6 +17,10 @@ module.exports = {
         pathname: '**',
       },
     ],
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+    prependData: '@import "@/styles/variables.scss";',
   },
   experimental: {
     appDir: true,

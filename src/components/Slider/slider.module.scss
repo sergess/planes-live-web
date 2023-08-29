@@ -38,7 +38,7 @@
 }
 
 /*noinspection CssInvalidPropertyValue*/
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     .iphone {
         top: 5.5rem;
     }

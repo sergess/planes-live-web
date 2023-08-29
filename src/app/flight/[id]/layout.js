@@ -3,7 +3,7 @@ import React from 'react';
 import SearchHeader from '@/components/Header/searchHeader';
 import MobileRedirectSearch from '@/components/Controls/MobileRedirectSearch';
 
-import styles from './layout.module.css';
+import styles from './layout.module.scss';
 
 export default async function Layout({ children }) {
   return (

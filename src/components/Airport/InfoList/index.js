@@ -14,7 +14,6 @@ const DEPARTURE_ICON = '/svg/ic_departure.svg';
 const ARRIVAL_ICON = '/svg/ic_departure.svg';
 
 export default async function InfoList({
-  // eslint-disable-next-line no-unused-vars
   label, code, query, isArrival, showAll, otherQuery, airports,
   findField,
 }) {

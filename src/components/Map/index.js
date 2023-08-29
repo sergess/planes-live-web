@@ -7,7 +7,7 @@ import Map, {
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_TOKEN } from '@/constants/index';
-import styles from './map.module.css';
+import styles from './map.module.scss';
 
 export default async function MapBox({
   latitude, longitude, code,

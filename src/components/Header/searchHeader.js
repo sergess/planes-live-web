@@ -6,7 +6,7 @@ import Image from 'next/image';
 import DesktopSearch from '@/components/Controls/DesktopSearch';
 import useSearchFlight from '@/hooks/useSearchFlight';
 
-import styles from './header.module.css';
+import styles from './header.module.scss';
 
 export default function SearchHeader() {
   const {

@@ -18,12 +18,12 @@
     background: var(--surfaces-base);
 }
 /*!* Desktop *!*/
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     .mobile {
         display: none;
     }
 }/*!* Mobile *!*/
-@media (max-width: 701px) {
+@media (max-width: $mobile-breakpoint) {
     .desktop {
         display: none;
     }

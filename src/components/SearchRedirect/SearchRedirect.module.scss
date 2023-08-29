@@ -9,7 +9,7 @@
     font-size: var(--font-body-1);
 }
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     .input {
         width: 59rem;
         margin: 2rem auto 0 auto;

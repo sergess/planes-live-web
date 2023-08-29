@@ -12,13 +12,14 @@ import { Inter } from 'next/font/google';
 import SearchRedirect from '@/components/SearchRedirect';
 import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
 
 export default function Home() {
   return (
-    <>
+    /* class for flight page styles */
+    <div className="landingBanners">
       <LandingHeader />
       <main className={`${styles.main} ${inter.className}`}>
         <h1 className={styles.searchWrapper}>
@@ -49,6 +50,6 @@ export default function Home() {
         <KnowMore />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

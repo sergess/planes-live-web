@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import styles from './slider.module.css';
+import styles from './slider.module.scss';
 
 export default function Slider() {
   return (
