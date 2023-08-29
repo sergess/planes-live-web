@@ -6,6 +6,7 @@ import Image from 'next/image';
 import DesktopSearch from '@/components/Controls/DesktopSearch';
 import useSearchFlight from '@/hooks/useSearchFlight';
 
+import Link from 'next/link';
 import styles from './header.module.scss';
 
 export default function SearchHeader() {
@@ -15,13 +16,15 @@ export default function SearchHeader() {
 
   return (
     <header className={styles.searchContainer}>
-      <Image
-        src="/svg/app_icon.svg"
-        priority
-        width={40}
-        height={41}
-        alt="Planes Live - Flight Tracker app"
-      />
+      <Link href="/">
+        <Image
+          src="/svg/app_icon.svg"
+          priority
+          width={40}
+          height={41}
+          alt="Planes Live - Flight Tracker app"
+        />
+      </Link>
       <DesktopSearch
         onChange={onChange}
         onSelect={onSelect}
