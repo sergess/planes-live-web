@@ -7,9 +7,7 @@ import { formatDate } from '@/utils/date';
 export default function ClientFormatDate({ date, format }) {
   return (
     <>
-      {
-    formatDate(date, format)
-}
+      {formatDate(date, format)}
     </>
   );
 }
