@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-grow: 1;
-    padding: 0 3rem;
+    padding: 0 2rem;
     color: var(--color-primary);
     font-weight: 600;
     font-size: var(--font-body-2);
@@ -19,13 +19,13 @@
 .timeLg {
     width: 6rem;
     font-size: var(--font-body-2);
-    margin-bottom: .4rem;
 }
 .timeSm {
     font-size: var(--font-caption);
     color: var(--color-dark-50);
     font-weight: 400;
     text-decoration: line-through;
+    margin-top: .4rem;
 }
 .cityIata {
     font-size: var(--font-caption);
@@ -39,4 +39,10 @@
 }
 .container:last-of-type {
     border: none;
+}
+.timeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }

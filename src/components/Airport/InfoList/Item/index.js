@@ -15,7 +15,7 @@ export default function Item({
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.timeContainer}>
         <p className={styles.timeLg}>
           {formatDate(actual_date || date, DEFAULT_TIME_FORMAT)}
         </p>

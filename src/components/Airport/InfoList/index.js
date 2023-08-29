@@ -11,7 +11,7 @@ const SHOW_ITEMS_COUNT = 6;
 
 const airportService = new Airport();
 const DEPARTURE_ICON = '/svg/ic_departure.svg';
-const ARRIVAL_ICON = '/svg/ic_departure.svg';
+const ARRIVAL_ICON = '/svg/ic_arrival.svg';
 
 export default async function InfoList({
   label, code, query, isArrival, showAll, otherQuery, airports,
@@ -26,8 +26,8 @@ export default async function InfoList({
       <div className={styles.label}>
         <Image
           src={isArrival ? ARRIVAL_ICON : DEPARTURE_ICON}
-          width={12}
-          height={12}
+          width={14}
+          height={14}
           alt="Departure icon"
         />
         <p>{label}</p>
