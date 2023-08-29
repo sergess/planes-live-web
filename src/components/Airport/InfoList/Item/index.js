@@ -6,8 +6,14 @@ import { DEFAULT_TIME_FORMAT } from '@/constants/date';
 
 import styles from './item.module.css';
 
+const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, index) => (
+  <>
+    {code}
+    {index !== sharedCodes.length - 1 && <>&middot;</>}
+  </>
+));
 export default function Item({
-  dateValue, actualDateValue, icao, airport,
+  dateValue, actualDateValue, icao, airport, sharedCodes,
 }) {
   const actual_date = actualDateValue ? dayjs(actualDateValue) : null;
   const date = dayjs(dateValue);
@@ -26,7 +32,14 @@ export default function Item({
         )}
       </div>
       <div className={styles.title}>
-        {icao}
+        <p>
+          {icao}
+        </p>
+        {!!sharedCodes && (
+        <p className={styles.codes}>
+          {getFormattedCodes(sharedCodes)}
+        </p>
+        )}
       </div>
       <div>
         <div className={styles.city}>

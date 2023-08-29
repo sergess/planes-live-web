@@ -40,6 +40,7 @@ export default async function InfoList({
             dateValue={flight[dateKey]}
             actualDateValue={flight[`${dateKey}_actual`]}
             airport={airports.find((air) => air.icao === flight[mapAirportField])}
+            sharedCodes={flight.shared_codes}
           />
         ))}
         <LinkTo
