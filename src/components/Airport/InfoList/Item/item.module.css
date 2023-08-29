@@ -31,6 +31,7 @@
     font-size: var(--font-caption);
     color: var(--color-dark-50);
     font-weight: 400;
+    text-align: right;
 }
 .city {
     font-size: var(--font-body-1);

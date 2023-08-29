@@ -32,7 +32,7 @@ export default function Item({
         <div className={styles.city}>
           {airport.city}
         </div>
-        <div className={styles.cityIata} style={{ textAlign: 'right' }}>{airport.iata}</div>
+        <div className={styles.cityIata}>{airport.iata}</div>
       </div>
     </div>
   );
