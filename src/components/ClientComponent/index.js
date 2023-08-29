@@ -1,5 +1,13 @@
 'use client';
 
-export default function ClientComponent({ children }) {
-  return children;
+import React from 'react';
+
+import { formatDate } from '@/utils/date';
+
+export default function ClientFormatDate({ date, format }) {
+  return (
+    <>
+      {formatDate(date, format)}
+    </>
+  );
 }
