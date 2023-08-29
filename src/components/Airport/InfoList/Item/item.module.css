@@ -7,8 +7,9 @@
 }
 .title {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
     flex-grow: 1;
     padding: 0 2rem;
     color: var(--color-primary);
@@ -45,4 +46,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
+.codes {
+    font-weight: 400;
+    font-size: var(--font-caption);
+    color: var(--color-dark-70);
+    margin-top: .2rem;
 }
