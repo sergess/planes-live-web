@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useContext } from 'react';
-
-import { ModalContext } from '@/state/contexts/modal/ModalContext';
-
 import Image from 'next/image';
-import styles from './modal.module.css';
+
+import { ModalContext } from '@/contexts/modal/ModalContext';
+import styles from './modal.module.scss';
 
 export default function Modal({ content }) {
   const { closeModal } = useContext(ModalContext);

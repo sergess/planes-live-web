@@ -1,7 +1,7 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
 
-import ModalProvider from '@/state/contexts/modal/ModalContextProvider';
+import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import '@/styles/globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });

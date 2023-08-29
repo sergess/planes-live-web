@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from 'react';
 
 import Modal from '@/components/Modal';
-import { ModalContext } from '@/state/contexts/modal/ModalContext';
+import { ModalContext } from './ModalContext';
 
 export default function ModalProvider({ children }) {
   const [modalOpened, setModalOpened] = useState(false);

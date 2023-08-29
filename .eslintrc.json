@@ -37,7 +37,7 @@
           ["@/services/*", "./src/services"],
           ["@/requests/*", "./src/requests"],
           ["@/middlewares/*", "./src/middlewares"],
-          ["@/state/*", "./src/state"]
+          ["@/contexts/*", "./src/contexts"]
         ],
         "extensions": [".js", ".jsx"]
       }

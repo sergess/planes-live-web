@@ -2,7 +2,7 @@
 
 import React, { useContext } from 'react';
 
-import { ModalContext } from '@/state/contexts/modal/ModalContext';
+import { ModalContext } from '@/contexts/modal/ModalContext';
 
 export default function ModalControls() {
   const { openModal } = useContext(ModalContext);
