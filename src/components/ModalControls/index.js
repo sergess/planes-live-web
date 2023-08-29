@@ -3,13 +3,14 @@
 import React, { useContext } from 'react';
 
 import { ModalContext } from '@/contexts/modal/ModalContext';
+import SubscriptionPopup from '@/components/SubscriptionPopup';
 
 export default function ModalControls() {
   const { openModal } = useContext(ModalContext);
 
   const onClickFirstButton = () => {
     openModal({
-      content: '0',
+      content: <SubscriptionPopup />,
     });
   };
 

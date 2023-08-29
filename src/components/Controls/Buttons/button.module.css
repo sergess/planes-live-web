@@ -19,6 +19,18 @@
     width: 15rem;
     text-decoration: none;
 }
+.custom {
+    background-color: var(--color-primary);
+    border-radius: 4.2rem;
+    padding: 1rem 2rem;
+    font-size: var(--font-body-2);
+    font-weight: 600;
+    color: white;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
 .large {
     padding: 1rem 2rem;
     font-size: var(--font-body-2);
