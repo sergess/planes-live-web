@@ -6,9 +6,8 @@ import AirportContacts from '@/components/Airport/AirportContacts';
 import InfoList from '@/components/Airport/InfoList';
 import Statistics from '@/components/Airport/Statistics';
 import Security from '@/components/Airport/Security';
-import { isMobile } from '@/utils/serverComponent';
 import { Airport } from '@/services/index';
-import { withCommon } from '@/middlewares/get-server-side-data/with-common';
+import { withAirportsPageData } from '@/middlewares/get-server-side-data/with-airports-page-data';
 import styles from './page.module.scss';
 
 const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
@@ -29,9 +28,7 @@ export const generateMetadata = async ({ params }) => {
 };
 
 export default async function Page({ params, searchParams }) {
-  const [airportResponse, commonData] = await Promise.all([
-    airportService.getAirport(params.id), withCommon(),
-  ]);
+  const [airportResponse, commonDataResponse] = await withAirportsPageData(params?.id);
 
   if (!airportResponse) {
     notFound();
@@ -59,7 +56,7 @@ export default async function Page({ params, searchParams }) {
           query="arrivals"
           showAll={show_arrivals}
           otherQuery={`show_departures=${show_departures}`}
-          airports={commonData.airports}
+          airports={commonDataResponse.airports}
           isArrival
           mapAirportField="origin"
         />
@@ -69,7 +66,7 @@ export default async function Page({ params, searchParams }) {
           query="departures"
           showAll={show_departures}
           otherQuery={`show_arrivals=${show_arrivals}`}
-          airports={commonData.airports}
+          airports={commonDataResponse.airports}
           isArrival={false}
           mapAirportField="destination"
         />
