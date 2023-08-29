@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import styles from '@/components/Controls/Input/input.module.css';
+import styles from '@/components/Controls/Input/input.module.scss';
 
 export default function SearchRedirect() {
   return (
@@ -16,7 +16,7 @@ export default function SearchRedirect() {
       <input
         disabled
         type="text"
-        placeholder="Search by flight number, airline, or airpor"
+        placeholder="Search by flight number, airline, or airport"
         className={styles.input}
       />
     </Link>

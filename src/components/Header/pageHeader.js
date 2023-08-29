@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import styles from './header.module.css';
+import styles from './header.module.scss';
 
 export default function PageHeader() {
   return (

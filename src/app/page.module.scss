@@ -27,7 +27,7 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
   .searchWrapper > br {
     display: none;
   }

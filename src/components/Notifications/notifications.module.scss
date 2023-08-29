@@ -20,7 +20,7 @@
     padding-bottom: 6rem;
 }
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
+@media (min-width: $mobile-breakpoint) {
     .rowBottom {
         animation: none;
         margin: 0 auto;

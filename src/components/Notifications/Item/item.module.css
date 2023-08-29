@@ -1,4 +1,4 @@
-@value values: "./../notifications.module.css";
+@value values: "../notifications.module.scss";
 @value notificationWidth, notificationMargin from values;
 .container {
     padding: 1rem 1.6rem 1rem 1.6rem;
@@ -20,4 +20,5 @@
     margin-right: .8rem;
     font-weight: 500;
     font-size: 1.7rem;
+    white-space: nowrap;
 }

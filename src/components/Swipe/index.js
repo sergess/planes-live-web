@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import styles from './Swipe.module.css';
+import styles from './Swipe.module.scss';
 
 const minSwipeDistance = 1;
 const DRAWER_STATE = {

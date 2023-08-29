@@ -3,7 +3,7 @@ import { Bebas_Neue } from 'next/font/google';
 import dynamic from 'next/dynamic';
 
 import StoreBadge from '@/components/StoreBadge';
-import styles from './knowMore.module.css';
+import styles from './knowMore.module.scss';
 
 const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import styles from './footer.module.css';
+import styles from './footer.module.scss';
 
 const TERMS_REF = 'http://planeslive.com/terms';
 const POLICY_REF = 'http://planeslive.com/privacyPolicy';

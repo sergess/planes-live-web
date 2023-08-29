@@ -33,22 +33,27 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
-    .footer {
-        text-align: center;
-        padding-bottom: 4rem;
-        padding-top: 2rem;
-    }
-    .logo {
-        justify-content: center;
-        margin-bottom: 2rem;
-    }
-    .blocks {
-        display: flex;
-        justify-content: center;
-    }
-    .blocks p,.blocks a {
-        margin: 0 4.4rem 0 0 ;
+@media (min-width: $mobile-breakpoint) {
+    :global(.landingBanners:not(.applyMobile)) {
+        .footer {
+            text-align: center;
+            padding-bottom: 4rem;
+            padding-top: 2rem;
+        }
+
+        .logo {
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .blocks {
+            display: flex;
+            justify-content: center;
+        }
+
+        .blocks p, .blocks a {
+            margin: 0 4.4rem 0 0;
+        }
     }
 }
 .support {
