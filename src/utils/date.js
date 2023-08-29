@@ -1,8 +1,11 @@
 import * as dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import utc from 'dayjs/plugin/utc';
 
-export const formatDate = (date, format) => dayjs(date).format(format);
 dayjs.extend(duration);
+dayjs.extend(utc);
+
+export const formatDate = (date, format) => dayjs(date).local().format(format);
 
 export const getDateDifference = (
   startDate,

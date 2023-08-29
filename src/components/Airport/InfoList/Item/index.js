@@ -1,22 +1,25 @@
 import React from 'react';
+import dayjs from 'dayjs';
 
-import { formatDate } from '@/utils/date';
+import { formatDate, getDateDifference } from '@/utils/date';
 import { DEFAULT_TIME_FORMAT } from '@/constants/date';
+
 import styles from './item.module.css';
 
 export default function Item({
-  dateValue, actualDateValue, icao, airportLabel,
+  dateValue, actualDateValue, icao, airport,
 }) {
-  const actual_date = actualDateValue ? new Date(actualDateValue) : null;
-  const date = new Date(dateValue);
+  const actual_date = actualDateValue ? dayjs(actualDateValue) : null;
+  const date = dayjs(dateValue);
+  const actualDateDifference = getDateDifference(dateValue, actualDateValue).minutes();
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.timeContainer}>
         <p className={styles.timeLg}>
           {formatDate(actual_date || date, DEFAULT_TIME_FORMAT)}
         </p>
-        {actual_date && (
+        {actualDateDifference > 0 && (
         <p className={styles.timeSm}>
           {formatDate(date, DEFAULT_TIME_FORMAT)}
         </p>
@@ -27,9 +30,9 @@ export default function Item({
       </div>
       <div>
         <div className={styles.city}>
-          {airportLabel}
+          {airport.city}
         </div>
-        <div className={styles.timeSm} style={{ textAlign: 'right' }}>{airportLabel}</div>
+        <div className={styles.cityIata}>{airport.iata}</div>
       </div>
     </div>
   );

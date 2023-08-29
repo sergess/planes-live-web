@@ -12,6 +12,7 @@
     align-items: center;
     border-bottom: thin solid var(--color-dark-10);
     padding: rowPadding;
+    font-size: 1.4rem;
 }
 .phone p {
     margin-left: .5rem;
@@ -32,7 +33,7 @@
     display: flex;
     justify-content: space-between;
     padding: rowPadding;
-    font-size: var(--font-body-1);
+    font-size: var(--font-caption);
     color: var(--color-dark-50);
 }
 .location {

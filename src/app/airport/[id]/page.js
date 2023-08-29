@@ -6,11 +6,11 @@ import AirportContacts from '@/components/Airport/AirportContacts';
 import InfoList from '@/components/Airport/InfoList';
 import Statistics from '@/components/Airport/Statistics';
 import Security from '@/components/Airport/Security';
-import { isMobile } from '@/utils/serverComponent';
 import { Airport } from '@/services/index';
+import { withAirportsPageData } from '@/middlewares/get-server-side-data/with-airports-page-data';
 import styles from './page.module.scss';
 
-const Map = dynamic(() => import('@/components/Map'), { ssr: false });
+const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
 
 const airportService = new Airport();
 
@@ -28,13 +28,12 @@ export const generateMetadata = async ({ params }) => {
 };
 
 export default async function Page({ params, searchParams }) {
-  const response = await airportService.getAirport(params.id);
+  const [airportResponse, commonDataResponse] = await withAirportsPageData(params?.id);
 
-  if (!response) {
+  if (!airportResponse) {
     notFound();
   }
-
-  const { airport, statistic } = response;
+  const { airport, statistic } = airportResponse;
 
   const show_departures = searchParams?.show_departures || 6;
   const show_arrivals = searchParams?.show_arrivals || 6;
@@ -57,6 +56,9 @@ export default async function Page({ params, searchParams }) {
           query="arrivals"
           showAll={show_arrivals}
           otherQuery={`show_departures=${show_departures}`}
+          airports={commonDataResponse.airports}
+          isArrival
+          mapAirportField="origin"
         />
         <InfoList
           label="DEPARTURES"
@@ -64,17 +66,18 @@ export default async function Page({ params, searchParams }) {
           query="departures"
           showAll={show_departures}
           otherQuery={`show_arrivals=${show_arrivals}`}
+          airports={commonDataResponse.airports}
+          isArrival={false}
+          mapAirportField="destination"
         />
         <Statistics {...statistic} />
         <Security />
       </div>
-      {!isMobile() && (
-      <Map
+      <CustomMap
         latitude={airport.lat}
         longitude={airport.lon}
         code={params.id}
       />
-      )}
     </>
   );
 }
