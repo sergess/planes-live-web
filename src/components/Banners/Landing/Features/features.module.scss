@@ -12,6 +12,7 @@
 }
 .description {
     display: none;
+    color: var(--color-dark);
 }
 .button {
     composes: buttonContainer;
@@ -20,7 +21,12 @@
 :global(.applyMobile) .container {
     margin: 0;
 }
-
+@media (max-width: $mobile-breakpoint) {
+  .row img {
+    height: 2.8rem;
+    width: 2.8rem;
+  }
+}
 /* Tablet and Smaller Desktop */
 @media (min-width: $mobile-breakpoint) {
   :global(.landingBanners:not(.applyMobile)) {
