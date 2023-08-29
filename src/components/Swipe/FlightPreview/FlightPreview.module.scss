@@ -1,0 +1,52 @@
+@value previewHeight, previewSpace, bottomHeight, bottom from "./../Swipe.module.scss";
+
+.planePanel {
+  position: fixed;
+  left: 50%;
+  bottom: calc(bottomHeight + previewSpace);
+  height: previewHeight;
+  display: flex;
+  background: #25262BCC;
+  border-radius: 1.2rem;
+  width: calc(100vw - (previewSpace * 2));
+  transform: translate(-50%, 0);
+}
+.image {
+  width: 10rem;
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0.6rem 1.2rem;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+.distance {
+  font-size: var(--font-x-small);
+  color: var(--color-white-50);
+}
+.iata {
+  font-size: var(--font-m);
+  color: var(--color-white);
+  width: 7rem;
+}
+.time {
+  font-size: var(--font-x-small);
+  color: var(--color-secondary);
+  width: 7rem;
+}
+.time:last-of-type {
+  text-align: right;
+}
+.iata:last-of-type {
+  text-align: right;
+}
+.img {
+  border-radius: 1.2rem;
+}

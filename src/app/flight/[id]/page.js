@@ -16,6 +16,7 @@ import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 
+import FlightPreview from '@/components/Swipe/FlightPreview';
 import styles from './page.module.scss';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
@@ -36,8 +37,20 @@ export default async function Page({ params }) {
 
   return (
     <>
+      <Map
+        latitude={flight.waypoints[0].lat}
+        longitude={flight.waypoints[0].lon}
+        latitudeEnd={flight.waypoints[1].lat}
+        longitudeEnd={flight.waypoints[1].lon}
+        code={flightId}
+      />
       <div className={styles.container}>
         <Swipe id={flightId}>
+          <FlightPreview
+            destinationAirport={departureAirport}
+            airport={destinationAirport}
+            flight={flight}
+          />
           <div className={styles.body}>
             <DateBlock />
             <FlightCard
@@ -81,13 +94,6 @@ export default async function Page({ params }) {
           </div>
         </Swipe>
       </div>
-      <Map
-        latitude={flight.waypoints[0].lat}
-        longitude={flight.waypoints[0].lon}
-        latitudeEnd={flight.waypoints[1].lat}
-        longitudeEnd={flight.waypoints[1].lon}
-        code={flightId}
-      />
     </>
   );
 }
