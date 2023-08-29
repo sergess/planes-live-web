@@ -1,9 +1,9 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import Link from 'next/link';
 
 import { formatDate, getDateDifference } from '@/utils/date';
 import { DEFAULT_TIME_FORMAT } from '@/constants/date';
-import Link from 'next/link';
 import styles from './item.module.css';
 
 const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, index) => (
