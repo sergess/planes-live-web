@@ -37,6 +37,7 @@
 .city {
     font-size: var(--font-body-1);
     margin-bottom: .4rem;
+    white-space: nowrap;
 }
 .container:last-of-type {
     border: none;

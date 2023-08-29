@@ -1,7 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
-import { formatDate, getDateDifference } from '@/utils/date';
+import { getDateDifference } from '@/utils/date';
 import { DEFAULT_TIME_FORMAT } from '@/constants/date';
 import ClientFormatDate from '@/components/ClientComponent';
 import styles from './item.module.css';
@@ -23,11 +23,11 @@ export default function Item({
     <div className={styles.container}>
       <div className={styles.timeContainer}>
         <p className={styles.timeLg}>
-          <ClientFormatDate date={actual_date || date} format={DEFAULT_TIME_FORMAT} />
+          <ClientFormatDate date={(actual_date || date).toString()} format={DEFAULT_TIME_FORMAT} />
         </p>
         {actualDateDifference > 0 && (
         <p className={styles.timeSm}>
-          <ClientFormatDate date={date} format={DEFAULT_TIME_FORMAT} />
+          <ClientFormatDate date={date.toString()} format={DEFAULT_TIME_FORMAT} />
         </p>
         )}
       </div>

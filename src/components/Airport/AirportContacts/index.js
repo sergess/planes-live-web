@@ -1,8 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { formatDate } from '@/utils/date';
-import { DAY_MONTH_DATE_FORMAT, DEFAULT_TIME_FORMAT, MIN_TO_HOUR } from '@/constants/date';
+import { DAY_MONTH_DATE_FORMAT, DEFAULT_TIME_FORMAT } from '@/constants/date';
 import ClientFormatDate from '@/components/ClientComponent';
 import TimeZoneOffset from '@/components/TimeZoneOffset';
 import styles from './airportContacts.module.css';
@@ -36,12 +35,12 @@ export default function AirportContacts({
       </div>
       <div className={styles.date}>
         <p>
-          <ClientFormatDate format={DEFAULT_TIME_FORMAT} date={date} />
+          <ClientFormatDate format={DEFAULT_TIME_FORMAT} date={date.toString()} />
           {' '}
           <TimeZoneOffset />
         </p>
         <p>
-          <ClientFormatDate format={DAY_MONTH_DATE_FORMAT} date={date} />
+          <ClientFormatDate format={DAY_MONTH_DATE_FORMAT} date={date.toString()} />
         </p>
       </div>
     </div>
