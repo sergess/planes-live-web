@@ -7,7 +7,13 @@ dayjs.extend(duration);
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-export const formatDate = (date, format, tz) => dayjs(date).tz(tz).format(format);
+export const formatDate = (date, format, tz) => {
+  if (tz) {
+    return dayjs(date).tz(tz).format(format);
+  }
+
+  return dayjs(date).format(format);
+};
 
 export const getDateDifference = (
   startDate,
