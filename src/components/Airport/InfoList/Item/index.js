@@ -40,7 +40,7 @@ export default function Item({
           {icao}
         </p>
         {!!sharedCodes && (
-        <p className={styles.codes}>
+        <p title={sharedCodes} className={styles.codes}>
           {getFormattedCodes(sharedCodes)}
         </p>
         )}

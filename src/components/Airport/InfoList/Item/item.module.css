@@ -52,4 +52,8 @@
     font-size: var(--font-caption);
     color: var(--color-dark-70);
     margin-top: .2rem;
+    max-width: 11rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
