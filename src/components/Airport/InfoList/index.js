@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import * as dayjs from 'dayjs';
 
 import LinkTo from '@/components/Controls/Link';
 import { Airport } from '@/services/index';
+import { filterOnlyFutureFlights } from '@/utils/date';
 import Item from './Item';
 
 import styles from './infoList.module.css';
@@ -14,24 +14,13 @@ const airportService = new Airport();
 const DEPARTURE_ICON = '/svg/ic_departure.svg';
 const ARRIVAL_ICON = '/svg/ic_arrival.svg';
 
-const filterOnlyFutureFlights = ({ flight }, isArrival, tz) => {
-  let time;
-
-  if (isArrival) {
-    time = flight.arrival_actual ? dayjs(flight.arrival_actual) : dayjs(flight.arrival);
-  } else {
-    time = flight.departure_actual ? dayjs(flight.departure_actual) : dayjs(flight.departure);
-  }
-
-  return dayjs().tz(tz).isBefore(time.tz(tz));
-};
 export default async function InfoList({
   label, code, query, isArrival, showAll, otherQuery, airports,
   mapAirportField, tz,
 }) {
   const response = await airportService.getAirportFlightsByQuery(code, query);
   const dateKey = isArrival ? 'arrival' : 'departure';
-  const items = response.filter((item) => filterOnlyFutureFlights(item, isArrival, tz))
+  const items = response.filter((item) => filterOnlyFutureFlights(item, dateKey, tz))
     .slice(0, +showAll);
 
   return (

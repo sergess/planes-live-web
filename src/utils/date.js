@@ -29,3 +29,8 @@ export const getDateDifferenceHM = (
 
   return `${hours !== 0 ? `${hours}h` : ''} ${min !== 0 ? min : ''}m`;
 };
+export const filterOnlyFutureFlights = ({ flight }, dateKey, tz) => {
+  const time = flight[`${dateKey}_actual`] ? flight[`${dateKey}_actual`] : flight[dateKey];
+
+  return dayjs().tz(tz).isBefore(dayjs(time).tz(tz));
+};
