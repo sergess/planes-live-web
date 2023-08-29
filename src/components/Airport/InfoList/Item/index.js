@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 import { formatDate, getDateDifference } from '@/utils/date';
 import { DEFAULT_TIME_FORMAT } from '@/constants/date';
-import ClientComponent from '@/components/ClientComponent';
+import ClientFormatDate from '@/components/ClientComponent';
 import styles from './item.module.css';
 
 const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, index) => (
@@ -23,15 +23,11 @@ export default function Item({
     <div className={styles.container}>
       <div className={styles.timeContainer}>
         <p className={styles.timeLg}>
-          <ClientComponent>
-            {formatDate(actual_date || date, DEFAULT_TIME_FORMAT)}
-          </ClientComponent>
+          <ClientFormatDate date={actual_date || date} format={DEFAULT_TIME_FORMAT} />
         </p>
         {actualDateDifference > 0 && (
         <p className={styles.timeSm}>
-          <ClientComponent>
-            {formatDate(date, DEFAULT_TIME_FORMAT)}
-          </ClientComponent>
+          <ClientFormatDate date={date} format={DEFAULT_TIME_FORMAT} />
         </p>
         )}
       </div>
