@@ -8,8 +8,8 @@ import Statistics from '@/components/Airport/Statistics';
 import Security from '@/components/Airport/Security';
 import { isMobile } from '@/utils/serverComponent';
 import { Airport } from '@/services/index';
-import styles from './page.module.scss';
 import { withCommon } from '@/middlewares/get-server-side-data/with-common';
+import styles from './page.module.scss';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
@@ -61,7 +61,7 @@ export default async function Page({ params, searchParams }) {
           otherQuery={`show_departures=${show_departures}`}
           airports={commonData.airports}
           isArrival
-          findField="origin"
+          mapAirportField="origin"
         />
         <InfoList
           label="DEPARTURES"
@@ -71,7 +71,7 @@ export default async function Page({ params, searchParams }) {
           otherQuery={`show_arrivals=${show_arrivals}`}
           airports={commonData.airports}
           isArrival={false}
-          findField="destination"
+          mapAirportField="destination"
         />
         <Statistics {...statistic} />
         <Security />

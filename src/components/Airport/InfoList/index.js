@@ -15,7 +15,7 @@ const ARRIVAL_ICON = '/svg/ic_departure.svg';
 
 export default async function InfoList({
   label, code, query, isArrival, showAll, otherQuery, airports,
-  findField,
+  mapAirportField,
 }) {
   const response = await airportService.getAirportFlightsByQuery(code, query);
   const dateKey = isArrival ? 'arrival' : 'departure';
@@ -39,7 +39,7 @@ export default async function InfoList({
             icao={flight.icao}
             dateValue={flight[dateKey]}
             actualDateValue={flight[`${dateKey}_actual`]}
-            airport={airports.find((air) => air.icao === flight[findField])}
+            airport={airports.find((air) => air.icao === flight[mapAirportField])}
           />
         ))}
         <LinkTo

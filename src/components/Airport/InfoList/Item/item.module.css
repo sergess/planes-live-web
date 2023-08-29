@@ -19,6 +19,7 @@
 .timeLg {
     width: 6rem;
     font-size: var(--font-body-2);
+    margin-bottom: .4rem;
 }
 .timeSm {
     font-size: var(--font-caption);
@@ -26,8 +27,14 @@
     font-weight: 400;
     text-decoration: line-through;
 }
+.cityIata {
+    font-size: var(--font-caption);
+    color: var(--color-dark-50);
+    font-weight: 400;
+}
 .city {
     font-size: var(--font-body-1);
+    margin-bottom: .4rem;
 }
 .container:last-of-type {
     border: none;
