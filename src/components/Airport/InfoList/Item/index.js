@@ -1,9 +1,8 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
-import { getDateDifference } from '@/utils/date';
+import { formatDate, getDateDifference } from '@/utils/date';
 import { DEFAULT_TIME_FORMAT } from '@/constants/date';
-import ClientFormatDate from '@/components/ClientComponent';
 import styles from './item.module.css';
 
 const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, index) => (
@@ -13,7 +12,7 @@ const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, ind
   </>
 ));
 export default function Item({
-  dateValue, actualDateValue, icao, airport, sharedCodes,
+  dateValue, actualDateValue, icao, airport, sharedCodes, tz,
 }) {
   const actual_date = actualDateValue ? dayjs(actualDateValue) : null;
   const date = dayjs(dateValue);
@@ -23,11 +22,11 @@ export default function Item({
     <div className={styles.container}>
       <div className={styles.timeContainer}>
         <p className={styles.timeLg}>
-          <ClientFormatDate date={(actual_date || date).toString()} format={DEFAULT_TIME_FORMAT} />
+          {formatDate(actual_date || date, DEFAULT_TIME_FORMAT, tz)}
         </p>
-        {actualDateDifference > 0 && (
+        {actualDateDifference !== 0 && (
         <p className={styles.timeSm}>
-          <ClientFormatDate date={date.toString()} format={DEFAULT_TIME_FORMAT} />
+          {formatDate(date, DEFAULT_TIME_FORMAT, tz)}
         </p>
         )}
       </div>
