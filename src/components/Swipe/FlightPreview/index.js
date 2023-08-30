@@ -1,11 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import dayjs from 'dayjs';
 
 import FlightProgress from '@/components/Swipe/FlightPreview/FlightProgress';
-
 import { getDateDifferenceHM } from '@/utils/date';
 import { getDistanceFromLatLonInKm } from '@/utils/distance';
-import dayjs from 'dayjs';
 
 import styles from './FlightPreview.module.scss';
 
