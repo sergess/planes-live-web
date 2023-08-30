@@ -45,7 +45,8 @@ const BANNER_MAP = [
 
 export default function Features() {
   return (
-    <div className={styles.container} id={FEATURES_ANCHOR}>
+    <div className={styles.container}>
+      <div className={styles.anchor} id={FEATURES_ANCHOR} />
       <div className={styles.rowWrapper}>
         {BANNER_MAP.map(({
           text, icoURL, icoAlt, description,
@@ -53,8 +54,8 @@ export default function Features() {
           <div className={styles.row} key={text}>
             <Image
               src={icoURL}
-              width={29}
-              height={29}
+              width={48}
+              height={48}
               alt={icoAlt}
             />
             <div className={styles.title}>
