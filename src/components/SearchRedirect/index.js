@@ -7,18 +7,13 @@ export default function SearchRedirect() {
   return (
     <Link
       href="/search"
-      style={{
-        textDecoration: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
+      className={styles.link}
     >
-      <input
-        disabled
-        type="text"
-        placeholder="Search by flight number, airline, or airport"
-        className={styles.input}
-      />
+      <p
+        className={styles.text}
+      >
+        Search by flight number, airline, or airport
+      </p>
     </Link>
   );
 }
