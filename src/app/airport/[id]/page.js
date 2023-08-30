@@ -82,6 +82,10 @@ export default async function Page({ params, searchParams }) {
           longitude: airport.lon,
           label: airport.iata,
         }]}
+        initialViewState={{
+          latitude: airport.lat,
+          longitude: airport.lon,
+        }}
       />
     </>
   );

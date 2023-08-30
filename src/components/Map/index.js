@@ -14,6 +14,7 @@ export default async function MapBox({
   mapRef = null,
   markers = [],
   lines = [],
+  initialViewState,
 }) {
   const geoControlRef = React.useRef();
 
@@ -27,9 +28,8 @@ export default async function MapBox({
           }
         }}
         mapboxAccessToken={MAPBOX_TOKEN}
-        initialViewState={markers.length && {
-          latitude: markers[0].latitude,
-          longitude: markers[0].longitude,
+        initialViewState={{
+          ...initialViewState,
           zoom: 3.5,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v11"

@@ -82,14 +82,18 @@ export default async function Page({ params }) {
       layerPaint: { 'line-dasharray': [1, 2] },
     },
   ];
+  const initialView = flight?.positions?.length ? markers[2] : markers[0];
 
   return (
     <>
       <Map
-        code={flightId}
+        initial
         markers={markers}
         lines={lines}
-        status={flight.status}
+        initialViewState={{
+          latitude: initialView.latitude,
+          longitude: initialView.longitude,
+        }}
       />
       <div className={styles.container}>
         <Swipe id={flightId}>
