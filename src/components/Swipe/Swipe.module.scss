@@ -1,5 +1,5 @@
-@value topHeight: calc(100vh - var(--mobile-header-height));
-@value middleHeight: calc(100vh - var(--mobile-header-height) - 2.4rem);
+@value topHeight: calc(100svh - var(--mobile-header-height));
+@value middleHeight: calc(100svh - var(--mobile-header-height) - 2.4rem);
 @value bottomHeight: calc(100vh - var(--mobile-header-height) - 50rem - 6.4rem - 1.6rem);
 @value drawerRadius: 15px 15px 0 0;
 
