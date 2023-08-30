@@ -36,6 +36,7 @@
     --color-dark-30: #BFBFC4;
 
     --color-white-30: rgba(255, 255, 255, .3);
+    --color-white-50: rgba(255, 255, 255, .5);
     --color-white-70: rgba(255, 255, 255, .7);
     --color-dark-70: rgba(41, 40, 56, .7);
     --color-dark-90: rgba(41, 40, 56, .9);
