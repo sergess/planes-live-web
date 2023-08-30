@@ -79,7 +79,7 @@ export default async function Page({ params, searchParams }) {
       <CustomMap
         latitude={airport.lat}
         longitude={airport.lon}
-        code={params.id}
+        code={airport.iata}
       />
     </>
   );
