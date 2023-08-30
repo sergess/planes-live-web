@@ -10,7 +10,10 @@
     50%  { opacity:0.0; }
     100% { opacity:1.0; }
 }
-
+.drawer :global(.preview) {
+    visibility: hidden;
+    opacity: 0;
+}
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
     .gripWrapper {
@@ -40,10 +43,6 @@
     }
     .bottom {
         height: bottomHeight;
-    }
-    .drawer :global(.preview) {
-        visibility: hidden;
-        opacity: 0;
     }
     .bottom :global(.preview) {
         visibility: visible;
