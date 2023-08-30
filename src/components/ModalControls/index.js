@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 
 import { ModalContext } from '@/contexts/modal/ModalContext';
 import SubscriptionPopup from '@/components/SubscriptionPopup';
+import CustomCalendar from "@/components/CustomCalendar";
 
 export default function ModalControls() {
   const { openModal } = useContext(ModalContext);
@@ -16,7 +17,7 @@ export default function ModalControls() {
 
   const onClickSecondButton = () => {
     openModal({
-      content: <h1>1</h1>,
+      content: <CustomCalendar />,
     });
   };
 
