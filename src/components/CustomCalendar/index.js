@@ -13,15 +13,8 @@ import styles from './calendar.module.scss';
 
 export default function CustomCalendar() {
   const interval = useRef();
-
   const [date, setDate] = useState(null);
   const [tooltipOpened, setTooltipOpened] = useState(false);
-
-  const onOpenTooltip = useCallback(() => {
-    clearTimeout(interval.current);
-    setTooltipOpened(true);
-    interval.current = setTimeout(() => setTooltipOpened(false), 3000);
-  }, []);
 
   // [Todo] Mock active days
   const days = [new Date(2023, 7, 30), new Date(2023, 7, 31), new Date(2023, 7, 29)];
@@ -30,8 +23,14 @@ export default function CustomCalendar() {
   const maxDate = new Date(dayjs(currentDate).add(3, 'month').toISOString());
   const minDate = new Date(dayjs(currentDate).subtract(1, 'week').toISOString());
 
-  const formatShortWeekday = (locale, date) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][date.getDay()];
-  const formatMonthYear = (locale, date) => dayjs(date).format('MMMM');
+  const formatShortWeekday = useCallback((locale, date) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][date.getDay()], []);
+  const formatMonthYear = useCallback((locale, date) => dayjs(date).format('MMMM'),[]);
+
+  const onOpenTooltip = useCallback(() => {
+    clearTimeout(interval.current);
+    setTooltipOpened(true);
+    interval.current = setTimeout(() => setTooltipOpened(false), 3000);
+  }, []);
   
   const isSame = (value) => {
     if (days.some((item) => dayjs(item).isSame(value, 'day'))) {
