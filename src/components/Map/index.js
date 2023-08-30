@@ -14,7 +14,7 @@ export default async function MapBox({
   mapRef = null,
   markers = [],
   lines = [],
-  initialViewState,
+  initialViewState = {},
 }) {
   const geoControlRef = React.useRef();
 

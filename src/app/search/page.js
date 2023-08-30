@@ -20,7 +20,7 @@ export default function Search() {
           {/* desktop version */}
           <SearchHeader />
         </div>
-        <CustomMap markers={[]} />
+        <CustomMap />
       </div>
     </>
   );
