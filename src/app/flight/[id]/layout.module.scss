@@ -7,7 +7,7 @@
         height: 100vh;
         position: absolute;
         top: 0;
-        width: 39rem;
+        width: var(--left-panel-width);
         z-index: var(--airport-container-z-index);
         background: var(--surfaces-base);
     }

@@ -10,12 +10,12 @@
     50%  { opacity:0.0; }
     100% { opacity:1.0; }
 }
-.drawer :global(.preview) {
-    visibility: hidden;
-    opacity: 0;
-}
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
+    .drawer :global(.preview) {
+        visibility: hidden;
+        opacity: 0;
+    }
     .gripWrapper {
         display: flex;
         justify-content: center;

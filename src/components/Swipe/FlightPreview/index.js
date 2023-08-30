@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import FlightProgress from '@/components/Swipe/FlightPreview/FlightProgress';
 
-import { convertSecondsToDuration, getDateDifferenceHM } from '@/utils/date';
+import { getDateDifferenceHM } from '@/utils/date';
 import { getDistanceFromLatLonInKm } from '@/utils/distance';
 import dayjs from 'dayjs';
 
@@ -15,9 +15,13 @@ export default function FlightPreview({
   flight,
 }) {
   const {
-    route_time, departure_actual, arrival, arrival_actual,
+    departure_actual, arrival, arrival_actual,
     departure, waypoints, aircraft,
   } = flight;
+  const total = getDateDifferenceHM(
+    arrival_actual || arrival,
+    departure_actual || departure,
+  );
 
   return (
     <div className={`${styles.planePanel} preview`}>
@@ -46,7 +50,7 @@ export default function FlightPreview({
             ago
           </p>
           <p className={styles.distance}>
-            {convertSecondsToDuration(route_time)}
+            {total}
           </p>
           <p className={styles.time}>
             in

@@ -24,6 +24,12 @@
         z-index: 1;
     }
 }
+@media (min-width: $mobile-breakpoint) {
+    .mapContainer {
+        width: calc(100vw - var(--left-panel-width));
+        left: var(--left-panel-width);
+    }
+}
 
 .marker {
     height: 2.4rem;

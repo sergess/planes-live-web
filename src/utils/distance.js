@@ -14,3 +14,11 @@ export const getDistanceFromLatLonInKm = (
 
   return Math.round(d);
 };
+const radiansToDegrees = (radians) => {
+  const pi = Math.PI;
+
+  return radians * (180 / pi);
+};
+export const getCoordinatesAngle = (current, next) => radiansToDegrees(
+  Math.atan2(next.lon - current.lon, next.lat - current.lat),
+);

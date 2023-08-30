@@ -18,10 +18,16 @@ import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 
 import FlightPreview from '@/components/Swipe/FlightPreview';
 import Image from 'next/image';
+import { getCoordinatesAngle } from '@/utils/distance';
 import styles from './page.module.scss';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
+/* get objects to calculate plane degrees direction */
+const getPositionsForAngle = (positions, waypoints) => {
+  const current = positions[positions.length - 1];
 
+  return { current, next: waypoints[1] };
+};
 export default async function Page({ params }) {
   const { id: flightId } = params;
   const flight = await withFlight(flightId);
@@ -40,28 +46,35 @@ export default async function Page({ params }) {
     id: 1,
     latitude: flight.waypoints[0].lat,
     longitude: flight.waypoints[0].lon,
-    label: destinationAirport.iata,
+    label: departureAirport.iata,
   }, {
     id: 2,
     latitude: flight.waypoints[1].lat,
     longitude: flight.waypoints[1].lon,
-    label: departureAirport.iata,
+    label: destinationAirport.iata,
   }];
 
-  if (flight?.positions?.length) {
+  if (flight?.positions?.length > 2) {
+    const { current, next } = getPositionsForAngle(flight.positions, flight.waypoints);
+    const angle = getCoordinatesAngle(current, next);
+
     markers.push({
       id: 3,
-      latitude: flight.positions[flight.positions.length - 1].lat,
-      longitude: flight.positions[flight.positions.length - 1].lon,
+      latitude: current.lat,
+      longitude: current.lon,
       html: <Image
-        src="/svg/map_plane.svg"
+        src="/svg/map_aviation.svg"
         priority
         width={28}
         height={28}
+        style={{
+          transform: `rotate(calc(${angle}deg + 90deg))`,
+        }}
         alt="Plane icon"
       />,
     });
   }
+
   const mappedPositions = flight?.positions?.map(({ lon, lat }) => [lon, lat]) || [];
   const lines = [
     {
