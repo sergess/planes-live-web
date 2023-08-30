@@ -9,7 +9,7 @@ import useSearchFlight from '@/hooks/useSearchFlight';
 import Link from 'next/link';
 import styles from './header.module.scss';
 
-export default function SearchHeader() {
+export default function SearchHeader({ autoFocus = false }) {
   const {
     onChange, onSelect, options, setText, text, loading,
   } = useSearchFlight();
@@ -33,6 +33,7 @@ export default function SearchHeader() {
         loading={loading}
         text={text}
         placeholder="Search flights and airports"
+        autoFocus={autoFocus}
       />
     </header>
   );

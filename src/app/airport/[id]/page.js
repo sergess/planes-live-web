@@ -78,6 +78,7 @@ export default async function Page({ params, searchParams }) {
       </div>
       <CustomMap
         markers={[{
+          id: 'marker1',
           latitude: airport.lat,
           longitude: airport.lon,
           label: airport.iata,

@@ -13,7 +13,7 @@ import styles from './desktopSearch.module.css';
 
 export default function DesktopSearch({
   onChange = () => {}, options = [], onSelect, setText, placeholder,
-  text, loading,
+  text, loading, autoFocus = true,
 }) {
   const [isShow, setIsShow] = React.useState(false);
   const ref = React.useRef();
@@ -41,7 +41,7 @@ export default function DesktopSearch({
           onFocus={() => {
             setIsShow(true);
           }}
-          autoFocus
+          autoFocus={autoFocus}
           placeholder={placeholder}
           className={styles.search}
           list="options"
