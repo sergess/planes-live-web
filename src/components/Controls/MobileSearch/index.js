@@ -32,7 +32,6 @@ export default function Input({
           onChange={(e) => debouncedChangeHandler(e)}
           className={styles.search}
           onClick={onClick}
-          autoFocus
         />
         <button
           type="button"
