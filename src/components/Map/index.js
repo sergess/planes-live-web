@@ -75,8 +75,12 @@ export default async function MapBox({
           ref={geoControlRef}
         />
         {markers.map((m) => (
-          <Marker key={m.label} longitude={m.longitude} latitude={m.latitude} anchor="center">
-            <div className={styles.marker}>{m.label}</div>
+          <Marker key={m.id} longitude={m.longitude} latitude={m.latitude} anchor="center">
+            {m.label ? (
+              <div className={styles.marker}>
+                {m.label}
+              </div>
+            ) : m.html}
           </Marker>
         ))}
         <NavigationControl />

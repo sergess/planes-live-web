@@ -17,9 +17,10 @@ import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 
 import FlightPreview from '@/components/Swipe/FlightPreview';
+import Image from 'next/image';
 import styles from './page.module.scss';
 
-const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
+const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
 export default async function Page({ params }) {
   const { id: flightId } = params;
@@ -36,19 +37,29 @@ export default async function Page({ params }) {
   }
 
   const markers = [{
+    id: 1,
     latitude: flight.waypoints[0].lat,
     longitude: flight.waypoints[0].lon,
     label: destinationAirport.iata,
   }, {
+    id: 2,
     latitude: flight.waypoints[1].lat,
     longitude: flight.waypoints[1].lon,
     label: departureAirport.iata,
   }];
+
   if (flight?.positions?.length) {
     markers.push({
+      id: 3,
       latitude: flight.positions[flight.positions.length - 1].lat,
       longitude: flight.positions[flight.positions.length - 1].lon,
-      label: 'm', // plane
+      html: <Image
+        src="/svg/map_plane.svg"
+        priority
+        width={28}
+        height={28}
+        alt="Plane icon"
+      />,
     });
   }
   const mappedPositions = flight?.positions?.map(({ lon, lat }) => [lon, lat]) || [];
@@ -57,7 +68,7 @@ export default async function Page({ params }) {
       id: 'source1',
       layerId: 'layer1',
       coordinates: [
-        [flight.waypoints[1].lon, flight.waypoints[1].lat],
+        [flight.waypoints[0].lon, flight.waypoints[0].lat],
         ...mappedPositions,
       ],
     },
@@ -66,7 +77,7 @@ export default async function Page({ params }) {
       layerId: 'layer2',
       coordinates: [
         mappedPositions[mappedPositions.length - 1],
-        [flight.waypoints[0].lon, flight.waypoints[0].lat],
+        [flight.waypoints[1].lon, flight.waypoints[1].lat],
       ],
       layerPaint: { 'line-dasharray': [1, 2] },
     },
@@ -74,7 +85,7 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <CustomMap
+      <Map
         code={flightId}
         markers={markers}
         lines={lines}
