@@ -8,19 +8,31 @@
     font-weight: 600;
 }
 .container {
+    position: relative;
     margin: 9.6rem 2.5rem 0 2.5rem;
 }
 .description {
     display: none;
+    color: var(--color-dark);
 }
 .button {
     composes: buttonContainer;
+}
+.anchor {
+  position: absolute;
+  /*to adjust anchor, not visible*/
+  top: -160px;
 }
 /*logic for flight page*/
 :global(.applyMobile) .container {
     margin: 0;
 }
-
+@media (max-width: $mobile-breakpoint) {
+  .row img {
+    height: 2.8rem;
+    width: 2.8rem;
+  }
+}
 /* Tablet and Smaller Desktop */
 @media (min-width: $mobile-breakpoint) {
   :global(.landingBanners:not(.applyMobile)) {
