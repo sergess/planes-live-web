@@ -17,7 +17,7 @@ import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 import FlightPreview from '@/components/Swipe/FlightPreview';
 
-import useFlight from '@/hooks/useFlight';
+import useFlightMap from '@/hooks/useFlightMap';
 import styles from './page.module.scss';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
@@ -35,7 +35,7 @@ export default async function Page({ params }) {
     notFound();
   }
 
-  const { markers, lines, initialView } = useFlight({
+  const { markers, lines, initialView } = useFlightMap({
     flight,
     departureAirport,
     destinationAirport,
