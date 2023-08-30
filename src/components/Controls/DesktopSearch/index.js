@@ -41,6 +41,7 @@ export default function DesktopSearch({
           onFocus={() => {
             setIsShow(true);
           }}
+          autoFocus
           placeholder={placeholder}
           className={styles.search}
           list="options"
