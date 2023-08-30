@@ -31,6 +31,24 @@
     display: inline-block;
     cursor: pointer;
 }
+.date {
+    background: none;
+    padding: 0;
+    color: var(--color-primary);
+    font-size: var(--font-body-1);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.44px;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+}
+.date img {
+    margin-left: 0.5rem;
+}
 .large {
     padding: 1rem 2rem;
     font-size: var(--font-body-2);
