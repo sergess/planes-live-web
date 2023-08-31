@@ -73,6 +73,7 @@ export default async function Page({ params }) {
               destinationName={destinationAirport.name}
               departureTime={flight.departure}
               arrivalTime={flight.arrival}
+              departureGate={flight.departure_gate}
               actualArrivalTime={flight.arrival_actual}
               actualDepartureTime={flight.departure_actual}
               arrivalTerminal={flight.arrival_terminal}
