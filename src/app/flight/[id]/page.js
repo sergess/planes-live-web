@@ -24,6 +24,8 @@ export default async function Page({ params }) {
   const { id: flightId } = params;
   const flight = await withFlight(flightId);
 
+  console.log(flight);
+
   if (!flight) {
     notFound();
   }
