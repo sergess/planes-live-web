@@ -4,10 +4,28 @@ import dayjs from 'dayjs';
 
 import FlightProgress from '@/components/Swipe/FlightPreview/FlightProgress';
 import { getDateDifferenceHM } from '@/utils/date';
-import { getDistanceFromLatLonInKm } from '@/utils/distance';
+import { calculatePercentageOfRestPath, getDistanceFromLatLonInKm } from '@/utils/distance';
 
+import { STATUS } from '@/constants/flight';
 import styles from './FlightPreview.module.scss';
 
+const EMPTY_LABEL = 'Time n/a';
+const ACTIVE_COLOR = '#33CC55';
+const DEFAULT_COLOR = 'rgba(255, 255, 255, .5)';
+const getValue = (flight) => {
+  if (flight.status === STATUS.ACTIVE) {
+    return calculatePercentageOfRestPath(flight);
+  }
+  if (flight.status === STATUS.SCHEDULED) {
+    return 0;
+  }
+  if (flight.status === STATUS.COMPLETED) {
+    return 100;
+  }
+
+  return 0;
+};
+const getLabelColor = (status) => (status === STATUS.ACTIVE ? ACTIVE_COLOR : DEFAULT_COLOR);
 export default function FlightPreview({
   destinationAirport,
   airport,
@@ -15,12 +33,18 @@ export default function FlightPreview({
 }) {
   const {
     departure_actual, arrival, arrival_actual,
-    departure, waypoints, aircraft,
+    departure, waypoints, aircraft, status,
   } = flight;
   const total = getDateDifferenceHM(
     arrival_actual || arrival,
     departure_actual || departure,
   );
+  const startLabel = status === STATUS.ACTIVE
+    ? `${getDateDifferenceHM(dayjs(), departure_actual || departure)} ago`
+    : EMPTY_LABEL;
+  const endLabel = status === STATUS.ACTIVE
+    ? `in ${getDateDifferenceHM(dayjs(), arrival_actual || arrival)}`
+    : EMPTY_LABEL;
 
   return (
     <div className={`${styles.planePanel} preview`}>
@@ -39,23 +63,26 @@ export default function FlightPreview({
           <p className={styles.distance}>{`${getDistanceFromLatLonInKm(waypoints[0], waypoints[1])} km`}</p>
           <p className={styles.iata}>{airport.iata}</p>
         </div>
-        <FlightProgress />
+        <FlightProgress value={getValue(flight)} />
         <div className={styles.info}>
-          <p className={styles.time}>
-            {
-              getDateDifferenceHM(dayjs(), departure_actual || departure)
-            }
-            {' '}
-            ago
+          <p
+            className={styles.time}
+            style={{
+              color: getLabelColor(status),
+            }}
+          >
+            {startLabel}
           </p>
           <p className={styles.distance}>
             {total}
           </p>
-          <p className={styles.time}>
-            in
-            {
-              ` ${getDateDifferenceHM(dayjs(), arrival_actual || arrival)}`
-            }
+          <p
+            className={styles.time}
+            style={{
+              color: getLabelColor(status),
+            }}
+          >
+            {endLabel}
           </p>
         </div>
       </div>

@@ -47,7 +47,7 @@ export default async function Page({ params }) {
         initial
         markers={markers}
         lines={lines}
-        initialViewState={{
+        initialViewState={initialView && {
           latitude: initialView.latitude,
           longitude: initialView.longitude,
         }}

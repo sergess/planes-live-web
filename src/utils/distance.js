@@ -1,3 +1,6 @@
+import { getDateDifference } from '@/utils/date';
+import dayjs from 'dayjs';
+
 export const deg2rad = (deg) => deg * (Math.PI / 180);
 export const getDistanceFromLatLonInKm = (
   { lat: lat1, lon: lon1 },
@@ -22,3 +25,13 @@ const radiansToDegrees = (radians) => {
 export const getCoordinatesAngle = (current, next) => radiansToDegrees(
   Math.atan2(next.lon - current.lon, next.lat - current.lat),
 );
+export const calculatePercentageOfRestPath = (flight) => {
+  const end = flight.arrival_actual || flight.arrival;
+  const start = flight.departure_actual || flight.departure;
+  const total = getDateDifference(end, start);
+  const rest = getDateDifference(end, dayjs());
+  const totalMinutes = total.hours() * 60 + total.minutes();
+  const restMinutes = rest.hours() * 60 + rest.minutes();
+
+  return 100 - ((restMinutes / totalMinutes) * 100);
+};

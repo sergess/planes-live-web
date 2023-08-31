@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 import styles from './FlightProgress.module.scss';
 
-export default function FlightProgress() {
+export default function FlightProgress({ value = 0 }) {
   return (
     <div className={styles.container}>
-      <div className={styles.passed} style={{ width: `${30}%` }}>.</div>
+      <div className={styles.passed} style={{ width: `${value}%` }}>.</div>
       <Image
         src="/svg/plane.svg"
         priority
@@ -14,7 +14,7 @@ export default function FlightProgress() {
         height={16}
         alt="Plane icon"
         className={styles.plane}
-        style={{ left: `${30}%` }}
+        style={{ left: `${value}%` }}
       />
     </div>
   );
