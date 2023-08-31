@@ -60,7 +60,7 @@ export default function FlightPreview({
       <div className={styles.wrapper}>
         <div className={styles.info}>
           <p className={styles.iata}>{destinationAirport.iata}</p>
-          <p className={styles.distance}>{`${getDistanceFromLatLonInKm(waypoints[0], waypoints[1])} km`}</p>
+          <p className={styles.distance}>{`${getDistanceFromLatLonInKm(waypoints[0], waypoints[waypoints.length - 1])} km`}</p>
           <p className={styles.iata}>{airport.iata}</p>
         </div>
         <FlightProgress value={getValue(flight)} />
