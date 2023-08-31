@@ -1,5 +1,6 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import '@/styles/globals.scss';
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
           </ModalProvider>
         </div>
       </body>
+      <Script src="/anchor.js" />
     </html>
   );
 }
