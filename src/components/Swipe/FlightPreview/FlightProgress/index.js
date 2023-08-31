@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import styles from './FlightProgress.module.scss';
 
+const IMG_SIZE = 16;
 export default function FlightProgress({ value = 0 }) {
   return (
     <div className={styles.container}>
@@ -10,11 +11,11 @@ export default function FlightProgress({ value = 0 }) {
       <Image
         src="/svg/plane.svg"
         priority
-        width={16}
-        height={16}
+        width={IMG_SIZE}
+        height={IMG_SIZE}
         alt="Plane icon"
         className={styles.plane}
-        style={{ left: `${value}%` }}
+        style={{ left: `calc(${value}% - (${IMG_SIZE}px / 2))` }}
       />
     </div>
   );
