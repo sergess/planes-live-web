@@ -17,6 +17,7 @@ const getColor = (isLater) => {
 export default function Time({
   actual,
   time,
+  tz,
 }) {
   const actualDate = actual ? dayjs(actual) : null;
   const timeDate = time ? dayjs(time) : null;
@@ -35,7 +36,7 @@ export default function Time({
             color: getColor(isLater),
           }}
         >
-          {formatDate(actualDate, M_TIME_FORMAT)}
+          {formatDate(actualDate, M_TIME_FORMAT, tz)}
         </p>
 
         {isLater ? (
@@ -64,7 +65,7 @@ export default function Time({
               earlier
             </p>
           )}
-        <p className={styles.crossed}>{formatDate(timeDate, M_TIME_FORMAT)}</p>
+        <p className={styles.crossed}>{formatDate(timeDate, M_TIME_FORMAT, tz)}</p>
       </div>
     );
   }

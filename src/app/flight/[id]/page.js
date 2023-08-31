@@ -71,6 +71,8 @@ export default async function Page({ params }) {
               destinationIata={destinationAirport.iata}
               destinationCity={destinationAirport.city}
               destinationName={destinationAirport.name}
+              destinationTz={destinationAirport.timezone_name}
+              departureTz={departureAirport.timezone_name}
               departureTime={flight.departure}
               arrivalTime={flight.arrival}
               departureGate={flight.departure_gate}
@@ -87,6 +89,8 @@ export default async function Page({ params }) {
               && (
                 <LastUpdateCard
                   actions={flight.actions}
+                  arrivalTz={destinationAirport.timezone_name}
+                  departureTz={departureAirport.timezone_name}
                 />
               )}
             <DelayHistoryCard />

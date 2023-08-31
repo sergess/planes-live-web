@@ -15,7 +15,7 @@ export default function FlightCard({
   originIata, destinationIata, departureTime, arrivalTime,
   actualDepartureTime, actualArrivalTime, arrivalTerminal,
   departureTerminal, arrivalGate, departureGate, status, arrivalBaggageClaim,
-  departureCheckInDesk, actions,
+  departureCheckInDesk, actions, destinationTz, departureTz,
 }) {
   const total = getDateDifferenceHM(
     actualArrivalTime || arrivalTime,
@@ -82,7 +82,7 @@ export default function FlightCard({
                 {departureGate || EMPTY_FIELD}
               </p>
             </div>
-            <Time time={departureTime} actual={actualDepartureTime} />
+            <Time time={departureTime} actual={actualDepartureTime} tz={departureTz} />
           </div>
           <div className={styles.middle}>
             <Image
@@ -125,7 +125,7 @@ export default function FlightCard({
                 {arrivalBaggageClaim || EMPTY_FIELD}
               </p>
             </div>
-            <Time time={arrivalTime} actual={actualArrivalTime} />
+            <Time time={arrivalTime} actual={actualArrivalTime} tz={destinationTz} />
           </div>
         </div>
       </div>
