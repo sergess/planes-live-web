@@ -7,23 +7,18 @@
   bottom: calc(bottomHeight + previewSpace);
   height: previewHeight;
   display: flex;
-  background: #25262BCC;
+  background: var(--plane-panel-bg);
   border-radius: 1.2rem;
   width: calc(100vw - (previewSpace * 2));
   transform: translate(-50%, 0);
-}
-/* Desktop */
-@media (min-width: $mobile-breakpoint) {
-  .planePanel {
-    position: fixed;
-    left: calc((100% + var(--left-panel-width)) / 2);
-    bottom: 2.4rem;
-    height: previewHeight;
-    display: flex;
-    background: #25262BCC;
-    border-radius: 1.2rem;
-    width: desktopPreviewWidth;
-    transform: translate(-50%, 0);
+  /* Desktop */
+  @media (min-width: $mobile-breakpoint) {
+    .planePanel {
+      left: calc((100% + var(--left-panel-width)) / 2);
+      bottom: 2.4rem;
+      width: desktopPreviewWidth;
+      transform: translate(-50%, 0);
+    }
   }
 }
 .image {

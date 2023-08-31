@@ -45,6 +45,7 @@
     --color-dark-05: #F4F4F5;
     --color-white: #fff;
     --surfaces-base: rgba(238, 239, 245, 1);
+    --plane-panel-bg: #25262BCC;
 
     --info-box-container-shadow: 0 1.5rem 3rem 0 rgba(54, 55, 66, 0.16);
     --left-panel-shadow: 0 -.4rem 2.4rem 0 rgba(18, 17, 21, 0.16);
