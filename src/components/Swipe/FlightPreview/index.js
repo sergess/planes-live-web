@@ -27,8 +27,7 @@ const getValue = (flight) => {
   return 0;
 };
 const getLabelColor = (status) => (status !== STATUS.CANCELLED ? ACTIVE_COLOR : DEFAULT_COLOR);
-const getLabelByStatus = (status, departure_actual, departure, arrival_actual, arrival, isStart = false) => {
-  const time = isStart ? departure_actual || departure : arrival_actual || arrival;
+const getLabelByStatus = (status, time) => {
   if (status === STATUS.CANCELLED) {
     return EMPTY_LABEL;
   }
@@ -59,8 +58,8 @@ export default function FlightPreview({
     departure_actual || departure,
   );
 
-  const startLabel = getLabelByStatus(status, departure_actual, departure, arrival_actual, arrival, true);
-  const endLabel = getLabelByStatus(status, departure_actual, departure, arrival_actual, arrival, false);
+  const startLabel = getLabelByStatus(status, departure_actual || departure);
+  const endLabel = getLabelByStatus(status, arrival_actual || arrival);
 
   return (
     <div className={`${styles.planePanel} preview`}>
