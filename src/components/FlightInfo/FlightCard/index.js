@@ -62,7 +62,7 @@ export default function FlightCard({
           <div className={styles.block}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{city}</p>
-              <p className={styles.description}>
+              <p className={styles.description} title={name}>
                 {originIata}
                 {' '}
                 —

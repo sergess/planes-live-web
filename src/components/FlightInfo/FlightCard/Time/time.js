@@ -72,7 +72,7 @@ export default function Time({
 
   return (
     <div className={styles.timeInfo}>
-      <p className={styles.onTime}>{formatDate(timeDate, M_TIME_FORMAT)}</p>
+      <p className={styles.onTime}>{formatDate(timeDate, M_TIME_FORMAT, tz)}</p>
       <p className={styles.text}>On time</p>
     </div>
   );
