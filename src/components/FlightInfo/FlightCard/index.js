@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useContext } from 'react';
 import Image from 'next/image';
 
 import Status from '@/components/Status';
@@ -6,17 +8,33 @@ import Time from '@/components/FlightInfo/FlightCard/Time/time';
 import InfoBlock from '@/components/FlightInfo/FlightCard/InfoBlock';
 import DescriptionBlock from '@/components/FlightInfo/FlightCard/DescriptionBlock';
 import { EMPTY_FIELD } from '@/constants/index';
-
+import flightContext from '@/contexts/flight/FlightContext';
 import { getDateDifferenceHM } from '@/utils/date';
+
 import styles from './flightCard.module.css';
 
-export default function FlightCard({
-  iata, logoUrl, city, name, destinationCity, destinationName,
-  originIata, destinationIata, departureTime, arrivalTime,
-  actualDepartureTime, actualArrivalTime, arrivalTerminal,
-  departureTerminal, arrivalGate, departureGate, status, arrivalBaggageClaim,
-  departureCheckInDesk, actions,
-}) {
+export default function FlightCard() {
+  // [TODO] params 'logoUrl', 'departureGate' are missing
+  const logoUrl = null;
+  const departureGate = null;
+
+  const { flightData } = useContext(flightContext);
+
+  if (!flightData?.flight || !flightData?.destinationAirport || !flightData?.departureAirport) {
+    return null;
+  }
+
+  const {
+    iata, status, departure: departureTime, arrival: arrivalTime,
+    arrival_actual: actualArrivalTime, departure_actual: actualDepartureTime,
+    arrival_terminal: arrivalTerminal, departure_terminal: departureTerminal,
+    arrival_gate: arrivalGate, arrival_baggage_claim: arrivalBaggageClaim,
+    departure_check_in_desk: departureCheckInDesk, actions,
+  } = flightData.flight;
+
+  const { iata: destinationIata, city: destinationCity, name: destinationName } = flightData.destinationAirport;
+  const { city, name, iata: originIata } = flightData.departureAirport;
+
   const total = getDateDifferenceHM(
     actualArrivalTime || arrivalTime,
     actualDepartureTime || departureTime,

@@ -1,6 +1,8 @@
-import React from 'react';
+'use client';
 
+import React from 'react';
 import Link from 'next/link';
+
 import styles from './delayHistoryCard.module.css';
 
 export default function DelayHistoryCard() {

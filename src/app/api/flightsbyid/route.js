@@ -8,7 +8,7 @@ export async function POST(request) {
 
   const flightService = new Flight();
 
-  const data = await flightService.getAvailableFlightDates(query);
+  const data = await flightService.getFlightDataById(query);
 
   if (!data) {
     return NextResponse.json({ error: 'Bad request' }, { status: 500 });

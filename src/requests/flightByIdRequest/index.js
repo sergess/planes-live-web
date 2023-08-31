@@ -1,6 +1,6 @@
-export const flightRequest = async (query) => {
+export const flightByIdRequest = async (query) => {
   try {
-    const response = await fetch('/api/flight', {
+    const response = await fetch('/api/flightsbyid', {
       method: 'POST',
       body: JSON.stringify({
         query,
@@ -19,4 +19,4 @@ export const flightRequest = async (query) => {
   }
 };
 
-export default flightRequest;
+export default flightByIdRequest;

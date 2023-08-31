@@ -15,7 +15,9 @@ import DateBlock from '@/components/FlightInfo/DateBlock';
 import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
+import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
+import FlightProvider from '@/contexts/flight/FlightContextProvider';
 import styles from './page.module.scss';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
@@ -23,8 +25,6 @@ const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 export default async function Page({ params }) {
   const { id: flightId } = params;
   const flight = await withFlight(flightId);
-
-  console.log(flight);
 
   if (!flight) {
     notFound();
@@ -35,61 +35,42 @@ export default async function Page({ params }) {
   if (!destinationAirport || !departureAirport) {
     notFound();
   }
+  const currentDate = new Date();
 
   return (
-    <>
-      <div className={styles.container}>
-        <Swipe id={flightId}>
-          <div className={styles.body}>
-            <DateBlock />
-            <FlightCard
-              city={departureAirport.city}
-              logoUrl=""
-              iata={flight?.iata}
-              name={departureAirport.name}
-              originIata={departureAirport.iata}
-              status={flight.status}
-              destinationIata={destinationAirport.iata}
-              destinationCity={destinationAirport.city}
-              destinationName={destinationAirport.name}
-              departureTime={flight.departure}
-              arrivalTime={flight.arrival}
-              actualArrivalTime={flight.arrival_actual}
-              actualDepartureTime={flight.departure_actual}
-              arrivalTerminal={flight.arrival_terminal}
-              departureTerminal={flight.departure_terminal}
-              arrivalGate={flight.arrival_gate}
-              arrivalBaggageClaim={flight.arrival_baggage_claim}
-              departureCheckInDesk={flight.departure_check_in_desk}
-              actions={flight.actions}
-            />
-            {flight?.actions?.length
-              && (
-                <LastUpdateCard
-                  actions={flight.actions}
-                />
-              )}
-            <DelayHistoryCard />
-            {/* applyMobile,landingBanners - classes for flight page styles */}
-            <div className={`${styles.mobContent} landingBanners applyMobile`}>
-              <Features isMobileView />
-              <Traffic />
-              <Slider />
-              <NotificationBanner />
-              <AirportBanner />
-              <KnowMore />
-              <Footer />
+    <FlightProvider value={{
+      flight, destinationAirport, departureAirport, date: currentDate,
+    }}
+    >
+      <ModalProvider>
+        <div className={styles.container}>
+          <Swipe id={flightId}>
+            <div className={styles.body}>
+              <DateBlock />
+              <FlightCard />
+              <LastUpdateCard />
+              <DelayHistoryCard />
+              {/* applyMobile,landingBanners - classes for flight page styles */}
+              <div className={`${styles.mobContent} landingBanners applyMobile`}>
+                <Features isMobileView />
+                <Traffic />
+                <Slider />
+                <NotificationBanner />
+                <AirportBanner />
+                <KnowMore />
+                <Footer />
+              </div>
             </div>
-          </div>
-        </Swipe>
-      </div>
-      <Map
-        latitude={flight.waypoints[0].lat}
-        longitude={flight.waypoints[0].lon}
-        latitudeEnd={flight.waypoints[1].lat}
-        longitudeEnd={flight.waypoints[1].lon}
-        code={flightId}
-      />
-    </>
+          </Swipe>
+        </div>
+        <Map
+          latitude={flight.waypoints[0].lat}
+          longitude={flight.waypoints[0].lon}
+          latitudeEnd={flight.waypoints[1].lat}
+          longitudeEnd={flight.waypoints[1].lon}
+          code={flightId}
+        />
+      </ModalProvider>
+    </FlightProvider>
   );
 }

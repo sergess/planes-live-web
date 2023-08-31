@@ -1,15 +1,16 @@
-import React from 'react';
+'use client';
+
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import dayjs from 'dayjs';
-import dynamic from 'next/dynamic';
 
 import { BUTTON_SIZE } from '@/constants/index';
 import { UPDATE_LABELS } from '@/constants/flight';
 import { formatDate, getDateDifference } from '@/utils/date';
+import CustomButton from '@/components/Controls/Buttons/custom';
 import { M_TIME_FORMAT } from '@/constants/date';
+import flightContext from '@/contexts/flight/FlightContext';
 import styles from './lastUpdateCard.module.css';
-
-const CustomButton = dynamic(() => import('@/components/Controls/Buttons/custom'), { ssr: false });
 
 const DATE_VALUES = [
   26,
@@ -41,9 +42,15 @@ const getIconPath = (code) => {
       return '';
   }
 };
-export default function LastUpdateCard({
-  actions = [],
-}) {
+export default function LastUpdateCard() {
+  const { flightData } = useContext(flightContext);
+
+  const actions = flightData?.flight?.actions;
+
+  if (!actions) {
+    return null;
+  }
+
   const action = actions.reduce(
     (prev, current) => (prev.priority > current.priority ? prev : current),
   );
