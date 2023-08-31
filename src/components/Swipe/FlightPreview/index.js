@@ -27,12 +27,16 @@ const getValue = (flight) => {
   return 0;
 };
 const getLabelColor = (status) => (status !== STATUS.CANCELLED ? ACTIVE_COLOR : DEFAULT_COLOR);
-const getLabelByStatus = (status, time) => {
+const getLabelByStatus = (status, time, isEnd = false) => {
   if (status === STATUS.CANCELLED) {
     return EMPTY_LABEL;
   }
   if (status === STATUS.ACTIVE) {
-    return `in ${getDateDifferenceHM(dayjs(), time)}`;
+    if (isEnd) {
+      return `in ${getDateDifferenceHM(dayjs(), time)}`;
+    }
+
+    return `${getDateDifferenceHM(dayjs(), time)} ago`;
   }
   if (status === STATUS.COMPLETED) {
     return `${getDateDifferenceHM(dayjs(), time)} ago`;
@@ -59,7 +63,7 @@ export default function FlightPreview({
   );
 
   const startLabel = getLabelByStatus(status, departure_actual || departure);
-  const endLabel = getLabelByStatus(status, arrival_actual || arrival);
+  const endLabel = getLabelByStatus(status, arrival_actual || arrival, true);
 
   return (
     <div className={`${styles.planePanel} preview`}>
