@@ -10,7 +10,7 @@
 /* Desktop */
 @media (min-width: $mobile-breakpoint) {
     .container {
-        width: 37rem;
+        width: var(--left-panel-width);
         height: calc(100vh - var(--desktop-header-height));
         overflow: auto;
         padding-top: 2.4rem;

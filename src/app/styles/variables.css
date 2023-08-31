@@ -1,6 +1,7 @@
 :root {
     color-scheme: only light;
     --max-width: 1100px;
+    --left-panel-width: 37.5rem;
 
     --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
@@ -33,8 +34,10 @@
 
     --color-dark: #292838;
     --color-dark-50: #94949C;
+    --color-dark-30: #BFBFC4;
 
     --color-white-30: rgba(255, 255, 255, .3);
+    --color-white-50: rgba(255, 255, 255, .5);
     --color-white-70: rgba(255, 255, 255, .7);
     --color-dark-70: rgba(41, 40, 56, .7);
     --color-dark-90: rgba(41, 40, 56, .9);
@@ -42,6 +45,7 @@
     --color-dark-05: #F4F4F5;
     --color-white: #fff;
     --surfaces-base: rgba(238, 239, 245, 1);
+    --plane-panel-bg: #25262BCC;
 
     --info-box-container-shadow: 0 1.5rem 3rem 0 rgba(54, 55, 66, 0.16);
     --left-panel-shadow: 0 -.4rem 2.4rem 0 rgba(18, 17, 21, 0.16);

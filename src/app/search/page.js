@@ -18,7 +18,7 @@ export default function Search() {
       <div className={styles.desktop}>
         <div className={styles.desktopContainer}>
           {/* desktop version */}
-          <SearchHeader />
+          <SearchHeader autoFocus={false} />
         </div>
         <CustomMap />
       </div>

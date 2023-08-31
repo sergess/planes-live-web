@@ -5,7 +5,7 @@
         position: absolute;
         left:0;
         top: 0;
-        width: 37rem;
+        width: var(--left-panel-width);;
         z-index: var(--airport-container-z-index);
     }
 }
