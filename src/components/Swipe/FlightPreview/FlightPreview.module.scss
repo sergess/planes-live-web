@@ -13,12 +13,10 @@
   transform: translate(-50%, 0);
   /* Desktop */
   @media (min-width: $mobile-breakpoint) {
-    .planePanel {
-      left: calc((100% + var(--left-panel-width)) / 2);
-      bottom: 2.4rem;
-      width: desktopPreviewWidth;
-      transform: translate(-50%, 0);
-    }
+    left: calc((100% + var(--left-panel-width)) / 2);
+    bottom: 2.4rem;
+    width: desktopPreviewWidth;
+    transform: translate(-50%, 0);
   }
 }
 .image {
