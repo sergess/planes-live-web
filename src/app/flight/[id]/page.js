@@ -73,13 +73,7 @@ export default async function Page({ params }) {
               destinationTz={destinationAirport.timezone_name}
               departureTz={departureAirport.timezone_name}
             />
-            {flight?.actions?.length
-              && (
-                <LastUpdateCard
-                  arrivalTz={destinationAirport.timezone_name}
-                  departureTz={departureAirport.timezone_name}
-                />
-              )}
+            <LastUpdateCard />
             <DelayHistoryCard />
             {/* applyMobile,landingBanners - classes for flight page styles */}
             <div className={`${styles.mobContent} landingBanners applyMobile`}>

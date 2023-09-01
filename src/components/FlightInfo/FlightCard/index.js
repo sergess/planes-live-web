@@ -13,9 +13,7 @@ import { getDateDifferenceHM } from '@/utils/date';
 
 import styles from './flightCard.module.css';
 
-export default function FlightCard({
-                                     destinationTz, departureTz,
-                                   }) {
+export default function FlightCard() {
   // [TODO] params 'logoUrl', 'departureGate' are missing
   const logoUrl = null;
   const departureGate = null;
@@ -34,8 +32,8 @@ export default function FlightCard({
     departure_check_in_desk: departureCheckInDesk, actions,
   } = flightData.flight;
 
-  const { iata: destinationIata, city: destinationCity, name: destinationName } = flightData.destinationAirport;
-  const { city, name, iata: originIata } = flightData.departureAirport;
+  const { iata: destinationIata, city: destinationCity, name: destinationName, timezone_name: destinationTz } = flightData.destinationAirport;
+  const { city, name, iata: originIata, timezone_name: departureTz } = flightData.departureAirport;
 
   const total = getDateDifferenceHM(
     actualArrivalTime || arrivalTime,

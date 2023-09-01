@@ -42,14 +42,16 @@ const getIconPath = (code) => {
       return '';
   }
 };
-export default function LastUpdateCard({
-                                         arrivalTz, departureTz,
-                                       }) {
+export default function LastUpdateCard() {
   const { flightData } = useContext(flightContext);
 
   const actions = flightData?.flight?.actions;
 
-  if (!actions) {
+  const arrivalTz = flightData?.destinationAirport?.timezone_name;
+
+  const departureTz = flightData?.departureAirport?.timezone_name;
+
+  if (!actions || arrivalTz || departureTz) {
     return null;
   }
 
