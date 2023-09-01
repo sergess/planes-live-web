@@ -26,7 +26,7 @@ export default function CustomCalendar() {
   const interval = useRef();
   const [dayWithoutFlight, setDayWithoutFlight] = useState(null);
   const [tooltipOpened, setTooltipOpened] = useState(false);
-  const [days, setDays] = useState(null);
+  const [daysWithFlight, setDaysWithFlight] = useState(null);
   const { flightData, setFlightData } = useContext(flightContext);
 
   const currentDate = new Date();
@@ -41,7 +41,7 @@ export default function CustomCalendar() {
         { flight: flightData?.flight?.icao, month: formatDate(currentDate, YEAR_MONTH_DATE_FORMAT) },
       );
       const arrayDates = dates.map((item) => item.date);
-      setDays(arrayDates);
+      setDaysWithFlight(arrayDates);
     })();
   }, []);
 
@@ -57,7 +57,7 @@ export default function CustomCalendar() {
 
   const formatShortWeekday = useCallback((locale, date) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][date.getDay()], []);
   const formatMonthYear = useCallback((locale, date) => formatDate(date, 'MMMM'), []);
-  const selectFlightDay = useCallback(({ date }) => (isSameDay(days, date) ? 'flightday' : null), [days]);
+  const selectFlightDay = useCallback(({ date }) => (isSameDay(daysWithFlight, date) ? 'flightday' : null), [daysWithFlight]);
 
   const onOpenTooltip = useCallback(() => {
     setTooltipOpened(true);
@@ -66,7 +66,7 @@ export default function CustomCalendar() {
   }, []);
 
   const onClick = useCallback((value) => {
-    if (isSameDay(days, value)) {
+    if (isSameDay(daysWithFlight, value)) {
       setTooltipOpened(false);
       // [TODO] here should be loader?
       getFlightData(formatDate(value, YEAR_MONTH_DAY_DATE_FORMAT));
@@ -75,7 +75,7 @@ export default function CustomCalendar() {
       const selectedDate = formatDate(value, MONTH_DAY_DATE_FORMAT);
       setDayWithoutFlight(selectedDate);
     }
-  }, [days]);
+  }, [daysWithFlight]);
 
   return (
     <div className={styles.body}>
