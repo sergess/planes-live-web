@@ -19,17 +19,17 @@ export default function Swipe({ children }) {
 
   return (
     <div className={`${styles.drawer} 
-      ${DRAWER_STATE[drawerState]}`}
+      ${DRAWER_STATE[drawerState]} ${drawerState === -1 && 'bottom'}`}
     >
       <div
-        onPointerEnter={(e) => {
+        onTouchStart={(e) => {
           setTouchEnd(null);
-          setTouchStart(e.screenY);
+          setTouchStart(e.targetTouches[0].clientY);
         }}
-        onPointerMove={(e) => {
-          setTouchEnd(e.screenY);
+        onTouchMove={(e) => {
+          setTouchEnd(e.targetTouches[0].clientY);
         }}
-        onPointerLeave={() => {
+        onTouchEnd={() => {
           if (!touchStart || !touchEnd) return;
           const distance = touchStart - touchEnd;
           const isTopSwipe = distance > minSwipeDistance;

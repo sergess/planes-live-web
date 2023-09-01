@@ -40,3 +40,9 @@ export const filterOnlyFutureFlights = ({ flight }, dateKey, tz) => {
 
   return dayjs().tz(tz).isBefore(dayjs(time).tz(tz));
 };
+export const convertSecondsToDuration = (seconds) => {
+  const ago = dayjs().subtract(seconds, 'second');
+  const dur = dayjs.duration(dayjs().diff(ago));
+
+  return dayjs.utc(dur.asMilliseconds()).format('H[h] mm[m]');
+};

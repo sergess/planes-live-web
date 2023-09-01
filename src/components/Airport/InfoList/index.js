@@ -38,6 +38,7 @@ export default async function InfoList({
       <div className={styles.container}>
         {items.map(({ flight }) => (
           <Item
+            key={flight.icao}
             icao={flight.icao}
             dateValue={flight[dateKey]}
             actualDateValue={flight[`${dateKey}_actual`]}

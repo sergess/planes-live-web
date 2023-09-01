@@ -42,7 +42,9 @@ const getIconPath = (code) => {
       return '';
   }
 };
-export default function LastUpdateCard() {
+export default function LastUpdateCard({
+                                         arrivalTz, departureTz,
+                                       }) {
   const { flightData } = useContext(flightContext);
 
   const actions = flightData?.flight?.actions;
@@ -52,8 +54,18 @@ export default function LastUpdateCard() {
   }
 
   const action = actions.reduce(
-    (prev, current) => (prev.priority > current.priority ? prev : current),
+    (prev, current) => (prev.priority >= current.priority ? prev : current),
   );
+  const getTzByCode = (val) => {
+    if (val === 26) {
+      return departureTz;
+    }
+    if (val === 27) {
+      return arrivalTz;
+    }
+
+    return null;
+  };
 
   return (
     <div className={styles.container}>
@@ -76,7 +88,7 @@ export default function LastUpdateCard() {
           />
           <p>
             {`${UPDATE_LABELS[action.action]} `}
-            {DATE_VALUES.includes(action.action) ? formatDate(action.value, M_TIME_FORMAT)
+            {DATE_VALUES.includes(action.action) ? formatDate(action.value, M_TIME_FORMAT, getTzByCode(action.action))
               : action.value}
           </p>
         </div>

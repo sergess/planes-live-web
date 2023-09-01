@@ -13,7 +13,9 @@ import { getDateDifferenceHM } from '@/utils/date';
 
 import styles from './flightCard.module.css';
 
-export default function FlightCard() {
+export default function FlightCard({
+                                     destinationTz, departureTz,
+                                   }) {
   // [TODO] params 'logoUrl', 'departureGate' are missing
   const logoUrl = null;
   const departureGate = null;
@@ -80,7 +82,7 @@ export default function FlightCard() {
           <div className={styles.block}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{city}</p>
-              <p className={styles.description}>
+              <p className={styles.description} title={name}>
                 {originIata}
                 {' '}
                 —
@@ -100,7 +102,7 @@ export default function FlightCard() {
                 {departureGate || EMPTY_FIELD}
               </p>
             </div>
-            <Time time={departureTime} actual={actualDepartureTime} />
+            <Time time={departureTime} actual={actualDepartureTime} tz={departureTz} />
           </div>
           <div className={styles.middle}>
             <Image
@@ -143,7 +145,7 @@ export default function FlightCard() {
                 {arrivalBaggageClaim || EMPTY_FIELD}
               </p>
             </div>
-            <Time time={arrivalTime} actual={actualArrivalTime} />
+            <Time time={arrivalTime} actual={actualArrivalTime} tz={destinationTz} />
           </div>
         </div>
       </div>
