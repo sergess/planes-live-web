@@ -10,6 +10,7 @@ import { MAPBOX_TOKEN } from '@/constants/index';
 
 import styles from './map.module.scss';
 
+const DEFAULT_MARKER_SIZE = '24px';
 export default async function MapBox({
   mapRef = null,
   markers = [],
@@ -75,7 +76,15 @@ export default async function MapBox({
           ref={geoControlRef}
         />
         {markers.map((m) => (
-          <Marker key={m.id} longitude={m.longitude} latitude={m.latitude} anchor="center">
+          <Marker
+            key={m.id}
+            style={{
+              height: m.height || DEFAULT_MARKER_SIZE,
+            }}
+            longitude={m.longitude}
+            latitude={m.latitude}
+            anchor="center"
+          >
             {m.label ? (
               <div className={styles.marker}>
                 {m.label}
