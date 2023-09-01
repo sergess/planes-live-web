@@ -28,7 +28,7 @@ const getValue = (flight) => {
 };
 const getLabelColor = (status) => (status !== STATUS.CANCELLED ? ACTIVE_COLOR : DEFAULT_COLOR);
 const getLabelByStatus = (status, time, isEnd = false) => {
-  if (status === STATUS.CANCELLED) {
+  if (!time) {
     return EMPTY_LABEL;
   }
   if (status === STATUS.ACTIVE) {
@@ -53,6 +53,8 @@ export default function FlightPreview({
   airport,
   flight,
 }) {
+  if (flight.status === STATUS.CANCELLED) return '';
+
   const {
     departure_actual, arrival, arrival_actual,
     departure, waypoints, aircraft, status,
