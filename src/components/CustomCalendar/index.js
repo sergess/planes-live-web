@@ -1,14 +1,14 @@
 'use client';
 
 import React, {
-  useState, useRef, useCallback, useEffect, useContext,
+  useState, useRef, useCallback, useContext,
 } from 'react';
 import Calendar from 'react-calendar';
 import * as dayjs from 'dayjs';
 import Image from 'next/image';
 
 import CaledarTooltip from '@/components/CalendarTooltip';
-import { flightRequest, flightByIdRequest } from '@/requests/index';
+import { flightByIdRequest } from '@/requests/index';
 import {
   DAY_MONTH_DATE_FORMAT,
   MONTH_DAY_DATE_FORMAT,
@@ -18,6 +18,7 @@ import {
 import { isSameDay } from '@/utils/isSameDay';
 import flightContext from '@/contexts/flight/FlightContext';
 import { formatDate } from '@/utils/date';
+import useFetch from '@/hooks/useFetch';
 
 import './common.css';
 import styles from './calendar.module.scss';
@@ -26,7 +27,6 @@ export default function CustomCalendar() {
   const interval = useRef();
   const [dayWithoutFlight, setDayWithoutFlight] = useState(null);
   const [tooltipOpened, setTooltipOpened] = useState(false);
-  const [daysWithFlight, setDaysWithFlight] = useState(null);
   const { flightData, setFlightData } = useContext(flightContext);
 
   const currentDate = new Date();
@@ -34,25 +34,16 @@ export default function CustomCalendar() {
   const maxDate = new Date(dayjs(currentDate).add(3, 'month').toISOString());
   const minDate = new Date(dayjs(currentDate).subtract(1, 'week').toISOString());
 
-  useEffect(() => {
-    (async () => {
-      // [TODO] return date + count: {date: '2023-08-30', count: 1}
-      const { dates } = await flightRequest(
-        { flight: flightData?.flight?.icao, month: formatDate(currentDate, YEAR_MONTH_DATE_FORMAT) },
-      );
-      const arrayDates = dates.map((item) => item.date);
-      setDaysWithFlight(arrayDates);
-    })();
-  }, []);
+  // [TODO] return date + count: {date: '2023-08-30', count: 1}, will use for it own hook
+  const { data } = useFetch('/api/flight', { flight: flightData?.flight?.icao, month: formatDate(currentDate, YEAR_MONTH_DATE_FORMAT) });
+  const daysWithFlight = data?.data.dates.map((item) => item.date);
 
-  const getFlightData = (value) => {
-    (async () => {
-      // [TODO] return array of flights
-      const { flights } = await flightByIdRequest({ flight: flightData?.flight?.icao, date: value });
-      setFlightData(
-        (prevState) => ({ ...prevState, flight: flights[0].flight, date: formatDate(value, DAY_MONTH_DATE_FORMAT) }),
-      );
-    })();
+  const getFlightData = async (value) => {
+    // [TODO] return array of flights, think about best way ex: useSWR
+    const { flights } = await flightByIdRequest({ flight: flightData?.flight?.icao, date: value });
+    setFlightData(
+      (prevState) => ({ ...prevState, flight: flights[0].flight, date: formatDate(value, DAY_MONTH_DATE_FORMAT) }),
+    );
   };
 
   const formatShortWeekday = useCallback((locale, date) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][date.getDay()], []);
@@ -65,7 +56,7 @@ export default function CustomCalendar() {
     interval.current = setTimeout(() => setTooltipOpened(false), 3000);
   }, []);
 
-  const onClick = useCallback((value) => {
+  const onClick = (value) => {
     if (isSameDay(daysWithFlight, value)) {
       setTooltipOpened(false);
       // [TODO] here should be loader?
@@ -75,7 +66,7 @@ export default function CustomCalendar() {
       const selectedDate = formatDate(value, MONTH_DAY_DATE_FORMAT);
       setDayWithoutFlight(selectedDate);
     }
-  }, [daysWithFlight]);
+  };
 
   return (
     <div className={styles.body}>

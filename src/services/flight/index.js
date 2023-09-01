@@ -26,10 +26,12 @@ export class Flight extends ApiV212 {
     return data;
   }
 
-  async getAvailableFlightDates(query) {
+  async getAvailableFlightDates(flight, month) {
     const { ok, data } = await this.callAsync(`${request_uri}search-dates`, {
       method: 'POST',
-      body: JSON.stringify(query),
+      body: JSON.stringify({
+        flight, month,
+      }),
     });
 
     if (!ok) {

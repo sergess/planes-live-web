@@ -1,6 +1,8 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
 
+import SWRProvider from '@/contexts/swr/SWRProvider';
+
 import '@/styles/globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -16,7 +18,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div>
-          {children}
+          <SWRProvider>
+            {children}
+          </SWRProvider>
         </div>
       </body>
     </html>
