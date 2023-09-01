@@ -58,7 +58,7 @@ export default async function MapBox({
               }}
               paint={{
                 'line-color': '#2166EE',
-                'line-width': 2,
+                'line-width': 1,
                 ...l.layerPaint,
               }}
             />
