@@ -7,11 +7,10 @@ import dayjs from 'dayjs';
 import FlightProgress from '@/components/Swipe/FlightPreview/FlightProgress';
 import { getDateDifferenceHM } from '@/utils/date';
 import { calculatePercentageOfRestPath, getDistanceFromLatLonInKm } from '@/utils/distance';
-import flightContext from "@/contexts/flight/FlightContext";
+import flightContext from '@/contexts/flight/FlightContext';
 
 import { STATUS } from '@/constants/flight';
 import styles from './FlightPreview.module.scss';
-
 
 const EMPTY_LABEL = 'Time n/a';
 const EMPTY_CODE_LABEL = 'N/A';
@@ -63,7 +62,6 @@ export default function FlightPreview() {
     return null;
   }
 
-
   if (flight.status === STATUS.CANCELLED) return '';
 
   const {
@@ -81,13 +79,15 @@ export default function FlightPreview() {
   return (
     <div className={`${styles.planePanel} preview`}>
       <div className={styles.image}>
-        {aircraft?.photo_url && <Image
+        {aircraft?.photo_url && (
+        <Image
           src={aircraft?.photo_url}
           alt={aircraft?.model}
           width="100"
           height="60"
           className={styles.img}
-        />}
+        />
+        )}
       </div>
       <div className={styles.wrapper}>
         <div className={styles.info}>

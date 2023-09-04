@@ -19,14 +19,14 @@ import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightPreview from '@/components/Swipe/FlightPreview';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
 
+import styles from './page.module.scss';
+
 const MapWithFlightData = dynamic(
   () => import('@/components/MapWithFlightData'),
   {
     ssr: false,
-  }
+  },
 );
-
-import styles from './page.module.scss';
 
 export default async function Page({ params }) {
   const { id: flightId } = params;
