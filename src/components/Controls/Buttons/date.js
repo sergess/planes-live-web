@@ -3,14 +3,14 @@
 import React, { useContext } from 'react';
 
 import { ModalContext } from '@/contexts/modal/ModalContext';
+import dynamic from 'next/dynamic';
 import styles from './button.module.css';
-import dynamic from "next/dynamic";
 
 const CustomCalendar = dynamic(
   () => import('@/components/CustomCalendar'),
   {
     ssr: false,
-  }
+  },
 );
 
 export default function Button({ children }) {

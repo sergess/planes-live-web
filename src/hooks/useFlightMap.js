@@ -120,10 +120,9 @@ const getInitialView = (flight, markers) => {
 };
 
 export default ({ flight, departureAirport, destinationAirport }) => {
-
   if (!flight || !departureAirport || !destinationAirport) {
     return {
-      initialView: null, lines: null, markers: null, mappedPositions: null
+      initialView: null, lines: null, markers: null, mappedPositions: null,
     };
   }
 
