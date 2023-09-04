@@ -1,0 +1,68 @@
+div.smartbanner-top {
+    position: relative;
+    padding: 8px 0 8px 8px;
+}
+.smartbanner {
+    background: var(--banner-bg);
+    line-height: normal;
+    display: flex;
+    flex: 1;
+    height: 56px;
+    flex-direction: column;
+    box-shadow: none;
+    border-bottom: 1px solid var(--banner-border-color);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.smartbanner-container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex: 1;
+    margin: 0;
+    width: 100%;
+}
+span.smartbanner-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+}
+div.smartbanner-wrapper  {
+    display: inline;
+    width: auto;
+    line-height: initial;
+    margin-left: auto;
+    height: 100%;
+    padding: 0;
+}
+.smartbanner-button-text {
+    padding: 0;
+    margin: 0;
+    height: auto;
+    line-height: initial;
+}
+div.smartbanner-close {
+    height: 16px;
+    width: 16px;
+}
+.smartbanner div.smartbanner-title {
+    font-size: var(--font-body-1);
+    font-weight: 600;
+    color: var(--color-primary);
+}
+div.smartbanner-description {
+    color: var(--color-dark);
+    font-size: var(--font-caption);
+}
+div.smartbanner-author {
+    color: var(--color-dark-50);
+    font-size: var(--font-small);
+}
+a.smartbanner-button {
+    color: var(--color-primary) !important;
+    font-size: var(--font-body-2);
+    line-height: initial;
+    height: auto;
+}

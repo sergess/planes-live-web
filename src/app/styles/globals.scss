@@ -1,5 +1,7 @@
 @import "variables.css";
 @import "normalize.css";
+@import 'node_modules/react-smartbanner/dist/main.css';
+@import "banner.scss";
 
 * {
   box-sizing: border-box;

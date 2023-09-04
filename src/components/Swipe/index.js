@@ -19,7 +19,7 @@ export default function Swipe({ children }) {
 
   return (
     <div className={`${styles.drawer} 
-      ${DRAWER_STATE[drawerState]}`}
+      ${DRAWER_STATE[drawerState]} middle`}
     >
       <div
         onPointerEnter={(e) => {

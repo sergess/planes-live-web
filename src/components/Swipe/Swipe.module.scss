@@ -2,6 +2,7 @@
 @value middleHeight: calc(100svh - var(--mobile-header-height) - 2.4rem);
 @value bottomHeight: calc(100vh - var(--mobile-header-height) - 50rem - 6.4rem - 1.6rem);
 @value drawerRadius: 15px 15px 0 0;
+@value bannerSize: 8rem;
 
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
@@ -32,6 +33,9 @@
     }
     .bottom {
         height: bottomHeight;
+    }
+    :global(.smartbanner-top)~div .middle {
+        height: calc(middleHeight - bannerSize);
     }
 }
 
