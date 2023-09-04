@@ -23,17 +23,15 @@ export default function MapWithFlightData() {
     return null;
   }
 
-  return null;
-
-  // return (
-  //   <MapBox
-  //     initial
-  //     markers={markers}
-  //     lines={lines}
-  //     initialViewState={initialView && {
-  //       latitude: initialView.latitude,
-  //       longitude: initialView.longitude,
-  //     }}
-  //   />
-  // );
+  return (
+    <MapBox
+      initial
+      markers={markers}
+      lines={lines}
+      initialViewState={initialView && {
+        latitude: initialView.latitude,
+        longitude: initialView.longitude,
+      }}
+    />
+  );
 }

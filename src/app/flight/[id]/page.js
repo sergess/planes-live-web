@@ -1,5 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
 import { withAirport, withFlight } from '@/middlewares/get-server-side-data';
 import Swipe from '@/components/Swipe';
@@ -16,8 +17,14 @@ import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightPreview from '@/components/Swipe/FlightPreview';
-import MapWithFlightData from '@/components/MapWithFlightData';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
+
+const MapWithFlightData = dynamic(
+  () => import('@/components/MapWithFlightData'),
+  {
+    ssr: false,
+  }
+);
 
 import styles from './page.module.scss';
 
