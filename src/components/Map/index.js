@@ -7,11 +7,15 @@ import Map, {
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_TOKEN } from '@/constants/index';
+
 import styles from './map.module.scss';
 
+const DEFAULT_MARKER_SIZE = '24px';
 export default async function MapBox({
-  latitude, longitude, code,
-  longitudeEnd, latitudeEnd, mapRef = null,
+  mapRef = null,
+  markers = [],
+  lines = [],
+  initialViewState = {},
 }) {
   const geoControlRef = React.useRef();
 
@@ -20,49 +24,47 @@ export default async function MapBox({
       <Map
         ref={mapRef}
         onLoad={() => {
-          if (!latitude && !longitude) {
+          if (!markers.length) {
             geoControlRef.current?.trigger();
           }
         }}
         mapboxAccessToken={MAPBOX_TOKEN}
         initialViewState={{
-          latitude,
-          longitude,
+          ...initialViewState,
           zoom: 3.5,
         }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
       >
-        {longitudeEnd && latitudeEnd && (
-        <Source
-          id="polylineLayer"
-          type="geojson"
-          data={{
-            type: 'Feature',
-            properties: {},
-            geometry: {
-              type: 'LineString',
-              coordinates: [
-                [longitude, latitude],
-                [longitudeEnd, latitudeEnd],
-              ],
-            },
-          }}
-        >
-          <Layer
-            id="lineLayer"
-            type="line"
-            source="my-data"
-            layout={{
-              'line-join': 'bevel',
-              'line-cap': 'round',
+        {lines.map((l) => (
+          <Source
+            key={l.id}
+            id={l.id}
+            type="geojson"
+            data={{
+              type: 'Feature',
+              properties: {},
+              geometry: {
+                type: 'LineString',
+                coordinates: l.coordinates,
+              },
             }}
-            paint={{
-              'line-color': '#2166EE',
-              'line-width': 1,
-            }}
-          />
-        </Source>
-        )}
+          >
+            <Layer
+              id={l.layerId}
+              type="line"
+              source={l.id}
+              layout={{
+                'line-join': 'bevel',
+                'line-cap': 'round',
+              }}
+              paint={{
+                'line-color': '#2166EE',
+                'line-width': 1,
+                ...l.layerPaint,
+              }}
+            />
+          </Source>
+        ))}
         <GeolocateControl
           positionOptions={{
             enableHighAccuracy: false,
@@ -73,16 +75,23 @@ export default async function MapBox({
           showUserHeading={false}
           ref={geoControlRef}
         />
-        {longitude && latitude && (
-          <Marker longitude={longitude} latitude={latitude} anchor="bottom">
-            <div className={styles.marker}>{code}</div>
+        {markers.map((m) => (
+          <Marker
+            key={m.id}
+            style={{
+              height: m.height || DEFAULT_MARKER_SIZE,
+            }}
+            longitude={m.longitude}
+            latitude={m.latitude}
+            anchor="center"
+          >
+            {m.label ? (
+              <div className={styles.marker}>
+                {m.label}
+              </div>
+            ) : m.html}
           </Marker>
-        )}
-        {longitudeEnd && latitudeEnd && (
-          <Marker longitude={longitudeEnd} latitude={latitudeEnd} anchor="bottom">
-            <div className={styles.marker}>{code}</div>
-          </Marker>
-        )}
+        ))}
         <NavigationControl />
       </Map>
     </div>

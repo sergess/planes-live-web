@@ -77,9 +77,16 @@ export default async function Page({ params, searchParams }) {
         <Security />
       </div>
       <CustomMap
-        latitude={airport.lat}
-        longitude={airport.lon}
-        code={airport.iata}
+        markers={[{
+          id: 'marker1',
+          latitude: airport.lat,
+          longitude: airport.lon,
+          label: airport.iata,
+        }]}
+        initialViewState={{
+          latitude: airport.lat,
+          longitude: airport.lon,
+        }}
       />
     </>
   );

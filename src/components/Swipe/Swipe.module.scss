@@ -1,11 +1,22 @@
-@value topHeight: calc(100svh - var(--mobile-header-height));
-@value middleHeight: calc(100svh - var(--mobile-header-height) - 2.4rem);
-@value bottomHeight: calc(100vh - var(--mobile-header-height) - 50rem - 6.4rem - 1.6rem);
+@value topHeight: calc(100vh - var(--mobile-header-height));
+@value middleHeight: calc(100vh - var(--mobile-header-height) - 2.4rem);
+@value previewSpace: 1.6rem;
+@value previewHeight: 6rem;
+@value bottomHeight: 14rem;
 @value drawerRadius: 15px 15px 0 0;
 @value bannerSize: 8rem;
 
+@keyframes opacityAnimation {
+    0%   { opacity: 0.0; }
+    50%  { opacity:0.0; }
+    100% { opacity:1.0; }
+}
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
+    .drawer :global(.preview) {
+        visibility: hidden;
+        opacity: 0;
+    }
     .gripWrapper {
         display: flex;
         justify-content: center;
@@ -33,6 +44,11 @@
     }
     .bottom {
         height: bottomHeight;
+    }
+    .bottom :global(.preview) {
+        visibility: visible;
+        opacity: 1;
+        animation: opacityAnimation 1.5s forwards;
     }
     :global(.smartbanner-top)~div .middle {
         height: calc(middleHeight - bannerSize);

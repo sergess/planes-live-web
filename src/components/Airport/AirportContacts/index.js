@@ -10,6 +10,7 @@ export default function AirportContacts({
   city, country, iata, phone, tz,
 }) {
   const date = new Date();
+  const GMT = dayjs().tz(tz).$offset / MIN_TO_HOUR;
 
   return (
     <div className={styles.container}>
@@ -38,7 +39,7 @@ export default function AirportContacts({
           {formatDate(date, DEFAULT_TIME_FORMAT, tz)}
           {' '}
           • GMT
-          {dayjs().tz(tz).$offset / MIN_TO_HOUR}
+          {GMT > 0 ? `+${GMT}` : GMT}
         </p>
         <p>
           {formatDate(date, DAY_MONTH_DATE_FORMAT, tz)}

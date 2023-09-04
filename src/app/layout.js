@@ -1,7 +1,9 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 
-import ModalProvider from '@/contexts/modal/ModalContextProvider';
+import SWRProvider from '@/contexts/swr/SWRProvider';
+
 import '@/styles/globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -39,11 +41,12 @@ export default function RootLayout({ children }) {
       <BannerIOSMetaTags />
       <body className={inter.className}>
         <div>
-          <ModalProvider>
+          <SWRProvider>
             {children}
-          </ModalProvider>
+          </SWRProvider>
         </div>
       </body>
+      <Script src="/anchor.js" />
     </html>
   );
 }
