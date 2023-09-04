@@ -1,5 +1,5 @@
-@value topHeight: calc(100vh - var(--mobile-header-height));
-@value middleHeight: calc(100vh - var(--mobile-header-height) - 2.4rem);
+@value topHeight: calc(100svh - var(--mobile-header-height));
+@value middleHeight: calc(100svh - var(--mobile-header-height) - 2.4rem);
 @value previewSpace: 1.6rem;
 @value previewHeight: 6rem;
 @value bottomHeight: 14rem;
