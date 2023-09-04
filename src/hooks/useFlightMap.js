@@ -83,6 +83,7 @@ const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinati
       id: 3,
       latitude: current.lat,
       longitude: current.lon,
+      height: '28px',
       html: <Image
         src="/svg/map_aviation.svg"
         priority

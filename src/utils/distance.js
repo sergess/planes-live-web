@@ -6,6 +6,9 @@ export const getDistanceFromLatLonInKm = (
   { lat: lat1, lon: lon1 },
   { lat: lat2, lon: lon2 },
 ) => {
+  if (!lat1 || !lon1 || !lat2 || !lat2) {
+    return 'N/A';
+  }
   const R = 6371; // Radius of the earth in km
   const dLat = deg2rad(lat2 - lat1); // deg2rad below
   const dLon = deg2rad(lon2 - lon1);
