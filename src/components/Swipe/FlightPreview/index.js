@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 
@@ -8,6 +10,7 @@ import { calculatePercentageOfRestPath, getDistanceFromLatLonInKm } from '@/util
 
 import { STATUS } from '@/constants/flight';
 import styles from './FlightPreview.module.scss';
+import flightContext from "@/contexts/flight/FlightContext";
 
 const EMPTY_LABEL = 'Time n/a';
 const ACTIVE_COLOR = '#33CC55';
@@ -26,11 +29,17 @@ const getValue = (flight) => {
   return 0;
 };
 const getLabelColor = (status) => (status === STATUS.ACTIVE ? ACTIVE_COLOR : DEFAULT_COLOR);
-export default function FlightPreview({
-  destinationAirport,
-  airport,
-  flight,
-}) {
+export default function FlightPreview() {
+  const { flightData } = useContext(flightContext);
+
+  const flight = flightData?.flight;
+  const airport = flightData?.destinationAirport;
+  const destinationAirport = flightData?.departureAirport;
+
+  if (!flight || !airport || !destinationAirport) {
+    return null;
+  }
+
   const {
     departure_actual, arrival, arrival_actual,
     departure, waypoints, aircraft, status,

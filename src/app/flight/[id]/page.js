@@ -52,11 +52,7 @@ export default async function Page({ params }) {
         <MapWithFlightData />
         <div className={styles.container}>
           <Swipe id={flightId}>
-            <FlightPreview
-              destinationAirport={departureAirport}
-              airport={destinationAirport}
-              flight={flight}
-            />
+            <FlightPreview />
             <div className={styles.body}>
               <DateBlock />
               <FlightCard />
