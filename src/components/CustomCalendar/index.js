@@ -15,9 +15,8 @@ import {
   YEAR_MONTH_DATE_FORMAT,
   YEAR_MONTH_DAY_DATE_FORMAT,
 } from '@/constants/date';
-import { isSameDay } from '@/utils/isSameDay';
 import flightContext from '@/contexts/flight/FlightContext';
-import { formatDate } from '@/utils/date';
+import { formatDate, isSameDay } from '@/utils/date';
 import useFetch from '@/hooks/useFetch';
 
 import './common.css';

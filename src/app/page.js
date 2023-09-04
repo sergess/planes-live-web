@@ -12,7 +12,6 @@ import { Inter } from 'next/font/google';
 import SearchRedirect from '@/components/SearchRedirect';
 import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
-import ModalControls from '@/components/ModalControls';
 import styles from './page.module.scss';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
@@ -21,7 +20,6 @@ export default function Home() {
   return (
     /* class for flight page styles */
     <div className="landingBanners">
-      <ModalControls />
       <LandingHeader />
       <main className={`${styles.main} ${inter.className}`}>
         <h1 className={styles.searchWrapper}>

@@ -32,8 +32,12 @@ export default function FlightCard() {
     departure_check_in_desk: departureCheckInDesk, actions,
   } = flightData.flight;
 
-  const { iata: destinationIata, city: destinationCity, name: destinationName, timezone_name: destinationTz } = flightData.destinationAirport;
-  const { city, name, iata: originIata, timezone_name: departureTz } = flightData.departureAirport;
+  const {
+    iata: destinationIata, city: destinationCity, name: destinationName, timezone_name: destinationTz,
+  } = flightData.destinationAirport;
+  const {
+    city, name, iata: originIata, timezone_name: departureTz,
+  } = flightData.departureAirport;
 
   const total = getDateDifferenceHM(
     actualArrivalTime || arrivalTime,
