@@ -1,13 +1,17 @@
-import React from 'react';
+'use client';
+
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 
 import FlightProgress from '@/components/Swipe/FlightPreview/FlightProgress';
 import { getDateDifferenceHM } from '@/utils/date';
 import { calculatePercentageOfRestPath, getDistanceFromLatLonInKm } from '@/utils/distance';
+import flightContext from "@/contexts/flight/FlightContext";
 
 import { STATUS } from '@/constants/flight';
 import styles from './FlightPreview.module.scss';
+
 
 const EMPTY_LABEL = 'Time n/a';
 const EMPTY_CODE_LABEL = 'N/A';
@@ -48,11 +52,18 @@ const getLabelByStatus = (status, time, isEnd = false) => {
   return EMPTY_LABEL;
 };
 
-export default function FlightPreview({
-  destinationAirport,
-  airport,
-  flight,
-}) {
+export default function FlightPreview() {
+  const { flightData } = useContext(flightContext);
+
+  const flight = flightData?.flight;
+  const airport = flightData?.destinationAirport;
+  const destinationAirport = flightData?.departureAirport;
+
+  if (!flight || !airport || !destinationAirport) {
+    return null;
+  }
+
+
   if (flight.status === STATUS.CANCELLED) return '';
 
   const {
@@ -70,13 +81,13 @@ export default function FlightPreview({
   return (
     <div className={`${styles.planePanel} preview`}>
       <div className={styles.image}>
-        <Image
+        {aircraft?.photo_url && <Image
           src={aircraft?.photo_url}
           alt={aircraft?.model}
           width="100"
           height="60"
           className={styles.img}
-        />
+        />}
       </div>
       <div className={styles.wrapper}>
         <div className={styles.info}>

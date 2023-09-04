@@ -15,12 +15,19 @@ import DateBlock from '@/components/FlightInfo/DateBlock';
 import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
+import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightPreview from '@/components/Swipe/FlightPreview';
+import FlightProvider from '@/contexts/flight/FlightContextProvider';
 
-import useFlightMap from '@/hooks/useFlightMap';
+const MapWithFlightData = dynamic(
+  () => import('@/components/MapWithFlightData'),
+  {
+    ssr: false,
+  }
+);
+
 import styles from './page.module.scss';
 
-const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 export default async function Page({ params }) {
   const { id: flightId } = params;
   const flight = await withFlight(flightId);
@@ -34,79 +41,37 @@ export default async function Page({ params }) {
   if (!destinationAirport || !departureAirport) {
     notFound();
   }
-
-  const { markers, lines, initialView } = useFlightMap({
-    flight,
-    departureAirport,
-    destinationAirport,
-  });
+  const currentDate = new Date();
 
   return (
-    <>
-      <Map
-        initial
-        markers={markers}
-        lines={lines}
-        initialViewState={initialView && {
-          latitude: initialView.latitude,
-          longitude: initialView.longitude,
-        }}
-      />
-      <div className={styles.container}>
-        <Swipe id={flightId}>
-          <FlightPreview
-            destinationAirport={departureAirport}
-            airport={destinationAirport}
-            flight={flight}
-          />
-          <div className={styles.body}>
-            <DateBlock />
-            <FlightCard
-              city={departureAirport.city}
-              logoUrl=""
-              iata={flight?.iata}
-              name={departureAirport.name}
-              originIata={departureAirport.iata}
-              status={flight.status}
-              destinationIata={destinationAirport.iata}
-              destinationCity={destinationAirport.city}
-              destinationName={destinationAirport.name}
-              destinationTz={destinationAirport.timezone_name}
-              departureTz={departureAirport.timezone_name}
-              departureTime={flight.departure}
-              arrivalTime={flight.arrival}
-              departureGate={flight.departure_gate}
-              actualArrivalTime={flight.arrival_actual}
-              actualDepartureTime={flight.departure_actual}
-              arrivalTerminal={flight.arrival_terminal}
-              departureTerminal={flight.departure_terminal}
-              arrivalGate={flight.arrival_gate}
-              arrivalBaggageClaim={flight.arrival_baggage_claim}
-              departureCheckInDesk={flight.departure_check_in_desk}
-              actions={flight.actions}
-            />
-            {flight?.actions?.length
-              && (
-                <LastUpdateCard
-                  actions={flight.actions}
-                  arrivalTz={destinationAirport.timezone_name}
-                  departureTz={departureAirport.timezone_name}
-                />
-              )}
-            <DelayHistoryCard />
-            {/* applyMobile,landingBanners - classes for flight page styles */}
-            <div className={`${styles.mobContent} landingBanners applyMobile`}>
-              <Features isMobileView />
-              <Traffic />
-              <Slider />
-              <NotificationBanner />
-              <AirportBanner />
-              <KnowMore />
-              <Footer />
+    <FlightProvider value={{
+      flight, destinationAirport, departureAirport, date: currentDate,
+    }}
+    >
+      <ModalProvider>
+        <MapWithFlightData />
+        <div className={styles.container}>
+          <Swipe id={flightId}>
+            <FlightPreview />
+            <div className={styles.body}>
+              <DateBlock />
+              <FlightCard />
+              <LastUpdateCard />
+              <DelayHistoryCard />
+              {/* applyMobile,landingBanners - classes for flight page styles */}
+              <div className={`${styles.mobContent} landingBanners applyMobile`}>
+                <Features isMobileView />
+                <Traffic />
+                <Slider />
+                <NotificationBanner />
+                <AirportBanner />
+                <KnowMore />
+                <Footer />
+              </div>
             </div>
-          </div>
-        </Swipe>
-      </div>
-    </>
+          </Swipe>
+        </div>
+      </ModalProvider>
+    </FlightProvider>
   );
 }

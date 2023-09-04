@@ -1,15 +1,16 @@
-import React from 'react';
+'use client';
+
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import dayjs from 'dayjs';
-import dynamic from 'next/dynamic';
 
 import { BUTTON_SIZE } from '@/constants/index';
 import { UPDATE_LABELS } from '@/constants/flight';
 import { formatDate, getDateDifference } from '@/utils/date';
+import CustomButton from '@/components/Controls/Buttons/custom';
 import { M_TIME_FORMAT } from '@/constants/date';
+import flightContext from '@/contexts/flight/FlightContext';
 import styles from './lastUpdateCard.module.css';
-
-const CustomButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
 
 const DATE_VALUES = [
   26,
@@ -41,12 +42,23 @@ const getIconPath = (code) => {
       return '';
   }
 };
-export default function LastUpdateCard({
-  actions = [], arrivalTz, departureTz,
-}) {
+export default function LastUpdateCard() {
+  const { flightData } = useContext(flightContext);
+
+  const actions = flightData?.flight?.actions;
+
+  const arrivalTz = flightData?.destinationAirport?.timezone_name;
+
+  const departureTz = flightData?.departureAirport?.timezone_name;
+
+  if (!actions || !arrivalTz || !departureTz) {
+    return null;
+  }
+
   const action = actions.reduce(
     (prev, current) => (prev.priority >= current.priority ? prev : current),
   );
+
   const getTzByCode = (val) => {
     if (val === 26) {
       return departureTz;

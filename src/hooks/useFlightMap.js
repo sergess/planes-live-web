@@ -120,6 +120,13 @@ const getInitialView = (flight, markers) => {
 };
 
 export default ({ flight, departureAirport, destinationAirport }) => {
+
+  if (!flight || !departureAirport || !destinationAirport) {
+    return {
+      initialView: null, lines: null, markers: null, mappedPositions: null
+    };
+  }
+
   const mappedPositions = flight?.positions?.map(({ lon, lat }) => [lon, lat]) || [];
   const markers = getMarkersByStatus(flight, mappedPositions, departureAirport, destinationAirport);
   const lines = getLinesByStatus(flight, mappedPositions);

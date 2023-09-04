@@ -46,3 +46,5 @@ export const convertSecondsToDuration = (seconds) => {
 
   return dayjs.utc(dur.asMilliseconds()).format('H[h] mm[m]');
 };
+
+export const isSameDay = (arrayOfDates, date) => arrayOfDates?.some((item) => dayjs(item).isSame(date, 'day'));
