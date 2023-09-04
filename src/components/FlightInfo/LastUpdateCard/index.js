@@ -51,13 +51,14 @@ export default function LastUpdateCard() {
 
   const departureTz = flightData?.departureAirport?.timezone_name;
 
-  if (!actions || arrivalTz || departureTz) {
+  if (!actions || !arrivalTz || !departureTz) {
     return null;
   }
 
   const action = actions.reduce(
     (prev, current) => (prev.priority >= current.priority ? prev : current),
   );
+
   const getTzByCode = (val) => {
     if (val === 26) {
       return departureTz;
