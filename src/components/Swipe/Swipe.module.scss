@@ -25,7 +25,7 @@
     .drawer {
         z-index: var(--header-z-index);
         background: var(--surfaces-base);
-        position: fixed;
+        position: absolute;
         bottom: 0;
         left: 0;
         width: 100vw;
