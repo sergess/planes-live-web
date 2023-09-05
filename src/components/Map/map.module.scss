@@ -2,13 +2,13 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    height: 100vh;
+    height: calc(100vh - var(--mobile-header-height));
     width: 100vw;
     z-index: var(--map-z-index);
 }
 :global(.flight) .mapContainer {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - var(--mobile-header-height));
     width: 100vw;
     z-index: 1;
 }

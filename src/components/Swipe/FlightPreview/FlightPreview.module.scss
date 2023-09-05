@@ -4,7 +4,7 @@
 .planePanel {
   position: fixed;
   left: 50%;
-  bottom: calc(bottomHeight + previewSpace - var(--banner-height));
+  bottom: calc(bottomHeight + previewSpace);
   height: previewHeight;
   display: flex;
   background: var(--plane-panel-bg);
@@ -19,6 +19,13 @@
     transform: translate(-50%, 0);
   }
 }
+/* Mobile */
+@media (max-width: $mobile-breakpoint) {
+  :global(.smartbanner-show) .planePanel {
+    bottom: calc(bottomHeight + previewSpace - var(--banner-height));
+  }
+}
+
 .image {
   width: 10rem;
   height: 100%;
