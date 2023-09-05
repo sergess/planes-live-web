@@ -9,6 +9,7 @@ import { PLATFORM } from '@/constants/index';
 import { getMobileOperatingSystem } from '@/utils/index';
 import styles from './Banner.module.scss';
 
+const IMG_SIZE = 16;
 export default function Banner() {
   const icon = getMobileOperatingSystem() === PLATFORM.IOS
     ? '/svg/ic_apple.svg'
@@ -21,8 +22,8 @@ export default function Banner() {
         <div className={styles.appleButtonContainer}>
           <Image
             src={icon}
-            width={16}
-            height={16}
+            width={IMG_SIZE}
+            height={IMG_SIZE}
             alt="Apple icon"
           />
           <p>

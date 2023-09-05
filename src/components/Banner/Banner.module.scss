@@ -1,11 +1,11 @@
 .appleButtonContainer {
+  height: 36px;
+  border-radius: 8px;
+  padding: 8px;
   display: flex;
   align-items: center;
   background: var(--color-primary);
   color: var(--color-white);
-  height: 36px;
-  border-radius: 8px;
-  padding: 8px;
   p {
     margin-left: 8px;
   }

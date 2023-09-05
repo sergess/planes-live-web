@@ -1,9 +1,9 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
 import SearchHeader from '@/components/Header/searchHeader';
 import MobileRedirectSearch from '@/components/Controls/MobileRedirectSearch';
 
-import dynamic from 'next/dynamic';
 import styles from './layout.module.scss';
 
 const Banner = dynamic(() => import('@/components/Banner'), { ssr: false });

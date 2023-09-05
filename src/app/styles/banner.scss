@@ -6,26 +6,26 @@ div.smartbanner-top {
     display: flex;
 }
 .smartbanner {
-    position: fixed;
-    top: 0;
-    background: var(--banner-bg);
-    line-height: normal;
     flex: 1;
     height: 56px;
-    flex-direction: column;
-    box-shadow: none;
-    border-bottom: 1px solid var(--banner-border-color);
+    top: 0;
     padding: 0;
     margin: 0;
     width: 100%;
+    position: fixed;
+    background: var(--banner-bg);
+    line-height: normal;
+    flex-direction: column;
+    box-shadow: none;
+    border-bottom: thin solid var(--banner-border-color);
 }
 .smartbanner-container {
-    display: flex;
-    align-items: center;
     padding: 0;
     flex: 1;
     margin: 0;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 span.smartbanner-icon {
     display: block;
@@ -34,12 +34,12 @@ span.smartbanner-icon {
     margin-right: 12px;
 }
 div.smartbanner-wrapper  {
+    height: 100%;
+    padding: 0;
     display: inline;
     width: auto;
     line-height: initial;
     margin-left: auto;
-    height: 100%;
-    padding: 0;
 }
 .smartbanner-button-text {
     padding: 0;
@@ -53,8 +53,8 @@ div.smartbanner-close {
 }
 .smartbanner div.smartbanner-title {
     font-size: var(--font-body-1);
-    font-weight: 600;
     color: var(--color-primary);
+    font-weight: 600;
 }
 div.smartbanner-description {
     color: var(--color-dark);
