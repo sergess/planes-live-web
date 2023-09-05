@@ -10,7 +10,6 @@ import Image from 'next/image';
 import CaledarTooltip from '@/components/CalendarTooltip';
 import { flightByIdRequest } from '@/requests/index';
 import {
-  DAY_MONTH_DATE_FORMAT,
   MONTH_DAY_DATE_FORMAT,
   YEAR_MONTH_DATE_FORMAT,
   YEAR_MONTH_DAY_DATE_FORMAT,
@@ -34,14 +33,16 @@ export default function CustomCalendar() {
   const minDate = new Date(dayjs(currentDate).subtract(1, 'week').toISOString());
 
   // [TODO] return date + count: {date: '2023-08-30', count: 1}, will use for it own hook
-  const { data } = useFetch('/api/flight', { flight: flightData?.flight?.icao, month: formatDate(currentDate, YEAR_MONTH_DATE_FORMAT) });
+  const { data } = useFetch('/api/flight', { flight: flightData?.flight?.icao, month: formatDate(flightData?.date, YEAR_MONTH_DATE_FORMAT) });
   const daysWithFlight = data?.data.dates.map((item) => item.date);
 
   const getFlightData = async (value) => {
     // [TODO] return array of flights, think about best way ex: useSWR
-    const { flights } = await flightByIdRequest({ flight: flightData?.flight?.icao, date: value });
+    const { flights } = await flightByIdRequest(
+      { flight: flightData?.flight?.icao, date: formatDate(value, YEAR_MONTH_DAY_DATE_FORMAT) },
+    );
     setFlightData(
-      (prevState) => ({ ...prevState, flight: flights[0].flight, date: formatDate(value, DAY_MONTH_DATE_FORMAT) }),
+      (prevState) => ({ ...prevState, flight: flights[0].flight, date: value }),
     );
   };
 
@@ -59,7 +60,7 @@ export default function CustomCalendar() {
     if (isSameDay(daysWithFlight, value)) {
       setTooltipOpened(false);
       // [TODO] here should be loader?
-      getFlightData(formatDate(value, YEAR_MONTH_DAY_DATE_FORMAT));
+      getFlightData(value);
     } else {
       onOpenTooltip();
       const selectedDate = formatDate(value, MONTH_DAY_DATE_FORMAT);
@@ -83,7 +84,7 @@ export default function CustomCalendar() {
             height={28}
             alt="Left arrow"
           />
-)}
+        )}
         nextLabel={(
           <Image
             src="/svg/ic_chevron_right.svg"
@@ -91,9 +92,9 @@ export default function CustomCalendar() {
             height={28}
             alt="Right arrow"
           />
-)}
-        defaultActiveStartDate={currentDate}
+        )}
         tileClassName={selectFlightDay}
+        value={flightData?.date}
         maxDetail="month"
         minDate={minDate}
         maxDate={maxDate}
