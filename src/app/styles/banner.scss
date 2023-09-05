@@ -1,11 +1,16 @@
 div.smartbanner-top {
-    position: relative;
     padding: 8px 0 8px 8px;
+    margin-top: 0;
+}
+:global(.smartbanner-show) .smartbanner {
+    display: flex;
 }
 .smartbanner {
+    position: fixed;
+    top: 0;
     background: var(--banner-bg);
     line-height: normal;
-    display: flex;
+    //display: flex;
     flex: 1;
     height: 56px;
     flex-direction: column;
@@ -65,4 +70,14 @@ a.smartbanner-button {
     font-size: var(--font-body-2);
     line-height: initial;
     height: auto;
+}
+.smartbanner-show {
+    margin-top: 0 !important;
+}
+/* only android styles */
+.smartbanner-android .smartbanner-button-text {
+    background: none;
+}
+.smartbanner-android a.smartbanner-button {
+    box-shadow: none;
 }

@@ -19,7 +19,7 @@ export default function Swipe({ children }) {
 
   return (
     <div className={`${styles.drawer} 
-      ${DRAWER_STATE[drawerState]} middle`}
+      ${DRAWER_STATE[drawerState]}`}
     >
       <div
         onTouchStart={(e) => {

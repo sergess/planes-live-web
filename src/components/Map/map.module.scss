@@ -17,11 +17,14 @@
 }
 @media (max-width: $mobile-breakpoint) {
     .mapContainer {
-        position: fixed;
+        position: static;
         height: calc(100vh - var(--mobile-header-height));
         top: var(--mobile-header-height);
         width: 100vw;
-        z-index: 1;
+        z-index: 0;
+    }
+    :global(.smartbanner-show) div.mapContainer {
+        height: calc(100svh - var(--mobile-header-height) - var(--banner-height));
     }
 }
 @media (min-width: $mobile-breakpoint) {

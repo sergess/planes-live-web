@@ -4,7 +4,6 @@
 @value previewHeight: 6rem;
 @value bottomHeight: 14rem;
 @value drawerRadius: 15px 15px 0 0;
-@value bannerSize: 8rem;
 
 @keyframes opacityAnimation {
     0%   { opacity: 0.0; }
@@ -13,7 +12,7 @@
 }
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
-    .drawer :global(.preview) {
+    :global(.preview):has(+ .drawer) {
         visibility: hidden;
         opacity: 0;
     }
@@ -26,7 +25,7 @@
     .drawer {
         z-index: var(--header-z-index);
         background: var(--surfaces-base);
-        position: absolute;
+        position: fixed;
         bottom: 0;
         left: 0;
         width: 100vw;
@@ -45,13 +44,19 @@
     .bottom {
         height: bottomHeight;
     }
-    .bottom :global(.preview) {
+    :global(.preview):has(+ .bottom) {
         visibility: visible;
         opacity: 1;
         animation: opacityAnimation 1.5s forwards;
     }
-    :global(.smartbanner-top)~div .middle {
-        height: calc(middleHeight - bannerSize);
+    :global(.smartbanner-show) .middle {
+        height: calc(middleHeight - var(--banner-height));
+    }
+    :global(.smartbanner-show) .top {
+        height: calc(topHeight - var(--banner-height));
+    }
+    :global(.smartbanner-show) .bottom {
+        height: calc(bottomHeight - var(--banner-height));
     }
 }
 

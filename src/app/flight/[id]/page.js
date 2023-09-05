@@ -51,8 +51,8 @@ export default async function Page({ params }) {
       <ModalProvider>
         <MapWithFlightData />
         <div className={styles.container}>
+          <FlightPreview />
           <Swipe id={flightId}>
-            <FlightPreview />
             <div className={styles.body}>
               <DateBlock />
               <FlightCard />
