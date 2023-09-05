@@ -4,7 +4,7 @@
 .planePanel {
   position: fixed;
   left: 50%;
-  bottom: calc(bottomHeight + previewSpace);
+  bottom: calc(bottomHeight + previewSpace - var(--banner-height));
   height: previewHeight;
   display: flex;
   background: var(--plane-panel-bg);

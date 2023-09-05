@@ -63,7 +63,7 @@
     --mobile-header-height: 5.6rem;
     --banner-height: 56px;
     --option-list-index: 3;
-    --map-z-index: -1;
+    --map-z-index: 0;
     --airport-container-z-index: 4;
     --header-z-index: 2;
     --show-all-z-index: 2;
