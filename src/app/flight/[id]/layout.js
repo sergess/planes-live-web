@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import SearchHeader from '@/components/Header/searchHeader';
 import MobileRedirectSearch from '@/components/Controls/MobileRedirectSearch';
 
+import BannerMetaTags from '@/components/BannerMetaTags';
 import styles from './layout.module.scss';
 
 const Banner = dynamic(() => import('@/components/Banner'), { ssr: false });
@@ -17,6 +18,7 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <>
+      <BannerMetaTags />
       <Banner />
       <div className={styles.container}>
         <div className={styles.mobile}>

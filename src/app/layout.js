@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 
 import SWRProvider from '@/contexts/swr/SWRProvider';
-import BannerMetaTags from '@/components/BannerMetaTags';
 
 import '@/styles/globals.scss';
 
@@ -18,7 +17,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <BannerMetaTags />
       <body className={inter.className}>
         <div>
           <SWRProvider>

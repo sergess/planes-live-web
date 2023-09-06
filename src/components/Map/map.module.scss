@@ -2,13 +2,13 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    height: calc(100vh - var(--mobile-header-height));
+    height: 100vh;
     width: 100vw;
     z-index: var(--map-z-index);
 }
 :global(.flight) .mapContainer {
     position: relative;
-    height: calc(100vh - var(--mobile-header-height));
+    height: 100vh;
     width: 100vw;
     z-index: 1;
 }
@@ -18,7 +18,7 @@
 @media (max-width: $mobile-breakpoint) {
     .mapContainer {
         position: static;
-        height: calc(100vh - var(--mobile-header-height));
+        height: calc(100svh - var(--mobile-header-height));
         top: var(--mobile-header-height);
         width: 100vw;
         z-index: 0;

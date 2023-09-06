@@ -7,16 +7,21 @@ import styles from './mobileRedirectSearch.module.css';
 export default function MobileRedirectSearch() {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <Image
-          src="/svg/app_icon.svg"
-          priority
-          width={40}
-          height={41}
-          alt="Planes Live - Flight Tracker app"
-        />
-        <p className={styles.label}>Planes Live</p>
-      </div>
+      <Link
+        href="/"
+        className={styles.link}
+      >
+        <div className={styles.logo}>
+          <Image
+            src="/svg/app_icon.svg"
+            priority
+            width={40}
+            height={41}
+            alt="Planes Live - Flight Tracker app"
+          />
+          <p className={styles.label}>Planes Live</p>
+        </div>
+      </Link>
       <Link
         href="/search"
         className={styles.link}

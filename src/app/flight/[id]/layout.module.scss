@@ -2,6 +2,10 @@
     box-shadow: var(--left-panel-shadow);
     position: static;
 }
+.mobile {
+    /* to disable scroll notification */
+    overflow: hidden;
+}
 /* Desktop */
 @media (min-width: $mobile-breakpoint) {
     .container {
