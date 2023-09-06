@@ -35,6 +35,7 @@
     --color-dark: #292838;
     --color-dark-50: #94949C;
     --color-dark-30: #BFBFC4;
+    --color-dark-7: #6A6974;
     --color-dark-100: #292838;
 
     --color-white-30: rgba(255, 255, 255, .3);
@@ -46,6 +47,7 @@
     --color-dark-03: rgba(41, 40, 56, .3);
     --color-dark-05: #F4F4F5;
     --color-white: #fff;
+    --color-black: #000;
     --surfaces-base: rgba(238, 239, 245, 1);
     --plane-panel-bg: #25262BCC;
 

@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 
 import { ModalContext } from '@/contexts/modal/ModalContext';
 import dynamic from 'next/dynamic';
+import flightContext from '@/contexts/flight/FlightContext';
 import styles from './button.module.css';
 
 const CustomCalendar = dynamic(
@@ -14,11 +15,17 @@ const CustomCalendar = dynamic(
 );
 
 export default function Button({ children }) {
-  const { openModal } = useContext(ModalContext);
+  const { openModal, closeModal } = useContext(ModalContext);
+  const { flightData, setFlightData } = useContext(flightContext);
+
+  const test = (data) => {
+    setFlightData((prevState) => ({ ...prevState, flight: data.flight, date: data.date }));
+    closeModal();
+  };
 
   const onClick = () => {
     openModal({
-      content: <CustomCalendar />,
+      content: <CustomCalendar flightData={flightData} setFlightData={(data) => test(data)} />,
     });
   };
 

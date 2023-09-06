@@ -1,50 +1,61 @@
 'use client';
 
 import React, {
-  useState, useRef, useCallback, useContext,
+  useState, useRef, useCallback, useMemo,
 } from 'react';
 import Calendar from 'react-calendar';
 import * as dayjs from 'dayjs';
 import Image from 'next/image';
 
-import CaledarTooltip from '@/components/CalendarTooltip';
-import { flightByIdRequest } from '@/requests/index';
+import CalendarTooltip from '@/components/CalendarTooltip';
+import { formatDate, isSameDay } from '@/utils/date';
+import useFetch from '@/hooks/useFetch';
+import useMutationFetch from '@/hooks/useMutationFetch';
+import CalendarMoreFlights from '@/components/CalendarMoreFlights';
+import CalendarLoader from '@/components/CalendarLoader';
 import {
   MONTH_DAY_DATE_FORMAT,
   YEAR_MONTH_DATE_FORMAT,
   YEAR_MONTH_DAY_DATE_FORMAT,
 } from '@/constants/date';
-import flightContext from '@/contexts/flight/FlightContext';
-import { formatDate, isSameDay } from '@/utils/date';
-import useFetch from '@/hooks/useFetch';
 
 import './common.css';
 import styles from './calendar.module.scss';
 
-export default function CustomCalendar() {
+export default function CustomCalendar({ flightData, setFlightData }) {
   const interval = useRef();
+
   const [dayWithoutFlight, setDayWithoutFlight] = useState(null);
   const [tooltipOpened, setTooltipOpened] = useState(false);
-  const { flightData, setFlightData } = useContext(flightContext);
+  const [openedMoreFlights, setOpenedMoreFlights] = useState(false);
+  const [flights, setFlights] = useState([]);
 
   const currentDate = new Date();
 
   const maxDate = new Date(dayjs(currentDate).add(3, 'month').toISOString());
-  const minDate = new Date(dayjs(currentDate).subtract(1, 'week').toISOString());
 
-  // [TODO] return date + count: {date: '2023-08-30', count: 1}, will use for it own hook
-  const { data } = useFetch('/api/flight', { flight: flightData?.flight?.icao, month: formatDate(flightData?.date, YEAR_MONTH_DATE_FORMAT) });
-  const daysWithFlight = data?.data.dates.map((item) => item.date);
+  const getMinDate = useCallback(
+    () => {
+      const numberOfYear = currentDate.getFullYear();
+      const numberOfMonth = currentDate.getMonth();
+      const prevNumberOfMonth = numberOfMonth === 0 ? 11 : numberOfMonth - 1;
 
-  const getFlightData = async (value) => {
-    // [TODO] return array of flights, think about best way ex: useSWR
-    const { flights } = await flightByIdRequest(
-      { flight: flightData?.flight?.icao, date: formatDate(value, YEAR_MONTH_DAY_DATE_FORMAT) },
-    );
-    setFlightData(
-      (prevState) => ({ ...prevState, flight: flights[0].flight, date: value }),
-    );
-  };
+      return currentDate.getDate() > 1
+        ? new Date(numberOfYear, numberOfMonth, 1)
+        : new Date(numberOfYear, prevNumberOfMonth, 1);
+    },
+    [currentDate],
+  );
+
+  const { data: flightSchedule, isLoading: flightScheduleLoading } = useFetch('/api/flight', { flight: flightData?.flight?.icao, month: formatDate(currentDate, YEAR_MONTH_DATE_FORMAT) });
+
+  const daysWithFlight = useMemo(() => {
+    if (!flightSchedule) return null;
+
+    return flightSchedule.data.dates.map((item) => item.date);
+  }, [flightSchedule]);
+
+  const { trigger, isMutating } = useMutationFetch('/api/flightsbyid');
 
   const formatShortWeekday = useCallback((locale, date) => ['S', 'M', 'T', 'W', 'T', 'F', 'S'][date.getDay()], []);
   const formatMonthYear = useCallback((locale, date) => formatDate(date, 'MMMM'), []);
@@ -56,24 +67,44 @@ export default function CustomCalendar() {
     interval.current = setTimeout(() => setTooltipOpened(false), 3000);
   }, []);
 
-  const onClick = (value) => {
-    if (isSameDay(daysWithFlight, value)) {
-      setTooltipOpened(false);
-      // [TODO] here should be loader?
-      getFlightData(value);
-    } else {
-      onOpenTooltip();
-      const selectedDate = formatDate(value, MONTH_DAY_DATE_FORMAT);
-      setDayWithoutFlight(selectedDate);
+  const setFlight = useCallback(
+    (value) => () => setFlightData({ flight: flights[value].flight, date: flights[value].flight.departure }),
+    [flights],
+  );
+
+  const onSelectDate = useCallback(async (value) => {
+    try {
+      if (isSameDay(daysWithFlight, value)) {
+        const { data } = await trigger(
+          { flight: flightData?.flight?.icao, date: formatDate(value, YEAR_MONTH_DAY_DATE_FORMAT) },
+        );
+        setFlights(data.flights);
+        setTooltipOpened(false);
+        if (flightSchedule.data.dates.some((item) => item.count === 1)) {
+          setFlightData({ flight: data.flights[0].flight, date: data.flights[0].flight.departure });
+        } else {
+          setOpenedMoreFlights(true);
+        }
+      } else {
+        setOpenedMoreFlights(false);
+        onOpenTooltip();
+        const selectedDate = formatDate(value, MONTH_DAY_DATE_FORMAT);
+        setDayWithoutFlight(selectedDate);
+      }
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('Something went wrong');
     }
-  };
+  }, []);
 
   return (
     <div className={styles.body}>
+      {(flightScheduleLoading || isMutating) && <CalendarLoader />}
       <div className={styles.heading}>
         Select date
       </div>
-      {tooltipOpened && <CaledarTooltip date={dayWithoutFlight} />}
+      {tooltipOpened && <CalendarTooltip date={dayWithoutFlight} />}
+      {openedMoreFlights && <CalendarMoreFlights flights={flights} onClick={(value) => setFlight(value)} />}
       <Calendar
         next2Label={null}
         prev2Label={null}
@@ -94,13 +125,13 @@ export default function CustomCalendar() {
           />
         )}
         tileClassName={selectFlightDay}
-        value={flightData?.date}
+        value={currentDate}
         maxDetail="month"
-        minDate={minDate}
+        minDate={getMinDate()}
         maxDate={maxDate}
         formatShortWeekday={formatShortWeekday}
         formatMonthYear={formatMonthYear}
-        onClickDay={onClick}
+        onClickDay={onSelectDate}
       />
     </div>
   );
