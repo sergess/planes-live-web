@@ -5,18 +5,20 @@ import Image from 'next/image';
 import dayjs from 'dayjs';
 
 import FlightProgress from '@/components/Swipe/FlightPreview/FlightProgress';
-import { getDateDifferenceHM } from '@/utils/date';
+import { getDateDifference, getDateDifferenceHM } from '@/utils/date';
 import { calculatePercentageOfRestPath, getDistanceFromLatLonInKm } from '@/utils/distance';
 import flightContext from '@/contexts/flight/FlightContext';
 
 import { STATUS } from '@/constants/flight';
+import {
+  ACTIVE_COLOR, DEFAULT_COLOR, EARLIER_COLOR, LATER_COLOR,
+} from '@/constants/colors';
 import styles from './FlightPreview.module.scss';
 
 const PLACEHOLDER_URL = '/svg/placeholder_airliner.svg';
 const EMPTY_LABEL = 'Time n/a';
 const EMPTY_CODE_LABEL = 'N/A';
-const ACTIVE_COLOR = '#33CC55';
-const DEFAULT_COLOR = 'rgba(255, 255, 255, .5)';
+
 const getValue = (flight) => {
   if (flight.status === STATUS.ACTIVE) {
     return calculatePercentageOfRestPath(flight);
@@ -30,7 +32,21 @@ const getValue = (flight) => {
 
   return 0;
 };
-const getLabelColor = (status) => (status !== STATUS.CANCELLED ? ACTIVE_COLOR : DEFAULT_COLOR);
+const getLabelColor = (status, actualDate, date) => {
+  if (status === STATUS.CANCELLED) {
+    return DEFAULT_COLOR;
+  }
+  const diff = getDateDifference(actualDate, date)?.$ms;
+
+  if (diff < 0) {
+    return EARLIER_COLOR;
+  }
+  if (diff > 0) {
+    return LATER_COLOR;
+  }
+
+  return ACTIVE_COLOR;
+};
 const getLabelByStatus = (status, time, isEnd = false) => {
   if (!time) {
     return EMPTY_LABEL;
@@ -101,7 +117,7 @@ export default function FlightPreview() {
           <p
             className={styles.time}
             style={{
-              color: getLabelColor(status),
+              color: getLabelColor(status, departure_actual, departure),
             }}
           >
             {startLabel}
@@ -112,7 +128,7 @@ export default function FlightPreview() {
           <p
             className={styles.time}
             style={{
-              color: getLabelColor(status),
+              color: getLabelColor(status, arrival_actual, arrival),
             }}
           >
             {endLabel}
