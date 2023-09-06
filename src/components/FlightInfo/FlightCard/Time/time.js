@@ -2,10 +2,8 @@ import React from 'react';
 import { formatDate, getDateDifference } from '@/utils/date';
 import dayjs from 'dayjs';
 import { M_TIME_FORMAT } from '@/constants/date';
+import { EARLIER_COLOR, LATER_COLOR } from '@/constants/colors';
 import styles from './time.module.css';
-
-const EARLIER_COLOR = '#FF7E47';
-const LATER_COLOR = '#F33E3E';
 
 const getColor = (isLater) => {
   if (isLater) {

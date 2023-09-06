@@ -42,6 +42,7 @@ const getLinesByStatus = (flight, mappedPositions) => {
         layerId: 'layer1',
         coordinates: [
           [flight.waypoints[0].lon, flight.waypoints[0].lat],
+          ...mappedPositions,
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
         ],
       },

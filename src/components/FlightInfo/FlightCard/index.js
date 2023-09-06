@@ -16,7 +16,6 @@ import styles from './flightCard.module.css';
 export default function FlightCard() {
   // [TODO] params 'logoUrl', 'departureGate' are missing
   const logoUrl = null;
-  const departureGate = null;
 
   const { flightData } = useContext(flightContext);
 
@@ -29,7 +28,7 @@ export default function FlightCard() {
     arrival_actual: actualArrivalTime, departure_actual: actualDepartureTime,
     arrival_terminal: arrivalTerminal, departure_terminal: departureTerminal,
     arrival_gate: arrivalGate, arrival_baggage_claim: arrivalBaggageClaim,
-    departure_check_in_desk: departureCheckInDesk, actions,
+    departure_check_in_desk: departureCheckInDesk, actions, departure_gate: departureGate,
   } = flightData.flight;
 
   const {
@@ -59,8 +58,8 @@ export default function FlightCard() {
       <div className={styles.infoContainer}>
         <InfoBlock
           status={status}
-          departureTime={departureTime}
-          arrivalTime={arrivalTime}
+          departureTime={actualDepartureTime || departureTime}
+          arrivalTime={actualArrivalTime || arrivalTime}
           countOfUpdates={actions?.length}
         />
         <DescriptionBlock
