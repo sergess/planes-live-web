@@ -9,12 +9,6 @@ import styles from './layout.module.scss';
 
 const Banner = dynamic(() => import('@/components/Banner'), { ssr: false });
 
-export const metadata = {
-  title: 'Planes Live - Flight Tracker in Real Time',
-  description: 'Track planes on an air traffic map, check aircraft flights, airline '
-    + 'flight delays & cancellations, airport arrival & departure times and other flight info!',
-};
-
 export default function Layout({ children }) {
   return (
     <>
