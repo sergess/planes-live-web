@@ -12,6 +12,7 @@ import flightContext from '@/contexts/flight/FlightContext';
 import { STATUS } from '@/constants/flight';
 import styles from './FlightPreview.module.scss';
 
+const PLACEHOLDER_URL = '/svg/placeholder_airliner.svg';
 const EMPTY_LABEL = 'Time n/a';
 const EMPTY_CODE_LABEL = 'N/A';
 const ACTIVE_COLOR = '#33CC55';
@@ -81,7 +82,7 @@ export default function FlightPreview() {
       <div className={styles.image}>
         {aircraft?.photo_url && (
         <Image
-          src={aircraft?.photo_url}
+          src={aircraft?.photo_url || PLACEHOLDER_URL}
           alt={aircraft?.model}
           width="100"
           height="60"
