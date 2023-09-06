@@ -5,6 +5,7 @@ export const MIN_TO_HOUR = 60;
 export const MONTH_DAY_DATE_FORMAT = 'MMM D';
 export const YEAR_MONTH_DAY_DATE_FORMAT = 'YYYY-MM-DD';
 export const YEAR_MONTH_DATE_FORMAT = 'YYYY-MM';
+export const HOUR_MINUTE_TIME_FORMAT = 'h:mm A';
 
 export const DURATION_FORMATS = {
   DAYS: 'd',

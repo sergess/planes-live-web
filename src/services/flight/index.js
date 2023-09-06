@@ -44,10 +44,12 @@ export class Flight extends ApiV212 {
     return data;
   }
 
-  async getFlightDataById(query) {
+  async getFlightDataById(flight, date) {
     const { ok, data } = await this.callAsync(`${request_uri}search`, {
       method: 'POST',
-      body: JSON.stringify(query),
+      body: JSON.stringify({
+        flight, date,
+      }),
     });
 
     if (!ok) {
