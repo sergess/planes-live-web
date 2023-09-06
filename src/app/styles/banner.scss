@@ -47,6 +47,12 @@ div.smartbanner-wrapper  {
     height: auto;
     line-height: initial;
 }
+.smartbanner-show .smartbanner-info {
+    text-shadow: none;
+    color: #292838;
+    font-size: 12px;
+    font-weight: 400;
+}
 .smartbanner-show button.smartbanner-close {
     color: transparent;
     background: none;
@@ -67,6 +73,7 @@ div.smartbanner-wrapper  {
     font-size: var(--font-body-1);
     color: var(--color-primary);
     font-weight: 600;
+    line-height: normal;
 }
 div.smartbanner-description {
     color: var(--color-dark);
