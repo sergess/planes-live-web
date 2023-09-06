@@ -87,6 +87,12 @@ div.smartbanner-wrapper  a.smartbanner-button {
 .smartbanner-ios a.smartbanner-button:before {
     content: url("/svg/ic_apple.svg");
 }
+.smartbanner-ios a.smartbanner-button:visited,
+.smartbanner-ios a.smartbanner-button:hover,
+.smartbanner-ios a.smartbanner-button:active {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
 /* only android styles */
 .smartbanner-android .smartbanner-button-text {
     background: none;
