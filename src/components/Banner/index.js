@@ -24,7 +24,7 @@ export default function Banner() {
             src={icon}
             width={IMG_SIZE}
             height={IMG_SIZE}
-            alt="Apple icon"
+            alt="Platform icon"
           />
           <p>
             Get

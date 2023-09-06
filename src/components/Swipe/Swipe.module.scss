@@ -12,9 +12,15 @@
 }
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
+    /*for animation*/
     :global(.preview):has(+ .drawer) {
         visibility: hidden;
         opacity: 0;
+    }
+    :global(.preview):has(+ .bottom) {
+        visibility: visible;
+        opacity: 1;
+        animation: opacityAnimation 1.5s forwards;
     }
     .gripWrapper {
         display: flex;
@@ -43,11 +49,6 @@
     }
     .bottom {
         height: bottomHeight;
-    }
-    :global(.preview):has(+ .bottom) {
-        visibility: visible;
-        opacity: 1;
-        animation: opacityAnimation 1.5s forwards;
     }
     :global(.smartbanner-show) .middle {
         height: calc(middleHeight - var(--banner-height));
