@@ -12,9 +12,15 @@
 }
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
-    .drawer :global(.preview) {
+    /*for animation*/
+    :global(.preview):has(+ .drawer) {
         visibility: hidden;
         opacity: 0;
+    }
+    :global(.preview):has(+ .bottom) {
+        visibility: visible;
+        opacity: 1;
+        animation: opacityAnimation 1.5s forwards;
     }
     .gripWrapper {
         display: flex;
@@ -44,10 +50,14 @@
     .bottom {
         height: bottomHeight;
     }
-    .bottom :global(.preview) {
-        visibility: visible;
-        opacity: 1;
-        animation: opacityAnimation 1.5s forwards;
+    :global(.smartbanner-show) .middle {
+        height: calc(middleHeight - var(--banner-height));
+    }
+    :global(.smartbanner-show) .top {
+        height: calc(topHeight - var(--banner-height));
+    }
+    :global(.smartbanner-show) .bottom {
+        height: calc(bottomHeight - var(--banner-height));
     }
 }
 

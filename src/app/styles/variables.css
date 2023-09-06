@@ -51,6 +51,9 @@
     --surfaces-base: rgba(238, 239, 245, 1);
     --plane-panel-bg: #25262BCC;
 
+    --banner-bg:#EFECFF;
+    --banner-border-color: #D4D4D7;
+
     --info-box-container-shadow: 0 1.5rem 3rem 0 rgba(54, 55, 66, 0.16);
     --left-panel-shadow: 0 -.4rem 2.4rem 0 rgba(18, 17, 21, 0.16);
     --drawer-shadow: 0 -3.8399999141693115px 23.03999900817871px 0 #12111529;
@@ -60,9 +63,9 @@
 
     --desktop-header-height: 6.4rem;
     --mobile-header-height: 5.6rem;
-
+    --banner-height: 56px;
     --option-list-index: 3;
-    --map-z-index: -1;
+    --map-z-index: 0;
     --airport-container-z-index: 4;
     --header-z-index: 2;
     --show-all-z-index: 2;

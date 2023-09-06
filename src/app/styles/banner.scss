@@ -1,0 +1,121 @@
+div.smartbanner-top {
+    padding: 8px 0 8px 8px;
+    margin-top: 0;
+}
+:global(.smartbanner-show) .smartbanner {
+    display: flex;
+}
+.smartbanner {
+    flex: 1;
+    height: var(--banner-height);
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    background: var(--banner-bg);
+    line-height: normal;
+    flex-direction: column;
+    box-shadow: none;
+    border-bottom: thin solid var(--banner-border-color);
+}
+.smartbanner-container {
+    padding: 0;
+    flex: 1;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+span.smartbanner-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+}
+div.smartbanner-wrapper  {
+    height: 100%;
+    padding: 0;
+    display: inline;
+    width: auto;
+    line-height: initial;
+    margin-left: auto;
+}
+.smartbanner-show span.smartbanner-button-text {
+    padding: 0;
+    margin: 0 0 0 8px;
+    height: auto;
+    line-height: initial;
+}
+.smartbanner-show .smartbanner-info {
+    text-shadow: none;
+    color: #292838;
+    font-size: 12px;
+    font-weight: 400;
+}
+.smartbanner-show button.smartbanner-close {
+    color: transparent;
+    background: none;
+    text-shadow:none;
+    text-decoration: none;
+    box-shadow: none;
+    position: relative;
+    &:after {
+        content: url("/svg/close_outlined.svg");
+        height: 16px;
+        width: 16px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+.smartbanner div.smartbanner-title {
+    font-size: var(--font-body-1);
+    color: var(--color-primary);
+    font-weight: 600;
+    line-height: normal;
+}
+div.smartbanner-description {
+    color: var(--color-dark);
+    font-size: var(--font-caption);
+}
+div.smartbanner-author {
+    color: var(--color-dark-50);
+    font-size: var(--font-small);
+}
+div.smartbanner-wrapper  a.smartbanner-button {
+    height: 36px;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    color: var(--color-white);
+    margin-right: 12px;
+    box-shadow: none;
+    width: 80px;
+    &:before {
+        height: 20px;
+        width: 16px;
+    }
+}
+.smartbanner-show {
+    margin-top: 0 !important;
+}
+.smartbanner-ios a.smartbanner-button:before {
+    content: url("/svg/ic_apple.svg");
+}
+a.smartbanner-button:visited,
+ a.smartbanner-button:hover,
+ a.smartbanner-button:active {
+    background: var(--color-primary) !important;
+    color: var(--color-white) !important;
+}
+/* only android styles */
+.smartbanner-android .smartbanner-button-text {
+    background: none;
+}
+.smartbanner-android a.smartbanner-button:before {
+    content: url("/svg/ic_google_play.svg");
+}

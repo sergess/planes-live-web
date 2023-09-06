@@ -19,7 +19,7 @@ export default function Swipe({ children }) {
 
   return (
     <div className={`${styles.drawer} 
-      ${DRAWER_STATE[drawerState]} ${drawerState === -1 && 'bottom'}`}
+      ${DRAWER_STATE[drawerState]}`}
     >
       <div
         onTouchStart={(e) => {

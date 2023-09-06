@@ -28,6 +28,28 @@ const MapWithFlightData = dynamic(
   },
 );
 
+export const generateMetadata = ({ params }) => ({
+  // title: `${departureAirport.city} - ${destinationAirport.city} (${flight.iata}) [airline name] Flight Tracker |
+  // Planes Live.`,
+  // description: `Instantly track the status of an [[airline name]] airline flight
+  // [${flight.iata}], route from ${departureAirport.city} to ${destinationAirport.city}. (61 wo flight details)`,
+  itunes: {
+    appId: process.env.IOS_STORE_ID,
+    appArgument: `/flight/${params?.id}`,
+  },
+  icons: {
+    apple: '/svg/app_icon_with_bg.svg',
+    other: {
+      rel: 'android-touch-icon',
+      url: '/svg/app_icon_with_bg.svg',
+    },
+  },
+  other: {
+    'smartbanner:disable-positioning': true,
+    'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${params?.id}`}}`,
+  },
+});
+
 export default async function Page({ params }) {
   const { id: flightId } = params;
   const flight = await withFlight(flightId);
@@ -51,8 +73,8 @@ export default async function Page({ params }) {
       <ModalProvider>
         <MapWithFlightData />
         <div className={styles.container}>
+          <FlightPreview />
           <Swipe id={flightId}>
-            <FlightPreview />
             <div className={styles.body}>
               <DateBlock />
               <FlightCard />

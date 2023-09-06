@@ -1,5 +1,10 @@
 .container {
-    box-shadow: var(--left-panel-shadow)
+    box-shadow: var(--left-panel-shadow);
+    position: static;
+}
+.mobile {
+    /* to disable scroll notification */
+    overflow: hidden;
 }
 /* Desktop */
 @media (min-width: $mobile-breakpoint) {
@@ -15,10 +20,6 @@
         height: calc(100vh - var(--desktop-header-height));
         overflow: auto;
     }
-}
-.mobile {
-    position: sticky;
-    top: 0;
 }
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {

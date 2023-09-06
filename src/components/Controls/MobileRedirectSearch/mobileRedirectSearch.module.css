@@ -16,6 +16,9 @@
     padding: 0 1.8rem;
     height: var(--mobile-header-height);
 }
+:global(.smartbanner-show) .header {
+    margin-top: var(--banner-height);
+}
 .link {
     text-decoration: none;
     display: flex;
