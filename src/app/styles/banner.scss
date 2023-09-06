@@ -41,9 +41,9 @@ div.smartbanner-wrapper  {
     line-height: initial;
     margin-left: auto;
 }
-.smartbanner-button-text {
+.smartbanner-show span.smartbanner-button-text {
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 8px;
     height: auto;
     line-height: initial;
 }
@@ -64,19 +64,33 @@ div.smartbanner-author {
     color: var(--color-dark-50);
     font-size: var(--font-small);
 }
-a.smartbanner-button {
-    color: var(--color-primary) !important;
-    font-size: var(--font-body-2);
-    line-height: initial;
-    height: auto;
+div.smartbanner-wrapper  a.smartbanner-button {
+    height: 36px;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    color: var(--color-white);
+    margin-right: 12px;
+    box-shadow: none;
+    width: 80px;
+    &:before {
+        height: 16px;
+        width: 16px;
+    }
 }
 .smartbanner-show {
     margin-top: 0 !important;
+}
+.smartbanner-ios a.smartbanner-button:before {
+    content: url("/svg/ic_apple.svg");
 }
 /* only android styles */
 .smartbanner-android .smartbanner-button-text {
     background: none;
 }
-.smartbanner-android a.smartbanner-button {
-    box-shadow: none;
+.smartbanner-android a.smartbanner-button:before {
+    content: url("/svg/ic_google_play.svg");
 }
