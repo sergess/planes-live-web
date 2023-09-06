@@ -95,7 +95,7 @@ export default function CustomCalendar({ flightData, setFlightData }) {
       // eslint-disable-next-line no-console
       console.error('Something went wrong');
     }
-  }, []);
+  }, [daysWithFlight]);
 
   return (
     <div className={styles.body}>
