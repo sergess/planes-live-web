@@ -9,10 +9,10 @@ import styles from './layout.module.scss';
 
 const Banner = dynamic(() => import('@/components/Banner'), { ssr: false });
 
-export default function Layout({ children }) {
+export default function Layout({ children, params }) {
   return (
     <>
-      <BannerMetaTags />
+      <BannerMetaTags path={`/flight/${params?.id}`} />
       <Banner />
       <div className={styles.container}>
         <div className={styles.mobile}>
