@@ -47,9 +47,21 @@ div.smartbanner-wrapper  {
     height: auto;
     line-height: initial;
 }
-div.smartbanner-close {
-    height: 16px;
-    width: 16px;
+.smartbanner-show button.smartbanner-close {
+    color: transparent;
+    background: none;
+    text-shadow:none;
+    text-decoration: none;
+    box-shadow: none;
+    position: relative;
+    &:after {
+        content: url("/svg/close_outlined.svg");
+        height: 16px;
+        width: 16px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
 }
 .smartbanner div.smartbanner-title {
     font-size: var(--font-body-1);
