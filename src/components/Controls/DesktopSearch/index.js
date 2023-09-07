@@ -77,7 +77,6 @@ export default function DesktopSearch({
                   role="button"
                   onKeyDown={() => onOptionClick(value, type)}
                   onClick={() => {
-                    setIsShow(false);
                     onOptionClick(value, type);
                   }}
                   tabIndex="0"
