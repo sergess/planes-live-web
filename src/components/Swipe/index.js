@@ -14,7 +14,6 @@ const DRAWER_STATE = {
 
 export default function Swipe({ children }) {
   const [touchStart, setTouchStart] = React.useState(null);
-  const [touchEnd, setTouchEnd] = React.useState(null);
   const [drawerState, setDrawerState] = React.useState(0);
 
   return (
@@ -22,15 +21,15 @@ export default function Swipe({ children }) {
       ${DRAWER_STATE[drawerState]}`}
     >
       <div
-        onTouchStart={(e) => {
-          setTouchEnd(null);
-          setTouchStart(e.targetTouches[0].clientY);
+        onPointerDown={(e) => {
+          e.stopPropagation();
+          e.target.setPointerCapture(e.pointerId);
+          setTouchStart(e.clientY);
         }}
-        onTouchMove={(e) => {
-          setTouchEnd(e.targetTouches[0].clientY);
-        }}
-        onTouchEnd={() => {
-          if (!touchStart || !touchEnd) return;
+        onPointerUp={(e) => {
+          e.stopPropagation();
+          e.target.releasePointerCapture(e.pointerId);
+          const touchEnd = e.clientY;
           const distance = touchStart - touchEnd;
           const isTopSwipe = distance > minSwipeDistance;
           const isBottomSwipe = distance < -minSwipeDistance;
