@@ -96,7 +96,6 @@ export default function FlightPreview() {
   return (
     <div className={`${styles.planePanel} preview`}>
       <div className={styles.image}>
-        {aircraft?.photo_url && (
         <Image
           src={aircraft?.photo_url || PLACEHOLDER_URL}
           alt={aircraft?.model}
@@ -104,7 +103,6 @@ export default function FlightPreview() {
           height="60"
           className={styles.img}
         />
-        )}
       </div>
       <div className={styles.wrapper}>
         <div className={styles.info}>
