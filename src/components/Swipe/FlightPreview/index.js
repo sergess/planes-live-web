@@ -36,6 +36,10 @@ const getLabelColor = (status, actualDate, date) => {
   if (status === STATUS.CANCELLED) {
     return DEFAULT_COLOR;
   }
+
+  if (!actualDate) {
+    return ACTIVE_COLOR;
+  }
   const diff = getDateDifference(actualDate, date)?.$ms;
 
   if (diff < 0) {
