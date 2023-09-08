@@ -43,10 +43,20 @@ const BANNER_MAP = [
   },
 ];
 
-export default function Features() {
+export default function Features({ id }) {
   return (
     <div className={styles.container}>
       <div className={styles.anchor} id={FEATURES_ANCHOR} />
+      <div className={styles.flightInfo}>
+        <p>
+          See more flight
+          {' '}
+          <span className={styles.id}>{id}</span>
+          {' '}
+          info
+        </p>
+        <p>in the Planes Live app</p>
+      </div>
       <div className={styles.rowWrapper}>
         {BANNER_MAP.map(({
           text, icoURL, icoAlt, description,

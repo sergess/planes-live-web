@@ -68,3 +68,19 @@
     }
   }
 }
+.flightInfo {
+  display: none;
+}
+.id {
+  text-transform: uppercase;
+}
+/*show only in flight page*/
+:global(.flight) .flightInfo {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: var(--font-h1);
+  margin-bottom: 4.8rem;
+  padding-top: 2rem;
+  text-align: center;
+}

@@ -27,7 +27,8 @@
         min-width: auto;
         justify-content: center;
         width: auto;
-        transform: translateX(0);
+        transform: none;
+        display: flex;
     }
     .rowBottom div:nth-child(n+5) {
         display: none;
@@ -40,9 +41,10 @@
         animation: none;
         margin: 0 auto;
         min-width: auto;
-        justify-content: center;
         width: auto;
-        transform: translateX(0);
+        transform: none;
+        display: flex;
+        justify-content: center;
     }
     .rowTop div {
         min-width: auto;

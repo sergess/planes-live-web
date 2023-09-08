@@ -2,7 +2,7 @@
 @value notificationWidth, notificationMargin from values;
 .container {
     padding: 1rem 1.6rem 1rem 1.6rem;
-    box-shadow: -8px 11px 22px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: -8px 11px 22px 0 #00000040;
     background: linear-gradient(260.27deg, #FFFFFF -2.91%, rgba(255, 255, 255, 0) 102.73%),
     linear-gradient(85.42deg, #FFFFFF 0%, #F3F3F3 85.22%);
     border: thin solid;

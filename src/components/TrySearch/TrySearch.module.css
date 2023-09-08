@@ -6,4 +6,5 @@
     color: var(--color-dark-50);
     font-size: var(--font-body-2);
     font-weight: 400;
+    margin-bottom: var(--mobile-header-height);
 }

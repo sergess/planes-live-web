@@ -18,6 +18,7 @@ export const generateMetadata = async ({ params }) => {
   const { airport } = await airportService.getAirport(params.id);
 
   return {
+    themeColor: 'rgba(238, 239, 245, 1)',
     title: `JFK, John F. Kennedy International Airport - Arrivals, 
     Departures & Overview | Planes Live which means its stucture is 
     (${params.id}), [${airport.name}] - 

@@ -12,7 +12,7 @@
 
 /* Mobile */
 @media (max-width: 701px) {
-    .buttonContainer img {
+    .buttonContainer a:has(img) {
         display: none;
     }
 }
