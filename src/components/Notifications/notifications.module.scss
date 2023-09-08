@@ -21,14 +21,15 @@
 }
 /* Tablet and Smaller Desktop */
 @media (min-width: $mobile-breakpoint) {
-    .rowBottom {
+    div.rowBottom {
         animation: none;
         margin: 0 auto;
         min-width: auto;
         justify-content: center;
         width: auto;
-        transform: none;
+        transform: translateX(0);
         display: flex;
+        padding: 1.2rem 2.4rem;
     }
     .rowBottom div:nth-child(n+5) {
         display: none;
@@ -37,7 +38,7 @@
     .rowBottom div {
         min-width: auto;
     }
-    .rowTop {
+    div.rowTop {
         animation: none;
         margin: 0 auto;
         min-width: auto;
@@ -45,6 +46,7 @@
         transform: none;
         display: flex;
         justify-content: center;
+        padding: 1.2rem 2.4rem;
     }
     .rowTop div {
         min-width: auto;

@@ -12,7 +12,7 @@ export default function Notifications({ children }) {
       <Image
         src="/svg/img_switch.svg"
         priority
-        width={57}
+        width={51}
         height={31}
         alt="Switch button"
       />

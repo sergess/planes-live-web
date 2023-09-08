@@ -39,7 +39,9 @@
         .text, .header {
             text-align: center;
         }
-
+        .header {
+            font-size: var(--font-h4);
+        }
         .text {
             font-size: var(--font-subheadline);
             margin-bottom: 5.9rem;

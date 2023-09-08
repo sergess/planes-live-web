@@ -39,11 +39,11 @@ export default function LandingHeader() {
         <a
           className={styles.icon}
           target="_blank"
-          href={ANDROID_DOWNLOAD_LINK}
+          href={IOS_DOWNLOAD_LINK}
           rel="noreferrer"
         >
           <Image
-            src="/svg/store_android.svg"
+            src="/svg/store_apple.svg"
             priority
             width={28}
             height={28}
@@ -53,11 +53,11 @@ export default function LandingHeader() {
         <a
           className={styles.icon}
           target="_blank"
-          href={IOS_DOWNLOAD_LINK}
+          href={ANDROID_DOWNLOAD_LINK}
           rel="noreferrer"
         >
           <Image
-            src="/svg/store_apple.svg"
+            src="/svg/store_android.svg"
             priority
             width={28}
             height={28}
