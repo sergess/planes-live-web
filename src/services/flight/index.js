@@ -5,6 +5,9 @@ export class Flight extends ApiV212 {
   async getFlightInfo(code) {
     const { ok, data: response } = await this.callAsync(`${request_uri}position/nearest/icao/${code}`);
 
+    if (!ok) {
+      return null;
+    }
     const { data } = response;
 
     if (!ok || !data) {
@@ -17,13 +20,9 @@ export class Flight extends ApiV212 {
   async getCommonFlightData() {
     const { ok, data: response } = await this.callAsync(`${request_uri}data`);
 
-    if (!ok) {
-      return null;
-    }
-
     const { data } = response;
 
-    if (!data) {
+    if (!ok || !data) {
       return null;
     }
 

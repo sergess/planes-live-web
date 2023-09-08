@@ -6,6 +6,7 @@ export const withAirportsPageData = async (id) => {
   const [airportResponse, commonDataResponse] = await Promise.all([
     airportService.getAirport(id), flightService.getCommonFlightData(),
   ]);
+
   if (!airportResponse || !commonDataResponse) {
     return null;
   }
