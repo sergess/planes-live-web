@@ -64,8 +64,8 @@ export default function Features({ id }) {
           <div className={styles.row} key={text}>
             <Image
               src={icoURL}
-              width={48}
-              height={48}
+              width={28}
+              height={28}
               alt={icoAlt}
             />
             <div className={styles.title}>

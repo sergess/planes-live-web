@@ -13,6 +13,7 @@ import { getDateDifferenceHM } from '@/utils/date';
 
 import styles from './flightCard.module.css';
 
+const AIRLINE_PLACEHOLDER = '/svg/airline_placeholder.svg';
 export default function FlightCard() {
   // [TODO] params 'logoUrl', 'departureGate' are missing
   const logoUrl = null;
@@ -47,7 +48,13 @@ export default function FlightCard() {
     <div className={styles.box}>
       <div className={styles.boxHeader}>
         <div className={styles.flexContainer}>
-          {logoUrl && <Image width={24} height={24} className={styles.logo} src={logoUrl} alt="" />}
+          <Image
+            width={24}
+            height={24}
+            className={styles.logo}
+            src={logoUrl || AIRLINE_PLACEHOLDER}
+            alt="airline logo"
+          />
           <p className={styles.flightLabel}>
             {iata}
           </p>
