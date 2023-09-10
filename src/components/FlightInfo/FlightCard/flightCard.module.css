@@ -70,7 +70,7 @@
     border-bottom: thin solid var(--color-dark-10);
 }
 .flightLabel {
-    font-size: var(--font-body-2);
+    font-size: var(--font-body-1);
     font-weight: 500;
 }
 .logo {
