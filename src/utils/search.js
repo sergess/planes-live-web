@@ -2,16 +2,15 @@ import React from 'react';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getMatchedLabel = (label, search) => {
-  const reg = new RegExp(search, 'ig');
+  const reg = new RegExp(`(${search})`, 'gi');
   if (reg.test(label)) {
-    const matches = label.match(reg);
-    let result = label;
-    matches.forEach((m) => {
-      result = label.replaceAll(m, `<b>${m}</b>`);
-    });
+    const parts = label.split(reg);
 
     return (
-      <p dangerouslySetInnerHTML={{ __html: result }} />
+      <p>
+        {parts.map((part) => (part.toLowerCase() === search
+          .toLowerCase() ? <b>{part}</b> : part))}
+      </p>
     );
   }
 
