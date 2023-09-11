@@ -30,3 +30,7 @@ body {
 h3 {
   font-size: var(--font-h3);
 }
+/* mapbox logo */
+.mapboxgl-ctrl-bottom-left {
+  display: none;
+}
