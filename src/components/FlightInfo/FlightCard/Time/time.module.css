@@ -17,5 +17,7 @@
 }
 .crossed {
     color: var(--color-dark-50);
+    font-size: var(--font-caption);
     text-decoration: line-through;
+    font-weight: 400;
 }

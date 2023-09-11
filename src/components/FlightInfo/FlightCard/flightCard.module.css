@@ -29,7 +29,8 @@
     overflow: hidden;
 }
 .info {
-    font-size: var(--font-small);
+    font-size: var(--font-caption);
+    font-weight: 500;
     margin-bottom: .5rem;
 }
 .line {

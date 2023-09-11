@@ -28,3 +28,8 @@
         font-weight: 500;
     }
 }
+/*logic for flight page in all media*/
+:global(.applyMobile) .text {
+    font-size: var(--font-body-3);
+    font-weight: 500;
+}
