@@ -115,7 +115,7 @@ export default function FlightCard() {
           <div className={styles.middle}>
             <Image
               src="/svg/hor_line.svg"
-              width={109}
+              width={105}
               height={2}
               alt=""
             />
@@ -125,7 +125,7 @@ export default function FlightCard() {
             </p>
             <Image
               src="/svg/hor_line.svg"
-              width={109}
+              width={105}
               height={2}
               alt=""
             />
