@@ -23,8 +23,8 @@
     background-color: var(--color-primary);
     border-radius: 4.2rem;
     padding: 1rem 2rem;
-    font-size: var(--font-body-2);
-    font-weight: 600;
+    font-size: var(--font-caption);
+    font-weight: 500;
     color: white;
     border: none;
     text-decoration: none;

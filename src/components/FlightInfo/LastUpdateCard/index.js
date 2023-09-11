@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 import { BUTTON_SIZE } from '@/constants/index';
 import { UPDATE_LABELS } from '@/constants/flight';
 import { formatDate, getDateDifference } from '@/utils/date';
-import PrimaryButton from '@/components/Controls/Buttons/primary';
+import CustomButton from '@/components/Controls/Buttons/custom';
 import { M_TIME_FORMAT } from '@/constants/date';
 import flightContext from '@/contexts/flight/FlightContext';
 import styles from './lastUpdateCard.module.css';
@@ -95,11 +95,11 @@ export default function LastUpdateCard() {
               : action.value}
           </p>
         </div>
-        <PrimaryButton size={BUTTON_SIZE.SM}>
+        <CustomButton size={BUTTON_SIZE.SM}>
           View all updates (
           {actions?.length || 0}
           )
-        </PrimaryButton>
+        </CustomButton>
       </div>
     </div>
   );
