@@ -4,7 +4,7 @@
 .row {
     margin-bottom: 4rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: var(--font-h1);
     font-weight: 600;
 }
 .container {
@@ -38,6 +38,7 @@
   :global(.landingBanners:not(.applyMobile)) {
     .title {
       padding: 1.6rem 0;
+      font-weight: 700;
     }
     .row img {
       height: 4.8rem;

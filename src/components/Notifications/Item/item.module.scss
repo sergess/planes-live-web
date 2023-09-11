@@ -8,8 +8,8 @@
     border: thin solid;
     border-image-source: linear-gradient(260.27deg, #FFFFFF -2.91%, rgba(255, 255, 255, 0) 102.73%);
     border-radius: 5.1rem;
-    font-size: 1.7rem;
-    font-weight: 500;
+    font-size: var(--font-body-2);
+    font-weight: 600;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,7 +18,13 @@
 }
 .text {
     margin-right: .8rem;
-    font-weight: 500;
-    font-size: 1.7rem;
+    font-weight: 600;
+    font-size: var(--font-body-2);
     white-space: nowrap;
+}
+@media (min-width: $mobile-breakpoint) {
+    .text {
+        font-size: var(--font-body-3);
+        font-weight: 500;
+    }
 }

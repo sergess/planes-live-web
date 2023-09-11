@@ -24,6 +24,10 @@
     align-items: center;
     justify-content: space-between;
     border-top: thin solid var(--color-dark-10);
+    font-weight: 400;
+}
+.row:last-child {
+    padding-bottom: 0;
 }
 .text {
     margin-left: .5rem;

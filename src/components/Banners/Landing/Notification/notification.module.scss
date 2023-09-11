@@ -22,6 +22,7 @@
     font-size: var(--font-body-2);
     margin-top: 1.5rem;
     margin-bottom: 6rem;
+    font-weight: 400;
 }
 .img {
     width: 100%;
@@ -40,6 +41,12 @@
         }
         .description {
             margin-top: 2.7rem;
+            font-size: var(--font-subheadline);
+            font-weight: 400;
+        }
+        .header {
+            font-size: var(--font-h4);
+            font-weight: 700;
         }
     }
 }
