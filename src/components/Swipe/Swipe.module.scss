@@ -28,6 +28,7 @@
         height: 20px;
         align-items: center;
         cursor: pointer;
+        touch-action: none;
     }
     .drawer {
         z-index: var(--header-z-index);
