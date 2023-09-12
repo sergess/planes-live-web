@@ -6,4 +6,6 @@
     color: var(--color-dark-50);
     font-size: var(--font-body-2);
     font-weight: 400;
+    text-align: center;
+    margin-bottom: var(--mobile-header-height);
 }

@@ -8,7 +8,7 @@
 }
 .header {
     display: flex;
-    font-size: var(--font-small);
+    font-size: var(--font-caption);
     padding: 1.2rem;
     color: var(--color-dark-70);
 }

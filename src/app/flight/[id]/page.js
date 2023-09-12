@@ -28,28 +28,6 @@ const MapWithFlightData = dynamic(
   },
 );
 
-export const generateMetadata = ({ params }) => ({
-  // title: `${departureAirport.city} - ${destinationAirport.city} (${flight.iata}) [airline name] Flight Tracker |
-  // Planes Live.`,
-  // description: `Instantly track the status of an [[airline name]] airline flight
-  // [${flight.iata}], route from ${departureAirport.city} to ${destinationAirport.city}. (61 wo flight details)`,
-  itunes: {
-    appId: process.env.IOS_STORE_ID,
-    appArgument: `/flight/${params?.id}`,
-  },
-  icons: {
-    apple: '/svg/app_icon_with_bg.svg',
-    other: {
-      rel: 'android-touch-icon',
-      url: '/svg/app_icon_with_bg.svg',
-    },
-  },
-  other: {
-    'smartbanner:disable-positioning': true,
-    'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${params?.id}`}}`,
-  },
-});
-
 export default async function Page({ params }) {
   const { id: flightId } = params;
   const flight = await withFlight(flightId);
@@ -82,7 +60,7 @@ export default async function Page({ params }) {
               <DelayHistoryCard />
               {/* applyMobile,landingBanners - classes for flight page styles */}
               <div className={`${styles.mobContent} landingBanners applyMobile`}>
-                <Features isMobileView />
+                <Features isMobileView id={flightId} />
                 <Traffic />
                 <Slider />
                 <NotificationBanner />

@@ -7,7 +7,7 @@
     font-weight: 700;
     line-height: 3.3rem;
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: center;
 }
 .container {
     margin: 0;
@@ -21,7 +21,7 @@
     font-size: var(--font-body-2);
     font-weight: 400;
     margin-bottom: 5.4rem;
-    text-align: left;
+    text-align: center;
 }
 
 /* Tablet and Smaller Desktop */
@@ -39,7 +39,9 @@
         .text, .header {
             text-align: center;
         }
-
+        .header {
+            font-size: var(--font-h4);
+        }
         .text {
             font-size: var(--font-subheadline);
             margin-bottom: 5.9rem;

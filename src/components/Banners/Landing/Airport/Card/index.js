@@ -21,11 +21,11 @@ export default function Card() {
         </figcaption>
       </figure>
       <div className={styles.row}>
-        <span className={styles.primaryText}>
+        <span className={styles.phone}>
           <Image
             src="/svg/phone.svg"
-            width={10}
-            height={10}
+            width={14}
+            height={14}
             alt=""
           />
           <span className={styles.text}>+1 206-787-5388</span>

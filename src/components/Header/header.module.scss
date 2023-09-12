@@ -1,5 +1,6 @@
 .label {
     font-weight: 700;
+    font-size: var(--font-h1);
 }
 .labelWrapper {
     display: flex;
@@ -59,8 +60,12 @@ a.icon:nth-child(2) {
     .header {
         max-width: 95.4rem;
         margin: 0 auto;
+        padding-top: 3.8rem;
     }
     .mobile {
         display: none;
+    }
+    .label {
+        font-size: var(--font-h3);
     }
 }

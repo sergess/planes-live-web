@@ -9,7 +9,7 @@ import useSearchFlight from '@/hooks/useSearchFlight';
 import Link from 'next/link';
 import styles from './header.module.scss';
 
-export default function SearchHeader({ autoFocus = false }) {
+export default function SearchHeader({ autoFocus }) {
   const {
     onChange, onSelect, options, setText, text, loading,
   } = useSearchFlight();

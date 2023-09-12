@@ -53,5 +53,9 @@
         .description br {
             display: none;
         }
+        .title {
+            font-weight: 700;
+            font-size: var(--font-h4);
+        }
     }
 }

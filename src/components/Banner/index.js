@@ -13,6 +13,8 @@ export default function Banner() {
         ios: 'Get more from the app',
         android: 'Get more from the app',
       }}
+      ignoreIosVersion
+      agentOSVersionCheck
     />
   );
 }

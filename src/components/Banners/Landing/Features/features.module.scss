@@ -4,7 +4,7 @@
 .row {
     margin-bottom: 4rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: var(--font-h1);
     font-weight: 600;
 }
 .container {
@@ -25,7 +25,7 @@
 }
 /*logic for flight page*/
 :global(.applyMobile) .container {
-    margin: 0;
+    margin: 0 0 9.6rem 0;
 }
 @media (max-width: $mobile-breakpoint) {
   .row img {
@@ -38,6 +38,11 @@
   :global(.landingBanners:not(.applyMobile)) {
     .title {
       padding: 1.6rem 0;
+      font-weight: 700;
+    }
+    .row img {
+      height: 4.8rem;
+      width: 4.8rem;
     }
     .rowWrapper {
       display: flex;
@@ -67,4 +72,20 @@
       margin-top: 2rem;
     }
   }
+}
+.flightInfo {
+  display: none;
+}
+.id {
+  text-transform: uppercase;
+}
+/*show only in flight page*/
+:global(.flight) .flightInfo {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: var(--font-h1);
+  margin-bottom: 4.8rem;
+  padding-top: 2rem;
+  text-align: center;
 }

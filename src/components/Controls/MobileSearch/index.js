@@ -6,10 +6,11 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import { INPUT_DEBOUNCE } from '@/constants/index';
+import { getMatchedLabel } from '@/utils/search';
 import styles from './mobileSearch.module.css';
 
 export default function Input({
-  onChange = () => {}, options = [], onClick = () => {}, onSelect,
+  onChange = () => {}, options = [], onClick = () => {}, onSelect, text,
 }) {
   const router = useRouter();
 
@@ -59,7 +60,7 @@ export default function Input({
             className={styles.option}
             onClick={(e) => onOptionClick(e, value, type)}
           >
-            {label}
+            {getMatchedLabel(label, text)}
             <span>{type}</span>
           </li>
         ))}

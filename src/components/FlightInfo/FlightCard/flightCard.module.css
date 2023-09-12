@@ -13,7 +13,7 @@
 .title {
     font-size: var(--font-h1);
     margin-bottom: .5rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 .description {
     font-size: var(--font-caption);
@@ -29,7 +29,8 @@
     overflow: hidden;
 }
 .info {
-    font-size: var(--font-small);
+    font-size: var(--font-caption);
+    font-weight: 500;
     margin-bottom: .5rem;
 }
 .line {
@@ -70,7 +71,7 @@
     border-bottom: thin solid var(--color-dark-10);
 }
 .flightLabel {
-    font-size: var(--font-body-2);
+    font-size: var(--font-body-1);
     font-weight: 500;
 }
 .logo {

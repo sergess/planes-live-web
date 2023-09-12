@@ -9,9 +9,12 @@
 .header {
     display: flex;
     justify-content: space-between;
-    font-size: var(--font-small);
+    font-size: var(--font-caption);
     padding: 1.2rem;
     color: var(--color-dark-70);
+}
+.time {
+    font-weight: 400;
 }
 .body {
     padding: 1.2rem;

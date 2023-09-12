@@ -6,17 +6,11 @@
     width: 100vw;
     z-index: var(--map-z-index);
 }
-:global(.flight) .mapContainer {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
-}
 :global(.mobile) .mapContainer {
     z-index: 1;
 }
 @media (max-width: $mobile-breakpoint) {
-    .mapContainer {
+    div.mapContainer {
         position: static;
         height: calc(100svh - var(--mobile-header-height));
         top: var(--mobile-header-height);
@@ -28,7 +22,7 @@
     }
 }
 @media (min-width: $mobile-breakpoint) {
-    .mapContainer {
+    div.mapContainer {
         width: calc(100vw - var(--left-panel-width));
         left: var(--left-panel-width);
     }

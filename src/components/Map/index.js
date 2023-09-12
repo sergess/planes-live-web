@@ -8,6 +8,7 @@ import Map, {
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_TOKEN } from '@/constants/index';
 
+import MapBadge from '@/components/Map/MapBadge';
 import styles from './map.module.scss';
 
 const DEFAULT_MARKER_SIZE = '24px';
@@ -33,6 +34,7 @@ export default async function MapBox({
           ...initialViewState,
           zoom: 3.5,
         }}
+        attributionControl={false}
         mapStyle="mapbox://styles/mapbox/streets-v11"
       >
         {lines.map((l) => (
@@ -93,6 +95,7 @@ export default async function MapBox({
           </Marker>
         ))}
         <NavigationControl />
+        <MapBadge />
       </Map>
     </div>
   );

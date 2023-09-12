@@ -9,13 +9,14 @@ import NoResult from '@/components/NoResult';
 import TrySearch from '@/components/TrySearch';
 import Lottie from 'lottie-react';
 import skeletonAnimation from '@/assets/skeleton/search-skeleton.json';
-import styles from './desktopSearch.module.css';
+import { getMatchedLabel } from '@/utils/search';
+import styles from './desktopSearch.module.scss';
 
 export default function DesktopSearch({
   onChange = () => {}, options = [], onSelect, setText, placeholder,
-  text, loading, autoFocus = true,
+  text, loading, autoFocus = false,
 }) {
-  const [isShow, setIsShow] = React.useState(false);
+  const [isShow, setIsShow] = React.useState(!!autoFocus);
   const ref = React.useRef();
   const debouncedChangeHandler = React.useCallback(
     debounce(onChange, INPUT_DEBOUNCE),
@@ -83,7 +84,7 @@ export default function DesktopSearch({
                   key={value}
                   className={styles.option}
                 >
-                  {label}
+                  {getMatchedLabel(label, text)}
                   <span>{type}</span>
                 </li>
               ))}

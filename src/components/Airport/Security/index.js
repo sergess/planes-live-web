@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LinkTo from '@/components/Controls/Link';
+import PrimaryButton from '@/components/Controls/Buttons/primary';
 import styles from './security.module.css';
 
 export default function Security() {
@@ -10,7 +10,7 @@ export default function Security() {
         <p>SECURITY WAIT TIMES</p>
       </div>
       <div className={styles.container}>
-        <LinkTo href="">Open in the app</LinkTo>
+        <PrimaryButton>Open in the app</PrimaryButton>
       </div>
     </div>
   );
