@@ -7,7 +7,7 @@ import styles from './layout.module.scss';
 
 export default function Layout({ children }) {
   return (
-    <div className={`${styles.container} airportPage`}>
+    <div className={styles.container}>
       <div className={styles.mobile}>
         {/* Mobile version */}
         <PageHeader />
