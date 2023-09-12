@@ -13,7 +13,7 @@ const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, ind
   </>
 ));
 export default function Item({
-  dateValue, actualDateValue, icao, airport, sharedCodes, tz,
+  dateValue, actualDateValue, icao, iata, airport, sharedCodes, tz,
 }) {
   const actual_date = actualDateValue ? dayjs(actualDateValue) : null;
   const date = dayjs(dateValue);
@@ -35,7 +35,7 @@ export default function Item({
         </div>
         <div className={styles.title}>
           <p>
-            {icao}
+            {iata || icao}
           </p>
           {!!sharedCodes && (
           <p title={sharedCodes} className={styles.codes}>

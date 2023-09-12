@@ -34,9 +34,11 @@ export default function FlightCard() {
 
   const {
     iata: destinationIata, city: destinationCity, name: destinationName, timezone_name: destinationTz,
+    icao: destinationIcao,
   } = flightData.destinationAirport;
   const {
     city, name, iata: originIata, timezone_name: departureTz,
+    icao: departureIcao,
   } = flightData.departureAirport;
 
   const total = getDateDifferenceHM(
@@ -90,13 +92,17 @@ export default function FlightCard() {
           <div className={styles.block}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{city}</p>
-              <p className={styles.description} title={name}>
+              <a
+                href={`/airport/${departureIcao}`}
+                className={styles.description}
+                title={name}
+              >
                 {originIata}
                 {' '}
                 —
                 {' '}
                 {name}
-              </p>
+              </a>
               <p className={styles.info}>
                 Terminal
                 {` ${departureTerminal || EMPTY_FIELD}`}
@@ -133,13 +139,16 @@ export default function FlightCard() {
           <div className={styles.block}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{destinationCity}</p>
-              <p className={styles.description}>
+              <a
+                href={`/airport/${destinationIcao}`}
+                className={styles.description}
+              >
                 {destinationIata}
                 {' '}
                 —
                 {' '}
                 {destinationName}
-              </p>
+              </a>
               <p className={styles.info}>
                 Terminal
                 {` ${arrivalTerminal || EMPTY_FIELD}`}
