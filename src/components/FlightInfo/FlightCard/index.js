@@ -2,6 +2,7 @@
 
 import React, { useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Status from '@/components/Status';
 import Time from '@/components/FlightInfo/FlightCard/Time/time';
@@ -92,7 +93,7 @@ export default function FlightCard() {
           <div className={styles.block}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{city}</p>
-              <a
+              <Link
                 href={`/airport/${departureIcao}`}
                 className={styles.description}
                 title={name}
@@ -102,7 +103,7 @@ export default function FlightCard() {
                 —
                 {' '}
                 {name}
-              </a>
+              </Link>
               <p className={styles.info}>
                 Terminal
                 {` ${departureTerminal || EMPTY_FIELD}`}
