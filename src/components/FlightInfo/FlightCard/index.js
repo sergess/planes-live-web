@@ -2,6 +2,7 @@
 
 import React, { useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Status from '@/components/Status';
 import Time from '@/components/FlightInfo/FlightCard/Time/time';
@@ -34,9 +35,11 @@ export default function FlightCard() {
 
   const {
     iata: destinationIata, city: destinationCity, name: destinationName, timezone_name: destinationTz,
+    icao: destinationIcao,
   } = flightData.destinationAirport;
   const {
     city, name, iata: originIata, timezone_name: departureTz,
+    icao: departureIcao,
   } = flightData.departureAirport;
 
   const total = getDateDifferenceHM(
@@ -90,13 +93,17 @@ export default function FlightCard() {
           <div className={styles.block}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{city}</p>
-              <p className={styles.description} title={name}>
+              <Link
+                href={`/airport/${departureIcao}`}
+                className={styles.description}
+                title={name}
+              >
                 {originIata}
                 {' '}
                 —
                 {' '}
                 {name}
-              </p>
+              </Link>
               <p className={styles.info}>
                 Terminal
                 {` ${departureTerminal || EMPTY_FIELD}`}
@@ -133,13 +140,16 @@ export default function FlightCard() {
           <div className={styles.block}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{destinationCity}</p>
-              <p className={styles.description}>
+              <Link
+                href={`/airport/${destinationIcao}`}
+                className={styles.description}
+              >
                 {destinationIata}
                 {' '}
                 —
                 {' '}
                 {destinationName}
-              </p>
+              </Link>
               <p className={styles.info}>
                 Terminal
                 {` ${arrivalTerminal || EMPTY_FIELD}`}
