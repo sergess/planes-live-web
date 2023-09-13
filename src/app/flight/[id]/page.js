@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
-import { withAirport, withFlight } from '@/middlewares/get-server-side-data';
+import { withAirport, withFlight, withFlightDate } from '@/middlewares/get-server-side-data';
 import Swipe from '@/components/Swipe';
 import Features from '@/components/Banners/Landing/Features';
 import Traffic from '@/components/Banners/Landing/Traffic';
@@ -18,6 +18,7 @@ import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightPreview from '@/components/Swipe/FlightPreview';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
+import isValidDate from "@/utils/isValidDate";
 
 import styles from './page.module.scss';
 
@@ -28,9 +29,21 @@ const MapWithFlightData = dynamic(
   },
 );
 
-export default async function Page({ params }) {
+export default async function Page({ params, searchParams }) {
   const { id: flightId } = params;
-  const flight = await withFlight(flightId);
+  const { iso } = searchParams;
+
+  let flight = null;
+  let currentDate = null;
+
+  if (isValidDate(iso)) {
+    currentDate = new Date(iso);
+    const data = await withFlightDate(flightId, iso);
+    flight = data[0].flight;
+  } else {
+    currentDate = new Date();
+    flight = await withFlight(flightId);
+  }
 
   if (!flight) {
     notFound();
@@ -41,7 +54,6 @@ export default async function Page({ params }) {
   if (!destinationAirport || !departureAirport) {
     notFound();
   }
-  const currentDate = new Date();
 
   return (
     <FlightProvider value={{
