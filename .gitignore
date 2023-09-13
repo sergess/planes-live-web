@@ -37,3 +37,6 @@ next-env.d.ts
 certificates
 
 .idea
+
+# json airline, flight data
+/public/commonData.json
