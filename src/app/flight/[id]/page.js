@@ -35,10 +35,10 @@ export default async function Page({ params, searchParams }) {
 
   let flight = null;
   let currentDate = null;
+  const data = await withFlightDate(flightId, iso);
 
-  if (isValidDate(iso)) {
+  if (isValidDate(iso) && data.length) {
     currentDate = new Date(iso);
-    const data = await withFlightDate(flightId, iso);
     flight = data[0].flight;
   } else {
     currentDate = new Date();
