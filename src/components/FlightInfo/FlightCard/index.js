@@ -140,7 +140,7 @@ export default function FlightCard() {
           <div className={styles.block}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{destinationCity}</p>
-              <a
+              <Link
                 href={`/airport/${destinationIcao}`}
                 className={styles.description}
               >
@@ -149,7 +149,7 @@ export default function FlightCard() {
                 —
                 {' '}
                 {destinationName}
-              </a>
+              </Link>
               <p className={styles.info}>
                 Terminal
                 {` ${arrivalTerminal || EMPTY_FIELD}`}
