@@ -11,7 +11,7 @@ import skeletonAnimation from '@/assets/skeleton/search-skeleton.json';
 
 export default function SearchFlight() {
   const {
-    onChange, onSelect, options, loading, text,
+    onChange, options, loading, text,
   } = useSearchFlight();
 
   return (
@@ -21,7 +21,6 @@ export default function SearchFlight() {
         onChange={onChange}
         options={options}
         text={text}
-        onSelect={onSelect}
       />
       {loading ? (
         <div className={styles.lottie}>

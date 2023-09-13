@@ -11,7 +11,7 @@ import styles from './header.module.scss';
 
 export default function SearchHeader({ autoFocus }) {
   const {
-    onChange, onSelect, options, setText, text, loading,
+    onChange, options, setText, text, loading,
   } = useSearchFlight();
 
   return (
@@ -27,7 +27,6 @@ export default function SearchHeader({ autoFocus }) {
       </Link>
       <DesktopSearch
         onChange={onChange}
-        onSelect={onSelect}
         setText={setText}
         options={options}
         loading={loading}

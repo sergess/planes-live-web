@@ -8,6 +8,7 @@ import Statistics from '@/components/Airport/Statistics';
 import Security from '@/components/Airport/Security';
 import { Airport } from '@/services/index';
 import { withAirportsPageData } from '@/middlewares/get-server-side-data/with-airports-page-data';
+import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import styles from './page.module.scss';
 
 const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
@@ -40,7 +41,7 @@ export default async function Page({ params, searchParams }) {
   const show_arrivals = searchParams?.show_arrivals || 6;
 
   return (
-    <>
+    <ModalProvider>
       <div className={styles.container}>
         <h1 className={styles.title}>
           {airport.name}
@@ -89,6 +90,6 @@ export default async function Page({ params, searchParams }) {
           longitude: airport.lon,
         }}
       />
-    </>
+    </ModalProvider>
   );
 }

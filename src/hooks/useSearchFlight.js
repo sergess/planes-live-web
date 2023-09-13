@@ -1,22 +1,17 @@
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 
-import {
-  MIN_SYMBOL_COUNT, OPTION_TYPE, ROUTE_BY_TYPE,
-} from '@/constants/index';
 import useMutationFetch from '@/hooks/useMutationFetch';
 
+import {
+  MIN_SYMBOL_COUNT, OPTION_TYPE,
+} from '@/constants/index';
+
 export default () => {
-  const router = useRouter();
   const [text, setText] = useState('');
   const [options, setOptions] = useState([]);
 
   const onChange = (e) => {
     setText(e.target.value);
-  };
-
-  const onSelect = (value, type) => {
-    router.push(`/${ROUTE_BY_TYPE[type]}/${value}`);
   };
 
   const { trigger, isMutating: loading } = useMutationFetch('/api/search');
@@ -46,7 +41,6 @@ export default () => {
   }, [text]);
 
   return {
-    onSelect,
     onChange,
     options,
     text,

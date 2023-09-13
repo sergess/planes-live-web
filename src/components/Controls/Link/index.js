@@ -1,17 +1,23 @@
-import React from 'react';
-import Link from 'next/link';
+'use client';
+
+import React, { useContext } from 'react';
+
+import modalContext from '@/contexts/modal/ModalContext';
 
 import styles from './link.module.css';
 
 export default function LinkTo({
-  href, children,
+  children,
 }) {
+  const { openModal } = useContext(modalContext);
+
   return (
-    <Link
-      href={href}
+    <button
+      type="button"
       className={styles.showAll}
+      onClick={openModal}
     >
       {children}
-    </Link>
+    </button>
   );
 }
