@@ -29,11 +29,11 @@ const MapWithFlightData = dynamic(
   },
 );
 
-export const generateMetadata = async ({ params }) => {
+export async function generateMetadata({ params }) {
   const { id: flightId } = params;
   const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
-  const { flight } = flightResponse[0];
 
+  const { flight } = flightResponse[0];
   const departureAirport = getAirport(commonDataResponse, flight.origin);
   const destinationAirport = getAirport(commonDataResponse, flight.destination);
   const airline = getAirline(commonDataResponse, flight.airline_icao);
@@ -60,10 +60,11 @@ export const generateMetadata = async ({ params }) => {
       'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${params?.id}`}}`,
     },
   });
-};
+}
 
 export default async function Page({ params }) {
   const { id: flightId } = params;
+
   const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
   const { flight } = flightResponse[0];
   if (!flight || !commonDataResponse) {

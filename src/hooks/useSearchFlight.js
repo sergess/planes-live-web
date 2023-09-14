@@ -27,6 +27,7 @@ export default () => {
               value: a.icao,
               type: OPTION_TYPE.airport,
             })), ...resultOfSearch.autosuggest
+            .filter((e) => e.type === 'iata') // temporary filter
             .map((a) => ({
               label: a.code,
               value: a.code,
