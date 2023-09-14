@@ -6,7 +6,8 @@ import {
 
 export class Flight extends ApiV212 {
   async getFlightInfo(code) {
-    const { ok, data: response } = await this.callAsync(`${request_uri}position/nearest/icao/${code}`);
+    // TODO add type iata/icao as variable
+    const { ok, data: response } = await this.callAsync(`${request_uri}position/nearest/iata/${code}`);
 
     if (!ok) {
       return null;
