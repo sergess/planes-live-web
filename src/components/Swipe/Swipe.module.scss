@@ -4,6 +4,7 @@
 @value previewHeight: 6rem;
 @value bottomHeight: 14rem;
 @value drawerRadius: 15px 15px 0 0;
+@value bottomBannerSpace: 3rem;
 
 @keyframes opacityAnimation {
     0%   { opacity: 0.0; }
@@ -59,7 +60,7 @@
         height: calc(topHeight - var(--banner-height));
     }
     :global(.smartbanner-show) .bottom {
-        height: calc(bottomHeight - var(--banner-height));
+        height: calc(bottomHeight - var(--banner-height) + bottomBannerSpace);
     }
 }
 

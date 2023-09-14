@@ -1,4 +1,4 @@
-@value previewHeight, previewSpace, bottomHeight, bottom from "./../Swipe.module.scss";
+@value previewHeight, previewSpace, bottomHeight, bottomBannerSpace, bottom from "./../Swipe.module.scss";
 @value desktopPreviewWidth: 34.3rem;
 
 .planePanel {
@@ -22,7 +22,7 @@
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
   :global(.smartbanner-show) .planePanel {
-    bottom: calc(bottomHeight + previewSpace - var(--banner-height));
+    bottom: calc(bottomHeight + previewSpace - var(--banner-height) + bottomBannerSpace);
   }
 }
 
