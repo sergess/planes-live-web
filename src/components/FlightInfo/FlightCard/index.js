@@ -57,6 +57,10 @@ export default function FlightCard({ logoUrl }) {
           />
           <h1 className={styles.flightLabel}>
             {iata}
+            <>
+              <br />
+              <span className={styles.operates}>Operates as LH5678</span>
+            </>
           </h1>
         </div>
 
