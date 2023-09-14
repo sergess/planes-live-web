@@ -23,6 +23,7 @@ export class ApiV212 {
   async querySearch(query) {
     const { ok, data } = await this.callAsync(`${request_uri}search`, {
       method: 'POST',
+      cache: 'no-store',
       body: JSON.stringify({
         query,
       }),

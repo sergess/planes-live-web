@@ -13,6 +13,13 @@ export const requestJson = async (
       },
     });
 
+    if (response.status === 304) {
+      return {
+        ok: true,
+        data: {},
+        status: 304,
+      };
+    }
     const body = await response.json();
     const ok = isResponseOk(body);
 

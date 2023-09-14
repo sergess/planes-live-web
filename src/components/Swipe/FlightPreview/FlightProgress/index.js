@@ -13,7 +13,7 @@ export default function FlightProgress({ value = 0 }) {
         priority
         width={IMG_SIZE}
         height={IMG_SIZE}
-        alt="Plane icon"
+        alt="Plane symbol"
         className={styles.plane}
         style={{ left: `calc(${value}% - (${IMG_SIZE}px / 2))` }}
       />

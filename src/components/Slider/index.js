@@ -11,7 +11,7 @@ export default function Slider() {
         src="/svg/iphone_mockup.svg"
         width={200}
         height={405}
-        alt=""
+        alt="Planes Live app: flight information"
       />
       <div className={styles.img1} />
       <div className={styles.img2} />

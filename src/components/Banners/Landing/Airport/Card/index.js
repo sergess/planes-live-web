@@ -12,7 +12,7 @@ export default function Card() {
           src="/kennedy_airport.png"
           width={41}
           height={31}
-          alt=""
+          alt="Planes Live app: airports information"
         />
         <figcaption className={styles.figCaption}>
           John F Kennedy
