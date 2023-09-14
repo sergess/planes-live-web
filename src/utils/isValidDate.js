@@ -1,3 +1,3 @@
-export const isValidDate = date => !isNaN(Date.parse(date));
+export const isValidDate = (date) => !Number.isNaN(Date.parse(date));
 
 export default isValidDate;

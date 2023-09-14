@@ -49,4 +49,4 @@ export const convertSecondsToDuration = (seconds) => {
 
 export const isSameDay = (arrayOfDates, date) => arrayOfDates?.some((item) => dayjs(item).isSame(date, 'day'));
 
-export const getUnixTime = date => dayjs(date).valueOf();
+export const getUnixTime = (date) => dayjs(date).valueOf();
