@@ -2,7 +2,6 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
-import { withAirport, withFlight, withFlightDate } from '@/middlewares/get-server-side-data';
 import Swipe from '@/components/Swipe';
 import Features from '@/components/Banners/Landing/Features';
 import Traffic from '@/components/Banners/Landing/Traffic';
@@ -18,8 +17,9 @@ import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightPreview from '@/components/Swipe/FlightPreview';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
-import isValidDate from "@/utils/isValidDate";
+import withFlightPageData from '@/middlewares/get-server-side-data/with-flight-page-data';
 
+import { getAirline, getAirport } from '@/utils/helpers';
 import styles from './page.module.scss';
 
 const MapWithFlightData = dynamic(
@@ -29,31 +29,55 @@ const MapWithFlightData = dynamic(
   },
 );
 
-export default async function Page({ params, searchParams }) {
+export const generateMetadata = async ({ params }) => {
   const { id: flightId } = params;
-  const { iso } = searchParams;
+  const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
+  const { flight } = flightResponse[0];
 
-  let flight = null;
-  let currentDate = null;
-  const data = await withFlightDate(flightId, iso);
+  const departureAirport = getAirport(commonDataResponse, flight.origin);
+  const destinationAirport = getAirport(commonDataResponse, flight.destination);
+  const airline = getAirline(commonDataResponse, flight.airline_icao);
 
-  if (isValidDate(iso) && data.length) {
-    currentDate = new Date(iso);
-    flight = data[0].flight;
-  } else {
-    currentDate = new Date();
-    flight = await withFlight(flightId);
-  }
+  return ({
+    title: `${departureAirport.city} - ${destinationAirport.city} (${flight.iata}) ${airline.name} Flight Tracker |
+  Planes Live.`,
+    description: `Instantly track the status of an ${airline.name} airline flight
+  [${flight.iata}], route from ${departureAirport.city} to ${destinationAirport.city}. (61 wo flight details)`,
+    themeColor: '#292838',
+    itunes: {
+      appId: process.env.IOS_STORE_ID,
+      appArgument: `/flight/${params?.id}`,
+    },
+    icons: {
+      apple: '/svg/app_icon_with_bg.svg',
+      other: {
+        rel: 'android-touch-icon',
+        url: '/svg/app_icon_with_bg.svg',
+      },
+    },
+    other: {
+      'smartbanner:disable-positioning': true,
+      'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${params?.id}`}}`,
+    },
+  });
+};
 
-  if (!flight) {
+export default async function Page({ params }) {
+  const { id: flightId } = params;
+  const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
+  const { flight } = flightResponse[0];
+  if (!flight || !commonDataResponse) {
     notFound();
   }
 
-  const { destinationAirport, departureAirport } = await withAirport(flight);
+  const departureAirport = getAirport(commonDataResponse, flight.origin);
+  const destinationAirport = getAirport(commonDataResponse, flight.destination);
+  const airline = getAirline(commonDataResponse, flight.airline_icao);
 
   if (!destinationAirport || !departureAirport) {
     notFound();
   }
+  const currentDate = new Date();
 
   return (
     <FlightProvider value={{
@@ -67,7 +91,7 @@ export default async function Page({ params, searchParams }) {
           <Swipe id={flightId}>
             <div className={styles.body}>
               <DateBlock />
-              <FlightCard />
+              <FlightCard logoUrl={airline.logo_url_s} />
               <LastUpdateCard />
               <DelayHistoryCard />
               {/* applyMobile,landingBanners - classes for flight page styles */}

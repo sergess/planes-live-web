@@ -1,5 +1,8 @@
 import { ApiV212 } from '@/services/api-v2.12';
 import { request_uri } from '@/constants/index';
+import {
+  writeJSON, readJSON,
+} from '@/utils/writeFile';
 
 export class Flight extends ApiV212 {
   async getFlightInfo(code) {
@@ -18,13 +21,22 @@ export class Flight extends ApiV212 {
   }
 
   async getCommonFlightData() {
-    const { ok, data: response } = await this.callAsync(`${request_uri}data`);
+    const currentData = readJSON();
+    const query = currentData ? new URLSearchParams({
+      tag: currentData.tag,
+    }) : '';
+    const { ok, data: response, status } = await this.callAsync(`${request_uri}data?${query}`, null);
+
+    if (status === 304) {
+      return currentData;
+    }
 
     const { data } = response;
-
     if (!ok || !data) {
       return null;
     }
+
+    writeJSON(data);
 
     return data;
   }

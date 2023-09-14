@@ -25,7 +25,7 @@ export default function DateBlock() {
           src="/svg/calendar.svg"
           width={24}
           height={24}
-          alt="Change Date"
+          alt="Calendar"
         />
       </ChangeDateButton>
     </p>
