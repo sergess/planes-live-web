@@ -52,9 +52,9 @@ export default function FlightCard({ logoUrl }) {
             src={logoUrl || AIRLINE_PLACEHOLDER}
             alt="airline logo"
           />
-          <p className={styles.flightLabel}>
+          <h1 className={styles.flightLabel}>
             {iata}
-          </p>
+          </h1>
         </div>
 
         <Status status={status} />
