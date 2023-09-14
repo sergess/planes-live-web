@@ -32,8 +32,6 @@ const MapWithFlightData = dynamic(
 export async function generateMetadata({ params }) {
   const { id: flightId } = params;
   const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
-  console.log(flightResponse, 'flightResponse');
-  console.log(Object.keys(commonDataResponse), 'commonDataResponse');
 
   const { flight } = flightResponse[0];
   const departureAirport = getAirport(commonDataResponse, flight.origin);
@@ -67,7 +65,6 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const { id: flightId } = params;
 
-  return <div />;
   const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
   const { flight } = flightResponse[0];
   if (!flight || !commonDataResponse) {
