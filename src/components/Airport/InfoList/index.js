@@ -40,6 +40,7 @@ export default async function InfoList({
           <Item
             key={flight.icao}
             icao={flight.icao}
+            iata={flight.iata}
             dateValue={flight[dateKey]}
             actualDateValue={flight[`${dateKey}_actual`]}
             airport={airports.find((air) => air.icao === flight[mapAirportField])}
