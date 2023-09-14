@@ -58,6 +58,20 @@ export class Flight extends ApiV212 {
 
     return data;
   }
+
+  async getFlightById(flightId) {
+    const { ok, data: response } = await this.callAsync(`${request_uri}position/${flightId}`);
+
+    const { data } = response;
+
+    if (!ok || !data) {
+      return null;
+    }
+
+    const flight = data[0].flight;
+
+    return flight;
+  }
 }
 
 export default Flight;
