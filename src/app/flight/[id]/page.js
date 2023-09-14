@@ -79,7 +79,6 @@ export default async function Page({ params }) {
     notFound();
   }
   const currentDate = new Date();
-  console.log(flight.iata, 'flight', params.id);
 
   return (
     <FlightProvider value={{
