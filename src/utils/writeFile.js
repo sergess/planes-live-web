@@ -8,7 +8,7 @@ export const readJSON = () => {
   try {
     return JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
   } catch (e) {
-    console.error(e);
+    console.error(e, 'read file error');
 
     return null;
   }
