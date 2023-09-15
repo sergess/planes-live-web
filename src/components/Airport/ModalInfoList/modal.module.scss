@@ -1,0 +1,102 @@
+.body {
+  padding: 0.8rem 0 0;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  height: 90svh;
+  box-sizing: border-box;
+}
+
+.head {
+  font-size: var(--font-h1);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.44px;
+  color: var(--color-dark-100);
+  text-align: center;
+  padding: 0.6rem 0 0;
+}
+
+.heading {
+  text-transform: capitalize;
+  position: absolute;
+  left: 0;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.date {
+  font-size: var(--font-body-2);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.44px;
+  color: var(--color-primary);
+}
+
+.scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0 -1rem;
+}
+
+.scrollHeading {
+  background: var(--surfaces-base);
+  font-size: var(--font-caption);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--color-dark-50);
+  padding: 0 0.5rem 0 1.6rem;
+  height: 24px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.calendar {
+  margin-top: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    height: 18px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: rgba(255, 255, 255, 0);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.24px;
+    cursor: pointer;
+
+    &.active {
+      height: 32px;
+      font-size: var(--font-h1);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.38px;
+    }
+  }
+}
+
+.timeGroup {
+  a {
+    display: block;
+    border-bottom: 1px solid var(--color-dark-10);
+
+    div {
+      border: none;
+    }
+  }
+}
