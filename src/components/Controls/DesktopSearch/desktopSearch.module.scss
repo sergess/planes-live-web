@@ -31,6 +31,14 @@
     font-weight: 400;
     color: rgba(255, 255, 255, .5);
 }
+.search:hover {
+    background: var(--color-grey-hover);
+    color: var(--color-white);
+}
+.search:focus {
+    background: var(--color-grey-hover);
+    color: var(--color-white);
+}
 .searchList {
     position: absolute;
     width: 100%;
