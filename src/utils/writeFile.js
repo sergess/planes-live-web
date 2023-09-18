@@ -6,10 +6,12 @@ export const writeJSON = (json) => {
 };
 export const readJSON = () => {
   try {
-    return JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
-  } catch (e) {
-    console.error(e, 'read file error');
+    if (fs.existsSync(JSON_PATH)) {
+      return JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
+    }
 
+    return null;
+  } catch (e) {
     return null;
   }
 };
