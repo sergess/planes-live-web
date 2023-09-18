@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import PrimaryButton from '@/components/Controls/Buttons/primary';
-
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from './error.module.scss';
@@ -35,11 +33,9 @@ export default function Error({
           a problem
         </h1>
         <p className={styles.description}>
-          I don’t know which text should we put on
-          an error page but
-          definitely not that one
+          {error?.message}
         </p>
-        <PrimaryButton onClick={() => reset()}>
+        <button type="button" onClick={() => reset()} className={styles.button}>
           <Image
             src="/svg/arrow_up_right.svg"
             alt="Arrow up right"
@@ -50,7 +46,7 @@ export default function Error({
             }}
           />
           Go back
-        </PrimaryButton>
+        </button>
       </div>
     </div>
   );
