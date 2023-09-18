@@ -4,6 +4,8 @@
   grid-template-rows: min-content auto min-content;
   height: 90svh;
   box-sizing: border-box;
+  width: 100%;
+  max-width: 343px;
 }
 
 .head {
@@ -14,6 +16,7 @@
   color: var(--color-dark-100);
   text-align: center;
   padding: 0.6rem 0 0;
+  overflow: hidden;
 }
 
 .heading {
@@ -56,38 +59,6 @@
   width: 100%;
   align-items: center;
   justify-content: flex-start;
-}
-
-.calendar {
-  margin-top: 1.8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  button {
-    height: 18px;
-    width: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background: rgba(255, 255, 255, 0);
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.24px;
-    cursor: pointer;
-
-    &.active {
-      height: 32px;
-      font-size: var(--font-h1);
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: 0.38px;
-    }
-  }
 }
 
 .timeGroup {
