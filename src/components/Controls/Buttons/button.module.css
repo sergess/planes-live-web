@@ -6,7 +6,8 @@
     color: white;
     border: none;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 .outline {
     border-radius: 5rem;
