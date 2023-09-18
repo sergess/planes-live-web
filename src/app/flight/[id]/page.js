@@ -29,7 +29,7 @@ const MapWithFlightData = dynamic(
   },
 );
 
-export async function generateMetadata({ params }) {
+export const generateMetadata = async ({ params }) => {
   const { id: flightId } = params;
   const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
 
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }) {
       'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${params?.id}`}}`,
     },
   });
-}
+};
 
 export default async function Page({ params }) {
   const { id: flightId } = params;
