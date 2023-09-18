@@ -39,4 +39,4 @@ certificates
 .idea
 
 # json airline, flight data
-/public/commonData.json
+/cache/commonData.json
