@@ -44,11 +44,11 @@
   left: calc((100svw - 62rem) / 2);
   overflow: hidden;
   width: 62rem;
-}
-.code img {
-  width: 20rem;
-  height: 24rem;
-  margin-top: 5rem;
+  img {
+    width: 20rem;
+    height: 24rem;
+    margin-top: 5rem;
+  }
 }
 
 @media (min-width: $mobile-breakpoint) {
@@ -70,6 +70,11 @@
     font-size: 600px;
     left: 30%;
     width: calc(100svw - 30%);
+    img {
+      margin-top: 12rem;
+      width: 40rem;
+      height: 46rem;
+    }
   }
   .textWrapper {
     min-width: 52rem;
@@ -79,11 +84,6 @@
   }
   .br {
     display: none;
-  }
-  .code img {
-    margin-top: 12rem;
-    width: 40rem;
-    height: 46rem;
   }
 }
 .button {
