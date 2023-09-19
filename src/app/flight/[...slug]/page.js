@@ -30,8 +30,7 @@ const MapWithFlightData = dynamic(
   },
 );
 
-// eslint-disable-next-line func-style
-export async function generateMetadata({ params }) {
+export const generateMetadata = async ({ params }) => {
   const { slug } = params;
 
   if (slug.length > 2) {
@@ -77,7 +76,7 @@ export async function generateMetadata({ params }) {
       'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${flightNumber}`}}`,
     },
   });
-}
+};
 
 export default async function Page({ params }) {
   const { slug } = params;
@@ -120,7 +119,10 @@ export default async function Page({ params }) {
           <Swipe id={flightNumber}>
             <div className={styles.body}>
               <DateBlock />
-              <FlightCard logoUrl={airline.logo_url_s} />
+              <FlightCard
+                logoUrl={airline.logo_url_s}
+                extraCode={flight.iata === params.id ? null : params.id}
+              />
               <LastUpdateCard />
               <DelayHistoryCard />
               {/* applyMobile,landingBanners - classes for flight page styles */}

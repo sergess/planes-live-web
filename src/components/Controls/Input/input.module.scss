@@ -8,6 +8,12 @@
     border: none;
     text-decoration: none;
 }
+.link:hover {
+    background: var(--color-white-hover);
+}
+.link:active {
+    background: var(--color-white-hover);
+}
 .text {
     font-size: var(--font-body-1);
     font-weight: 400;
