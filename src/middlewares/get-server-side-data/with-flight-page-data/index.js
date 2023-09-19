@@ -7,7 +7,7 @@ const withFlightPageData = async (id) => {
   ]);
 
   if (!flightResponse || !commonDataResponse) {
-    return null;
+    return [];
   }
 
   return [flightResponse, commonDataResponse];

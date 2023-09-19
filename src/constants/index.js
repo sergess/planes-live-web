@@ -28,3 +28,7 @@ export const ROUTE_BY_TYPE = {
 };
 
 export const EMPTY_FIELD = 'n/a';
+export const ERROR_CODE = {
+  NOT_FOUND: 404,
+  SERVER: 500,
+};

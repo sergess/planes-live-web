@@ -1,29 +1,22 @@
 'use client';
 
 import React from 'react';
-
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import styles from './error.module.scss';
+
+import Code from '@/components/ErrorCode/Code';
+import styles from './errorCode.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Error({
+export default function ErrorCode({
   error,
   reset,
+  code,
 }) {
   return (
     <div className={`${styles.container} ${inter.className}`}>
-      <div className={styles.code}>
-        <p className={styles.codeText}>4</p>
-        <Image
-          src="/zero_cloud.gif"
-          width={300}
-          height={424}
-          alt="Left arrow"
-        />
-        <p className={styles.codeText}>4</p>
-      </div>
+      <Code code={code} />
       <div className={styles.textWrapper}>
         <h1 className={styles.title}>
           Houston,
