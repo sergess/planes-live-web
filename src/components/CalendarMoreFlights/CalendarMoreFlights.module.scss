@@ -47,3 +47,11 @@ button.row {
   cursor: pointer;
   border-top: 1px solid rgba(0, 0, 0, 0.16);
 }
+button.row:hover {
+  box-shadow: var(--button-hover-shadow);
+  background: var(--surfaces-base);
+}
+button.row:active {
+  box-shadow: var(--button-hover-shadow);
+  background: var(--surfaces-lowered);
+}
