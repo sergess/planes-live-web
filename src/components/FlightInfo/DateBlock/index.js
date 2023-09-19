@@ -16,7 +16,7 @@ export default function DateBlock({ tz }) {
   return (
     <p className={styles.label}>
       <span className={styles.date}>
-        {formatDate(flightData?.date, DAY_MONTH_DATE_FORMAT)}
+        {formatDate(flightData?.date, DAY_MONTH_DATE_FORMAT, tz)}
       </span>
       <ChangeDateButton>
         Change date
