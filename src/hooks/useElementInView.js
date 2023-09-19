@@ -1,7 +1,7 @@
-import { useState, useEffect, MutableRefObject } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useElementInView = (
-  ref
+  ref,
 ) => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -9,15 +9,14 @@ export const useElementInView = (
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          console.log('1', entry.target);
           setIsVisible(true);
         }
       },
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.7,
-      }
+        threshold: 1,
+      },
     );
 
     const currentElement = ref?.current;

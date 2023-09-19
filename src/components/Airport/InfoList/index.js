@@ -1,15 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
+import * as dayjs from 'dayjs';
 
 import LinkTo from '@/components/Controls/Link';
 import { Airport } from '@/services/index';
-import {filterOnlyFutureFlights, formatDate} from '@/utils/date';
+import { filterOnlyFutureFlights, formatDate } from '@/utils/date';
+import { YEAR_MONTH_DAY_HOUR_FORMAT } from '@/constants/date';
 import Item from './Item';
 
 import styles from './infoList.module.css';
-import * as dayjs from "dayjs";
-
-const SHOW_ITEMS_COUNT = 6;
 
 const airportService = new Airport();
 const DEPARTURE_ICON = '/svg/ic_departure.svg';
@@ -28,16 +27,16 @@ export default async function InfoList({
   const dataArray = [];
   response.forEach((item) => {
     const date = item.flight[`${dateKey}_actual`] || item.flight[dateKey];
-    const d = formatDate(date, 'YYYY-MM-DD HH', tz);
-    if(result[d]){
+    const d = formatDate(date, YEAR_MONTH_DAY_HOUR_FORMAT, tz);
+    if (result[d]) {
       result[d].push(item);
     } else {
       result[d] = [item];
     }
   });
-  for (let key in result) {
-    dataArray.push({'date': key, 'data': result[key]});
-  }
+  Object.keys(result).forEach((item) => {
+    dataArray.push({ date: item, data: result[item] });
+  });
   dataArray.sort((a, b) => dayjs(a.date).unix() - dayjs(b.date).unix());
 
   return (
@@ -54,8 +53,10 @@ export default async function InfoList({
       {items.length > 0 && (
       <div className={styles.container}>
         {items.map(({ flight }, key) => (
-          key < 5 && <Item
+          key < 5 && (
+          <Item
             key={flight.icao}
+            id={flight.id}
             icao={flight.icao}
             iata={flight.iata}
             dateValue={flight[dateKey]}
@@ -64,6 +65,7 @@ export default async function InfoList({
             sharedCodes={flight.shared_codes}
             tz={tz}
           />
+          )
         ))}
         <LinkTo data={dataArray} tz={tz} airports={airports} mapAirportField={mapAirportField} dateKey={dateKey}>
           Show All

@@ -1,52 +1,57 @@
 'use client';
 
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import React, {
+  useState, useCallback, useRef, useEffect,
+} from 'react';
 
-import Item from "@/components/Airport/InfoList/Item";
-import ModalDaysSwitcher from "@/components/Airport/ModalInfoList/ModalDaysSwitcher";
-import { formatDate } from "@/utils/date";
+import Item from '@/components/Airport/InfoList/Item';
+import ModalDaysSwitcher from '@/components/Airport/ModalInfoList/ModalDaysSwitcher';
+import { formatDate } from '@/utils/date';
+import { HOUR_12_FORMAT, WEEKDAY_MONTH_DAY_FORMAT, YEAR_MONTH_DAY_HOUR_FORMAT } from '@/constants/date';
 
 import styles from './modal.module.scss';
 
-export default function ModalInfoList({data, tz, airports, mapAirportField, dateKey}) {
+export default function ModalInfoList({
+  data, tz, airports, mapAirportField, dateKey,
+}) {
   const scrollRef = useRef();
-  const [date, setDate] = useState(formatDate(new Date(), 'YYYY-MM-DD HH'));
+  const [date, setDate] = useState(formatDate(new Date(), YEAR_MONTH_DAY_HOUR_FORMAT));
 
   const onScroll = useCallback(() => {
     if (scrollRef.current) {
       const scrollBox = scrollRef.current;
-      for (let node of scrollBox.children) {
+      Object.values(scrollBox.children).forEach((node) => {
         const elemTopСoordinate = node.getBoundingClientRect().top - scrollBox.getBoundingClientRect().top;
         const elemHeightValue = node.getBoundingClientRect().height;
-        if ( elemTopСoordinate <= 0 && elemTopСoordinate > 0 - elemHeightValue ) {
+        if (elemTopСoordinate <= 0 && elemTopСoordinate > 0 - elemHeightValue) {
           setDate(node.getAttribute('data'));
         }
-      }
+      });
     }
   }, []);
 
-  const onClick = value => {
+  const onClick = useCallback((value) => {
     setDate(value);
     if (scrollRef.current) {
       const scrollBox = scrollRef.current;
       const { scrollTop } = scrollBox;
-      for (let node of scrollBox.children) {
-        if(node.getAttribute('data') === value) {
+      Object.values(scrollBox.children).forEach((node) => {
+        if (node.getAttribute('data') === value) {
           const { top } = node.getBoundingClientRect();
           scrollBox.scrollTop = top - scrollBox.getBoundingClientRect().top + scrollTop + 1;
         }
-      }
+      });
     }
-  }
+  }, []);
 
-  useEffect(() => onClick(formatDate(date, 'YYYY-MM-DD HH')), []);
+  useEffect(() => onClick(formatDate(date, YEAR_MONTH_DAY_HOUR_FORMAT)), []);
 
   return (
     <div className={styles.body}>
       <div className={styles.head}>
         <div className={styles.top}>
           <div className={styles.heading}>{dateKey}</div>
-          <div className={styles.date}>{formatDate(date, 'ddd, MMM D')}</div>
+          <div className={styles.date}>{formatDate(date, WEEKDAY_MONTH_DAY_FORMAT)}</div>
         </div>
         <ModalDaysSwitcher
           data={data}
@@ -57,24 +62,27 @@ export default function ModalInfoList({data, tz, airports, mapAirportField, date
       <div ref={scrollRef} className={styles.scroll} onScroll={onScroll}>
         {
           data.length && data.map((item) => (
-             <div className={styles.timeGroup} key={item.date} data={item.date}>
-               <p className={styles.scrollHeading}>{formatDate(item.date, 'h A')}</p>
-               {item.data.map(childItem => {
-                 const flight = childItem.flight;
-                 return (
-                   <Item
-                     key={flight.icao}
-                     icao={flight.icao}
-                     iata={flight.iata}
-                     dateValue={flight[dateKey]}
-                     actualDateValue={flight[`${dateKey}_actual`]}
-                     airport={airports.find((air) => air.icao === flight[mapAirportField])}
-                     sharedCodes={flight.shared_codes}
-                     tz={tz}
-                   />
-                 )})}
-             </div>
-        ))
+            <div className={styles.timeGroup} key={item.date} data={item.date}>
+              <p className={styles.scrollHeading}>{formatDate(item.date, HOUR_12_FORMAT)}</p>
+              {item.data.map((childItem) => {
+                const { flight } = childItem;
+
+                return (
+                  <Item
+                    key={flight.id}
+                    id={flight.id}
+                    icao={flight.icao}
+                    iata={flight.iata}
+                    dateValue={flight[dateKey]}
+                    actualDateValue={flight[`${dateKey}_actual`]}
+                    airport={airports.find((air) => air.icao === flight[mapAirportField])}
+                    sharedCodes={flight.shared_codes}
+                    tz={tz}
+                  />
+                );
+              })}
+            </div>
+          ))
         }
       </div>
     </div>
