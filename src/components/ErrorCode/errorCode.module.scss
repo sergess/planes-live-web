@@ -22,7 +22,7 @@
   background: var(--surfaces-base);
   overflow: hidden;
   align-items: flex-start;
-  padding-top: 36rem;
+  padding-top: 24rem;
 }
 .textWrapper {
   display: flex;
@@ -40,7 +40,7 @@
   position: absolute;
   z-index: 0;
   display: flex;
-  top: 12rem;
+  top: 6rem;
   left: calc((100svw - 62rem) / 2);
   overflow: hidden;
   width: 62rem;
@@ -78,6 +78,7 @@
   }
   .textWrapper {
     min-width: 52rem;
+    align-items: flex-start;
   }
   .container a {
     align-self: baseline;
@@ -85,8 +86,15 @@
   .br {
     display: none;
   }
+  .container {
+    padding-top: 32rem;
+    justify-content: start;
+    padding-left: 20%;
+  }
 }
 .button {
+  display: flex;
+  align-items: center;
   border: none;
   margin: 0;
   width: auto;

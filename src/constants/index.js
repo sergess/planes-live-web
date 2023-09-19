@@ -32,3 +32,13 @@ export const ERROR_CODE = {
   NOT_FOUND: 404,
   SERVER: 500,
 };
+export const ERROR_TEXT = {
+  [ERROR_CODE.NOT_FOUND]: {
+    title: 'The server is a bit under the weather now',
+    text: 'We\'re looking into it right away. Please try again in a few minutes.',
+  },
+  [ERROR_CODE.SERVER]: {
+    title: 'TNothing found here',
+    text: 'The page you\'re looking for got carried away by the wind.',
+  },
+};
