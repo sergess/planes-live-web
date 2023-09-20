@@ -1,32 +1,32 @@
 import { useState, useEffect } from 'react';
 
-export const useElementInView = (
-  ref,
-) => {
-  const [isVisible, setIsVisible] = useState(false);
+export const useElementInView = (ref, root) => {
+  const [isVisible, setIsVisible] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setIsVisible(entry.target.getAttribute('data'));
         }
       },
       {
-        root: null,
+        root: root?.current,
         rootMargin: '0px',
-        threshold: 1,
+        threshold: [0],
       },
     );
 
-    const currentElement = ref?.current;
+    const currentElement = ref?.current.map((item) => {
+      if (item) {
+        observer.observe(item);
+      }
 
-    if (currentElement && !isVisible) {
-      observer.observe(currentElement);
-    }
+      return item;
+    });
 
     return () => {
-      observer.unobserve(currentElement);
+      currentElement.map((item) => observer.unobserve(item));
     };
   }, []);
 
