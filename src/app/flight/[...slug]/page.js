@@ -121,7 +121,7 @@ export default async function Page({ params }) {
               <DateBlock />
               <FlightCard
                 logoUrl={airline.logo_url_s}
-                extraCode={flight.iata === params.id ? null : params.id}
+                extraCode={flight.iata === flightNumber ? null : flightNumber}
               />
               <LastUpdateCard />
               <DelayHistoryCard />
