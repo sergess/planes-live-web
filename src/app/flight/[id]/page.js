@@ -97,7 +97,6 @@ export default async function Page({ params }) {
               <FlightCard logoUrl={airline.logo_url_s} />
               <LastUpdateCard />
               <DelayHistoryCard />
-              {styles.m.m}
               {/* applyMobile,landingBanners - classes for flight page styles */}
               <div className={`${styles.mobContent} landingBanners applyMobile`}>
                 <Features isMobileView id={flightId} />
