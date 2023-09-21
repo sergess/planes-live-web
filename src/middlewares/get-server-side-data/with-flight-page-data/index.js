@@ -6,7 +6,7 @@ const withFlightPageData = async (id) => {
     flightService.getFlightInfo(id), flightService.getCommonFlightData(),
   ]);
 
-  if (!flightResponse || !commonDataResponse) {
+  if (flightResponse || !commonDataResponse) {
     return [];
   }
 

@@ -13,7 +13,6 @@ const inter = Inter({ subsets: ['latin'] });
 export default function ErrorCode({
   reset,
   code = 500,
-  buttonText,
   onClick,
 }) {
   return (
@@ -29,7 +28,7 @@ export default function ErrorCode({
           {ERROR_TEXT[code].text}
         </p>
         <button type="button" onClick={onClick || (() => reset())} className={styles.button}>
-          {buttonText}
+          {ERROR_TEXT[code].buttonText}
         </button>
         <button
           type="button"

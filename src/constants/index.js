@@ -37,10 +37,12 @@ export const ERROR_TEXT = {
     title: 'The server',
     subTitle: ' hit turbulence',
     text: 'Give it another try in a few minutes. If it doesn’t help, please let us know.',
+    buttonText: 'Reload',
   },
   [ERROR_CODE.NOT_FOUND]: {
     title: 'The page',
     subTitle: ' is off the radar',
     text: 'We can’t find this page. Let’s take you back to the main page. Or tell us more so we can fix it.',
+    buttonText: 'Go to main page',
   },
 };
