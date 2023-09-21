@@ -1,9 +1,9 @@
 import { Flight } from '@/services/index';
 
-const withFlightPageData = async (id) => {
+const withFlightIdPageData = async (id) => {
   const flightService = new Flight();
   const [flightResponse, commonDataResponse] = await Promise.all([
-    flightService.getFlightInfo(id), flightService.getCommonFlightData(),
+    flightService.getFlightById(id), flightService.getCommonFlightData(),
   ]);
 
   if (!flightResponse || !commonDataResponse) {
@@ -13,4 +13,4 @@ const withFlightPageData = async (id) => {
   return [flightResponse, commonDataResponse];
 };
 
-export default withFlightPageData;
+export default withFlightIdPageData;

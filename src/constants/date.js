@@ -6,6 +6,10 @@ export const MONTH_DAY_DATE_FORMAT = 'MMM D';
 export const YEAR_MONTH_DAY_DATE_FORMAT = 'YYYY-MM-DD';
 export const YEAR_MONTH_DATE_FORMAT = 'YYYY-MM';
 export const HOUR_MINUTE_TIME_FORMAT = 'h:mm A';
+export const YEAR_MONTH_DAY_HOUR_FORMAT = 'YYYY-MM-DD HH';
+export const HOUR_FORMAT = 'H';
+export const WEEKDAY_MONTH_DAY_FORMAT = 'ddd, MMM D';
+export const HOUR_12_FORMAT = 'h A';
 
 export const DURATION_FORMATS = {
   DAYS: 'd',

@@ -4,6 +4,7 @@
 .option {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: .1rem;
     padding: 2.2rem;
     font-size: var(--font-body-3);
@@ -54,14 +55,14 @@
     overflow: auto;
     text-decoration: none;
 }
-.searchList li span {
+.searchList span {
     text-decoration: none;
     color: var(--color-dark-50);
     font-size: var(--font-body-1);
 }
 /* Desktop */
 @media (min-width: $mobile-breakpoint) {
-    .searchList li span {
+    .searchList span {
         color: var(--color-dark-30);
     }
 }
