@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 
@@ -22,8 +22,6 @@ const getRangeBetweenDates = () => {
 };
 
 export default function ModalInfoList({ data, date, onClick }) {
-  const calendarRef = useRef();
-
   const currentDayRef = useCallback(
     (node) => {
       if (node !== null) {
@@ -41,8 +39,8 @@ export default function ModalInfoList({ data, date, onClick }) {
     return null;
   }, [data]);
 
-  const getMinDate = useMemo(() => data[0].date, [data]);
-  const getMaxDate = useMemo(() => data[data.length - 1].date, [data]);
+  const getMinDate = data[0].date;
+  const getMaxDate = data[data.length - 1].date;
   const getNextDate = useMemo(() => data.find((item, key, arr) => arr[key - 1]?.date === date), [data, date]);
   const getPrevDate = useMemo(() => data.find((item, key, arr) => arr[key + 1]?.date === date), [data, date]);
 
@@ -74,7 +72,7 @@ export default function ModalInfoList({ data, date, onClick }) {
           alt="Right arrow"
         />
       </button>
-      <div ref={calendarRef} className={styles.calendar}>
+      <div className={styles.calendar}>
         {
           getRangeBetweenDates().map((item) => {
             const active = formatDate(date, YEAR_MONTH_DAY_HOUR_FORMAT) === item ? styles.active : '';
