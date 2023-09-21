@@ -14,7 +14,7 @@ export default function Code({
       <div className={styles.code}>
         <p className={styles.codeText}>4</p>
         <Image
-          src="/zero_cloud.gif"
+          src="/img_error@2x.png"
           width={300}
           height={424}
           alt="Left arrow"
@@ -29,7 +29,7 @@ export default function Code({
       <div className={styles.code}>
         <p className={styles.codeText}>5</p>
         <Image
-          src="/zero_cloud.gif"
+          src="/img_error@2x.png"
           width={300}
           height={424}
           alt="Left arrow"
@@ -43,7 +43,7 @@ export default function Code({
     <div className={styles.code}>
       <p className={styles.codeText}>5</p>
       <Image
-        src="/zero_cloud.gif"
+        src="/img_error@2x.png"
         width={300}
         height={424}
         alt="Left arrow"

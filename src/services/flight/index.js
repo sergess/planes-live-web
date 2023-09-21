@@ -28,7 +28,7 @@ export class Flight extends ApiV212 {
     }) : '';
     const { ok, data: response, status } = await this.callAsync(`${request_uri}data?${query}`, null);
 
-    if (status === 304) {
+    if (status === 304 || !response) {
       return currentData;
     }
 
