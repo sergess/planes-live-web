@@ -92,7 +92,10 @@ export default async function Page({ params }) {
           <Swipe id={flightId}>
             <div className={styles.body}>
               <DateBlock />
-              <FlightCard logoUrl={airline.logo_url_s} />
+              <FlightCard
+                logoUrl={airline.logo_url_s}
+                extraCode={flight.iata === params.id ? null : params.id}
+              />
               <LastUpdateCard />
               <DelayHistoryCard />
               {/* applyMobile,landingBanners - classes for flight page styles */}

@@ -5,11 +5,25 @@
 @value bottomHeight: 14rem;
 @value drawerRadius: 15px 15px 0 0;
 @value bottomBannerSpace: 3rem;
+@value touchAreaBottomSize: -25px;
+@value touchAreaTopSize: -10px;
 
 @keyframes opacityAnimation {
     0%   { opacity: 0.0; }
     50%  { opacity:0.0; }
     100% { opacity:1.0; }
+}
+.gripWrapper {
+    position: relative;
+}
+.gripWrapper:after {
+    content:'';
+    position:absolute;
+    top: touchAreaTopSize;
+    bottom: touchAreaBottomSize;
+    left: 0;
+    right: 0;
+    z-index: calc(var(--map-z-index) + 1);
 }
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
