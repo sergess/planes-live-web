@@ -33,12 +33,12 @@ export const ERROR_CODE = {
   SERVER: 500,
 };
 export const ERROR_TEXT = {
-  [ERROR_CODE.NOT_FOUND]: {
-    title: 'The server is a bit under the weather now',
-    text: 'We\'re looking into it right away. Please try again in a few minutes.',
-  },
   [ERROR_CODE.SERVER]: {
-    title: 'TNothing found here',
-    text: 'The page you\'re looking for got carried away by the wind.',
+    title: 'The server hit turbulence',
+    text: 'Give it another try in a few minutes. If it doesn’t help, please let us know.',
+  },
+  [ERROR_CODE.NOT_FOUND]: {
+    title: 'The page is off the radar',
+    text: 'We can’t find this page. Let’s take you back to the main page. Or tell us more so we can fix it.',
   },
 };
