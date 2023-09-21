@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google';
 
 import Code from '@/components/ErrorCode/Code';
 import { ERROR_TEXT } from '@/constants/index';
-import Footer from '@/components/Footer';
+// import Footer from '@/components/Footer';
 import styles from './errorCode.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -40,7 +40,7 @@ export default function ErrorCode({
           </button>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
