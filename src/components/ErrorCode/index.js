@@ -17,7 +17,10 @@ export default function ErrorCode({
 }) {
   return (
     <div className={`${styles.container} ${inter.className}`}>
-      <Code code={code} />
+      <Code
+        firstSymbol={ERROR_TEXT[code].firstSymbol}
+        lastSymbol={ERROR_TEXT[code].lastSymbol}
+      />
       <div className={styles.textWrapper}>
         <h1 className={styles.title}>
           {ERROR_TEXT[code].title}
