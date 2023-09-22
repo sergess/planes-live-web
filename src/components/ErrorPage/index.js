@@ -5,14 +5,14 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 
 import Code from '@/components/ErrorPage/Code';
-import { ERROR_TEXT } from '@/constants/index';
+import { ERROR_CODE, ERROR_TEXT } from '@/constants/index';
 import styles from './errorPage.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function ErrorPage({
   reset,
-  code = 500,
+  code = ERROR_CODE.SERVER,
   onClick,
 }) {
   return (

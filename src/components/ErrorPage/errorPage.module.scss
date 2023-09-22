@@ -140,10 +140,7 @@
     justify-content: start;
     padding-left: 20%;
   }
-}
-
-/* to handle new lines mobile/desktop*/
-@media (min-width: $mobile-breakpoint) {
+  /* to handle new lines mobile/desktop*/
   .newLineMob {
     display: none;
   }
