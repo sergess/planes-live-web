@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import styles from './errorCode.module.scss';
+import styles from './errorPage.module.scss';
 
 export default function Code({
   firstSymbol, lastSymbol,

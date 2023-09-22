@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { ERROR_CODE } from '@/constants/index';
-import ErrorCode from '@/components/ErrorCode';
+import ErrorPage from '@/components/ErrorPage';
 
 export default function Error() {
-  return <ErrorCode code={ERROR_CODE.SERVER} />;
+  return <ErrorPage code={ERROR_CODE.SERVER} />;
 }

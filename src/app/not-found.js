@@ -1,10 +1,10 @@
 import React from 'react';
 
-import ErrorCode from '@/components/ErrorCode';
+import ErrorPage from '@/components/ErrorPage';
 import { ERROR_CODE } from '@/constants/index';
 
 export default function NotFound() {
   return (
-    <ErrorCode code={ERROR_CODE.NOT_FOUND} />
+    <ErrorPage code={ERROR_CODE.NOT_FOUND} />
   );
 }
