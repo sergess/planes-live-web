@@ -84,8 +84,8 @@ export default function LastUpdateCard() {
         <div className={styles.list}>
           <Image
             src={getIconPath(action.action)}
-            width={21}
-            height={21}
+            width={13}
+            height={13}
             alt={UPDATE_LABELS[action.action]}
             style={{ marginRight: '.8rem' }}
           />

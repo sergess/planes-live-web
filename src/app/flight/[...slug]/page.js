@@ -120,7 +120,7 @@ export default async function Page({ params }) {
           <FlightPreview />
           <Swipe id={flightNumber}>
             <div className={styles.body}>
-              <DateBlock />
+              <DateBlock tz={departureAirport.timezone_name} />
               <FlightCard
                 logoUrl={airline?.logo_url_s}
                 extraCode={flight.iata === flightNumber ? null : flightNumber}
