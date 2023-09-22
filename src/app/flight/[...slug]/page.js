@@ -52,12 +52,13 @@ export const generateMetadata = async ({ params }) => {
   const { flight } = flightResponse[0];
   const departureAirport = getAirport(commonDataResponse, flight.origin);
   const destinationAirport = getAirport(commonDataResponse, flight.destination);
-  const airline = getAirline(commonDataResponse, flight.airline_icao);
+  const airlineIcao = flight.airline_icao || flight.icao.slice(0, 4);
+  const airline = getAirline(commonDataResponse, airlineIcao);
 
   return ({
-    title: `${departureAirport.city} - ${destinationAirport.city} (${flight.iata}) ${airline.name} Flight Tracker |
+    title: `${departureAirport.city} - ${destinationAirport.city} (${flight.iata}) ${airline?.name} Flight Tracker |
   Planes Live.`,
-    description: `Instantly track the status of an ${airline.name} airline flight
+    description: `Instantly track the status of an ${airline?.name} airline flight
   [${flight.iata}], route from ${departureAirport.city} to ${destinationAirport.city}. (61 wo flight details)`,
     themeColor: '#292838',
     itunes: {
@@ -101,7 +102,8 @@ export default async function Page({ params }) {
 
   const departureAirport = getAirport(commonDataResponse, flight.origin);
   const destinationAirport = getAirport(commonDataResponse, flight.destination);
-  const airline = getAirline(commonDataResponse, flight.airline_icao);
+  const airlineIcao = flight.airline_icao || flight.icao.slice(0, 4);
+  const airline = getAirline(commonDataResponse, airlineIcao);
 
   if (!destinationAirport || !departureAirport) {
     notFound();
@@ -120,7 +122,7 @@ export default async function Page({ params }) {
             <div className={styles.body}>
               <DateBlock />
               <FlightCard
-                logoUrl={airline.logo_url_s}
+                logoUrl={airline?.logo_url_s}
                 extraCode={flight.iata === flightNumber ? null : flightNumber}
               />
               <LastUpdateCard />
