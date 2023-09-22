@@ -5,6 +5,6 @@ import { ERROR_CODE } from '@/constants/index';
 
 export default function NotFound() {
   return (
-    <ErrorCode code={ERROR_CODE.SERVER} />
+    <ErrorCode code={ERROR_CODE.NOT_FOUND} />
   );
 }

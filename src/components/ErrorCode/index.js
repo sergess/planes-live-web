@@ -28,7 +28,7 @@ export default function ErrorCode({
           {ERROR_TEXT[code].subTitle}
         </h1>
         <p className={styles.description}>
-          {ERROR_TEXT[code].text}
+          {ERROR_TEXT[code].getText(styles)}
         </p>
         <button type="button" onClick={onClick || (() => reset())} className={styles.button}>
           {ERROR_TEXT[code].buttonText}

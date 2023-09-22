@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const request_uri = '/2.12/';
 export const MIN_SYMBOL_COUNT = 2;
 export const UNIX_TO_SECOND = 1000;
@@ -36,7 +38,17 @@ export const ERROR_TEXT = {
   [ERROR_CODE.SERVER]: {
     title: 'The server',
     subTitle: ' hit turbulence',
-    text: 'Give it another try in a few minutes. If it doesn’t help, please let us know.',
+    getText: (styles) => (
+      <span>
+        Give it another try in a few minutes.
+        {' '}
+        <br className={styles.newLineMob} />
+        If it doesn’t help,
+        {' '}
+        <br className={styles.newLineDesc} />
+        please let us know.
+      </span>
+    ),
     buttonText: 'Reload',
     firstSymbol: 5,
     lastSymbol: 0,
@@ -44,7 +56,17 @@ export const ERROR_TEXT = {
   [ERROR_CODE.NOT_FOUND]: {
     title: 'The page',
     subTitle: ' is off the radar',
-    text: 'We can’t find this page. Let’s take you back to the main page. Or tell us more so we can fix it.',
+    getText: (styles) => (
+      <span>
+        We can’t find this page. Let’s take you back to
+        {' '}
+        <br className={styles.newLineMob} />
+        the main page.
+        {' '}
+        <br className={styles.newLineDesc} />
+        Or tell us more so we can fix it.
+      </span>
+    ),
     buttonText: 'Go to main page',
     firstSymbol: 4,
     lastSymbol: 4,

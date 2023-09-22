@@ -32,7 +32,7 @@
 .description {
   color: var(--color-dark-70);
   font-size: var(--font-body-1);
-  margin-bottom: 5.8rem;
+  margin-bottom: 5rem;
   text-align: center;
   font-weight: 400;
   line-height: 22px;
@@ -105,14 +105,14 @@
     text-align: start;
     width: 52rem;
     line-height: 77px;
-    letter-spacing: -2.5px;
   }
   .description {
     font-size: var(--font-subheadline);
     font-weight: 400;
     text-align: start;
-    width: 50rem;
+    width: 52rem;
     line-height: 22px;
+    margin-bottom: 5.8rem;
   }
   .code {
     top: 12rem;
@@ -139,6 +139,24 @@
     padding-top: 34.5rem;
     justify-content: start;
     padding-left: 20%;
+  }
+}
+
+/* to handle new lines mobile/desktop*/
+@media (min-width: $mobile-breakpoint) {
+  .newLineMob {
+    display: none;
+  }
+  .newLineDesc {
+    display: block;
+  }
+}
+@media (max-width: $mobile-breakpoint) {
+  .newLineMob {
+    display: block;
+  }
+  .newLineDesc {
+    display: none;
   }
 }
 
