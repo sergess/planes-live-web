@@ -12,11 +12,14 @@ import MapBadge from '@/components/Map/MapBadge';
 import styles from './map.module.scss';
 
 const DEFAULT_MARKER_SIZE = '24px';
+const MAP_PADDING = 100;
+
 export default async function MapBox({
   mapRef = null,
   markers = [],
   lines = [],
   initialViewState = {},
+  isAdjustPosition = false,
 }) {
   const geoControlRef = React.useRef();
 
@@ -25,6 +28,12 @@ export default async function MapBox({
       <Map
         ref={mapRef}
         onLoad={() => {
+          if (isAdjustPosition && markers.length === 2) {
+            mapRef.current.fitBounds(
+              [[markers[0].longitude, markers[0].latitude], [markers[1].longitude, markers[1].latitude]],
+              { padding: MAP_PADDING },
+            );
+          }
           if (!markers.length) {
             geoControlRef.current?.trigger();
           }

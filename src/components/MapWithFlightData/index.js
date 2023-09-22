@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 
 import flightContext from '@/contexts/flight/FlightContext';
 import MapBox from '@/components/Map';
@@ -8,6 +8,7 @@ import useFlightMap from '@/hooks/useFlightMap';
 
 export default function MapWithFlightData() {
   const { flightData } = useContext(flightContext);
+  const mapRef = useRef(null);
 
   const flight = flightData?.flight;
   const destinationAirport = flightData?.destinationAirport;
@@ -28,10 +29,12 @@ export default function MapWithFlightData() {
       initial
       markers={markers}
       lines={lines}
+      isAdjustPosition
       initialViewState={initialView && {
         latitude: initialView.latitude,
         longitude: initialView.longitude,
       }}
+      mapRef={mapRef}
     />
   );
 }
