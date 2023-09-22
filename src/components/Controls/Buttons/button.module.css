@@ -20,6 +20,14 @@
     width: 15rem;
     text-decoration: none;
 }
+.outline:hover {
+    background: var(--color-dark-hovered);;
+    color: var(--color-white);
+}
+.outline:active {
+    color: var(--color-white);
+    background: var(--color-grey-hover);
+}
 .custom {
     background-color: var(--color-primary);
     border-radius: 4.2rem;
@@ -31,6 +39,19 @@
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+}
+.primary:hover {
+    background: var(--color-primary-hovered);
+}
+.primary:active  {
+    background: var(--color-primary-active);
+}
+
+.custom:hover {
+    background: var(--color-primary-hovered);
+}
+.custom:active  {
+    background: var(--color-primary-active);
 }
 .date {
     background: none;

@@ -4,13 +4,15 @@ import React from 'react';
 import debounce from 'lodash.debounce';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { INPUT_DEBOUNCE } from '@/constants/index';
+import { INPUT_DEBOUNCE, ROUTE_BY_TYPE } from '@/constants/index';
 import { getMatchedLabel } from '@/utils/search';
+
 import styles from './mobileSearch.module.css';
 
 export default function Input({
-  onChange = () => {}, options = [], onClick = () => {}, onSelect, text,
+  onChange = () => {}, options = [], onClick = () => {}, text,
 }) {
   const router = useRouter();
 
@@ -18,9 +20,6 @@ export default function Input({
     debounce(onChange, INPUT_DEBOUNCE),
     [options.length],
   );
-  const onOptionClick = (e, value, type) => {
-    onSelect(value, type);
-  };
   const onClose = () => {
     router.back();
   };
@@ -49,22 +48,18 @@ export default function Input({
         </button>
       </div>
 
-      <ul className={styles.searchList}>
+      <div className={styles.searchList}>
         {options.map(({ label, value, type }) => (
-          <li
-            /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
-            role="button"
-            onKeyDown={(e) => onOptionClick(e, value, type)}
-            tabIndex="0"
+          <Link
             key={value}
             className={styles.option}
-            onClick={(e) => onOptionClick(e, value, type)}
+            href={`/${ROUTE_BY_TYPE[type]}/${value}`}
           >
             {getMatchedLabel(label, text)}
             <span>{type}</span>
-          </li>
+          </Link>
         ))}
-      </ul>
+      </div>
     </>
   );
 }

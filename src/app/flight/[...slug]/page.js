@@ -18,6 +18,7 @@ import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightPreview from '@/components/Swipe/FlightPreview';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
 import withFlightPageData from '@/middlewares/get-server-side-data/with-flight-page-data';
+import withFlightIdPageData from '@/middlewares/get-server-side-data/with-flight-id-page-data';
 
 import { getAirline, getAirport } from '@/utils/helpers';
 import styles from './page.module.scss';
@@ -30,9 +31,23 @@ const MapWithFlightData = dynamic(
 );
 
 export const generateMetadata = async ({ params }) => {
-  const { id: flightId } = params;
-  const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
-  if (!flightResponse || !commonDataResponse) return {};
+  const { slug } = params;
+
+  if (slug.length > 2) {
+    notFound();
+  }
+
+  const flightNumber = slug[0];
+
+  const flightId = slug[1] || null;
+
+  const [flightResponse, commonDataResponse] = flightId
+    ? await withFlightIdPageData(flightId)
+    : await withFlightPageData(flightNumber);
+
+  if (!flightResponse?.length || !commonDataResponse) {
+    notFound();
+  }
 
   const { flight } = flightResponse[0];
   const departureAirport = getAirport(commonDataResponse, flight.origin);
@@ -47,7 +62,7 @@ export const generateMetadata = async ({ params }) => {
     themeColor: '#292838',
     itunes: {
       appId: process.env.IOS_STORE_ID,
-      appArgument: `/flight/${params?.id}`,
+      appArgument: `/flight/${flightNumber}`,
     },
     icons: {
       apple: '/svg/app_icon_with_bg.svg',
@@ -58,20 +73,31 @@ export const generateMetadata = async ({ params }) => {
     },
     other: {
       'smartbanner:disable-positioning': true,
-      'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${params?.id}`}}`,
+      'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${flightNumber}`}}`,
     },
   });
 };
 
 export default async function Page({ params }) {
-  const { id: flightId } = params;
+  const { slug } = params;
 
-  const [flightResponse, commonDataResponse] = await withFlightPageData(flightId);
-  if (!flightResponse || !commonDataResponse) {
+  if (slug.length > 2) {
+    notFound();
+  }
+
+  const flightNumber = slug[0];
+  const flightId = slug[1] || null;
+
+  const [flightResponse, commonDataResponse] = flightId
+    ? await withFlightIdPageData(flightId)
+    : await withFlightPageData(flightNumber);
+
+  if (!flightResponse?.length || !commonDataResponse) {
     notFound();
   }
 
   const { flight } = flightResponse[0];
+  const currentDate = flightId ? new Date(flight.departure) : new Date();
 
   const departureAirport = getAirport(commonDataResponse, flight.origin);
   const destinationAirport = getAirport(commonDataResponse, flight.destination);
@@ -80,7 +106,6 @@ export default async function Page({ params }) {
   if (!destinationAirport || !departureAirport) {
     notFound();
   }
-  const currentDate = new Date();
 
   return (
     <FlightProvider value={{
@@ -91,15 +116,18 @@ export default async function Page({ params }) {
         <MapWithFlightData />
         <div className={styles.container}>
           <FlightPreview />
-          <Swipe id={flightId}>
+          <Swipe id={flightNumber}>
             <div className={styles.body}>
               <DateBlock tz={departureAirport.timezone_name} />
-              <FlightCard logoUrl={airline.logo_url_s} />
+              <FlightCard
+                logoUrl={airline.logo_url_s}
+                extraCode={flight.iata === flightNumber ? null : flightNumber}
+              />
               <LastUpdateCard />
               <DelayHistoryCard />
               {/* applyMobile,landingBanners - classes for flight page styles */}
               <div className={`${styles.mobContent} landingBanners applyMobile`}>
-                <Features isMobileView id={flightId} />
+                <Features isMobileView id={flightNumber} />
                 <Traffic />
                 <Slider />
                 <NotificationBanner />

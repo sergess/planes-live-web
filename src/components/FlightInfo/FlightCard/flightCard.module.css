@@ -95,3 +95,8 @@
 .infoContainer > div:nth-child(2) {
     margin-left: 1.2rem;
 }
+.operates {
+    color: var(--color-dark-70);
+    font-size: var(--font-small);
+    font-weight: 400;
+}

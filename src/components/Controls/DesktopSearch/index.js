@@ -3,8 +3,9 @@
 import React from 'react';
 import debounce from 'lodash.debounce';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { INPUT_DEBOUNCE, MIN_SYMBOL_COUNT } from '@/constants/index';
+import { INPUT_DEBOUNCE, MIN_SYMBOL_COUNT, ROUTE_BY_TYPE } from '@/constants/index';
 import NoResult from '@/components/NoResult';
 import TrySearch from '@/components/TrySearch';
 import Lottie from 'lottie-react';
@@ -13,7 +14,7 @@ import { getMatchedLabel } from '@/utils/search';
 import styles from './desktopSearch.module.scss';
 
 export default function DesktopSearch({
-  onChange = () => {}, options = [], onSelect, setText, placeholder,
+  onChange = () => {}, options = [], setText, placeholder,
   text, loading, autoFocus = false,
 }) {
   const [isShow, setIsShow] = React.useState(!!autoFocus);
@@ -22,9 +23,6 @@ export default function DesktopSearch({
     debounce(onChange, INPUT_DEBOUNCE),
     [options.length],
   );
-  const onOptionClick = (value, type) => {
-    onSelect(value, type);
-  };
   const onClose = () => {
     setText('');
 
@@ -63,7 +61,7 @@ export default function DesktopSearch({
       </div>
 
       {isShow && (
-        <ul className={styles.searchList}>
+        <div className={styles.searchList}>
           {loading ? (
             <div className={styles.lottie}>
               <Lottie animationData={skeletonAnimation} loop />
@@ -73,24 +71,18 @@ export default function DesktopSearch({
               {(!options.length && text.length > MIN_SYMBOL_COUNT) && <NoResult />}
               {(!options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
               {options.map(({ label, value, type }) => (
-                <li
-                /* eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role */
-                  role="button"
-                  onKeyDown={() => onOptionClick(value, type)}
-                  onClick={() => {
-                    onOptionClick(value, type);
-                  }}
-                  tabIndex="0"
+                <Link
                   key={value}
                   className={styles.option}
+                  href={`/${ROUTE_BY_TYPE[type]}/${value}`}
                 >
                   {getMatchedLabel(label, text)}
                   <span>{type}</span>
-                </li>
+                </Link>
               ))}
             </>
           )}
-        </ul>
+        </div>
       )}
     </>
   );

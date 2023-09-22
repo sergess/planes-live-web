@@ -13,12 +13,12 @@ const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, ind
   </>
 ));
 export default function Item({
-  dateValue, actualDateValue, icao, iata, airport, sharedCodes, tz,
+  dateValue, actualDateValue, icao, iata, airport, sharedCodes, tz, id,
 }) {
   const actual_date = actualDateValue ? dayjs(actualDateValue) : null;
   const date = dayjs(dateValue);
   const actualDateDifference = getDateDifference(dateValue, actualDateValue).minutes();
-  const href = `/flight/${icao}`;
+  const href = `/flight/${icao}/${id}`;
 
   return (
     <Link href={href} className={styles.link}>
