@@ -17,6 +17,7 @@ export default async function MapBox({
   markers = [],
   lines = [],
   initialViewState = {},
+  isAdjustPosition = false,
 }) {
   const geoControlRef = React.useRef();
 
@@ -25,6 +26,12 @@ export default async function MapBox({
       <Map
         ref={mapRef}
         onLoad={() => {
+          if (isAdjustPosition && markers.length === 2) {
+            mapRef.current.fitBounds(
+              [[markers[0].longitude, markers[0].latitude], [markers[1].longitude, markers[1].latitude]],
+              { padding: 100 },
+            );
+          }
           if (!markers.length) {
             geoControlRef.current?.trigger();
           }
