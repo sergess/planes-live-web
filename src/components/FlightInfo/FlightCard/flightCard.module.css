@@ -39,7 +39,7 @@
 }
 .line {
     display: flex;
-    padding: .8rem 1rem 0;
+    padding: 1rem 1rem 0;
 }
 .middle {
     display: flex;
@@ -47,7 +47,7 @@
     justify-content: center;
     flex: 1;
     margin-bottom: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.8rem;
 }
 .timeDiff {
     padding: 0 .8rem;
