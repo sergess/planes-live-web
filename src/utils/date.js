@@ -33,7 +33,7 @@ export const getDateDifferenceHM = (
   const hours = Math.abs(diff.hours());
   const min = Math.abs(diff.minutes());
 
-  return `${hours !== 0 ? `${hours}h` : ''} ${min !== 0 ? min : ''}m`;
+  return `${hours !== 0 ? `${hours}h` : ''} ${min}m`;
 };
 export const filterOnlyFutureFlights = ({ flight }, dateKey, tz) => {
   const time = flight[`${dateKey}_actual`] ? flight[`${dateKey}_actual`] : flight[dateKey];

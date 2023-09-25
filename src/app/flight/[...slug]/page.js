@@ -126,7 +126,7 @@ export default async function Page({ params }) {
                 extraCode={flight.iata === flightNumber ? null : flightNumber}
               />
               <LastUpdateCard />
-              <DelayHistoryCard />
+              {false && <DelayHistoryCard />}
               {/* applyMobile,landingBanners - classes for flight page styles */}
               <div className={`${styles.mobContent} landingBanners applyMobile`}>
                 <Features isMobileView id={flightNumber} />

@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { INPUT_DEBOUNCE, ROUTE_BY_TYPE } from '@/constants/index';
 import { getMatchedLabel } from '@/utils/search';
 
-import styles from './mobileSearch.module.css';
+import styles from './mobileSearch.module.scss';
 
 export default function Input({
   onChange = () => {}, options = [], onClick = () => {}, text,

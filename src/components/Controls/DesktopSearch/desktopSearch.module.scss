@@ -12,6 +12,13 @@
     width: 100%;
     text-decoration: none;
     color: var(--color-dark);
+    &:active {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+        linear-gradient(0deg, #DBDCE3, #DBDCE3);
+    }
+    &:hover {
+        background: var(--surfaces-lowered);
+    }
 }
 .search {
     width: 100%;
