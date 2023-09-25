@@ -24,6 +24,8 @@
     overflow: hidden;
     text-decoration: none;
     cursor: pointer;
+    display: inline-block;
+    width: 100%;
 }
 .blockContainer {
     display: inline-block;
