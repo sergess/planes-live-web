@@ -4,14 +4,13 @@ import React from 'react';
 
 import { getHref } from '@/utils/index';
 import { BUTTON_SIZE } from '@/constants/index';
-import WithModal from '@/components/HOC/withModal';
-import SubscriptionPopup from '@/components/SubscriptionPopup';
+import { useDeviceDetect } from '@/hooks/useDeviceDetect';
 
 import styles from './button.module.css';
 
-// eslint-disable-next-line func-style
-export function Button({ children, size = BUTTON_SIZE.LG, ...props }) {
+export default function Button({ children, size = BUTTON_SIZE.LG, onClick }) {
   const href = getHref();
+  const { isMobile } = useDeviceDetect();
 
   return (
     <a
@@ -19,12 +18,9 @@ export function Button({ children, size = BUTTON_SIZE.LG, ...props }) {
       className={`${styles.primary} ${size === BUTTON_SIZE.LG
         ? styles.large : styles.small}`}
       rel="noreferrer"
-      href={href}
-      {...props}
+      {...(isMobile ? { onClick } : { href })}
     >
       { children }
     </a>
   );
 }
-
-export default WithModal(Button, SubscriptionPopup);
