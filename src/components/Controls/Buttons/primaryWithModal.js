@@ -5,8 +5,11 @@ import React, { useContext } from 'react';
 import { getHref } from '@/utils/index';
 import { ModalContext } from '@/contexts/modal/ModalContext';
 import { useDeviceDetect } from '@/hooks/useDeviceDetect';
+import SubscriptionPopup from '@/components/SubscriptionPopup';
+import Button from '@/components/Controls/Buttons/primary';
 
-export default function WithModal(Component, Popup) {
+// eslint-disable-next-line func-style
+function WithModal(Component, Popup) {
   return function Comp({ children }) {
     const { openModal } = useContext(ModalContext);
     const { isMobile } = useDeviceDetect();
@@ -24,3 +27,5 @@ export default function WithModal(Component, Popup) {
     );
   };
 }
+
+export default WithModal(Button, SubscriptionPopup);

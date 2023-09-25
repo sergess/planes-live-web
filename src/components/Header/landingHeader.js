@@ -7,7 +7,7 @@ import CustomButton from '@/components/Controls/Buttons/custom';
 
 import styles from './header.module.scss';
 
-const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primaryWithModal'), { ssr: false });
 
 export default function LandingHeader() {
   return (

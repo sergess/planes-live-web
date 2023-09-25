@@ -6,7 +6,7 @@ import StoreBadge from '@/components/StoreBadge';
 import { FEATURES_ANCHOR } from '@/constants/index';
 import styles from './features.module.scss';
 
-const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primaryWithModal'), { ssr: false });
 
 const BANNER_MAP = [
   {

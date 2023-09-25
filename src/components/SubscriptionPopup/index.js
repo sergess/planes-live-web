@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import StoreBadge from '@/components/StoreBadge';
-import { Button } from '@/components/Controls/Buttons/primary';
+import Button from '@/components/Controls/Buttons/primary';
 
 import styles from './SubscriptionPopup.module.scss';
 
