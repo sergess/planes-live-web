@@ -8,6 +8,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+    line-height: 1.9rem;
 }
 .outline {
     border-radius: 5rem;
