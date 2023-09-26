@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PrimaryButton from '@/components/Controls/Buttons/primary';
+import PrimaryButton from '@/components/Controls/Buttons/primaryWithModal';
 import styles from './security.module.css';
 
 export default function Security() {

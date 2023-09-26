@@ -3,15 +3,13 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 import { ANDROID_DOWNLOAD_LINK, BUTTON_SIZE, IOS_DOWNLOAD_LINK } from '@/constants/index';
-import { getHref } from '@/utils/index';
+import CustomButton from '@/components/Controls/Buttons/custom';
 
 import styles from './header.module.scss';
 
-const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primaryWithModal'), { ssr: false });
 
 export default function LandingHeader() {
-  const href = getHref();
-
   return (
     <header className={styles.header}>
       <div className={styles.labelWrapper}>
@@ -28,14 +26,12 @@ export default function LandingHeader() {
         <PrimaryButton size={BUTTON_SIZE.SM}>Download app</PrimaryButton>
       </div>
       <div className={styles.desktop}>
-        <a
+        <CustomButton
           className={styles.link}
-          target="_blank"
-          href={href}
-          rel="noreferrer"
+          size={BUTTON_SIZE.SM}
         >
           Download app
-        </a>
+        </CustomButton>
         <a
           className={styles.icon}
           target="_blank"
