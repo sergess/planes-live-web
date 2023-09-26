@@ -5,7 +5,7 @@ import StoreBadge from '@/components/StoreBadge';
 
 import styles from './traffic.module.scss';
 
-const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primaryWithModal'), { ssr: false });
 
 export default function Traffic() {
   return (

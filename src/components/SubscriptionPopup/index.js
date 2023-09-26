@@ -2,7 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 
 import StoreBadge from '@/components/StoreBadge';
-import PrimaryButton from '@/components/Controls/Buttons/primary';
+import Button from '@/components/Controls/Buttons/primary';
+
 import styles from './SubscriptionPopup.module.scss';
 
 export default function SubscriptionPopup() {
@@ -20,7 +21,7 @@ export default function SubscriptionPopup() {
         Track flights in real time with the Planes Live app
       </div>
       <div className={styles.buttons}>
-        <PrimaryButton>Download app</PrimaryButton>
+        <Button>Download app</Button>
         <div>
           <Image
             src="/qr_ios.png"

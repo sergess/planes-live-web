@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import StoreBadge from '@/components/StoreBadge';
 import styles from './knowMore.module.scss';
 
-const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primary'), { ssr: false });
+const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primaryWithModal'), { ssr: false });
 
 const bebas = Bebas_Neue({ subsets: ['latin'], weight: ['400'] });
 
