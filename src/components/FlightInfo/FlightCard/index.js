@@ -15,7 +15,30 @@ import { getDateDifferenceHM } from '@/utils/date';
 import styles from './flightCard.module.css';
 
 const AIRLINE_PLACEHOLDER = '/svg/airline_placeholder.svg';
-export default function FlightCard({ logoUrl, extraCode, id }) {
+const getCodes = (flight, flightNumber, flightId) => {
+  let extraCode;
+  let id;
+
+  // we move from airport page
+  if (flightId) {
+    id = flightNumber;
+    extraCode = flight.shared_codes;
+  } else if (flightNumber === flight.iata) {
+    // we search by main code
+    id = flightNumber;
+  } else if (flightNumber !== flight.iata) {
+    // we search by shared code
+    id = flightNumber;
+    extraCode = flight.iata;
+  }
+
+  return {
+    extraCode,
+    id,
+  };
+};
+
+export default function FlightCard({ logoUrl, flightId, flightNumber }) {
   const { flightData } = useContext(flightContext);
 
   if (!flightData?.flight || !flightData?.destinationAirport || !flightData?.departureAirport) {
@@ -43,6 +66,8 @@ export default function FlightCard({ logoUrl, extraCode, id }) {
     actualArrivalTime || arrivalTime,
     actualDepartureTime || departureTime,
   );
+
+  const { id, extraCode } = getCodes(flightData.flight, flightNumber, flightId);
 
   return (
     <div className={styles.box}>
