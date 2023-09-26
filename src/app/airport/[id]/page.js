@@ -89,6 +89,7 @@ export default async function Page({ params, searchParams }) {
           latitude: airport.lat,
           longitude: airport.lon,
         }}
+        zoom={10}
       />
     </ModalProvider>
   );
