@@ -13,8 +13,10 @@ import styles from './map.module.scss';
 
 const DEFAULT_MARKER_SIZE = '24px';
 const MAP_PADDING = 100;
+const DEFAULT_ZOOM = 3.5;
 
 export default async function MapBox({
+  zoom,
   mapRef = null,
   markers = [],
   lines = [],
@@ -41,7 +43,7 @@ export default async function MapBox({
         mapboxAccessToken={MAPBOX_TOKEN}
         initialViewState={{
           ...initialViewState,
-          zoom: 3.5,
+          zoom: zoom || DEFAULT_ZOOM,
         }}
         attributionControl={false}
         mapStyle="mapbox://styles/mapbox/streets-v11"
@@ -81,7 +83,7 @@ export default async function MapBox({
             enableHighAccuracy: false,
             showUserLocation: false,
           }}
-          fitBoundsOptions={{ linear: true, maxZoom: 3.5, zoom: 3.5 }}
+          fitBoundsOptions={{ linear: true, zoom: zoom || DEFAULT_ZOOM }}
           trackUserLocation
           showUserHeading={false}
           ref={geoControlRef}

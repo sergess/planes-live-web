@@ -18,6 +18,8 @@
 }
 .container {
     padding-bottom: 6rem;
+    width: 100svw;
+    overflow: hidden;
 }
 /* Tablet and Smaller Desktop */
 @media (min-width: $mobile-breakpoint) {
