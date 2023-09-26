@@ -4,9 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './footer.module.scss';
 
-const TERMS_REF = 'http://planeslive.com/terms';
-const CALIFORNIA_REF = 'http://planeslive.com/privacyPolicy#h';
-const POLICY_REF = 'http://planeslive.com/privacyPolicy';
+const TERMS_REF = 'https://planeslive.com/terms';
+const CALIFORNIA_REF = 'https://planeslive.com/privacyPolicy#h';
+const POLICY_REF = 'https://planeslive.com/privacyPolicy';
 const APALON_COM_REF = 'https://apalon.com/';
 const PREFERENCES_REF = '/'; // TODO: add correct link
 
