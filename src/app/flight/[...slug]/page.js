@@ -78,7 +78,28 @@ export const generateMetadata = async ({ params }) => {
     },
   });
 };
+const getCodes = (flight, flightNumber, flightId) => {
+  let extraCode;
+  let id;
 
+  // we move from airport page
+  if (flightId) {
+    id = flightNumber;
+    extraCode = flight.shared_codes;
+  } else if (flightNumber === flight.iata) {
+    // we search by main code
+    id = flightNumber;
+  } else if (flightNumber !== flight.iata) {
+    // we search by shared code
+    id = flightNumber;
+    extraCode = flight.iata;
+  }
+
+  return {
+    extraCode,
+    id,
+  };
+};
 export default async function Page({ params }) {
   const { slug } = params;
 
@@ -108,6 +129,7 @@ export default async function Page({ params }) {
   if (!destinationAirport || !departureAirport) {
     notFound();
   }
+  const { id, extraCode } = getCodes(flight, flightNumber, flightId);
 
   return (
     <FlightProvider value={{
@@ -122,8 +144,9 @@ export default async function Page({ params }) {
             <div className={styles.body}>
               <DateBlock tz={departureAirport.timezone_name} />
               <FlightCard
+                id={id}
                 logoUrl={airline?.logo_url_s}
-                extraCode={flight.iata === flightNumber ? null : flightNumber}
+                extraCode={extraCode}
               />
               <LastUpdateCard />
               {false && <DelayHistoryCard />}

@@ -15,7 +15,7 @@ import { getDateDifferenceHM } from '@/utils/date';
 import styles from './flightCard.module.css';
 
 const AIRLINE_PLACEHOLDER = '/svg/airline_placeholder.svg';
-export default function FlightCard({ logoUrl, extraCode }) {
+export default function FlightCard({ logoUrl, extraCode, id }) {
   const { flightData } = useContext(flightContext);
 
   if (!flightData?.flight || !flightData?.destinationAirport || !flightData?.departureAirport) {
@@ -56,7 +56,7 @@ export default function FlightCard({ logoUrl, extraCode }) {
             alt="airline logo"
           />
           <h1 className={styles.flightLabel}>
-            {iata}
+            {id}
             {extraCode && (
             <>
               <br />
