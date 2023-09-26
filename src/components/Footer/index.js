@@ -8,6 +8,7 @@ const TERMS_REF = 'http://planeslive.com/terms';
 const CALIFORNIA_REF = 'http://planeslive.com/privacyPolicy#h';
 const POLICY_REF = 'http://planeslive.com/privacyPolicy';
 const APALON_COM_REF = 'https://apalon.com/';
+const PREFERENCES_REF = '/'; // TODO: add correct link
 
 export default function Footer() {
   return (
@@ -24,12 +25,17 @@ export default function Footer() {
       <div className={styles.blocks}>
         <Link className={styles.link} href="/search">Search for flights</Link>
         <a
-          className={styles.support}
+          className={styles.infoLink}
           href="mailto:support@planeslive.app?subject=support"
         >
           Contact support
         </a>
-        <p>Manage Preferences</p>
+        <a
+          className={styles.infoLink}
+          href={PREFERENCES_REF}
+        >
+          Manage Preferences
+        </a>
       </div>
       <p className={styles.apalon}>
         Planes Live, a Clime Weather Service LLC brand, is
