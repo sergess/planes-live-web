@@ -24,7 +24,6 @@
     width: 15rem;
     height: 3.9rem;
     text-decoration: none;
-    box-sizing: border-box;
 }
 .outline:hover {
     background: var(--color-dark-hovered);;
