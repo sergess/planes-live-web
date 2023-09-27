@@ -17,8 +17,8 @@ export default function SubscriptionPopup() {
         />
       </div>
       <div className={styles.about}>
-        <strong>Know more. Guess less.</strong>
-        Track flights in real time with the Planes Live app
+        <strong>Know more.<br /> Guess less.</strong>
+        Track flights in real time<br /> with the Planes Live app
       </div>
       <div className={styles.buttons}>
         <Button>Download app</Button>
