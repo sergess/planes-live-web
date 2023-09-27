@@ -74,7 +74,8 @@ export const generateMetadata = async ({ params }) => {
     },
     other: {
       'smartbanner:disable-positioning': true,
-      'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${flightNumber}`}}`,
+      'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, 
+       app-argument=${`${process.env.ANDROID_SMARTBANNER_DEEPLINK}?flightId=${flight.id}`}}`,
     },
     colorScheme: 'light dark',
   });
