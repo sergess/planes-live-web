@@ -46,7 +46,7 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
   }
 
   const {
-    iata, status, departure: departureTime, arrival: arrivalTime,
+    status, departure: departureTime, arrival: arrivalTime,
     arrival_actual: actualArrivalTime, departure_actual: actualDepartureTime,
     arrival_terminal: arrivalTerminal, departure_terminal: departureTerminal,
     arrival_gate: arrivalGate, arrival_baggage_claim: arrivalBaggageClaim,
