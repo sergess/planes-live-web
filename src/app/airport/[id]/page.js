@@ -29,16 +29,13 @@ export const generateMetadata = async ({ params }) => {
   };
 };
 
-export default async function Page({ params, searchParams }) {
+export default async function Page({ params }) {
   const [airportResponse, commonDataResponse] = await withAirportsPageData(params?.id);
 
   if (!airportResponse) {
     notFound();
   }
   const { airport, statistic } = airportResponse;
-
-  const show_departures = searchParams?.show_departures || 6;
-  const show_arrivals = searchParams?.show_arrivals || 6;
 
   return (
     <ModalProvider>
@@ -57,8 +54,6 @@ export default async function Page({ params, searchParams }) {
           label="ARRIVALS"
           code={params.id}
           query="arrivals"
-          showAll={show_arrivals}
-          otherQuery={`show_departures=${show_departures}`}
           airports={commonDataResponse.airports}
           isArrival
           mapAirportField="origin"
@@ -68,8 +63,6 @@ export default async function Page({ params, searchParams }) {
           label="DEPARTURES"
           code={params.id}
           query="departures"
-          showAll={show_departures}
-          otherQuery={`show_arrivals=${show_arrivals}`}
           airports={commonDataResponse.airports}
           isArrival={false}
           mapAirportField="destination"
