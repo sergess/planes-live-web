@@ -7,7 +7,7 @@ import { DEFAULT_TIME_FORMAT } from '@/constants/date';
 import styles from './item.module.css';
 
 const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, index) => (
-  <React.Fragment key={index}>
+  <React.Fragment key={code}>
     {code}
     {index !== sharedCodes.length - 1 && <>&middot;</>}
   </React.Fragment>
