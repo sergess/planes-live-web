@@ -12,6 +12,7 @@ export const metadata = {
   title: 'Planes Live - Flight Tracker in Real Time',
   description: 'Track planes on an air traffic map, check aircraft flights, airline '
     + 'flight delays & cancellations, airport arrival & departure times and other flight info!',
+  colorScheme: 'light dark',
 };
 
 export default function RootLayout({ children }) {

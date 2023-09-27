@@ -26,6 +26,7 @@ export const generateMetadata = async ({ params }) => {
     | Arrivals, Departures & Overview | Planes Live`,
     description: `Keep track of aircraft arrivals, departures, 
     delays at ${params.name} (${params.id}) and more! (64 wo airport details)`,
+    colorScheme: 'light dark',
   };
 };
 
