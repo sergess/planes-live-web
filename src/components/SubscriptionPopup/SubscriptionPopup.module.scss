@@ -6,6 +6,11 @@
   align-items: center;
   padding: 3rem;
   box-sizing: border-box;
+
+  @media (max-width: $mobile-breakpoint) {
+    width: calc(100vmin - 38px);
+    max-width: 343px;
+  }
 }
 
 .logo {
@@ -23,6 +28,12 @@
   letter-spacing: -0.44px;
   text-align: center;
   padding: 4rem 0;
+
+  br {
+    @media (min-width: $mobile-breakpoint) {
+      display: none;
+    }
+  }
 
   strong {
     font-size: var(--font-h3);
