@@ -29,7 +29,7 @@ export default function Input({
       <div className={styles.wrapper}>
         <input
           type="text"
-          onChange={(e) => debouncedChangeHandler(e)}
+          onChange={debouncedChangeHandler}
           className={styles.search}
           onClick={onClick}
         />

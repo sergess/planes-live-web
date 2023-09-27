@@ -21,12 +21,6 @@ body {
   color: rgb(var(--color-dark));
   background: var(--color-white);
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
 h3 {
   font-size: var(--font-h3);
 }
