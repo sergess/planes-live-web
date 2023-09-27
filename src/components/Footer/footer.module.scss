@@ -8,12 +8,6 @@
     align-items: center;
     padding: 1rem 0;
 }
-.link {
-    display: block;
-    border: none;
-    text-decoration: none;
-    color: inherit;
-}
 .label {
     font-weight: 700;
     font-size: 2rem;
@@ -79,6 +73,9 @@
     font-size: var(--font-body-1);
     font-weight: 400;
     color: var(--color-white);
+    @media (min-width: $mobile-breakpoint) {
+        font-size: 1.3rem;
+    }
 }
 .apalon {
     font-weight: 400;

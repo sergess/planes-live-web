@@ -23,7 +23,7 @@ export default function Footer() {
         <p className={styles.label}>Planes Live</p>
       </div>
       <div className={styles.blocks}>
-        <Link className={styles.link} href="/search">Search for flights</Link>
+        <Link className={styles.infoLink} href="/search">Search for flights</Link>
         <a
           className={styles.infoLink}
           href="mailto:support@planeslive.app?subject=support"
