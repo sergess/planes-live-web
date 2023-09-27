@@ -39,7 +39,7 @@ export default function Input({
           onClick={onClose}
         >
           <Image
-            src="/svg/ic_close.svg"
+            src="/svg/ic_close_bold.svg"
             priority
             width={28}
             height={28}
