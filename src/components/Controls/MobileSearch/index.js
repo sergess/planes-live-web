@@ -51,6 +51,7 @@ export default function Input({
       <div className={styles.searchList}>
         {options.map(({ label, value, type }) => (
           <Link
+            prefetch={false}
             key={value}
             className={styles.option}
             href={`/${ROUTE_BY_TYPE[type]}/${value}`}

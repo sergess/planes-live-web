@@ -72,6 +72,7 @@ export default function DesktopSearch({
               {(!options.length && text.length <= MIN_SYMBOL_COUNT) && <TrySearch />}
               {options.map(({ label, value, type }) => (
                 <Link
+                  prefetch={false}
                   key={value}
                   className={styles.option}
                   href={`/${ROUTE_BY_TYPE[type]}/${value}`}
