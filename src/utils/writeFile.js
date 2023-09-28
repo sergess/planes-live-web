@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-const JSON_PATH = `${process.cwd()}/cache/commonData.json`;
+const JSON_PATH = 'cache/commonData.json';
 
 export const writeJSON = (json) => {
   fs.writeFileSync(JSON_PATH, JSON.stringify(json));
