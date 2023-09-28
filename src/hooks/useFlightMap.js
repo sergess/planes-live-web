@@ -3,6 +3,7 @@ import React from 'react';
 import { getCoordinatesAngle } from '@/utils/distance';
 import Image from 'next/image';
 import { STATUS } from '@/constants/flight';
+import { transformLineToGeodesic } from '@/utils/geodesicLine';
 
 /* get objects to calculate plane degrees direction */
 const getPositionsForAngle = (positions, waypoints) => {
@@ -27,10 +28,10 @@ const getLinesByStatus = (flight, mappedPositions) => {
       {
         id: 'source2',
         layerId: 'layer2',
-        coordinates: [
+        coordinates: transformLineToGeodesic([
           mappedPositions[mappedPositions.length - 1],
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
-        ],
+        ]),
         layerPaint: { 'line-dasharray': [1, 2] },
       },
     ];
@@ -53,10 +54,10 @@ const getLinesByStatus = (flight, mappedPositions) => {
       {
         id: 'source1',
         layerId: 'layer1',
-        coordinates: [
+        coordinates: transformLineToGeodesic([
           [flight.waypoints[0].lon, flight.waypoints[0].lat],
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
-        ],
+        ]),
         layerPaint: { 'line-dasharray': [1, 2] },
       },
     ];
