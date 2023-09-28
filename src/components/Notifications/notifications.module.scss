@@ -16,9 +16,6 @@
     display: flex;
     transform: translateX(-150px);
 }
-
-
-
 .container {
     padding-bottom: 6rem;
     overflow-x: auto;
@@ -33,7 +30,6 @@
         display: none;
     }
 }
-
 :global(.applyMobile) .container {
     max-width: 100%;
 }
