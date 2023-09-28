@@ -1,8 +1,8 @@
 .main {
   display: flex;
   flex-direction: column;
-  overflow: auto;
   height: 100%;
+  overflow: hidden;
 }
 .grid {
   display: grid;

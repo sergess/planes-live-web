@@ -16,11 +16,28 @@
     display: flex;
     transform: translateX(-150px);
 }
+
+
+
 .container {
     padding-bottom: 6rem;
-    width: 100svw;
-    overflow: hidden;
+    overflow-x: auto;
+    max-width: 100vw;
+    touch-action: pan-y;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+    }
 }
+
+:global(.applyMobile) .container {
+    max-width: 100%;
+}
+
 /* Tablet and Smaller Desktop */
 @media (min-width: $mobile-breakpoint) {
     div.rowBottom {

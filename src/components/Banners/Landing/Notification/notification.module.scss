@@ -36,7 +36,6 @@
 @media (min-width: $mobile-breakpoint) {
     :global(.landingBanners:not(.applyMobile)) {
         .container {
-            overflow: inherit;
             margin: 32rem auto 0 auto;
         }
         .description {
