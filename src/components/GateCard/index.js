@@ -14,7 +14,7 @@ export default function Gate({ isDeparture = false, gate }) {
         alt={isDeparture ? 'departure gate icon' : 'arrival gate icon'}
         width={16}
         height={16}
-        style={{marginLeft: !isDeparture && '2px'}}
+        style={{ marginLeft: !isDeparture && '2px' }}
       />
       {gate}
     </div>
