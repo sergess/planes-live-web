@@ -3,6 +3,7 @@ import { formatDate, getDateDifference } from '@/utils/date';
 import dayjs from 'dayjs';
 import { M_TIME_FORMAT } from '@/constants/date';
 import { EARLIER_COLOR, LATER_COLOR } from '@/constants/colors';
+import UnknownTime from '@/components/UnknownTime';
 import styles from './time.module.css';
 
 const getColor = (isLater) => {
@@ -20,6 +21,15 @@ export default function Time({
   const actualDate = actual ? dayjs(actual) : null;
   const timeDate = time ? dayjs(time) : null;
   const diff = getDateDifference(actualDate, timeDate).minutes();
+
+  if (!timeDate) {
+    return (
+      <div className={styles.noDateContainer}>
+        <p className={styles.noDate}>--</p>
+        <UnknownTime />
+      </div>
+    );
+  }
 
   if (actual && +diff !== 0) {
     const isLater = diff > 0;
@@ -70,7 +80,9 @@ export default function Time({
 
   return (
     <div className={styles.timeInfo}>
-      <p className={styles.onTime}>{formatDate(timeDate, M_TIME_FORMAT, tz)}</p>
+      <p className={styles.onTime}>
+        {formatDate(timeDate, M_TIME_FORMAT, tz)}
+      </p>
       <p className={styles.text}>On time</p>
     </div>
   );
