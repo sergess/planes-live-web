@@ -1,6 +1,5 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 
 import SWRProvider from '@/contexts/swr/SWRProvider';
 
@@ -25,7 +24,6 @@ export default function RootLayout({ children }) {
           </SWRProvider>
         </div>
       </body>
-      <Script src="/anchor.js" />
     </html>
   );
 }
