@@ -6,7 +6,7 @@ import { STATUS } from '@/constants/flight';
 import { transformLineToGeodesic } from '@/utils/geodesicLine';
 
 /* get objects to calculate plane degrees direction */
-const getPositionsForAngle = (positions, waypoints) => {
+const getPositionsForAngle = (waypoints, positions = []) => {
   if (positions.length === 0) {
     return { current: waypoints[0], next: waypoints[1] };
   }
@@ -14,8 +14,9 @@ const getPositionsForAngle = (positions, waypoints) => {
   return { current: positions[positions.length - 1], next: waypoints[1] };
 };
 
-const getLinesByStatus = (flight, mappedPositions) => {
-  if (flight.status === STATUS.ACTIVE) {
+const getLinesByStatus = (flight, mappedPositions = []) => {
+  // check Map position to avoid cases when flight in progress and we don't have positions
+  if (flight.status === STATUS.ACTIVE && mappedPositions.length) {
     return [
       {
         id: 'source1',
@@ -49,7 +50,7 @@ const getLinesByStatus = (flight, mappedPositions) => {
       },
     ];
   }
-  if (flight.status === STATUS.SCHEDULED) {
+  if (flight.status === STATUS.SCHEDULED || !mappedPositions.length) {
     return [
       {
         id: 'source1',
@@ -78,7 +79,7 @@ const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinati
     label: destinationAirport.iata,
   }];
   if (flight.status === STATUS.ACTIVE) {
-    const { current, next } = getPositionsForAngle(flight.positions, flight.waypoints);
+    const { current, next } = getPositionsForAngle(flight.waypoints, flight.positions);
     const angle = getCoordinatesAngle(current, next);
 
     return [...markers, {
