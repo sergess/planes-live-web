@@ -3,6 +3,7 @@ import arc from 'arc';
 // eslint-disable-next-line import/prefer-default-export
 export const transformLineToGeodesic = (coordinates) => {
   const [startCoord, endCoord] = coordinates;
+  if (!startCoord || !endCoord) return [];
   const [x, y] = startCoord;
   const [x1, y1] = endCoord;
   const start = { x, y };
