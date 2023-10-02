@@ -23,10 +23,10 @@ export class Flight extends ApiV212 {
 
   async getCommonFlightData() {
     const currentData = readJSON();
-    const query = currentData ? new URLSearchParams({
+    const query = currentData ? `?${new URLSearchParams({
       tag: currentData.tag,
-    }) : '';
-    const { ok, data: response, status } = await this.callAsync(`${request_uri}data?${query}`, null);
+    })}` : '';
+    const { ok, data: response, status } = await this.callAsync(`${request_uri}data${query}`, null);
 
     if (status === 304 || !response) {
       return currentData;
