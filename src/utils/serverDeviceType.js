@@ -12,7 +12,7 @@ export const getAppDeeplink = (flight) => {
 
   if (/iPad|iPhone|iPod/ig.test(userAgent)) {
     // iOS
-    return '';
+    return `${process.env.IOS_SMARTBANNER_DEEPLINK}?screen=FlightInfo&flightId=${flight.id}`;
   }
 
   return '';
