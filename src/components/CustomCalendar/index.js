@@ -6,7 +6,6 @@ import React, {
 import Calendar from 'react-calendar';
 import * as dayjs from 'dayjs';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 import CalendarTooltip from '@/components/CalendarTooltip';
 import { formatDate, isSameDay } from '@/utils/date';
@@ -25,7 +24,6 @@ import styles from './calendar.module.scss';
 
 export default function CustomCalendar({ flightData, setFlightData }) {
   const interval = useRef();
-  const router = useRouter();
   const [dayWithoutFlight, setDayWithoutFlight] = useState(null);
   const [tooltipOpened, setTooltipOpened] = useState(false);
   const [openedMoreFlights, setOpenedMoreFlights] = useState(false);
