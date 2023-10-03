@@ -76,4 +76,8 @@ a.icon:nth-child(2) {
     .label {
         font-size: var(--font-h3);
     }
+    .labelWrapper img {
+        height: 64px;
+        width: 64px;
+    }
 }
