@@ -29,7 +29,7 @@ export default function Input({
       <div className={styles.wrapper}>
         <input
           type="text"
-          onChange={(e) => debouncedChangeHandler(e)}
+          onChange={debouncedChangeHandler}
           className={styles.search}
           onClick={onClick}
         />
@@ -39,7 +39,7 @@ export default function Input({
           onClick={onClose}
         >
           <Image
-            src="/svg/ic_close.svg"
+            src="/svg/ic_close_bold.svg"
             priority
             width={28}
             height={28}
@@ -51,6 +51,7 @@ export default function Input({
       <div className={styles.searchList}>
         {options.map(({ label, value, type }) => (
           <Link
+            prefetch={false}
             key={value}
             className={styles.option}
             href={`/${ROUTE_BY_TYPE[type]}/${value}`}

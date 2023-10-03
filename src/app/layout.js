@@ -1,6 +1,5 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 
 import SWRProvider from '@/contexts/swr/SWRProvider';
 
@@ -12,6 +11,7 @@ export const metadata = {
   title: 'Planes Live - Flight Tracker in Real Time',
   description: 'Track planes on an air traffic map, check aircraft flights, airline '
     + 'flight delays & cancellations, airport arrival & departure times and other flight info!',
+  colorScheme: 'light dark',
 };
 
 export default function RootLayout({ children }) {
@@ -24,7 +24,6 @@ export default function RootLayout({ children }) {
           </SWRProvider>
         </div>
       </body>
-      <Script src="/anchor.js" />
     </html>
   );
 }

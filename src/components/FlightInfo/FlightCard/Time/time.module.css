@@ -21,3 +21,17 @@
     text-decoration: line-through;
     font-weight: 400;
 }
+.noDate {
+    color: var(--color-dark-50);
+    font-size: var(--font-h1);
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.3799999952316284px;
+    text-align: right;
+}
+.noDateContainer {
+    width: 5.4rem;
+    margin-left: auto;
+    font-size: var(--font-caption);
+    align-self: flex-start;
+}

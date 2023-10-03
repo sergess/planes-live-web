@@ -9,7 +9,7 @@ export const getMatchedLabel = (label, search) => {
     return (
       <p>
         {parts.map((part) => (part.toLowerCase() === search
-          .toLowerCase() ? <b>{part}</b> : part))}
+          .toLowerCase() ? <b key={part}>{part}</b> : part))}
       </p>
     );
   }

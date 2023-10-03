@@ -21,6 +21,9 @@ import withFlightPageData from '@/middlewares/get-server-side-data/with-flight-p
 import withFlightIdPageData from '@/middlewares/get-server-side-data/with-flight-id-page-data';
 
 import { getAirline, getAirport } from '@/utils/helpers';
+import {
+  getAppDeeplink,
+} from '@/utils/serverDeviceType';
 import styles from './page.module.scss';
 
 const MapWithFlightData = dynamic(
@@ -54,6 +57,7 @@ export const generateMetadata = async ({ params }) => {
   const destinationAirport = getAirport(commonDataResponse, flight.destination);
   const airlineIcao = flight.airline_icao || flight.icao.slice(0, 4);
   const airline = getAirline(commonDataResponse, airlineIcao);
+  const deeplink = getAppDeeplink(flight);
 
   return ({
     title: `${departureAirport.city} - ${destinationAirport.city} (${flight.iata}) ${airline?.name} Flight Tracker |
@@ -74,8 +78,10 @@ export const generateMetadata = async ({ params }) => {
     },
     other: {
       'smartbanner:disable-positioning': true,
-      'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, app-argument=${`/flight/${flightNumber}`}}`,
+      'google-play-app': `app-id=${process.env.ANDROID_STORE_ID}, 
+       app-argument=${deeplink}`,
     },
+    colorScheme: 'light dark',
   });
 };
 
@@ -122,8 +128,9 @@ export default async function Page({ params }) {
             <div className={styles.body}>
               <DateBlock tz={departureAirport.timezone_name} />
               <FlightCard
+                flightId={flightId}
+                flightNumber={flightNumber}
                 logoUrl={airline?.logo_url_s}
-                extraCode={flight.iata === flightNumber ? null : flightNumber}
               />
               <LastUpdateCard />
               {false && <DelayHistoryCard />}

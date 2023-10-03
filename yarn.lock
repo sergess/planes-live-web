@@ -342,6 +342,11 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
+arc@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/arc/-/arc-0.1.4.tgz#612aa5f00b0acea16ba3bdf5f334720887544656"
+  integrity sha512-aPE8qoZ64NR6zCMN+WFNvLmsv74OfEWGZGV90odFGUKSTILqm2I81Zkyfy+7uw0UjEfGbIBMIilChAHCrgMdmQ==
+
 argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"

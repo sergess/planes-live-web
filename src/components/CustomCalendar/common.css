@@ -105,4 +105,5 @@ button.react-calendar__tile--active {
 
 .flightday {
     color: var(--color-primary);
+    font-weight: 500;
 }

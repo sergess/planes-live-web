@@ -30,9 +30,10 @@ export default async function MapBox({
       <Map
         ref={mapRef}
         onLoad={() => {
-          if (isAdjustPosition && markers.length === 2) {
+          if (isAdjustPosition && markers.length >= 2) {
             mapRef.current.fitBounds(
-              [[markers[0].longitude, markers[0].latitude], [markers[1].longitude, markers[1].latitude]],
+              [[markers[0].longitude, markers[0].latitude],
+                [markers[1].longitude, markers[1].latitude]],
               { padding: MAP_PADDING },
             );
           }

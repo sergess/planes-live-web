@@ -12,18 +12,21 @@
     cursor: pointer;
 }
 .outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5rem;
-    padding: 1rem 2rem;
     font-size: var(--font-body-2);
     font-weight: 600;
     color: var(--color-dark);
     border: thin solid var(--color-dark);
     background: var(--color-white);
     width: 15rem;
+    height: 3.9rem;
     text-decoration: none;
 }
 .outline:hover {
-    background: var(--color-dark-hovered);;
+    background: var(--color-dark-hovered);
     color: var(--color-white);
 }
 .outline:active {
