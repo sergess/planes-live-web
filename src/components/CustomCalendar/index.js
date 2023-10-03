@@ -82,6 +82,8 @@ export default function CustomCalendar({ flightData, setFlightData }) {
         setTooltipOpened(false);
         if (flightSchedule.data.dates.some((item) => item.count === 1)) {
           setFlightData({ flight: data.flights[0].flight, date: data.flights[0].flight.departure });
+          // change url without reload
+          window.history.pushState({}, null, `/flight/${data.flights[0].flight.icao}/${data.flights[0].flight.id}`);
         } else {
           setOpenedMoreFlights(true);
         }
