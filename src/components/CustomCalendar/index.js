@@ -6,6 +6,7 @@ import React, {
 import Calendar from 'react-calendar';
 import * as dayjs from 'dayjs';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import CalendarTooltip from '@/components/CalendarTooltip';
 import { formatDate, isSameDay } from '@/utils/date';
@@ -24,7 +25,7 @@ import styles from './calendar.module.scss';
 
 export default function CustomCalendar({ flightData, setFlightData }) {
   const interval = useRef();
-
+  const router = useRouter();
   const [dayWithoutFlight, setDayWithoutFlight] = useState(null);
   const [tooltipOpened, setTooltipOpened] = useState(false);
   const [openedMoreFlights, setOpenedMoreFlights] = useState(false);
@@ -81,6 +82,11 @@ export default function CustomCalendar({ flightData, setFlightData }) {
         setFlights(data.flights);
         setTooltipOpened(false);
         if (flightSchedule.data.dates.some((item) => item.count === 1)) {
+          router.push(
+            `/flight/${data.flights[0].flight.icao}/${data.flights[0].flight.id}`,
+            undefined,
+            { shallow: true },
+          );
           setFlightData({ flight: data.flights[0].flight, date: data.flights[0].flight.departure });
         } else {
           setOpenedMoreFlights(true);
