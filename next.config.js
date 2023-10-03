@@ -24,11 +24,5 @@ module.exports = {
   },
   experimental: {
     appDir: true,
-  },
-  rewrites: async () => [
-    {
-      source: '/sitemap.xml',
-      destination: '/test/:names',
-    },
-  ],
+  }
 };
