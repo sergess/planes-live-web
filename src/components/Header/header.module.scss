@@ -20,6 +20,9 @@
     composes: headerStyles;
     background: var(--color-white);
 }
+:global(.landingBanners) .header {
+    background: var(--surfaces-base);
+}
 .pageHeader {
     composes: headerStyles;
     background: var(--surfaces-base);
