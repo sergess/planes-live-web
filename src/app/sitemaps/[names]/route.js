@@ -8,9 +8,4 @@ export async function GET(request, context) {
   res.headers.set('content-type', 'application/xml');
   res.headers.set('cache-control', 'public, max-age=86400');
   return res;
-  // if (req.status !== 200) {
-  //   // return NextResponse.redirect(new URL("/404", request.url), 303);
-  // } else {
-  //
-  // }
 }
