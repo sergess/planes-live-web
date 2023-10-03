@@ -24,6 +24,7 @@ import styles from './calendar.module.scss';
 
 export default function CustomCalendar({ flightData, setFlightData }) {
   const interval = useRef();
+
   const [dayWithoutFlight, setDayWithoutFlight] = useState(null);
   const [tooltipOpened, setTooltipOpened] = useState(false);
   const [openedMoreFlights, setOpenedMoreFlights] = useState(false);
