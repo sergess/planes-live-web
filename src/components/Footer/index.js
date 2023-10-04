@@ -5,7 +5,6 @@ import Link from 'next/link';
 import styles from './footer.module.scss';
 
 const APALON_COM_REF = 'https://apalon.com/';
-const PREFERENCES_REF = '/'; // TODO: add correct link
 
 export default function Footer() {
   return (
