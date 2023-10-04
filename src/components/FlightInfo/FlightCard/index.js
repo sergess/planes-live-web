@@ -128,6 +128,7 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
                 href={`/airport/${departureIcao}`}
                 className={styles.description}
                 title={name}
+                prefetch={false}
               >
                 {originIata}
                 {' '}
@@ -174,6 +175,7 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
               <Link
                 href={`/airport/${destinationIcao}`}
                 className={styles.description}
+                prefetch={false}
               >
                 {destinationIata}
                 {' '}
