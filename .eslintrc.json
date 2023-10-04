@@ -11,7 +11,7 @@
     "react/jsx-props-no-spreading": 0,
     "react/no-unknown-property": ["error", { "ignore": ["jsx", "global"] }],
     "react-hooks/exhaustive-deps": 0,
-    "max-len": [2, { "code": 120, "ignoreTemplateLiterals": true, "ignoreStrings": true}],
+    "max-len": [2, { "code": 180, "ignoreTemplateLiterals": true, "ignoreStrings": true}],
     "camelcase": 0,
     "func-style": [2, "expression", { "allowArrowFunctions": true }],
     "padding-line-between-statements": [

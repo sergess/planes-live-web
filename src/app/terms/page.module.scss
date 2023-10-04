@@ -20,13 +20,13 @@
   }
 
   h4 {
-    font-size: 18px;
-    padding: 24px 0 10px;
+    font-size: var(--font-subheadline);
+    padding: 2.4rem 0 1rem;
     text-transform: uppercase;
   }
 
   p {
-    padding-bottom: 20px;
+    padding-bottom: 2rem;
   }
 
   ul {
@@ -35,6 +35,21 @@
 
 }
 
-.text {
-  padding-top: 25px;
+.content {
+  padding: 2.5rem 0;
+}
+
+.menu {
+
+  a {
+    display: block;
+  }
+}
+
+.indent {
+  padding-left: 1rem;
+}
+
+.doubleindent {
+  padding-left: 2rem;
 }
