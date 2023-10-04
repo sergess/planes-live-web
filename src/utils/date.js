@@ -25,6 +25,7 @@ export const getDateDifference = (
 export const getDateDifferenceHM = (
   startDate,
   endDate,
+  minLabel = 'm',
 ) => {
   const diff = getDateDifference(
     startDate,
@@ -33,7 +34,7 @@ export const getDateDifferenceHM = (
   const hours = Math.abs(diff.hours());
   const min = Math.abs(diff.minutes());
 
-  return `${hours !== 0 ? `${hours}h` : ''} ${min}m`;
+  return `${hours !== 0 ? `${hours}h` : ''} ${min}${minLabel}`;
 };
 export const filterOnlyFutureFlights = ({ flight }, dateKey, tz) => {
   const time = flight[`${dateKey}_actual`] ? flight[`${dateKey}_actual`] : flight[dateKey];

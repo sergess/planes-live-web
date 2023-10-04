@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 
 import { BUTTON_SIZE } from '@/constants/index';
 import { UPDATE_LABELS } from '@/constants/flight';
-import { formatDate, getDateDifference } from '@/utils/date';
+import { formatDate, getDateDifferenceHM } from '@/utils/date';
 import CustomButton from '@/components/Controls/Buttons/custom';
 import { M_TIME_FORMAT } from '@/constants/date';
 import flightContext from '@/contexts/flight/FlightContext';
@@ -75,17 +75,17 @@ export default function LastUpdateCard() {
       <div className={styles.header}>
         <p>LATEST UPDATE</p>
         <p className={styles.time}>
-          {getDateDifference(dayjs(), action.time).minutes()}
+          {getDateDifferenceHM(dayjs(), action.time, ' min')}
           {' '}
-          min ago
+          ago
         </p>
       </div>
       <div className={styles.body}>
         <div className={styles.list}>
           <Image
             src={getIconPath(action.action)}
-            width={13}
-            height={13}
+            width={20}
+            height={20}
             alt={UPDATE_LABELS[action.action]}
             style={{ marginRight: '.8rem' }}
           />
