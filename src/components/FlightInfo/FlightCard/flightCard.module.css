@@ -70,11 +70,13 @@
 .boxHeader {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem;
 
     border-bottom: thin solid var(--color-dark-10);
 }
 .flightLabel {
+    margin: 0;
     font-size: var(--font-body-1);
     font-weight: 500;
 }
