@@ -16,7 +16,9 @@ body {
   font-size: 10px;
   scroll-behavior: smooth;
 }
-
+body:has(.backdrop) {
+  overflow: hidden;
+}
 body {
   color: rgb(var(--color-dark));
   background: var(--color-white);

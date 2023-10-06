@@ -14,7 +14,7 @@ export default function Modal({ content }) {
   };
 
   return (
-    <div className={styles.backdrop} onClick={onClose}>
+    <div className={`${styles.backdrop} backdrop`} onClick={onClose}>
       <div className={styles.modal} onClick={(event) => event.stopPropagation()}>
         <button
           type="button"
