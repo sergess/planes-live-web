@@ -9,7 +9,7 @@ export const HOUR_MINUTE_TIME_FORMAT = 'h:mm A';
 export const YEAR_MONTH_DAY_HOUR_FORMAT = 'YYYY-MM-DD HH';
 export const HOUR_FORMAT = 'H';
 export const WEEKDAY_MONTH_DAY_FORMAT = 'ddd, MMM D';
-export const HOUR_12_FORMAT = 'h A';
+export const HOUR_24_FORMAT = 'H';
 
 export const DURATION_FORMATS = {
   DAYS: 'd',
