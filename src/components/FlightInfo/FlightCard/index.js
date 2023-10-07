@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ import { EMPTY_FIELD } from '@/constants/index';
 import flightContext from '@/contexts/flight/FlightContext';
 import { getDateDifferenceHM } from '@/utils/date';
 
-import styles from './flightCard.module.css';
+import styles from './flightCard.module.scss';
 
 const AIRLINE_PLACEHOLDER = '/svg/airline_placeholder.svg';
 const getCodes = (flight, flightNumber, flightId) => {
@@ -40,6 +40,8 @@ const getCodes = (flight, flightNumber, flightId) => {
 
 export default function FlightCard({ logoUrl, flightId, flightNumber }) {
   const { flightData } = useContext(flightContext);
+  // to extract path line size css
+  const blockRef = useRef();
 
   if (!flightData?.flight || !flightData?.destinationAirport || !flightData?.departureAirport) {
     return null;
@@ -112,16 +114,18 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
         />
       </div>
       <div className={styles.boxBody}>
-        <div className={styles.line}>
-          <Image
-            src="/svg/vert_line.svg"
-            width={6}
-            height={117}
-            alt=""
+        <div
+          className={styles.line}
+        >
+          <div
+            className={styles.lineItem}
+            style={{
+              height: (blockRef?.current?.clientHeight || 70) + 47,
+            }}
           />
         </div>
         <div className={styles.container}>
-          <div className={styles.block}>
+          <div className={styles.block} ref={blockRef}>
             <div className={styles.blockContainer}>
               <p className={styles.title}>{city}</p>
               <Link

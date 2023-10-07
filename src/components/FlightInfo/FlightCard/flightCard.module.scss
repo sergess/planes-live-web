@@ -1,6 +1,16 @@
 @value flightBoxSpace: 1.2rem;
 @value lineSize: 2.6rem; /*size of left line of city*/
 @value timeBlockSize: 9.5rem;
+@mixin line-point {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(191, 191, 196, 1);
+    position: absolute;
+    left: -3px;
+}
 
 .boxBody {
     padding: flightBoxSpace;
@@ -40,6 +50,19 @@
 .line {
     display: flex;
     padding: 1rem 1rem 0;
+}
+.lineItem {
+    position: relative;
+    background: rgba(191, 191, 196, 1);
+    width: 1px;
+}
+.lineItem:before {
+    @include line-point;
+    top: 0;
+}
+.lineItem:after {
+    @include line-point;
+    bottom: 0;
 }
 .middle {
     display: flex;

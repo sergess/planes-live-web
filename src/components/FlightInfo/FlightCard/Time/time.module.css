@@ -1,4 +1,4 @@
-@value timeBlockSize from "./../flightCard.module.css";
+@value timeBlockSize from "../flightCard.module.scss";
 
 .timeInfo {
     text-align: right;
