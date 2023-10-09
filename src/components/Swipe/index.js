@@ -34,7 +34,10 @@ export default function Swipe({ children }) {
   }, []);
 
   return (
-    <div ref={scrollRef} onScroll={onScroll} className={`${styles.drawer} 
+    <div
+      ref={scrollRef}
+      onScroll={onScroll}
+      className={`${styles.drawer} 
       ${DRAWER_STATE[drawerState]}`}
     >
       <div
