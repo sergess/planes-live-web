@@ -29,13 +29,25 @@ export default async function MapBox({
     <div className={styles.mapContainer}>
       <Map
         ref={mapRef}
+        renderWorldCopies
         onLoad={() => {
           if (isAdjustPosition && markers.length >= 2) {
             mapRef.current.fitBounds(
               [[markers[0].longitude, markers[0].latitude],
                 [markers[1].longitude, markers[1].latitude]],
-              { padding: MAP_PADDING },
+              { padding: MAP_PADDING, bearing: mapRef.current.getBearing() },
             );
+            setTimeout(() => {
+              mapRef.current.flyTo({
+                center: lines[0].coordinates[1][0],
+              });
+            }, 1000);
+            // mapRef.current.fitScreenCoordinates(
+            //   [markers[0].longitude, markers[0].latitude],
+            //   [markers[1].longitude, markers[1].latitude],
+            //   mapRef.current.getBearing(),
+            // );
+            // setVisibleCoordinateBounds
           }
           if (!markers.length) {
             geoControlRef.current?.trigger();
@@ -45,6 +57,7 @@ export default async function MapBox({
         initialViewState={{
           ...initialViewState,
           zoom: zoom || DEFAULT_ZOOM,
+          center: lines[0].coordinates[0][lines[0].coordinates[0].length - 1],
         }}
         attributionControl={false}
         mapStyle="mapbox://styles/mapbox/streets-v11"
@@ -58,7 +71,7 @@ export default async function MapBox({
               type: 'Feature',
               properties: {},
               geometry: {
-                type: 'LineString',
+                type: l.coordinates.length === 2 ? 'MultiLineString' : 'LineString',
                 coordinates: l.coordinates,
               },
             }}
