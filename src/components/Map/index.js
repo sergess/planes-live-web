@@ -42,12 +42,6 @@ export default async function MapBox({
                 center: lines[0].coordinates[1][0],
               });
             }, 1000);
-            // mapRef.current.fitScreenCoordinates(
-            //   [markers[0].longitude, markers[0].latitude],
-            //   [markers[1].longitude, markers[1].latitude],
-            //   mapRef.current.getBearing(),
-            // );
-            // setVisibleCoordinateBounds
           }
           if (!markers.length) {
             geoControlRef.current?.trigger();
