@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,6 +12,7 @@ import { EMPTY_FIELD } from '@/constants/index';
 import flightContext from '@/contexts/flight/FlightContext';
 import { getDateDifferenceHM } from '@/utils/date';
 
+import usePathLine from '@/hooks/usePathLine';
 import styles from './flightCard.module.scss';
 
 const AIRLINE_PLACEHOLDER = '/svg/airline_placeholder.svg';
@@ -37,12 +38,11 @@ const getCodes = (flight, flightNumber, flightId) => {
     id,
   };
 };
-
+const TOTAL_BLOCK_HEIGHT = 49;
 export default function FlightCard({ logoUrl, flightId, flightNumber }) {
   const { flightData } = useContext(flightContext);
   // to extract path line size css
-  const blockRef = useRef();
-
+  const { height, blockRef } = usePathLine();
   if (!flightData?.flight || !flightData?.destinationAirport || !flightData?.departureAirport) {
     return null;
   }
@@ -120,7 +120,7 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
           <div
             className={styles.lineItem}
             style={{
-              height: (blockRef?.current?.clientHeight || 70) + 47,
+              height: height + TOTAL_BLOCK_HEIGHT,
             }}
           />
         </div>
