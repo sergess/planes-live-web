@@ -25,13 +25,13 @@ export const getDateDifference = (
 ) => dayjs
   .duration(dayjs(startDate)
     .diff(dayjs(endDate)));
-export const getLastUpdateTimeText = (
-  endDate,
-) => {
-  const startDate = dayjs();
+export const getLastUpdateTimeText = (date) => {
+  const receiveDate = dayjs(date).tz(dayjs.tz.guess());
+  const startDate = dayjs().tz(dayjs.tz.guess());
+
   const diff = getDateDifference(
     startDate,
-    endDate,
+    receiveDate,
   );
   const hours = Math.abs(diff.hours());
   const min = Math.abs(diff.minutes());
@@ -40,12 +40,12 @@ export const getLastUpdateTimeText = (
     return `${min} minutes ago`;
   }
   if ((hours > 1 || (hours === 1 && min > 0)) && startDate.isToday()) {
-    return `Today, ${hours}h ${min}m`;
+    return `Today, ${dayjs(receiveDate).format('HH:MM')}`;
   } if (startDate.isYesterday()) {
-    return `Yesterday, ${hours}h ${min}m`;
+    return `Yesterday, ${receiveDate.format('DD.MM.YYYY')}`;
   }
 
-  return `${hours}h ${min}m`;
+  return `${receiveDate.format('DD.MM.YYYY')}`;
 };
 
 export const getDateDifferenceHM = (
