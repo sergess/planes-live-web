@@ -4,11 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './footer.module.scss';
 
-const TERMS_REF = 'https://planeslive.com/terms';
-const CALIFORNIA_REF = 'https://planeslive.com/privacyPolicy#h';
-const POLICY_REF = 'https://planeslive.com/privacyPolicy';
 const APALON_COM_REF = 'https://apalon.com/';
-const PREFERENCES_REF = '/'; // TODO: add correct link
 
 export default function Footer() {
   return (
@@ -30,12 +26,11 @@ export default function Footer() {
         >
           Contact support
         </a>
-        <a
-          className={styles.infoLink}
-          href={PREFERENCES_REF}
+        <span
+          className={`ot-sdk-show-settings ${styles.infoLink}`}
         >
           Manage Preferences
-        </a>
+        </span>
       </div>
       <p className={styles.apalon}>
         Planes Live, a Clime Weather Service LLC brand, is
@@ -49,32 +44,26 @@ export default function Footer() {
       <p className={styles.copyright}>
         © 2023 Apalon LCC. All rights reserved.
       </p>
-      <a
-        href={POLICY_REF}
-        target="_blank"
+      <Link
+        href="privacyPolicy"
         className={styles.privacy}
-        rel="noreferrer"
       >
         Privacy Policy
-      </a>
+      </Link>
       <span className={styles.separator}> | </span>
-      <a
-        href={TERMS_REF}
-        target="_blank"
+      <Link
+        href="terms"
         className={styles.privacy}
-        rel="noreferrer"
       >
         Terms
-      </a>
+      </Link>
       <span className={styles.separator}> | </span>
-      <a
-        href={CALIFORNIA_REF}
-        target="_blank"
+      <Link
+        href="privacyPolicy#h"
         className={styles.privacy}
-        rel="noreferrer"
       >
         California Privacy Rights
-      </a>
+      </Link>
     </footer>
   );
 }
