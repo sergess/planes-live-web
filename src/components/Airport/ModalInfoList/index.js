@@ -50,7 +50,9 @@ export default function ModalInfoList({
     <div className={styles.body}>
       <div className={styles.head}>
         <div className={styles.top}>
-          <div className={styles.heading}>{dateKey}</div>
+          <div className={styles.heading}>
+            {`${dateKey}s`}
+          </div>
           <div className={styles.date}>{formatDate(date, WEEKDAY_MONTH_DAY_FORMAT)}</div>
         </div>
         <ModalDaysSwitcher
