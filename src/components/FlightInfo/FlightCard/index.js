@@ -38,7 +38,7 @@ const getCodes = (flight, flightNumber, flightId) => {
     id,
   };
 };
-const TOTAL_BLOCK_HEIGHT = 49;
+const TOTAL_BLOCK_HEIGHT = 47;
 export default function FlightCard({ logoUrl, flightId, flightNumber }) {
   const { flightData } = useContext(flightContext);
   // to extract path line size css
