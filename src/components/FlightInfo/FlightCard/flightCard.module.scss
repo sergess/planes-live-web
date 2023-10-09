@@ -60,11 +60,11 @@
 }
 .lineItem:before {
     @include line-point;
-    top: -3px;
+    top: calc(pointSize / 2 * -1);
 }
 .lineItem:after {
     @include line-point;
-    bottom: -3px;
+    bottom: calc(pointSize / 2 * -1);
 }
 .middle {
     display: flex;
