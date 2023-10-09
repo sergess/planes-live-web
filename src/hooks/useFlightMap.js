@@ -42,7 +42,11 @@ const getLinesByStatus = (flight, mappedPositions = []) => {
       {
         id: 'source1',
         layerId: 'layer1',
-        coordinates: [
+        // if we have positions we show it, if not we show geoline
+        coordinates: !mappedPositions.length ? transformLineToGeodesic([
+          [flight.waypoints[0].lon, flight.waypoints[0].lat],
+          [flight.waypoints[1].lon, flight.waypoints[1].lat],
+        ]) : [
           [flight.waypoints[0].lon, flight.waypoints[0].lat],
           ...mappedPositions,
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
