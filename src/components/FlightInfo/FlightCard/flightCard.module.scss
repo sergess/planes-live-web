@@ -77,6 +77,7 @@
 .timeDiff {
     padding: 0 .8rem;
     font-weight: 400;
+    white-space: nowrap;
     font-size: var(--font-caption);
     color: var(--color-dark-50);
 }
