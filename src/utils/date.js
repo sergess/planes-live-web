@@ -2,10 +2,14 @@ import * as dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
+import isToday from 'dayjs/plugin/isToday';
+import isYesterday from 'dayjs/plugin/isYesterday';
 
 dayjs.extend(duration);
 dayjs.extend(utc);
 dayjs.extend(timezone);
+dayjs.extend(isToday);
+dayjs.extend(isYesterday);
 
 export const formatDate = (date, format, tz) => {
   if (tz) {
@@ -21,6 +25,28 @@ export const getDateDifference = (
 ) => dayjs
   .duration(dayjs(startDate)
     .diff(dayjs(endDate)));
+export const getLastUpdateTimeText = (date) => {
+  const receiveDate = dayjs(date).tz(dayjs.tz.guess());
+  const startDate = dayjs().tz(dayjs.tz.guess());
+
+  const diff = getDateDifference(
+    startDate,
+    receiveDate,
+  );
+  const hours = Math.abs(diff.hours());
+  const min = Math.abs(diff.minutes());
+
+  if (!hours) {
+    return `${min} minutes ago`;
+  }
+  if ((hours > 1 || (hours === 1 && min > 0)) && startDate.isToday()) {
+    return `Today, ${dayjs(receiveDate).format('HH:MM')}`;
+  } if (startDate.isYesterday()) {
+    return `Yesterday, ${receiveDate.format('DD.MM.YYYY')}`;
+  }
+
+  return receiveDate.format('DD.MM.YYYY');
+};
 
 export const getDateDifferenceHM = (
   startDate,
