@@ -45,7 +45,7 @@ export const getLastUpdateTimeText = (date) => {
     return `Yesterday, ${receiveDate.format('DD.MM.YYYY')}`;
   }
 
-  return `${receiveDate.format('DD.MM.YYYY')}`;
+  return receiveDate.format('DD.MM.YYYY');
 };
 
 export const getDateDifferenceHM = (
