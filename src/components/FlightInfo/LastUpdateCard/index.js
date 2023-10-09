@@ -2,11 +2,10 @@
 
 import React, { useContext } from 'react';
 import Image from 'next/image';
-import dayjs from 'dayjs';
 
 import { BUTTON_SIZE } from '@/constants/index';
 import { UPDATE_LABELS } from '@/constants/flight';
-import { formatDate, getDateDifferenceHM } from '@/utils/date';
+import { formatDate, getLastUpdateTimeText } from '@/utils/date';
 import CustomButton from '@/components/Controls/Buttons/custom';
 import { M_TIME_FORMAT } from '@/constants/date';
 import flightContext from '@/contexts/flight/FlightContext';
@@ -75,9 +74,7 @@ export default function LastUpdateCard() {
       <div className={styles.header}>
         <p>LATEST UPDATE</p>
         <p className={styles.time}>
-          {getDateDifferenceHM(dayjs(), action.time, ' min')}
-          {' '}
-          ago
+          {getLastUpdateTimeText(action.time)}
         </p>
       </div>
       <div className={styles.body}>
