@@ -1,6 +1,19 @@
 @value flightBoxSpace: 1.2rem;
 @value lineSize: 2.6rem; /*size of left line of city*/
 @value timeBlockSize: 9.5rem;
+@value pointSize: 6px;
+@value lineWidth: 21px;
+
+@mixin line-point {
+    content: '';
+    display: inline-block;
+    width: pointSize;
+    height: pointSize;
+    border-radius: 50%;
+    background-color: rgba(191, 191, 196, 1);
+    position: absolute;
+    left: -2.5px;
+}
 
 .boxBody {
     padding: flightBoxSpace;
@@ -9,6 +22,11 @@
 .block {
     display: flex;
     align-items: center;
+}
+.bottomBlock {
+    display: flex;
+    margin-left: lineWidth;
+    max-width: calc(100% - lineWidth);
 }
 .title {
     font-size: var(--font-h1);
@@ -41,6 +59,19 @@
     display: flex;
     padding: 1rem 1rem 0;
 }
+.lineItem {
+    position: relative;
+    background: rgba(191, 191, 196, 1);
+    width: 1px;
+}
+.lineItem:before {
+    @include line-point;
+    top: calc(pointSize / 2 * -1);
+}
+.lineItem:after {
+    @include line-point;
+    bottom: calc(pointSize / 2 * -1);
+}
 .middle {
     display: flex;
     align-items: center;
@@ -52,11 +83,14 @@
 .timeDiff {
     padding: 0 .8rem;
     font-weight: 400;
+    white-space: nowrap;
     font-size: var(--font-caption);
     color: var(--color-dark-50);
 }
 .container {
-    width: calc(100% - lineSize);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 .box {
     box-shadow: var(--info-box-container-shadow);
@@ -108,4 +142,14 @@
     text-overflow: ellipsis;
     max-width: 200px;
     display: inline-block;
+}
+.lineContainer {
+    display: flex;
+    flex-direction: row;
+}
+.line {
+    padding-bottom: 17px; /*space to middle of the city title*/
+}
+.pathWrapper {
+    width: calc(100% - lineWidth);
 }
