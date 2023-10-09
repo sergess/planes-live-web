@@ -7,7 +7,7 @@ import React, {
 import Item from '@/components/Airport/InfoList/Item';
 import ModalDaysSwitcher from '@/components/Airport/ModalInfoList/ModalDaysSwitcher';
 import { formatDate } from '@/utils/date';
-import {HOUR_24_FORMAT, WEEKDAY_MONTH_DAY_FORMAT, YEAR_MONTH_DAY_HOUR_FORMAT} from '@/constants/date';
+import { HOUR_24_FORMAT, WEEKDAY_MONTH_DAY_FORMAT, YEAR_MONTH_DAY_HOUR_FORMAT } from '@/constants/date';
 
 import styles from './modal.module.scss';
 
