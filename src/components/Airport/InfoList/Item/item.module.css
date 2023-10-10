@@ -38,6 +38,9 @@
     font-size: var(--font-body-1);
     margin-bottom: .4rem;
     white-space: nowrap;
+    max-width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .timeContainer {
     display: flex;
