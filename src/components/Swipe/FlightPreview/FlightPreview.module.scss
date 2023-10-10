@@ -2,7 +2,7 @@
 @value desktopPreviewWidth: 34.3rem;
 
 .planePanel {
-  position: fixed;
+  position: absolute;
   left: 50%;
   bottom: calc(bottomHeight + previewSpace);
   height: previewHeight;
@@ -13,6 +13,7 @@
   transform: translate(-50%, 0);
   /* Desktop */
   @media (min-width: $mobile-breakpoint) {
+    position: fixed;
     left: calc((100% + var(--left-panel-width)) / 2);
     bottom: 2.4rem;
     width: desktopPreviewWidth;
