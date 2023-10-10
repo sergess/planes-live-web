@@ -11,6 +11,7 @@ import DescriptionBlock from '@/components/FlightInfo/FlightCard/DescriptionBloc
 import { EMPTY_FIELD } from '@/constants/index';
 import flightContext from '@/contexts/flight/FlightContext';
 import { getDateDifferenceHM } from '@/utils/date';
+import { STATUS } from '@/constants/flight';
 
 import styles from './flightCard.module.scss';
 
@@ -110,7 +111,12 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
           arrivalBaggageClaim={arrivalBaggageClaim}
         />
       </div>
-      <div className={styles.boxBody}>
+      <div
+        className={styles.boxBody}
+        style={{
+          opacity: status === STATUS.CANCELLED ? 0.5 : 1,
+        }}
+      >
         <div className={styles.container}>
           <div className={styles.lineContainer}>
             <div
@@ -149,7 +155,12 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
                     {departureGate || EMPTY_FIELD}
                   </p>
                 </div>
-                <Time time={departureTime} actual={actualDepartureTime} tz={departureTz} />
+                <Time
+                  time={departureTime}
+                  actual={actualDepartureTime}
+                  tz={departureTz}
+                  status={status}
+                />
               </div>
               <div className={styles.middle}>
                 <Image
@@ -198,7 +209,12 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
                 {arrivalBaggageClaim || EMPTY_FIELD}
               </p>
             </div>
-            <Time time={arrivalTime} actual={actualArrivalTime} tz={destinationTz} />
+            <Time
+              time={arrivalTime}
+              actual={actualArrivalTime}
+              tz={destinationTz}
+              status={status}
+            />
           </div>
         </div>
       </div>

@@ -2,7 +2,10 @@ import React from 'react';
 import { formatDate, getDateDifference } from '@/utils/date';
 import dayjs from 'dayjs';
 import { M_TIME_FORMAT } from '@/constants/date';
-import { EARLIER_COLOR, LATER_COLOR } from '@/constants/colors';
+import {
+  EARLIER_COLOR, LATER_COLOR, DARK_COLOR, ACTIVE_COLOR,
+} from '@/constants/colors';
+import { STATUS } from '@/constants/flight';
 import UnknownTime from '@/components/UnknownTime';
 import styles from './time.module.css';
 
@@ -17,10 +20,12 @@ export default function Time({
   actual,
   time,
   tz,
+  status,
 }) {
   const actualDate = actual ? dayjs(actual) : null;
   const timeDate = time ? dayjs(time) : null;
   const diff = getDateDifference(actualDate, timeDate).minutes();
+  const isCancelled = status === STATUS.CANCELLED;
 
   if (!timeDate) {
     return (
@@ -40,14 +45,12 @@ export default function Time({
       >
         <p
           className={styles.onTime}
-          style={{
-            color: getColor(isLater),
-          }}
+          style={{ color: isCancelled ? DARK_COLOR : getColor(isLater) }}
         >
           {formatDate(actualDate, M_TIME_FORMAT, tz)}
         </p>
 
-        {isLater ? (
+        {!isCancelled && (isLater ? (
           <p
             className={styles.text}
             style={{
@@ -72,7 +75,7 @@ export default function Time({
               {' '}
               earlier
             </p>
-          )}
+          ))}
         <p className={styles.crossed}>{formatDate(timeDate, M_TIME_FORMAT, tz)}</p>
       </div>
     );
@@ -80,10 +83,15 @@ export default function Time({
 
   return (
     <div className={styles.timeInfo}>
-      <p className={styles.onTime}>
+      <p
+        className={styles.onTime}
+        style={{
+          color: isCancelled ? DARK_COLOR : ACTIVE_COLOR,
+        }}
+      >
         {formatDate(timeDate, M_TIME_FORMAT, tz)}
       </p>
-      <p className={styles.text}>On time</p>
+      {!isCancelled && <p className={styles.text}>On time</p>}
     </div>
   );
 }
