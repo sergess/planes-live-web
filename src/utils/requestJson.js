@@ -17,7 +17,7 @@ export const requestJson = async (
       return {
         ok: true,
         data: {},
-        status: 304,
+        status: 504,
       };
     }
     const body = await response.json();
