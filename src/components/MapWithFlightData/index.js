@@ -20,7 +20,7 @@ export default function MapWithFlightData() {
     destinationAirport,
   });
 
-  if (!markers || !lines || !initialView) {
+  if (!markers || !lines) {
     return null;
   }
 
