@@ -36,7 +36,7 @@ export default async function MapBox({
             mapRef.current.fitBounds(
               [[markers[0].longitude, markers[0].latitude],
                 [markers[1].longitude, markers[1].latitude]],
-              { padding: MAP_PADDING, bearing: mapRef.current.getBearing() },
+              { padding: MAP_PADDING },
             );
             if (isMultiLine) {
               setTimeout(() => {
