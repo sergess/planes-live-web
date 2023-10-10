@@ -45,21 +45,21 @@ export default function Footer() {
         © 2023 Apalon LCC. All rights reserved.
       </p>
       <Link
-        href="privacyPolicy"
+        href="/privacyPolicy"
         className={styles.privacy}
       >
         Privacy Policy
       </Link>
       <span className={styles.separator}> | </span>
       <Link
-        href="terms"
+        href="/terms"
         className={styles.privacy}
       >
         Terms
       </Link>
       <span className={styles.separator}> | </span>
       <Link
-        href="privacyPolicy#h"
+        href="/privacyPolicy#h"
         className={styles.privacy}
       >
         California Privacy Rights
