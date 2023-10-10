@@ -24,6 +24,7 @@ export default async function MapBox({
   isAdjustPosition = false,
 }) {
   const geoControlRef = React.useRef();
+  const isMultiLine = lines[0].coordinates.length === 2;
 
   return (
     <div className={styles.mapContainer}>
@@ -37,11 +38,13 @@ export default async function MapBox({
                 [markers[1].longitude, markers[1].latitude]],
               { padding: MAP_PADDING, bearing: mapRef.current.getBearing() },
             );
-            setTimeout(() => {
-              mapRef.current.flyTo({
-                center: lines[0].coordinates[1][0],
-              });
-            }, 1000);
+            if (isMultiLine) {
+              setTimeout(() => {
+                mapRef.current.flyTo({
+                  center: lines[0].coordinates[1][0],
+                });
+              }, 1000);
+            }
           }
           if (!markers.length) {
             geoControlRef.current?.trigger();
@@ -51,7 +54,6 @@ export default async function MapBox({
         initialViewState={{
           ...initialViewState,
           zoom: zoom || DEFAULT_ZOOM,
-          center: lines[0].coordinates[0][lines[0].coordinates[0].length - 1],
         }}
         attributionControl={false}
         mapStyle="mapbox://styles/mapbox/streets-v11"
