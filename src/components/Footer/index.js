@@ -22,7 +22,7 @@ export default function Footer() {
         <Link className={styles.infoLink} href="/search">Search for flights</Link>
         <a
           className={styles.infoLink}
-          href="mailto:support@planeslive.app?subject=support"
+          href="mailto:support@planeslive.com?subject=support"
         >
           Contact support
         </a>
