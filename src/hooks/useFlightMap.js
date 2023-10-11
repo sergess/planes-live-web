@@ -5,6 +5,13 @@ import Image from 'next/image';
 import { STATUS } from '@/constants/flight';
 import { transformLineToGeodesic } from '@/utils/geodesicLine';
 
+const updateMeridianCord = (longitude) => {
+  if (longitude < 0) {
+    return longitude + 360;
+  }
+
+  return longitude;
+};
 /* get objects to calculate plane degrees direction */
 const getPositionsForAngle = (waypoints, positions = []) => {
   if (positions.length === 0) {
@@ -13,8 +20,25 @@ const getPositionsForAngle = (waypoints, positions = []) => {
 
   return { current: positions[positions.length - 1], next: waypoints[1] };
 };
+const updateWP = (flight) => {
+  const newFlight = { ...flight };
 
-const getLinesByStatus = (flight, mappedPositions = []) => {
+  if (newFlight?.waypoints.length === 2) {
+    newFlight.waypoints[0].lon = updateMeridianCord(newFlight.waypoints[0].lon);
+    newFlight.waypoints[1].lon = updateMeridianCord(newFlight.waypoints[1].lon);
+  }
+
+  return newFlight;
+};
+const getLinesByStatus = (flight, positions = []) => {
+  const mappedPositions = positions.map((p) => {
+    if (p[0] < 0) {
+      return [updateMeridianCord(p[0]), p[1]];
+    }
+
+    return p;
+  });
+
   // check Map position to avoid cases when flight in progress and we don't have positions
   if (flight.status === STATUS.ACTIVE && mappedPositions.length) {
     return [
@@ -70,23 +94,16 @@ const getLinesByStatus = (flight, mappedPositions = []) => {
 
   return [];
 };
-const CheckCoord = (longitude) => {
-  if (longitude < 0) {
-    return longitude + 360;
-  }
-
-  return longitude;
-};
 const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinationAirport) => {
   const markers = [{
     id: 1,
     latitude: flight.waypoints[0].lat,
-    longitude: CheckCoord(flight.waypoints[0].lon),
+    longitude: updateMeridianCord(flight.waypoints[0].lon),
     label: departureAirport.iata,
   }, {
     id: 2,
     latitude: flight.waypoints[1].lat,
-    longitude: CheckCoord(flight.waypoints[1].lon),
+    longitude: updateMeridianCord(flight.waypoints[1].lon),
     label: destinationAirport.iata,
   }];
 
@@ -141,11 +158,20 @@ export default ({ flight, departureAirport, destinationAirport }) => {
     };
   }
 
-  const mappedPositions = flight?.positions?.map(({ lon, lat }) => [lon, lat]) || [];
-  const markers = getMarkersByStatus(flight, mappedPositions, departureAirport, destinationAirport);
-  const lines = getLinesByStatus(flight, mappedPositions);
+  const mappedPositions = flight?.positions
+    ?.map(({ lon, lat }) => [lon, lat])
+    .map((p) => {
+      if (p[0] <= 0) {
+        return [updateMeridianCord(p[0]), p[1]];
+      }
 
-  const initialView = getInitialView(flight, markers);
+      return p;
+    }) || [];
+  const updatedFlight = updateWP(flight);
+  const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport);
+  const lines = getLinesByStatus(updatedFlight, mappedPositions);
+
+  const initialView = getInitialView(updatedFlight, markers);
 
   return {
     initialView, lines, markers, mappedPositions,
