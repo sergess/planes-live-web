@@ -21,7 +21,7 @@ export default function Item({
   const href = `/flight/${icao}/${id}`;
 
   return (
-    <Link href={href} className={styles.link}>
+    <Link prefetch={false} href={href} className={styles.link}>
       <div className={styles.container}>
         <div className={styles.timeContainer}>
           <p className={styles.timeLg}>

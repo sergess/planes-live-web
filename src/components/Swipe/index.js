@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
 import Image from 'next/image';
 
 import styles from './Swipe.module.scss';
@@ -12,12 +12,32 @@ const DRAWER_STATE = {
   1: styles.top,
 };
 
+const MIN_SCROLL_VALUE = 30;
+
 export default function Swipe({ children }) {
   const [touchStart, setTouchStart] = React.useState(null);
   const [drawerState, setDrawerState] = React.useState(0);
 
+  const scrollRef = useRef(null);
+
+  const onScroll = useCallback(() => {
+    if (scrollRef.current) {
+      const scrollBlock = scrollRef.current;
+      const { scrollTop } = scrollBlock;
+      const scrolled = scrollTop > MIN_SCROLL_VALUE;
+      if (scrolled) {
+        setDrawerState(1);
+      } else {
+        setDrawerState(0);
+      }
+    }
+  }, []);
+
   return (
-    <div className={`${styles.drawer} 
+    <div
+      ref={scrollRef}
+      onScroll={onScroll}
+      className={`${styles.drawer} 
       ${DRAWER_STATE[drawerState]}`}
     >
       <div

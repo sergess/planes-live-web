@@ -7,7 +7,7 @@ import React, {
 import Item from '@/components/Airport/InfoList/Item';
 import ModalDaysSwitcher from '@/components/Airport/ModalInfoList/ModalDaysSwitcher';
 import { formatDate } from '@/utils/date';
-import { HOUR_12_FORMAT, WEEKDAY_MONTH_DAY_FORMAT, YEAR_MONTH_DAY_HOUR_FORMAT } from '@/constants/date';
+import { HOUR_24_FORMAT, WEEKDAY_MONTH_DAY_FORMAT, YEAR_MONTH_DAY_HOUR_FORMAT } from '@/constants/date';
 
 import styles from './modal.module.scss';
 
@@ -50,7 +50,9 @@ export default function ModalInfoList({
     <div className={styles.body}>
       <div className={styles.head}>
         <div className={styles.top}>
-          <div className={styles.heading}>{dateKey}</div>
+          <div className={styles.heading}>
+            {`${dateKey}s`}
+          </div>
           <div className={styles.date}>{formatDate(date, WEEKDAY_MONTH_DAY_FORMAT)}</div>
         </div>
         <ModalDaysSwitcher
@@ -63,7 +65,7 @@ export default function ModalInfoList({
         {
           data.length && data.map((item) => (
             <div className={styles.timeGroup} key={item.date} data={item.date}>
-              <p className={styles.scrollHeading}>{formatDate(item.date, HOUR_12_FORMAT)}</p>
+              <p className={styles.scrollHeading}>{formatDate(item.date, HOUR_24_FORMAT)}</p>
               {item.data.map((childItem) => {
                 const { flight } = childItem;
 

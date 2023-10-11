@@ -35,6 +35,7 @@ export const calculatePercentageOfRestPath = (flight) => {
   const rest = getDateDifference(end, dayjs());
   const totalMinutes = total.hours() * 60 + total.minutes();
   const restMinutes = rest.hours() * 60 + rest.minutes();
+  const distance = 100 - ((restMinutes / totalMinutes) * 100);
 
-  return 100 - ((restMinutes / totalMinutes) * 100);
+  return distance < 100 ? distance : 100;
 };

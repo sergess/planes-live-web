@@ -1,0 +1,75 @@
+.wrapper {
+  background: var(--surfaces-base);
+
+  header {
+    background: var(--surfaces-base);
+  }
+}
+
+.main {
+  font-size: var(--font-body-1);
+  color: var(--color-black);
+  max-width: 954px;
+  margin: 4rem auto 0;
+  padding: 0 1rem;
+
+  a {
+    text-decoration: underline;
+    color: var(--color-black);
+
+    &:hover {
+      text-decoration: none;
+      color: var(--color-black);
+    }
+  }
+
+  h4 {
+    font-size: var(--font-subheadline);
+    padding: 2.4rem 0 1rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    padding-bottom: 2rem;
+  }
+
+  ul {
+    padding-left: 1.6rem;
+  }
+
+}
+
+.content {
+  padding: 2.5rem 0;
+}
+
+.menu {
+
+  a {
+    display: block;
+  }
+}
+
+.indent {
+  padding-left: 1rem;
+}
+
+.doubleindent {
+  padding-left: 2rem;
+}
+
+.table {
+  border: 1px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.table tr {
+  border-collapse: collapse;
+}
+
+.table tr td {
+  border: 1px solid #000000;
+  padding: 0.5rem;
+  border-collapse: collapse;
+}
