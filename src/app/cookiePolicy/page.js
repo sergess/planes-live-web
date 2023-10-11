@@ -174,7 +174,7 @@ export default function Home() {
               <a href="mailto:support@climeradar.com">support@climeradar.com</a>
               <br />
               For Planes Live:
-              <a href="mailto:support@planeslive.app">support@planeslive.app</a>
+              <a href="mailto:support@planeslive.com">support@planeslive.com</a>
             </p>
             <h4>OR</h4>
             <p>

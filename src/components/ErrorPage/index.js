@@ -37,7 +37,7 @@ export default function ErrorPage({
           type="button"
           className={styles.copyWrapper}
           onClick={() => {
-            navigator.clipboard.writeText('support@planeslive.app');
+            navigator.clipboard.writeText('support@planeslive.com');
           }}
         >
           <Image
@@ -46,7 +46,7 @@ export default function ErrorPage({
             height={20}
             alt="Copy"
           />
-          <span>support@planeslive.app</span>
+          <span>support@planeslive.com</span>
         </button>
       </div>
     </div>

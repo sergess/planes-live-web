@@ -767,7 +767,7 @@ export default function Home() {
               <br />
               For Planes Live:
               {' '}
-              <a href="mailto:support@planeslive.app">support@planeslive.app</a>
+              <a href="mailto:support@planeslive.com">support@planeslive.com</a>
             </p>
             <h4 id="v">
               V. SUPPLEMENTAL TERMS

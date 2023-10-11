@@ -1250,7 +1250,7 @@ export default function Home() {
               <li>
                 <strong>For PlanesLive:</strong>
                 {' '}
-                <a href="mailto:support@planeslive.app">support@planeslive.app</a>
+                <a href="mailto:support@planeslive.com">support@planeslive.com</a>
               </li>
             </ul>
             <p>You may also contact us by postal mail:</p>
@@ -1299,7 +1299,7 @@ export default function Home() {
               <li>
                 <strong>For PlanesLive:</strong>
                 {' '}
-                <a href="mailto:support@planeslive.app">support@planeslive.app</a>
+                <a href="mailto:support@planeslive.com">support@planeslive.com</a>
               </li>
             </ul>
           </div>
