@@ -24,7 +24,7 @@ export default async function MapBox({
   isAdjustPosition = false,
 }) {
   const geoControlRef = React.useRef();
-  const isMultiLine = lines[0].coordinates.length === 2;
+  const isMultiLine = lines.length && lines[0].coordinates.length === 2;
 
   return (
     <div className={styles.mapContainer}>
@@ -33,17 +33,15 @@ export default async function MapBox({
         renderWorldCopies
         onLoad={() => {
           if (isAdjustPosition && markers.length >= 2) {
-            mapRef.current.fitBounds(
-              [[markers[0].longitude, markers[0].latitude],
-                [markers[1].longitude, markers[1].latitude]],
-              { padding: MAP_PADDING },
-            );
             if (isMultiLine) {
-              setTimeout(() => {
-                mapRef.current.flyTo({
-                  center: lines[0].coordinates[1][0],
-                });
-              }, 1000);
+              mapRef.current.fitBounds(
+                [[markers[0].longitude, markers[0].latitude],
+                  [markers[1].longitude, markers[1].latitude]],
+                { padding: MAP_PADDING },
+              );
+            } else {
+              // multiline handling
+              mapRef.current.setZoom(0);
             }
           }
           if (!markers.length) {
