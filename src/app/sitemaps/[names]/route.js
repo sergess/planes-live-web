@@ -7,5 +7,6 @@ export async function GET(request, context) {
   const res = new NextResponse(body);
   res.headers.set('content-type', 'application/xml');
   res.headers.set('cache-control', 'public, max-age=86400');
+
   return res;
 }
