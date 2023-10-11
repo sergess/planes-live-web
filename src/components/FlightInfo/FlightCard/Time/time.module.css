@@ -1,4 +1,4 @@
-@value timeBlockSize from "./../flightCard.module.css";
+@value timeBlockSize from "../flightCard.module.scss";
 
 .timeInfo {
     text-align: right;
@@ -34,4 +34,8 @@
     margin-left: auto;
     font-size: var(--font-caption);
     align-self: flex-start;
+}
+
+:global(.bottomBlock) .timeInfo {
+    margin-top: -28px; /*23px city title and 5px bottom margin*/
 }

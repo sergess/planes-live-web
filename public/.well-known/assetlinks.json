@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.apalon.flight.tracker",
+    "sha256_cert_fingerprints": ["1F:3C:97:8A:A8:17:76:07:48:59:84:88:A7:D5:6A:72:94:97:82:D2:3A:E9:E3:5B:E8:6F:6B:A3:22:F6:BA:72", "A0:89:C7:81:72:48:AF:36:59:6D:DF:49:D9:B0:4A:DB:F4:48:52:B0:57:42:79:2B:04:4A:B7:34:43:59:74:D9"]
+  }
+}]

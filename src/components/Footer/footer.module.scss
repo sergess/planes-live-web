@@ -73,6 +73,7 @@
     font-size: var(--font-body-1);
     font-weight: 400;
     color: var(--color-white);
+    cursor: pointer;
     @media (min-width: $mobile-breakpoint) {
         font-size: 1.3rem;
     }
