@@ -21,14 +21,14 @@ const getPositionsForAngle = (waypoints, positions = []) => {
   return { current: positions[positions.length - 1], next: waypoints[1] };
 };
 const updateWP = (flight) => {
-  const newFlight = { ...flight };
+  const updated = { ...flight };
 
-  if (newFlight?.waypoints.length === 2) {
-    newFlight.waypoints[0].lon = updateMeridianCord(newFlight.waypoints[0].lon);
-    newFlight.waypoints[1].lon = updateMeridianCord(newFlight.waypoints[1].lon);
+  if (updated?.waypoints.length === 2) {
+    updated.waypoints[0].lon = updateMeridianCord(updated.waypoints[0].lon);
+    updated.waypoints[1].lon = updateMeridianCord(updated.waypoints[1].lon);
   }
 
-  return newFlight;
+  return updated;
 };
 const getLinesByStatus = (flight, mappedPositions = []) => {
   // check Map position to avoid cases when flight in progress and we don't have positions
