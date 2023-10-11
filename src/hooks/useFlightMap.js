@@ -42,11 +42,11 @@ const getLinesByStatus = (flight, mappedPositions = []) => {
       {
         id: 'source1',
         layerId: 'layer1',
-        coordinates: [
+        coordinates: transformLineToGeodesic([
           [flight.waypoints[0].lon, flight.waypoints[0].lat],
           ...mappedPositions,
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
-        ],
+        ]),
       },
     ];
   }
@@ -66,18 +66,26 @@ const getLinesByStatus = (flight, mappedPositions = []) => {
 
   return [];
 };
+const CheckCoord = (longitude) => {
+  if (longitude < 0) {
+    return longitude + 360;
+  }
+
+  return longitude;
+};
 const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinationAirport) => {
   const markers = [{
     id: 1,
     latitude: flight.waypoints[0].lat,
-    longitude: flight.waypoints[0].lon,
+    longitude: CheckCoord(flight.waypoints[0].lon),
     label: departureAirport.iata,
   }, {
     id: 2,
     latitude: flight.waypoints[1].lat,
-    longitude: flight.waypoints[1].lon,
+    longitude: CheckCoord(flight.waypoints[1].lon),
     label: destinationAirport.iata,
   }];
+
   if (flight.status === STATUS.ACTIVE) {
     const { current, next } = getPositionsForAngle(flight.waypoints, flight.positions);
     const angle = getCoordinatesAngle(current, next);
