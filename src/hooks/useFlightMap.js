@@ -98,12 +98,12 @@ const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinati
   const markers = [{
     id: 1,
     latitude: flight.waypoints[0].lat,
-    longitude: updateMeridianCord(flight.waypoints[0].lon),
+    longitude: flight.waypoints[0].lon,
     label: departureAirport.iata,
   }, {
     id: 2,
     latitude: flight.waypoints[1].lat,
-    longitude: updateMeridianCord(flight.waypoints[1].lon),
+    longitude: flight.waypoints[1].lon,
     label: destinationAirport.iata,
   }];
 
