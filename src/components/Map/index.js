@@ -58,7 +58,7 @@ export default async function MapBox({
               type: 'Feature',
               properties: {},
               geometry: {
-                type: 'LineString',
+                type: l.coordinates.length === 2 ? 'MultiLineString' : 'LineString',
                 coordinates: l.coordinates,
               },
             }}

@@ -5,6 +5,13 @@ import Image from 'next/image';
 import { STATUS } from '@/constants/flight';
 import { transformLineToGeodesic } from '@/utils/geodesicLine';
 
+const updateMeridianCord = (longitude) => {
+  if (longitude < 0) {
+    return longitude + 360;
+  }
+
+  return longitude;
+};
 /* get objects to calculate plane degrees direction */
 const getPositionsForAngle = (waypoints, positions = []) => {
   if (positions.length === 0) {
@@ -13,7 +20,16 @@ const getPositionsForAngle = (waypoints, positions = []) => {
 
   return { current: positions[positions.length - 1], next: waypoints[1] };
 };
+const updateWP = (flight) => {
+  const updated = { ...flight };
 
+  if (updated?.waypoints.length === 2) {
+    updated.waypoints[0].lon = updateMeridianCord(updated.waypoints[0].lon);
+    updated.waypoints[1].lon = updateMeridianCord(updated.waypoints[1].lon);
+  }
+
+  return updated;
+};
 const getLinesByStatus = (flight, mappedPositions = []) => {
   // check Map position to avoid cases when flight in progress and we don't have positions
   if (flight.status === STATUS.ACTIVE && mappedPositions.length) {
@@ -133,11 +149,19 @@ export default ({ flight, departureAirport, destinationAirport }) => {
     };
   }
 
-  const mappedPositions = flight?.positions?.map(({ lon, lat }) => [lon, lat]) || [];
-  const markers = getMarkersByStatus(flight, mappedPositions, departureAirport, destinationAirport);
-  const lines = getLinesByStatus(flight, mappedPositions);
+  const mappedPositions = flight?.positions
+    ?.map(({ lon, lat }) => {
+      if (lon < 0) {
+        return [updateMeridianCord(lon), lat];
+      }
 
-  const initialView = getInitialView(flight, markers);
+      return [lon, lat];
+    }) || [];
+  const updatedFlight = updateWP(flight);
+  const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport);
+  const lines = getLinesByStatus(updatedFlight, mappedPositions);
+
+  const initialView = getInitialView(updatedFlight, markers);
 
   return {
     initialView, lines, markers, mappedPositions,
