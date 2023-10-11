@@ -150,13 +150,12 @@ export default ({ flight, departureAirport, destinationAirport }) => {
   }
 
   const mappedPositions = flight?.positions
-    ?.map(({ lon, lat }) => [lon, lat])
-    .map((p) => {
-      if (p[0] <= 0) {
-        return [updateMeridianCord(p[0]), p[1]];
+    ?.map(({ lon, lat }) => {
+      if (lon < 0) {
+        return [updateMeridianCord(lon), lat];
       }
 
-      return p;
+      return [lon, lat];
     }) || [];
   const updatedFlight = updateWP(flight);
   const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport);
