@@ -30,15 +30,7 @@ const updateWP = (flight) => {
 
   return newFlight;
 };
-const getLinesByStatus = (flight, positions = []) => {
-  const mappedPositions = positions.map((p) => {
-    if (p[0] < 0) {
-      return [updateMeridianCord(p[0]), p[1]];
-    }
-
-    return p;
-  });
-
+const getLinesByStatus = (flight, mappedPositions = []) => {
   // check Map position to avoid cases when flight in progress and we don't have positions
   if (flight.status === STATUS.ACTIVE && mappedPositions.length) {
     return [
@@ -106,7 +98,6 @@ const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinati
     longitude: flight.waypoints[1].lon,
     label: destinationAirport.iata,
   }];
-
   if (flight.status === STATUS.ACTIVE) {
     const { current, next } = getPositionsForAngle(flight.waypoints, flight.positions);
     const angle = getCoordinatesAngle(current, next);
