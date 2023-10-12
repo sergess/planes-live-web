@@ -21,25 +21,35 @@ const BANNER_MAP = [
     text: 'Detailed plane information',
     icoURL: '/svg/ic_plane.svg',
     icoAlt: 'Plane',
-    description: 'Want to know it all? Get the plane model '
-      + 'information with photo, age, call sign, '
-      + 'registration number, and more.',
+    description: (
+      <>
+        Want to know it all? Get the plane model
+        information with photo, age,
+        call sign, registration number, and&nbsp;more.
+      </>),
   },
   {
     text: 'Airport maps and timetables',
     icoURL: '/svg/ic_airport.svg',
     icoAlt: 'Airport symbol',
-    description: 'Looking for a place to grab a snack before departure '
-      + 'or a parking lot near the arrival '
-      + 'gates? Find it all on the airport maps. '
-      + 'Keep tabs on timetables, too.',
+    description: (
+      <>
+        Looking for a place to grab a snack before departure
+        or a parking lot near the arrival gates?
+        Find it all on&nbsp;the&nbsp;airport&nbsp;maps. Keep tabs
+        on&nbsp;timetables, too.
+      </>),
   },
   {
     text: 'Security wait times',
     icoURL: '/svg/ic_security_time.svg',
     icoAlt: 'Airport symbol',
-    description: 'Pre-flight jitters? Know the airport\'s '
-+ 'busy times to better plan your arrival and spend less Time in the security lines.',
+    description: (
+      <>
+        Pre-flight jitters? Know the airport&#39;s busy
+        times to better plan your arrival
+        and spend less time in&nbsp;the&nbsp;security&nbsp;lines.
+      </>),
   },
 ];
 

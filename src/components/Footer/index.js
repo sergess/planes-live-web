@@ -29,7 +29,7 @@ export default function Footer() {
         <span
           className={`ot-sdk-show-settings ${styles.infoLink}`}
         >
-          Manage Preferences
+          Manage preferences
         </span>
       </div>
       <p className={styles.apalon}>

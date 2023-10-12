@@ -31,7 +31,7 @@ export default function SearchHeader({ autoFocus }) {
         options={options}
         loading={loading}
         text={text}
-        placeholder="Search flights and airports"
+        placeholder="Search for a flight or airport"
         autoFocus={autoFocus}
       />
     </header>

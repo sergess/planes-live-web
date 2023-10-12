@@ -4,7 +4,7 @@ import styles from './notifications.module.scss';
 import Item from './Item';
 
 const TOP_ROW_ITEMS = [
-  'Departured', 'Reminders',
+  'Departed', 'Reminders',
   'Gate change', 'Terminal change'];
 const BOTTOM_ROW_ITEMS = [
   'Updates', 'Online check-in',

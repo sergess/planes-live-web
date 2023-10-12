@@ -21,7 +21,7 @@ export default function InfoBlock({
       {{
         [STATUS.SCHEDULED]: (
           <>
-            <p className={styles.label}>Departs</p>
+            <p className={styles.label}>Departure</p>
             <p className={styles.value}>
               in
               {' '}
@@ -30,7 +30,7 @@ export default function InfoBlock({
           </>),
         [STATUS.ACTIVE]: (
           <>
-            <p className={styles.label}>Arrives</p>
+            <p className={styles.label}>Arrival</p>
             <p className={styles.value}>
               in
               {' '}
