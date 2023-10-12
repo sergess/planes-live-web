@@ -27,7 +27,10 @@ export default function Airport() {
         <Card />
         <div className={`${styles.buttonContainer} ${styles.localButtonContainer}`}>
           <PrimaryButton>Download app</PrimaryButton>
-          <StoreBadge />
+          <StoreBadge
+            androidAnalyticSelector="analytic__download_gp_4_5"
+            iosAnalyticSelector="analytic__download_appstore_4_5"
+          />
         </div>
       </div>
     </div>

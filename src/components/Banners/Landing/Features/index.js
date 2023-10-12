@@ -89,7 +89,10 @@ export default function Features({ id }) {
       </div>
       <div className={styles.button}>
         <PrimaryButton>Download app</PrimaryButton>
-        <StoreBadge />
+        <StoreBadge
+          iosAnalyticSelector="analytic__download_appstore_2_5"
+          androidAnalyticSelector="analytic__download_gp_2_5"
+        />
       </div>
     </div>
   );

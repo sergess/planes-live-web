@@ -19,9 +19,9 @@ export default function Footer() {
         <p className={styles.label}>Planes Live</p>
       </div>
       <div className={styles.blocks}>
-        <Link className={styles.infoLink} href="/search">Search for flights</Link>
+        <Link className={`${styles.infoLink} analytic__search_flights`} href="/search">Search for flights</Link>
         <a
-          className={styles.infoLink}
+          className={`${styles.infoLink} analytic__contact_support`}
           href="mailto:support@planeslive.com?subject=support"
         >
           Contact support
@@ -46,21 +46,21 @@ export default function Footer() {
       </p>
       <Link
         href="/privacyPolicy"
-        className={styles.privacy}
+        className={`${styles.privacy} analytic__privacy_policy`}
       >
         Privacy Policy
       </Link>
       <span className={styles.separator}> | </span>
       <Link
         href="/terms"
-        className={styles.privacy}
+        className={`${styles.privacy} analytic__terms`}
       >
         Terms
       </Link>
       <span className={styles.separator}> | </span>
       <Link
         href="/privacyPolicy#h"
-        className={styles.privacy}
+        className={`${styles.privacy} analytic__california_privacy_policy`}
       >
         California Privacy Rights
       </Link>

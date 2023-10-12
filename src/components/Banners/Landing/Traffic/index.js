@@ -18,7 +18,10 @@ export default function Traffic() {
       <p className={styles.text}>See flight routes across the globe in real time</p>
       <div className={styles.buttonContainer}>
         <PrimaryButton>Download app</PrimaryButton>
-        <StoreBadge />
+        <StoreBadge
+          iosAnalyticSelector="analytic__download_appstore_1_5"
+          androidAnalyticSelector="analytic__download_gp_1_5"
+        />
       </div>
     </div>
   );

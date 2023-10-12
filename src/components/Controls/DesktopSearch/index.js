@@ -47,7 +47,7 @@ export default function DesktopSearch({
         />
         <button
           type="button"
-          className={styles.close}
+          className={`${styles.close} analytic__close_search`}
           onClick={onClose}
         >
           <Image

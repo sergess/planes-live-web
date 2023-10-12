@@ -28,7 +28,10 @@ export default function KnowMore() {
       </p>
       <div className={styles.buttonContainer}>
         <PrimaryButton>Download app</PrimaryButton>
-        <StoreBadge />
+        <StoreBadge
+          androidAnalyticSelector="analytic__download_gp_5_5"
+          iosAnalyticSelector="analytic__download_appstore_5_5"
+        />
       </div>
     </div>
   );

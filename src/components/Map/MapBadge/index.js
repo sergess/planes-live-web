@@ -9,7 +9,7 @@ export default async function MapBadge() {
   return (
     <div className={styles.banner}>
       <a
-        className={styles.link}
+        className={`${styles.link} analytic__app_store`}
         target="_blank"
         href={IOS_DOWNLOAD_LINK}
         rel="noreferrer"
@@ -22,7 +22,7 @@ export default async function MapBadge() {
         />
       </a>
       <a
-        className={styles.link}
+        className={`${styles.link} analytic__download_gp`}
         target="_blank"
         href={ANDROID_DOWNLOAD_LINK}
         rel="noreferrer"

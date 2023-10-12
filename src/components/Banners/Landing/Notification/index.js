@@ -21,7 +21,10 @@ export default function Notification() {
       <Notifications />
       <div className={styles.buttonContainer}>
         <PrimaryButton>Download app</PrimaryButton>
-        <StoreBadge />
+        <StoreBadge
+          androidAnalyticSelector="analytic__download_gp_3_5"
+          iosAnalyticSelector="analytic__download_appstore_3_5"
+        />
       </div>
     </div>
   );
