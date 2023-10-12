@@ -12,12 +12,15 @@ export default function NoResult() {
         height={111}
         alt=""
       />
-      <p className={styles.label}>No Results</p>
+      <p className={styles.label}>Nothing found</p>
       <ul className={styles.list}>
-        <li>Double-check the flight number or airports and search again</li>
+        <li>
+          Double-check the flight number or airports
+          and&nbsp;search&nbsp;again
+        </li>
         <li>
           For charter flights, contact the flight provider.
-          We don’t always list them.
+          We&nbsp;don’t always list them.
         </li>
         <li>
           Search for connecting flights one by one

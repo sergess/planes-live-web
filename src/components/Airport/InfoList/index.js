@@ -68,7 +68,7 @@ export default async function InfoList({
           )
         ))}
         <LinkTo data={dataArray} tz={tz} airports={airports} mapAirportField={mapAirportField} dateKey={dateKey}>
-          Show All
+          Show all
         </LinkTo>
       </div>
       )}
