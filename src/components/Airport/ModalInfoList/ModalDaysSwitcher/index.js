@@ -21,6 +21,10 @@ const getRangeBetweenDates = () => {
   return hours;
 };
 
+const LEFT_BUTTON = 'Click on left arrow in';
+const RIGHT_BUTTON = 'Click on right arrow in';
+const DATE_CHOSEN = 'Date chosen in';
+
 export default function ModalInfoList({ data, date, onClick }) {
   const currentDayRef = useCallback(
     (node) => {
@@ -48,7 +52,7 @@ export default function ModalInfoList({ data, date, onClick }) {
     <div className={styles.wrapper}>
       <button
         type="button"
-        onClick={() => onClick(getPrevDate.date)}
+        onClick={() => onClick(getPrevDate.date, LEFT_BUTTON)}
         disabled={date === getMinDate}
         className={styles.leftButton}
       >
@@ -61,7 +65,7 @@ export default function ModalInfoList({ data, date, onClick }) {
       </button>
       <button
         type="button"
-        onClick={() => onClick(getNextDate.date)}
+        onClick={() => onClick(getNextDate.date, RIGHT_BUTTON)}
         disabled={date === getMaxDate}
         className={styles.rightButton}
       >
@@ -85,7 +89,7 @@ export default function ModalInfoList({ data, date, onClick }) {
                 ref={active ? currentDayRef : null}
                 className={active}
                 disabled={!isDate}
-                onClick={() => onClick(item)}
+                onClick={() => onClick(item, DATE_CHOSEN)}
               >
                 { formatDate(item, HOUR_FORMAT) }
               </button>

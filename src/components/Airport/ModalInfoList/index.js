@@ -8,6 +8,7 @@ import Item from '@/components/Airport/InfoList/Item';
 import ModalDaysSwitcher from '@/components/Airport/ModalInfoList/ModalDaysSwitcher';
 import { formatDate } from '@/utils/date';
 import { HOUR_24_FORMAT, WEEKDAY_MONTH_DAY_FORMAT, YEAR_MONTH_DAY_HOUR_FORMAT } from '@/constants/date';
+import { trackEvent } from '@/services/analytic';
 
 import styles from './modal.module.scss';
 
@@ -30,8 +31,13 @@ export default function ModalInfoList({
     }
   }, []);
 
-  const onClick = useCallback((value) => {
+  const onClick = useCallback((value, event) => {
     setDate(value);
+    if (event) {
+      const title = dateKey[0].toUpperCase() + dateKey.slice(1);
+      const action = `${event} ${title}s`;
+      trackEvent(action, { SelectedDate: value });
+    }
     if (scrollRef.current) {
       const scrollBox = scrollRef.current;
       const { scrollTop } = scrollBox;
