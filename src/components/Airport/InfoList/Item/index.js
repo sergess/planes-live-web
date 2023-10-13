@@ -13,7 +13,8 @@ const getFormattedCodes = (sharedCodes) => sharedCodes.split(',').map((code, ind
   </React.Fragment>
 ));
 export default function Item({
-  dateValue, actualDateValue, icao, iata, airport, sharedCodes, tz, id,
+  dateValue, actualDateValue, icao, iata,
+  airport, sharedCodes, tz, id, dateKey,
 }) {
   const actual_date = actualDateValue ? dayjs(actualDateValue) : null;
   const date = dayjs(dateValue);
@@ -21,7 +22,12 @@ export default function Item({
   const href = `/flight/${icao}/${id}`;
 
   return (
-    <Link prefetch={false} href={href} className={styles.link}>
+    <Link
+      prefetch={false}
+      href={href}
+      className={`${styles.link} analytic__${dateKey}_flight`}
+      data-analytic-code={icao}
+    >
       <div className={styles.container}>
         <div className={styles.timeContainer}>
           <p className={styles.timeLg}>
