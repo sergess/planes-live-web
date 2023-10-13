@@ -47,7 +47,10 @@ export default function CustomCalendar({ flightData, setFlightData }) {
     [currentDate],
   );
 
-  const { data: flightSchedule, isLoading: flightScheduleLoading } = useFetch('/api/flight', { flight: flightData?.flight?.icao, month: formatDate(currentDate, YEAR_MONTH_DATE_FORMAT) });
+  const { data: flightSchedule, isLoading: flightScheduleLoading } = useFetch('/api/flight', {
+    flight: flightData?.flight?.icao, // TODO: change to iata?
+    month: formatDate(currentDate, YEAR_MONTH_DATE_FORMAT),
+  });
 
   const daysWithFlight = useMemo(() => {
     if (!flightSchedule) return null;
