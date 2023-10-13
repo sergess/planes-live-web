@@ -27,13 +27,13 @@ export default function LandingHeader() {
       </div>
       <div className={styles.desktop}>
         <CustomButton
-          className={styles.link}
+          className={`${styles.link} analytic__download_app`}
           size={BUTTON_SIZE.SM}
         >
           Download app
         </CustomButton>
         <a
-          className={styles.icon}
+          className={`${styles.icon} analytic__apple_icon`}
           target="_blank"
           href={IOS_DOWNLOAD_LINK}
           rel="noreferrer"
@@ -47,7 +47,7 @@ export default function LandingHeader() {
           />
         </a>
         <a
-          className={styles.icon}
+          className={`${styles.icon} analytic__android_icon`}
           target="_blank"
           href={ANDROID_DOWNLOAD_LINK}
           rel="noreferrer"

@@ -32,7 +32,7 @@ export default function Button({ children }) {
   return (
     <button
       type="button"
-      className={styles.date}
+      className={`${styles.date} analytic__change_date`}
       onClick={onClick}
     >
       {children}

@@ -29,7 +29,7 @@ export default function SubscriptionPopup() {
         with the Planes Live app
       </div>
       <div className={styles.buttons}>
-        <Button>Download app</Button>
+        <Button analyticSelector="analytic__download_app_mobile">Download app</Button>
         <div>
           <Image
             src="/qr_ios.png"
@@ -43,7 +43,10 @@ export default function SubscriptionPopup() {
             height={172}
             alt="QR gp"
           />
-          <StoreBadge />
+          <StoreBadge
+            iosAnalyticSelector="analytic__download_app_store_modal"
+            androidAnalyticSelector="analytic__download_gp_modal"
+          />
         </div>
       </div>
     </div>

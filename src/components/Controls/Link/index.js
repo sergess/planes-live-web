@@ -8,7 +8,8 @@ import ModalInfoList from '@/components/Airport/ModalInfoList';
 import styles from './link.module.css';
 
 export default function LinkTo({
-  children, data, tz, airports, mapAirportField, dateKey,
+  children, data, tz, airports,
+  mapAirportField, dateKey, analyticSelector = '',
 }) {
   const { openModal } = useContext(modalContext);
 
@@ -27,7 +28,7 @@ export default function LinkTo({
   return (
     <button
       type="button"
-      className={styles.showAll}
+      className={`${styles.showAll} ${analyticSelector}`}
       onClick={onClick}
     >
       {children}

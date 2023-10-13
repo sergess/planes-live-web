@@ -7,7 +7,7 @@ export default function SearchRedirect() {
   return (
     <Link
       href="/search"
-      className={styles.link}
+      className={`${styles.link} analytic__search_window`}
     >
       <p
         className={styles.text}

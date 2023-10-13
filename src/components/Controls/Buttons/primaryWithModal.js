@@ -10,7 +10,7 @@ import Button from '@/components/Controls/Buttons/primary';
 
 // eslint-disable-next-line func-style
 function WithModal(Component, Popup) {
-  return function Comp({ children }) {
+  return function Comp({ children, ...props }) {
     const { openModal } = useContext(ModalContext);
     const { isMobile } = useDeviceDetect();
     const onClick = (e) => {
@@ -23,7 +23,7 @@ function WithModal(Component, Popup) {
     const href = getHref();
 
     return (
-      <Component {...(!isMobile ? { onClick } : { href })}>{children}</Component>
+      <Component {...(!isMobile ? { onClick, ...props } : { href, ...props })}>{children}</Component>
     );
   };
 }

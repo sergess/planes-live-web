@@ -64,10 +64,18 @@ export default async function InfoList({
             airport={airports.find((air) => air.icao === flight[mapAirportField])}
             sharedCodes={flight.shared_codes}
             tz={tz}
+            dateKey={dateKey}
           />
           )
         ))}
-        <LinkTo data={dataArray} tz={tz} airports={airports} mapAirportField={mapAirportField} dateKey={dateKey}>
+        <LinkTo
+          data={dataArray}
+          tz={tz}
+          airports={airports}
+          mapAirportField={mapAirportField}
+          dateKey={dateKey}
+          analyticSelector={`analytic__show_all_${query}`}
+        >
           Show all
         </LinkTo>
       </div>

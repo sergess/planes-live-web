@@ -4,11 +4,14 @@ import Image from 'next/image';
 import { ANDROID_DOWNLOAD_LINK, IOS_DOWNLOAD_LINK } from '@/constants/index';
 import styles from './StoreBadge.module.css';
 
-export default function StoreBadge() {
+export default function StoreBadge({
+  iosAnalyticSelector = '',
+  androidAnalyticSelector = '',
+}) {
   return (
     <div>
       <a
-        className={`${styles.link} ${styles.space}`}
+        className={`${styles.link} ${styles.space} ${iosAnalyticSelector}`}
         target="_blank"
         href={IOS_DOWNLOAD_LINK}
         rel="noreferrer"
@@ -21,7 +24,7 @@ export default function StoreBadge() {
         />
       </a>
       <a
-        className={styles.link}
+        className={`${styles.link} ${androidAnalyticSelector}`}
         target="_blank"
         href={ANDROID_DOWNLOAD_LINK}
         rel="noreferrer"

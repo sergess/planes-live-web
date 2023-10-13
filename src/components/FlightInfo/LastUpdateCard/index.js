@@ -92,7 +92,7 @@ export default function LastUpdateCard() {
               : action.value}
           </p>
         </div>
-        <CustomButton size={BUTTON_SIZE.SM}>
+        <CustomButton size={BUTTON_SIZE.SM} analyticSelector="analytic__view_all">
           View all updates (
           {actions?.length || 0}
           )
