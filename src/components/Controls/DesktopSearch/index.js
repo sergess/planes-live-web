@@ -74,8 +74,9 @@ export default function DesktopSearch({
                 <Link
                   prefetch={false}
                   key={value}
-                  className={styles.option}
+                  className={`${styles.option} analytic__search_option`}
                   href={`/${ROUTE_BY_TYPE[type]}/${value}`}
+                  data-analytic-code={value}
                 >
                   {getMatchedLabel(label, text)}
                   <span>{type}</span>
