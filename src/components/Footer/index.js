@@ -27,7 +27,7 @@ export default function Footer() {
           Contact support
         </a>
         <span
-          className={`ot-sdk-show-settings ${styles.infoLink}`}
+          className={`ot-sdk-show-settings ${styles.infoLink} analytic__manage_preferences`}
         >
           Manage preferences
         </span>

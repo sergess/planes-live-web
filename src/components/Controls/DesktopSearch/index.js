@@ -42,7 +42,7 @@ export default function DesktopSearch({
           }}
           autoFocus={autoFocus}
           placeholder={placeholder}
-          className={styles.search}
+          className={`${styles.search} analytic__search_input`}
           list="options"
         />
         <button

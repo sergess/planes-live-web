@@ -9,7 +9,7 @@ export default function MobileRedirectSearch() {
     <header className={styles.header}>
       <Link
         href="/"
-        className={styles.link}
+        className={`${styles.link} analytic__mobile_logo`}
       >
         <div className={styles.logo}>
           <Image
@@ -24,7 +24,7 @@ export default function MobileRedirectSearch() {
       </Link>
       <Link
         href="/search"
-        className={styles.link}
+        className={`${styles.link} analytic__mobile_search_redirect`}
       >
         <Image
           src="/svg/ic_search.svg"
