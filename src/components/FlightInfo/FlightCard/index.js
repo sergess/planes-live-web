@@ -138,7 +138,7 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
                 <div className={styles.blockContainer}>
                   <p className={styles.title}>{city}</p>
                   <Link
-                    href={`/airport/${departureIcao /* TODO use iata */}`}
+                    href={`/airport/${departureIcao}`/* TODO use iata */}
                     className={styles.description}
                     title={name}
                     prefetch={false}
