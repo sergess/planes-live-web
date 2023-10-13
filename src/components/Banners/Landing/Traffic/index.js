@@ -17,10 +17,10 @@ export default function Traffic() {
       </h2>
       <p className={styles.text}>See flight routes across the globe in real time</p>
       <div className={styles.buttonContainer}>
-        <PrimaryButton>Download app</PrimaryButton>
+        <PrimaryButton analyticSelector="analytic__download_app_1">Download app</PrimaryButton>
         <StoreBadge
-          iosAnalyticSelector="analytic__download_appstore_1_5"
-          androidAnalyticSelector="analytic__download_gp_1_5"
+          iosAnalyticSelector="analytic__download_appstore_1"
+          androidAnalyticSelector="analytic__download_gp_1"
         />
       </div>
     </div>

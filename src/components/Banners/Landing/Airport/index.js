@@ -26,10 +26,10 @@ export default function Airport() {
       <div className={styles.cardWrapper}>
         <Card />
         <div className={`${styles.buttonContainer} ${styles.localButtonContainer}`}>
-          <PrimaryButton>Download app</PrimaryButton>
+          <PrimaryButton analyticSelector="analytic__download_app_4">Download app</PrimaryButton>
           <StoreBadge
-            androidAnalyticSelector="analytic__download_gp_4_5"
-            iosAnalyticSelector="analytic__download_appstore_4_5"
+            androidAnalyticSelector="analytic__download_gp_4"
+            iosAnalyticSelector="analytic__download_appstore_4"
           />
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function Security() {
         <p>SECURITY WAIT TIMES</p>
       </div>
       <div className={styles.container}>
-        <PrimaryButton>Open in the app</PrimaryButton>
+        <PrimaryButton analyticSelector="analytic__open_in_app">Open in the app</PrimaryButton>
       </div>
     </div>
   );

@@ -27,10 +27,10 @@ export default function KnowMore() {
         with the Planes Live app
       </p>
       <div className={styles.buttonContainer}>
-        <PrimaryButton>Download app</PrimaryButton>
+        <PrimaryButton analyticSelector="analytic__download_app_5">Download app</PrimaryButton>
         <StoreBadge
-          androidAnalyticSelector="analytic__download_gp_5_5"
-          iosAnalyticSelector="analytic__download_appstore_5_5"
+          androidAnalyticSelector="analytic__download_gp_5"
+          iosAnalyticSelector="analytic__download_appstore_5"
         />
       </div>
     </div>

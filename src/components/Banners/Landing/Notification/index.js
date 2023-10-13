@@ -20,10 +20,10 @@ export default function Notification() {
       <p className={styles.description}>Be the first to know when flights change</p>
       <Notifications />
       <div className={styles.buttonContainer}>
-        <PrimaryButton>Download app</PrimaryButton>
+        <PrimaryButton analyticSelector="analytic__download_app_3">Download app</PrimaryButton>
         <StoreBadge
-          androidAnalyticSelector="analytic__download_gp_3_5"
-          iosAnalyticSelector="analytic__download_appstore_3_5"
+          androidAnalyticSelector="analytic__download_gp_3"
+          iosAnalyticSelector="analytic__download_appstore_3"
         />
       </div>
     </div>
