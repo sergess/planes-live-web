@@ -86,6 +86,7 @@ export default function ModalInfoList({
                     airport={airports.find((air) => air.icao === flight[mapAirportField])}
                     sharedCodes={flight.shared_codes}
                     tz={tz}
+                    dateKey={dateKey}
                   />
                 );
               })}
