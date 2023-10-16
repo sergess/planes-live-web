@@ -6,7 +6,7 @@ import Button from '@/components/Controls/Buttons/primary';
 
 import styles from './SubscriptionPopup.module.scss';
 
-export default function SubscriptionPopup() {
+export default function SubscriptionPopup({ analyticSelectors }) {
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
@@ -46,6 +46,7 @@ export default function SubscriptionPopup() {
           <StoreBadge
             iosAnalyticSelector="analytic__download_app_store_modal"
             androidAnalyticSelector="analytic__download_gp_modal"
+            {...(!!analyticSelectors && analyticSelectors)}
           />
         </div>
       </div>

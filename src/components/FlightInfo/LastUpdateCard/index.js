@@ -92,7 +92,14 @@ export default function LastUpdateCard() {
               : action.value}
           </p>
         </div>
-        <CustomButton size={BUTTON_SIZE.SM} analyticSelector="analytic__view_all">
+        <CustomButton
+          size={BUTTON_SIZE.SM}
+          analyticSelectors={{
+            iosAnalyticSelector: 'analytic__download_app_store_modal_in_update',
+            androidAnalyticSelector: 'analytic__download_gp_modal_in_update',
+          }}
+          analyticSelector="analytic__view_all"
+        >
           View all updates (
           {actions?.length || 0}
           )

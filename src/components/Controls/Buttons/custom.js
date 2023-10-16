@@ -6,12 +6,15 @@ import { ModalContext } from '@/contexts/modal/ModalContext';
 import SubscriptionPopup from '@/components/SubscriptionPopup';
 import styles from './button.module.css';
 
-export default function Button({ children, className = styles.custom, analyticSelector = '' }) {
+export default function Button({
+  children, className = styles.custom, analyticSelector = '',
+  analyticSelectors,
+}) {
   const { openModal } = useContext(ModalContext);
 
   const onClick = () => {
     openModal({
-      content: <SubscriptionPopup />,
+      content: <SubscriptionPopup analyticSelectors={analyticSelectors} />,
     });
   };
 

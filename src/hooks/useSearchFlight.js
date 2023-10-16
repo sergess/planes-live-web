@@ -24,7 +24,7 @@ export default () => {
           setOptions([...resultOfSearch.airports
             .map((a) => ({
               label: a.name,
-              value: a.icao,
+              value: a.icao, /* TODO move to iata */
               type: OPTION_TYPE.airport,
             })), ...resultOfSearch.autosuggest
             .filter((e) => e.type === 'iata') // temporary filter
