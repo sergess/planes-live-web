@@ -17,7 +17,7 @@ export default function SearchFlight() {
   return (
     <>
       <MobileSearch
-        placeholder="Search by flight number, airline, or airport"
+        placeholder="Search by flight number or airport"
         onChange={onChange}
         options={options}
         text={text}

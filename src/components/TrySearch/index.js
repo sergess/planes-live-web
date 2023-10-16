@@ -8,7 +8,7 @@ export default function TrySearch() {
       <p>
         You could try:
         <br />
-        ‘AA100’, ‘Emirates’, or ‘LAX’
+        ‘AA100’, ‘London’, or ‘LAX’
       </p>
     </div>
   );

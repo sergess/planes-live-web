@@ -12,7 +12,7 @@ export default function SearchRedirect() {
       <p
         className={styles.text}
       >
-        Search by flight number, airline, or airport
+        Search by flight number or airport
       </p>
     </Link>
   );
