@@ -19,14 +19,14 @@ export default function Item({
   const actual_date = actualDateValue ? dayjs(actualDateValue) : null;
   const date = dayjs(dateValue);
   const actualDateDifference = getDateDifference(dateValue, actualDateValue).minutes();
-  const href = `/flight/${icao}/${id}`;
+  const href = `/flight/${iata}/${id}`;
 
   return (
     <Link
       prefetch={false}
       href={href}
       className={`${styles.link} analytic__${dateKey}_flight`}
-      data-analytic-code={icao}
+      data-analytic-code={iata}
     >
       <div className={styles.container}>
         <div className={styles.timeContainer}>

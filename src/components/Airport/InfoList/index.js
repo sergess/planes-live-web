@@ -55,7 +55,7 @@ export default async function InfoList({
         {items.map(({ flight }, key) => (
           key < 5 && (
           <Item
-            key={flight.icao}
+            key={flight.iata}
             id={flight.id}
             icao={flight.icao}
             iata={flight.iata}

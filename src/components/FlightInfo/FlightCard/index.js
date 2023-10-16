@@ -38,7 +38,13 @@ const getCodes = (flight, flightNumber, flightId) => {
     id,
   };
 };
+export const getLabel = (flightNumber, iata, codes = '') => {
+  if (codes.includes(flightNumber) || flightNumber !== iata) {
+    return 'Operates as';
+  }
 
+  return 'Also known as';
+};
 export default function FlightCard({ logoUrl, flightId, flightNumber }) {
   const { flightData } = useContext(flightContext);
   if (!flightData?.flight || !flightData?.destinationAirport || !flightData?.departureAirport) {
@@ -51,6 +57,7 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
     arrival_terminal: arrivalTerminal, departure_terminal: departureTerminal,
     arrival_gate: arrivalGate, arrival_baggage_claim: arrivalBaggageClaim,
     departure_check_in_desk: departureCheckInDesk, actions, departure_gate: departureGate,
+    shared_codes: sharedCodes, iata,
   } = flightData.flight;
 
   const {
@@ -86,7 +93,7 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
             <>
               <br />
               <span className={styles.operates}>
-                Operates as
+                {getLabel(iata, flightNumber, sharedCodes)}
                 {` ${extraCode}`}
               </span>
             </>
@@ -131,7 +138,7 @@ export default function FlightCard({ logoUrl, flightId, flightNumber }) {
                 <div className={styles.blockContainer}>
                   <p className={styles.title}>{city}</p>
                   <Link
-                    href={`/airport/${departureIcao}`}
+                    href={`/airport/${departureIcao}`/* TODO use iata */}
                     className={styles.description}
                     title={name}
                     prefetch={false}
