@@ -71,7 +71,11 @@ export default function CustomCalendar({ flightData, setFlightData }) {
   }, []);
 
   const setFlight = useCallback(
-    (value) => () => setFlightData({ flight: flights[value].flight, date: flights[value].flight.departure }),
+    (value) => () => setFlightData({
+      flight: flights[value].flight,
+      date: flights[value].flight.departure,
+      position: flights[value].position,
+    }),
     [flights],
   );
 
@@ -84,7 +88,11 @@ export default function CustomCalendar({ flightData, setFlightData }) {
         setFlights(data.flights);
         setTooltipOpened(false);
         if (flightSchedule.data.dates.some((item) => item.count === 1)) {
-          setFlightData({ flight: data.flights[0].flight, date: data.flights[0].flight.departure });
+          setFlightData({
+            flight: data.flights[0].flight,
+            date: data.flights[0].flight.departure,
+            position: data.flights[0].position,
+          });
           // change url without reload
           window.history.pushState({}, null, `/flight/${data.flights[0].flight.icao}/${data.flights[0].flight.id}`);
         } else {

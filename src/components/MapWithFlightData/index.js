@@ -18,6 +18,7 @@ export default function MapWithFlightData() {
     flight,
     departureAirport,
     destinationAirport,
+    position: flightData.position,
   });
 
   if (!markers || !lines) {
