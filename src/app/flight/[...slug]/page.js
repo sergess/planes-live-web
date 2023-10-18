@@ -103,7 +103,7 @@ export default async function Page({ params }) {
     notFound();
   }
 
-  const { flight } = flightResponse[0];
+  const { flight, position } = flightResponse[0];
   const currentDate = flightId ? new Date(flight.departure) : new Date();
 
   const departureAirport = getAirport(commonDataResponse, flight.origin);
@@ -117,7 +117,7 @@ export default async function Page({ params }) {
 
   return (
     <FlightProvider value={{
-      flight, destinationAirport, departureAirport, date: currentDate,
+      flight, destinationAirport, departureAirport, date: currentDate, position,
     }}
     >
       <ModalProvider>

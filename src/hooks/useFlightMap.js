@@ -30,7 +30,7 @@ const updateWP = (flight) => {
 
   return updated;
 };
-const getLinesByStatus = (flight, mappedPositions = []) => {
+const getLinesByStatus = (flight, position, mappedPositions = []) => {
   // check Map position to avoid cases when flight in progress and we don't have positions
   if (flight.status === STATUS.ACTIVE && mappedPositions.length) {
     return [
@@ -86,7 +86,7 @@ const getLinesByStatus = (flight, mappedPositions = []) => {
 
   return [];
 };
-const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinationAirport) => {
+const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinationAirport, position) => {
   const markers = [{
     id: 1,
     latitude: flight.waypoints[0].lat,
@@ -100,12 +100,12 @@ const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinati
   }];
   if (flight.status === STATUS.ACTIVE) {
     const { current, next } = getPositionsForAngle(flight.waypoints, flight.positions);
-    const angle = getCoordinatesAngle(current, next);
+    const angle = position?.course || getCoordinatesAngle(current, next);
 
     return [...markers, {
       id: 3,
-      latitude: current.lat,
-      longitude: current.lon,
+      latitude: position.lat,
+      longitude: position.lon,
       height: '28px',
       html: <Image
         src="/svg/map_aviation.svg"
@@ -113,7 +113,7 @@ const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinati
         width={28}
         height={28}
         style={{
-          transform: `rotate(calc(${angle}deg + 90deg))`,
+          transform: `rotate(calc(${position?.course || angle}deg + 90deg))`,
         }}
         alt="Plane icon"
       />,
@@ -142,7 +142,9 @@ const getInitialView = (flight, markers) => {
   return null;
 };
 
-export default ({ flight, departureAirport, destinationAirport }) => {
+export default ({
+  flight, departureAirport, destinationAirport, position,
+}) => {
   if (!flight || !departureAirport || !destinationAirport) {
     return {
       initialView: null, lines: null, markers: null, mappedPositions: null,
@@ -158,8 +160,8 @@ export default ({ flight, departureAirport, destinationAirport }) => {
       return [lon, lat];
     }) || [];
   const updatedFlight = updateWP(flight);
-  const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport);
-  const lines = getLinesByStatus(updatedFlight, mappedPositions);
+  const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport, position);
+  const lines = getLinesByStatus(updatedFlight, position, mappedPositions);
 
   const initialView = getInitialView(updatedFlight, markers);
 
