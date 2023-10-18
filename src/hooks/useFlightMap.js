@@ -33,6 +33,8 @@ const updateWP = (flight) => {
 const getLinesByStatus = (flight, position, mappedPositions = []) => {
   // check Map position to avoid cases when flight in progress and we don't have positions
   if (flight.status === STATUS.ACTIVE && mappedPositions.length) {
+    const planePosition = position ? [position.lon, position.lat] : mappedPositions[mappedPositions.length - 1];
+
     return [
       {
         id: 'source1',
@@ -40,13 +42,14 @@ const getLinesByStatus = (flight, position, mappedPositions = []) => {
         coordinates: [
           [flight.waypoints[0].lon, flight.waypoints[0].lat],
           ...mappedPositions,
+          planePosition,
         ],
       },
       {
         id: 'source2',
         layerId: 'layer2',
         coordinates: transformLineToGeodesic([
-          mappedPositions[mappedPositions.length - 1],
+          planePosition,
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
         ]),
         layerPaint: { 'line-dasharray': [1, 2] },
