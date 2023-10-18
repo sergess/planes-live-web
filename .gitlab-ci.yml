@@ -1,12 +1,12 @@
 # https://blog.callr.tech/building-docker-images-with-gitlab-ci-best-practices/
 
 stages:
-    - build
-    - deploy-image
-    - deploy-cloudrun
-    - build-production
-    - deploy-image-production
-    - deploy-cloudrun-production
+  - build
+  - deploy-image
+  - deploy-cloudrun
+  - build-production
+  - deploy-image-production
+  - deploy-cloudrun-production
 
 default:
   image: docker:19
@@ -45,7 +45,19 @@ build-dev:
   environment: dev
   only:
     - development
-    - init_ci
+
+build-staging:
+  extends: .build
+  environment: dev-staging
+  only:
+    - main
+
+build-production:
+  extends: .build
+  stage: build-production
+  environment: production
+  only:
+    - main
 
 .deploy-to-gar:
   stage: deploy-image
@@ -61,7 +73,21 @@ deploy-to-gar-dev:
   environment: dev
   only:
     - development
-    - init_ci
+
+deploy-to-gar-staging:
+  extends: .deploy-to-gar
+  environment: dev-staging
+  only:
+    - main
+
+deploy-to-gar-production:
+  extends: .deploy-to-gar
+  stage: deploy-image-production
+  environment: production
+  when: manual
+  allow_failure: false
+  only:
+    - main
 
 .deploy-to-cloudrun:
   stage: deploy-cloudrun
@@ -94,4 +120,16 @@ deploy-to-cloudrun-dev:
   environment: dev
   only:
     - development
-    - init_ci
+
+deploy-to-cloudrun-staging:
+  extends: .deploy-to-cloudrun
+  environment: dev-staging
+  only:
+    - main
+
+deploy-to-cloudrun-production:
+  extends: .deploy-to-cloudrun
+  stage: deploy-cloudrun-production
+  environment: production
+  only:
+    - main
