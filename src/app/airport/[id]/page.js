@@ -20,9 +20,7 @@ export const generateMetadata = async ({ params }) => {
 
   return {
     themeColor: 'rgba(238, 239, 245, 1)',
-    title: `JFK, John F. Kennedy International Airport - Arrivals, 
-    Departures & Overview | Planes Live which means its stucture is 
-    (${params.id}), [${airport.name}] - 
+    title: `${airport.iata}, ${airport.name} - 
     | Arrivals, Departures & Overview | Planes Live`,
     description: `Keep track of aircraft arrivals, departures, 
     delays at ${params.name} (${params.id}) and more! (64 wo airport details)`,
