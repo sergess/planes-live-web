@@ -19,7 +19,12 @@ export default function Button({ children }) {
   const { flightData, setFlightData } = useContext(flightContext);
 
   const test = (data) => {
-    setFlightData((prevState) => ({ ...prevState, flight: data.flight, date: data.date }));
+    setFlightData((prevState) => ({
+      ...prevState,
+      flight: data.flight,
+      date: data.date,
+      position: data.position,
+    }));
     closeModal();
   };
 

@@ -30,13 +30,9 @@ const updateWP = (flight) => {
 
   return updated;
 };
-const getLinesByStatus = (flight, position, mappedPositions = []) => {
+const getLinesByStatus = (flight, mappedPositions = []) => {
   // check Map position to avoid cases when flight in progress and we don't have positions
   if (flight.status === STATUS.ACTIVE && mappedPositions.length) {
-    const planePosition = position
-      ? [updateMeridianCord(position.lon), position.lat]
-      : mappedPositions[mappedPositions.length - 1];
-
     return [
       {
         id: 'source1',
@@ -44,14 +40,13 @@ const getLinesByStatus = (flight, position, mappedPositions = []) => {
         coordinates: [
           [flight.waypoints[0].lon, flight.waypoints[0].lat],
           ...mappedPositions,
-          planePosition,
         ],
       },
       {
         id: 'source2',
         layerId: 'layer2',
         coordinates: transformLineToGeodesic([
-          planePosition,
+          mappedPositions[mappedPositions.length - 1],
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
         ]),
         layerPaint: { 'line-dasharray': [1, 2] },
@@ -91,7 +86,7 @@ const getLinesByStatus = (flight, position, mappedPositions = []) => {
 
   return [];
 };
-const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinationAirport, position) => {
+const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinationAirport) => {
   const markers = [{
     id: 1,
     latitude: flight.waypoints[0].lat,
@@ -105,12 +100,12 @@ const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinati
   }];
   if (flight.status === STATUS.ACTIVE) {
     const { current, next } = getPositionsForAngle(flight.waypoints, flight.positions);
-    const angle = position?.course || getCoordinatesAngle(current, next);
+    const angle = getCoordinatesAngle(current, next);
 
     return [...markers, {
       id: 3,
-      latitude: position.lat,
-      longitude: updateMeridianCord(position.lon),
+      latitude: current.lat,
+      longitude: current.lon,
       height: '28px',
       html: <Image
         src="/svg/map_aviation.svg"
@@ -118,7 +113,7 @@ const getMarkersByStatus = (flight, mappedPositions, departureAirport, destinati
         width={28}
         height={28}
         style={{
-          transform: `rotate(calc(${position?.course || angle}deg + 90deg))`,
+          transform: `rotate(calc(${angle}deg + 90deg))`,
         }}
         alt="Plane icon"
       />,
@@ -147,9 +142,7 @@ const getInitialView = (flight, markers) => {
   return null;
 };
 
-export default ({
-  flight, departureAirport, destinationAirport, position,
-}) => {
+export default ({ flight, departureAirport, destinationAirport }) => {
   if (!flight || !departureAirport || !destinationAirport) {
     return {
       initialView: null, lines: null, markers: null, mappedPositions: null,
@@ -165,8 +158,8 @@ export default ({
       return [lon, lat];
     }) || [];
   const updatedFlight = updateWP(flight);
-  const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport, position);
-  const lines = getLinesByStatus(updatedFlight, position, mappedPositions);
+  const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport);
+  const lines = getLinesByStatus(updatedFlight, mappedPositions);
 
   const initialView = getInitialView(updatedFlight, markers);
 
