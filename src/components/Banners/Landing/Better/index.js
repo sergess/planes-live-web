@@ -13,7 +13,12 @@ export default function Better() {
         <br />
         with the app
       </h1>
-      <OutlineButton href={`#${FEATURES_ANCHOR} analytic__find_out`}>Find out why</OutlineButton>
+      <OutlineButton
+        href={`#${FEATURES_ANCHOR}`}
+        analyticSelector="analytic__find_out"
+      >
+        Find out why
+      </OutlineButton>
     </div>
   );
 }
