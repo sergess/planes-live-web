@@ -1,0 +1,88 @@
+.primary {
+    background-color: var(--color-primary);
+    border-radius: 4.2rem;
+    font-size: var(--font-caption);
+    font-weight: 600;
+    color: white;
+    border: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    line-height: 1.9rem;
+    cursor: pointer;
+}
+.outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5rem;
+    font-size: var(--font-body-2);
+    font-weight: 600;
+    color: var(--color-dark);
+    border: thin solid var(--color-dark);
+    background: var(--color-white);
+    width: 15rem;
+    height: 3.9rem;
+    text-decoration: none;
+}
+.outline:hover {
+    background: var(--color-dark-hovered);
+    color: var(--color-white);
+}
+.outline:active {
+    color: var(--color-white);
+    background: var(--color-grey-hover);
+}
+.custom {
+    background-color: var(--color-primary);
+    border-radius: 4.2rem;
+    padding: 1rem 2rem;
+    font-size: var(--font-caption);
+    font-weight: 500;
+    color: white;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+.primary:hover {
+    background: var(--color-primary-hovered);
+}
+.primary:active  {
+    background: var(--color-primary-active);
+}
+
+.custom:hover {
+    background: var(--color-primary-hovered);
+}
+.custom:active  {
+    background: var(--color-primary-active);
+}
+.date {
+    background: none;
+    padding: 0;
+    color: var(--color-primary);
+    font-size: var(--font-body-1);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.44px;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+}
+.date img {
+    margin-left: 0.5rem;
+}
+.large {
+    padding: 1rem 2rem;
+    font-size: var(--font-body-2);
+    font-weight: 600;
+}
+.small {
+    padding: .6rem 1rem;
+    font-size: var(--font-caption);
+    font-weight: 600;
+}

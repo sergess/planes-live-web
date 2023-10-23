@@ -1,0 +1,36 @@
+.container {
+    box-shadow: var(--info-box-container-shadow);
+    border-radius: 1.5rem;
+    background: var(--color-white);
+    margin-bottom: 1.5rem;
+    margin-right: .8rem;
+    margin-left: .8rem;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-caption);
+    padding: 1.2rem;
+    color: var(--color-dark-70);
+}
+.time {
+    font-weight: 400;
+}
+.body {
+    padding: 1.2rem;
+    text-align: center;
+}
+.body a {
+    padding: .9rem 1.6rem;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 1rem;
+}
+.list {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    text-align: start;
+    font-size: 1.6rem;
+    font-weight: 400;
+}

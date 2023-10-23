@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: var(--info-box-container-shadow);
+    position: relative;
+    border-radius: 1.6rem;
+    height: 23rem;
+    background-image: url("/img_securtiy_hours.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.container > button {
+    z-index: 1;
+}
+.label {
+    display: flex;
+    margin: 3rem 0 .9rem 1rem;
+    text-transform: uppercase;
+}
+.label p {
+    margin-left: .5rem;
+    color: var(--color-dark-50);
+    font-size: var(--font-caption);
+}

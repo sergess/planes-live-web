@@ -1,0 +1,40 @@
+@import 'src/app/styles/variables';
+
+.primaryText {
+    composes: primaryText from "../common.css";
+    margin-left: .5rem;
+}
+.container {
+    composes: container from "../common.css";
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    height: 30rem;
+    background-image: url("/plane_bg.png");
+    background-repeat: no-repeat;
+    background-position-x: right;
+}
+.title {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: var(--font-h1);
+    font-weight: 600;
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: $mobile-breakpoint) {
+    :global(.landingBanners:not(.applyMobile)) {
+        .title > br {
+            display: none;
+        }
+        .title {
+            margin: 2rem 0 2rem 0;
+        }
+        .container {
+            width: 59rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 36.5rem;
+        }
+    }
+}

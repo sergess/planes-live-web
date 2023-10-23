@@ -1,0 +1,10 @@
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://planeslive.com/sitemaps/sitemap.xml

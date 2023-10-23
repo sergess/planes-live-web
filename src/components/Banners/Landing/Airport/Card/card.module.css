@@ -1,0 +1,55 @@
+@value primaryText from "../../common.css";
+
+.container {
+    width: 20rem;
+    margin:  0 auto;
+    box-shadow: 6px 11px 47px 0 rgba(18, 17, 21, 0.16), 1px 4px 9px 0 rgba(0, 0, 0, 0.05);
+    background: var(--color-white);
+    padding: 1rem;
+    border-radius: 1.2rem;
+}
+.figure {
+    display: flex;
+    padding: 1rem 0;
+}
+.figCaption {
+    font-size: var(--font-caption);
+    font-weight: 700;
+    text-align: left;
+    margin-left: .8rem;
+}
+.row {
+    display: flex;
+    padding: .9rem 0;
+    align-items: center;
+    justify-content: space-between;
+    border-top: thin solid var(--color-dark-10);
+    font-weight: 400;
+}
+.row:last-child {
+    padding-bottom: 0;
+}
+.text {
+    margin-left: .5rem;
+    text-align: right;
+}
+.textSm {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: right;
+}
+.textSm > span {
+    color: var(--color-dark-50);
+}
+.textLg {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.dark_7 {
+    color:  var(--color-dark-70) ;
+}
+.phone {
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+}

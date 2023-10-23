@@ -3,10 +3,18 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["./src/components/*"],
+      "@/constants/*": ["./src/constants/*"],
       "@/pages/*": ["pages/*"],
       "@/styles/*": ["./src/app/styles/*"],
       "@/app/*": ["./src/app/*"],
-      "@/assets/*": ["./src/assets/*"]
+      "@/assets/*": ["./src/assets/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/api/*": ["./src/api/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/requests/*": ["./src/requests/*"],
+      "@/middlewares/*": ["./src/middlewares/*"],
+      "@/contexts/*": ["./src/contexts/*"]
     }
   }
 }

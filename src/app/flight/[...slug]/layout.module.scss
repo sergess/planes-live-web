@@ -1,0 +1,39 @@
+.container {
+    box-shadow: var(--left-panel-shadow);
+    position: static;
+}
+.mobile {
+    /* to disable scroll notification */
+    overflow: hidden;
+}
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+    .container {
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        width: var(--left-panel-width);
+        z-index: var(--airport-container-z-index);
+        background: var(--surfaces-base);
+    }
+    .main {
+        height: calc(100vh - var(--desktop-header-height));
+        overflow: auto;
+    }
+}
+/* Mobile */
+@media (max-width: $mobile-breakpoint) {
+    .desktop {
+        display: none;
+    }
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: $mobile-breakpoint) {
+    .mobile {
+        display: none;
+    }
+}
+.lottieContainer {
+    padding: 2rem 1rem 1rem 1rem;
+    opacity: .5;
+}

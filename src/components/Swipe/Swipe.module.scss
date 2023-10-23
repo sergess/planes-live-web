@@ -1,0 +1,86 @@
+@value topHeight: calc(100svh - var(--mobile-header-height));
+@value middleHeight: calc(100svh - var(--mobile-header-height) - 2.4rem);
+@value previewSpace: 1.6rem;
+@value previewHeight: 6rem;
+@value bottomHeight: 14rem;
+@value drawerRadius: 15px 15px 0 0;
+@value bottomBannerSpace: 3rem;
+@value touchAreaBottomSize: -25px;
+@value touchAreaTopSize: -10px;
+
+@keyframes opacityAnimation {
+    0%   { opacity: 0.0; }
+    50%  { opacity:0.0; }
+    100% { opacity:1.0; }
+}
+.gripWrapper {
+    position: relative;
+}
+.gripWrapper:after {
+    content:'';
+    position:absolute;
+    top: touchAreaTopSize;
+    bottom: touchAreaBottomSize;
+    left: 0;
+    right: 0;
+    z-index: calc(var(--map-z-index) + 1);
+}
+/* Mobile */
+@media (max-width: $mobile-breakpoint) {
+    /*for animation*/
+    :global(.preview):has(+ .drawer) {
+        visibility: hidden;
+        opacity: 0;
+    }
+    :global(.preview):has(+ .bottom) {
+        visibility: visible;
+        opacity: 1;
+        animation: opacityAnimation 1.5s forwards;
+    }
+    .gripWrapper {
+        display: flex;
+        justify-content: center;
+        height: 20px;
+        align-items: center;
+        cursor: pointer;
+        touch-action: none;
+    }
+    .drawer {
+        z-index: var(--header-z-index);
+        background: var(--surfaces-base);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        box-shadow: var(--drawer-shadow);
+        border-radius: drawerRadius;
+        transition: height 400ms;
+        overflow: auto;
+    }
+    .middle {
+        height: middleHeight;
+    }
+    .top {
+        height: topHeight;
+        border-radius: 0;
+    }
+    .bottom {
+        height: bottomHeight;
+    }
+    :global(.smartbanner-show) .middle {
+        height: calc(middleHeight - var(--banner-height));
+    }
+    :global(.smartbanner-show) .top {
+        height: calc(topHeight - var(--banner-height));
+    }
+    :global(.smartbanner-show) .bottom {
+        height: calc(bottomHeight - var(--banner-height) + bottomBannerSpace);
+    }
+}
+
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+    .gripWrapper {
+        display: none;
+    }
+}

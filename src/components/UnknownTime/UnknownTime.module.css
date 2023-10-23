@@ -1,0 +1,9 @@
+.textWrapper {
+    display: inline-block;
+    font-size: var(--font-caption);
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.1599999964237213px;
+    text-align: right;
+    color:  rgba(41, 40, 56, .8);
+}

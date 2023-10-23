@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: thin solid var(--color-dark-10);
+    width: 100%;
+}
+.title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 2rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: var(--font-body-2);
+    text-align: left;
+}
+.timeLg {
+    width: 6rem;
+    font-size: var(--font-body-2);
+}
+.timeSm {
+    font-size: var(--font-caption);
+    color: var(--color-dark-50);
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-top: .4rem;
+}
+.cityIata {
+    font-size: var(--font-caption);
+    color: var(--color-dark-50);
+    font-weight: 400;
+    text-align: right;
+}
+.city {
+    font-size: var(--font-body-1);
+    margin-bottom: .4rem;
+    white-space: nowrap;
+    max-width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.timeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.codes {
+    font-weight: 400;
+    font-size: var(--font-caption);
+    color: var(--color-dark-70);
+    margin-top: .2rem;
+    max-width: 11rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.link {
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+}
+.link:nth-last-child(2) .container {
+    border: none;
+}

@@ -1,0 +1,27 @@
+.container {
+    margin: 16rem 2.5rem 0 2.5rem;
+}
+.primaryText {
+    color: var(--color-primary);
+}
+.buttonContainer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Mobile */
+@media (max-width: 701px) {
+    .buttonContainer a:has(img) {
+        display: none;
+    }
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+    :global(.landingBanners:not(.applyMobile)) .buttonContainer > a {
+        display: none;
+    }
+    :global(.applyMobile) .buttonContainer div {
+        display: none;
+    }
+}

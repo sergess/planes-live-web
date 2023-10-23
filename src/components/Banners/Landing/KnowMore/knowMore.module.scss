@@ -1,0 +1,76 @@
+@value logoContainerSize: 8.8rem;
+@value buttonContainer from "../common.css";
+@import 'src/app/styles/variables';
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 9.6rem 0 9.5rem 0;
+}
+.logoContainer {
+    border-right: 1.9rem;
+    height: logoContainerSize;
+    width: logoContainerSize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.logoWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 12rem;
+
+    background-image: url("/img_app_icon.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+.logoText {
+    font-size: 2.2rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-dark-70);
+    letter-spacing: .4380000114440918rem;
+    margin-top: 11rem;
+}
+.knowMore {
+    margin-top: 6.4rem;
+    font-size: var(--font-h3);
+    font-weight: 700;
+    text-align: center;
+}
+.description {
+    margin: 3rem 0 4.5rem 0;
+    font-size: var(--font-body-2);
+    font-weight: 400;
+    line-height: 1.9rem;
+    text-align: center;
+}
+
+@media (min-width: $mobile-breakpoint) {
+    :global(.landingBanners:not(.applyMobile)) {
+        .container {
+            padding: 25.7rem 0 14.3rem 0;
+        }
+
+        .knowMore {
+            margin-top: 5.7rem;
+            font-size: var(--font-h4);
+        }
+
+        .description {
+            margin: 3.2rem 0 3.9rem 0;
+            font-size: var(--font-subheadline);
+            letter-spacing: -0.4399999976158142px;
+            line-height: 22px;
+            color: var(--color-dark);
+        }
+
+        .logoText {
+            font-weight: 500;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+@value values: "../notifications.module.scss";
+@value notificationWidth, notificationMargin from values;
+.container {
+    padding: 1rem 1.6rem 1rem 1.6rem;
+    box-shadow: -8px 11px 22px 0 #00000040;
+    background: linear-gradient(260.27deg, #FFFFFF -2.91%, rgba(255, 255, 255, 0) 102.73%),
+    linear-gradient(85.42deg, #FFFFFF 0%, #F3F3F3 85.22%);
+    border: thin solid;
+    border-image-source: linear-gradient(260.27deg, #FFFFFF -2.91%, rgba(255, 255, 255, 0) 102.73%);
+    border-radius: 5.1rem;
+    font-size: var(--font-body-2);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: notificationMargin;
+    min-width: notificationWidth;
+}
+.text {
+    margin-right: .8rem;
+    font-weight: 600;
+    font-size: var(--font-body-2);
+    white-space: nowrap;
+}
+@media (min-width: $mobile-breakpoint) {
+    .text {
+        font-size: var(--font-body-3);
+        font-weight: 500;
+    }
+}
+/*logic for flight page in all media*/
+:global(.applyMobile) .text {
+    font-size: var(--font-body-3);
+    font-weight: 500;
+}

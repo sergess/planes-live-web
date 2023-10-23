@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    background: var(--color-secondary-yellow);
+    border-radius: .6rem;
+    width: min-content;
+    font-size: var(--font-body-1);
+    padding-right: .3rem;
+}

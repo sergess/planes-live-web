@@ -1,0 +1,41 @@
+@value rowPadding:1.2rem 1.2rem;
+
+.container {
+    box-shadow: var(--info-box-container-shadow);
+    background: var(--color-white);
+    border-radius: 1.6rem;
+}
+
+.phone {
+    display: flex;
+    color: var(--color-primary);
+    align-items: center;
+    border-bottom: thin solid var(--color-dark-10);
+    padding: rowPadding;
+    font-size: 1.4rem;
+}
+.phone p {
+    margin-left: .5rem;
+}
+.name {
+    display: flex;
+    align-items: center;
+    padding: rowPadding;
+    border-bottom: thin solid var(--color-dark-10);
+}
+.name p{
+    margin-left: 1.5rem;
+}
+.iata {
+    font-weight: 600;
+}
+.date {
+    display: flex;
+    justify-content: space-between;
+    padding: rowPadding;
+    font-size: var(--font-caption);
+    color: var(--color-dark-50);
+}
+.location {
+    font-size: var(--font-body-1);
+}

@@ -1,0 +1,92 @@
+@value searchHeight: 4.4rem;
+@value closeIconOffset: 0.8rem;
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .1rem;
+    padding: 2.2rem;
+    font-size: var(--font-body-3);
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    color: var(--color-dark);
+    &:active {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+        linear-gradient(0deg, #DBDCE3, #DBDCE3);
+    }
+    &:hover {
+        background: var(--surfaces-lowered);
+    }
+}
+.search {
+    width: 100%;
+    height: searchHeight;
+    color: var(--color-white);
+    margin-left: .5rem;
+    background: rgba(63, 62, 76, 1);
+    font-weight: 400;
+    padding: 1.3rem;
+    border-radius: 1.2rem;
+    outline: none;
+    border: none;
+    font-size: var(--font-body-1);
+    caret-color: var(--color-white);
+}
+.search::placeholder {
+    font-size: var(--font-body-1);
+    font-weight: 400;
+    color: rgba(255, 255, 255, .5);
+}
+.search:hover {
+    background: var(--color-grey-hover);
+    color: var(--color-white);
+}
+.search:focus {
+    background: var(--color-grey-hover);
+    color: var(--color-white);
+}
+.searchList {
+    position: absolute;
+    width: 100%;
+    top: var(--desktop-header-height);
+    right: 0;
+    height: calc(100vh - var(--desktop-header-height));
+    display: flex;
+    flex-direction: column;
+
+    font-size: var(--font-body-2);
+    background: var(--surfaces-base);
+    z-index: var(--option-list-index);
+    overflow: auto;
+    text-decoration: none;
+}
+.searchList span {
+    text-decoration: none;
+    color: var(--color-dark-50);
+    font-size: var(--font-body-1);
+    line-height: var(--font-body-1);
+}
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+    .searchList span {
+        color: var(--color-dark-30);
+    }
+}
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+.close {
+    position: absolute;
+    right: closeIconOffset;
+    top: closeIconOffset;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.lottie {
+    padding: 2rem;
+}

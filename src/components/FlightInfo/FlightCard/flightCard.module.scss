@@ -1,0 +1,155 @@
+@value flightBoxSpace: 1.2rem;
+@value lineSize: 2.6rem; /*size of left line of city*/
+@value timeBlockSize: 9.5rem;
+@value pointSize: 6px;
+@value lineWidth: 21px;
+
+@mixin line-point {
+    content: '';
+    display: inline-block;
+    width: pointSize;
+    height: pointSize;
+    border-radius: 50%;
+    background-color: rgba(191, 191, 196, 1);
+    position: absolute;
+    left: -2.5px;
+}
+
+.boxBody {
+    padding: flightBoxSpace;
+    display: flex;
+}
+.block {
+    display: flex;
+    align-items: center;
+}
+.bottomBlock {
+    display: flex;
+    margin-left: lineWidth;
+    max-width: calc(100% - lineWidth);
+}
+.title {
+    font-size: var(--font-h1);
+    margin-bottom: .5rem;
+    font-weight: 500;
+}
+.description {
+    font-size: var(--font-caption);
+    color: var(--color-primary);
+    margin-bottom: .5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+}
+.blockContainer {
+    display: inline-block;
+    width: calc(100% - timeBlockSize);
+    overflow: hidden;
+}
+.info {
+    font-size: var(--font-caption);
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+.line {
+    display: flex;
+    padding: 1rem 1rem 0;
+}
+.lineItem {
+    position: relative;
+    background: rgba(191, 191, 196, 1);
+    width: 1px;
+}
+.lineItem:before {
+    @include line-point;
+    top: calc(pointSize / 2 * -1);
+}
+.lineItem:after {
+    @include line-point;
+    bottom: calc(pointSize / 2 * -1);
+}
+.middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin-bottom: 1.5rem;
+    margin-top: 1.8rem;
+}
+.timeDiff {
+    padding: 0 .8rem;
+    font-weight: 400;
+    white-space: nowrap;
+    font-size: var(--font-caption);
+    color: var(--color-dark-50);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.box {
+    box-shadow: var(--info-box-container-shadow);
+    border-radius: 1.5rem;
+    background: var(--color-white);
+    margin-bottom: 1.5rem;
+
+    margin-right: .8rem;
+    margin-left: .8rem;
+}
+.boxHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    border-bottom: thin solid var(--color-dark-10);
+}
+.flightLabel {
+    margin: 0;
+    font-size: var(--font-body-1);
+    font-weight: 500;
+}
+.logo {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: .8rem;
+    border: .2rem solid #EEEFF5;
+    border-radius: 2.4rem;
+}
+.flexContainer {
+    display: flex;
+    align-items: center;
+}
+.infoContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: flightBoxSpace;
+}
+.infoContainer > div:nth-child(2) {
+    margin-left: 1.2rem;
+}
+.operates {
+    color: var(--color-dark-70);
+    font-size: var(--font-small);
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    display: inline-block;
+}
+.lineContainer {
+    display: flex;
+    flex-direction: row;
+}
+.line {
+    padding-bottom: 17px; /*space to middle of the city title*/
+}
+.pathWrapper {
+    width: calc(100% - lineWidth);
+}

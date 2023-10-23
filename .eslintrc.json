@@ -9,23 +9,35 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": 0,
     "react/jsx-props-no-spreading": 0,
+    "react/no-unknown-property": ["error", { "ignore": ["jsx", "global"] }],
     "react-hooks/exhaustive-deps": 0,
-    "max-len": [2, { "code": 120, "ignoreTemplateLiterals": true, "ignoreStrings": true}],
+    "max-len": [2, { "code": 180, "ignoreTemplateLiterals": true, "ignoreStrings": true}],
     "camelcase": 0,
     "func-style": [2, "expression", { "allowArrowFunctions": true }],
     "padding-line-between-statements": [
       "error",
       { "blankLine": "always", "prev": "*", "next": "return" }
-    ]
+    ],
+    "jsx-a11y/no-autofocus": 0,
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off"
   },
   "settings": {
     "import/resolver": {
       "alias": {
         "map": [
           ["@/components", "./src/components"],
+          ["@/constants", "./src/constants"],
           ["@/pages/*", "./src/app/pages"],
           ["@/styles/*", "./src/app/styles"],
-          ["@/assets/*", "./src/assets"]
+          ["@/utils/*", "./src/utils"],
+          ["@/assets/*", "./src/assets"],
+          ["@/hooks/*", "./src/hooks"],
+          ["@/api/*", "./src/api"],
+          ["@/services/*", "./src/services"],
+          ["@/requests/*", "./src/requests"],
+          ["@/middlewares/*", "./src/middlewares"],
+          ["@/contexts/*", "./src/contexts"]
         ],
         "extensions": [".js", ".jsx"]
       }

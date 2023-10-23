@@ -1,0 +1,61 @@
+@import 'src/app/styles/variables';
+@value primaryText from "../common.css";
+@value buttonContainer from "../common.css";
+
+.title {
+    font-size: var(--font-h3);
+    font-weight: 700;
+    line-height: 3.3rem;
+    text-align: center;
+}
+.description {
+    font-size: var(--font-body-2);
+    font-weight: 400;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.cardWrapper {
+    padding: 8rem 0 11rem 0;
+    background-image: url("/svg/map_background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.container {
+    padding: 1rem 0 0 0;
+    margin-top: 9.6rem;
+}
+.localButtonContainer {
+    text-align: center;
+    margin-top: 8.5rem;
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: $mobile-breakpoint) {
+    :global(.landingBanners:not(.applyMobile)) {
+        .cardWrapper {
+            padding: 8rem 0 0 0;
+        }
+        .localButtonContainer {
+            margin-top: 22.8rem;
+        }
+        .container {
+            padding-bottom: 0;
+            margin: 28.5rem 0 0;
+        }
+        .cardWrapper {
+            padding-top: 8rem;
+            background-image: url("/map.png");
+            background-size: auto;
+            background-position: top;
+            margin-top: 0;
+        }
+        .description br {
+            display: none;
+        }
+        .title {
+            font-weight: 700;
+            font-size: var(--font-h4);
+        }
+    }
+}

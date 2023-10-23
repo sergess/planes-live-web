@@ -1,0 +1,23 @@
+.mobContent {
+    margin-top: 2rem;
+    background: var(--color-white);
+    box-shadow: 0 .4rem 2.4rem 0 #12111529;
+    border-radius: 1.6rem 1.6rem 0 0;
+}
+.body {
+    height: calc(100% - 2rem);
+}
+.logo {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+/* Desktop */
+@media (min-width: $mobile-breakpoint) {
+    .container {
+        width: 100%;
+        height: calc(100vh - var(--desktop-header-height));
+        overflow: auto;
+        padding-top: 0;
+        background: var(--surfaces-base);
+    }
+}

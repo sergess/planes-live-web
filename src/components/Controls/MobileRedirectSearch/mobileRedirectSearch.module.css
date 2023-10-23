@@ -1,0 +1,26 @@
+.logo {
+    display: flex;
+    align-items: center;
+}
+.label {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-left: .5rem;
+    color: var(--color-white);
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-dark);
+    padding: 0 1.8rem;
+    height: var(--mobile-header-height);
+}
+:global(.smartbanner-show) .header {
+    margin-top: var(--banner-height);
+}
+.link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,30 @@
+.mobile {
+    background: var(--color-white);
+    height: 100svh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    z-index: var(--mobile-search-z-index);
+    position: absolute;
+}
+.desktopContainer {
+    box-shadow: var(--left-panel-shadow);
+    height: 100vh;
+    position: absolute;
+    left:0;
+    top: 0;
+    width: var(--left-panel-width);;
+    z-index: var(--desktop-search-z-index);
+    background: var(--surfaces-base);
+}
+/*!* Desktop *!*/
+@media (min-width: $mobile-breakpoint) {
+    .mobile {
+        display: none;
+    }
+}/*!* Mobile *!*/
+@media (max-width: $mobile-breakpoint) {
+    .desktop {
+        display: none;
+    }
+}

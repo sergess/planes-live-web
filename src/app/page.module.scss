@@ -1,0 +1,41 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25%, auto));
+  width: var(--max-width);
+  max-width: 100%;
+  background: var(--color-white);
+}
+.primaryText {
+  color: var(--color-primary);
+}
+.searchWrapper {
+  margin-top: 16rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  font-size: 3.4rem;
+  padding: 0 2.5rem;
+}
+.svg {
+  margin: 0 .7rem 0 1rem;
+  display: inline-block;
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: $mobile-breakpoint) {
+  .searchWrapper > br {
+    display: none;
+  }
+  .searchWrapper {
+    width: 60rem;
+    font-size: 4.8rem;
+    margin: 32.2rem auto 0 auto;
+    padding: 0;
+  }
+}
+
