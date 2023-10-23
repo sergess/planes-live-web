@@ -20,10 +20,10 @@ const getPositionsForAngle = (waypoints, positions = []) => {
 
   return { current: positions[positions.length - 1], next: waypoints[1] };
 };
-const updateWP = (flight) => {
-  const updated = { ...flight };
+const updateWP = (flight, shouldUpdateCoord) => {
+  const updated = JSON.parse(JSON.stringify(flight));
 
-  if (updated?.waypoints.length === 2) {
+  if (updated?.waypoints.length === 2 && shouldUpdateCoord) {
     updated.waypoints[0].lon = updateMeridianCord(updated.waypoints[0].lon);
     updated.waypoints[1].lon = updateMeridianCord(updated.waypoints[1].lon);
   }
@@ -62,11 +62,7 @@ const getLinesByStatus = (flight, mappedPositions = []) => {
         coordinates: !mappedPositions.length ? transformLineToGeodesic([
           [flight.waypoints[0].lon, flight.waypoints[0].lat],
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
-        ]) : [
-          [flight.waypoints[0].lon, flight.waypoints[0].lat],
-          ...mappedPositions,
-          [flight.waypoints[1].lon, flight.waypoints[1].lat],
-        ],
+        ]) : mappedPositions,
       },
     ];
   }
@@ -148,18 +144,19 @@ export default ({ flight, departureAirport, destinationAirport }) => {
       initialView: null, lines: null, markers: null, mappedPositions: null,
     };
   }
+  const shouldUpdateCoord = flight.waypoints?.length && flight.waypoints[0].lon < 0;
 
   const mappedPositions = flight?.positions
     ?.map(({ lon, lat }) => {
-      if (lon < 0) {
+      if (lon < 0 && shouldUpdateCoord) {
         return [updateMeridianCord(lon), lat];
       }
 
       return [lon, lat];
     }) || [];
-  const updatedFlight = updateWP(flight);
+  const updatedFlight = updateWP(flight, shouldUpdateCoord);
   const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport);
-  const lines = getLinesByStatus(updatedFlight, mappedPositions);
+  const lines = getLinesByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport);
 
   const initialView = getInitialView(updatedFlight, markers);
 
