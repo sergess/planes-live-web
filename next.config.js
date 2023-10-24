@@ -38,4 +38,23 @@ module.exports = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/tiktok',
+        destination: 'https://app.adjust.com/15ahhs38_15oktx40',
+        permanent: true,
+      },
+      {
+        source: '/instagram',
+        destination: 'https://app.adjust.com/15euweik_15z3769z',
+        permanent: true,
+      },
+      {
+        source: '/facebook',
+        destination: 'https://app.adjust.com/15zzlugx_159kqd79',
+        permanent: true,
+      },
+    ];
+  },
 };
