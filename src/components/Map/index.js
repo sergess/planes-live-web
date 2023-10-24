@@ -12,7 +12,7 @@ import MapBadge from '@/components/Map/MapBadge';
 import styles from './map.module.scss';
 
 const DEFAULT_MARKER_SIZE = '24px';
-const MAP_PADDING = 100;
+const MAP_PADDING = 150;
 const DEFAULT_ZOOM = 3.5;
 
 export default async function MapBox({
