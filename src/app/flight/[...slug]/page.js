@@ -14,8 +14,9 @@ import DateBlock from '@/components/FlightInfo/DateBlock';
 import FlightCard from '@/components/FlightInfo/FlightCard';
 import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
-import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightPreview from '@/components/Swipe/FlightPreview';
+import MapBadge from '@/components/Map/MapBadge';
+import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
 import withFlightPageData from '@/middlewares/get-server-side-data/with-flight-page-data';
 import withFlightIdPageData from '@/middlewares/get-server-side-data/with-flight-id-page-data';
@@ -147,6 +148,7 @@ export default async function Page({ params }) {
             </div>
           </Swipe>
         </div>
+        <MapBadge />
       </ModalProvider>
     </FlightProvider>
   );
