@@ -9,6 +9,7 @@ import Security from '@/components/Airport/Security';
 import { Airport } from '@/services/index';
 import { withAirportsPageData } from '@/middlewares/get-server-side-data/with-airports-page-data';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
+import MapBadge from '@/components/Map/MapBadge';
 import styles from './page.module.scss';
 
 const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
@@ -83,6 +84,7 @@ export default async function Page({ params }) {
         }}
         zoom={10}
       />
+      <MapBadge />
     </ModalProvider>
   );
 }
