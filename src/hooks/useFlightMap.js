@@ -21,10 +21,10 @@ const getPositionsForAngle = (waypoints, positions = []) => {
 
   return { current: positions[positions.length - 1], next: waypoints[1] };
 };
-const updateWP = (flight, shouldUpdateCoord) => {
+const updateWP = (flight) => {
   const updated = JSON.parse(JSON.stringify(flight));
 
-  if (updated?.waypoints.length === 2 && shouldUpdateCoord) {
+  if (updated?.waypoints.length === 2) {
     updated.waypoints[0].lon = updateMeridianCord(updated.waypoints[0].lon);
     updated.waypoints[1].lon = updateMeridianCord(updated.waypoints[1].lon);
   }
