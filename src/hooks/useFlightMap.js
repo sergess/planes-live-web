@@ -144,17 +144,15 @@ export default ({ flight, departureAirport, destinationAirport }) => {
       initialView: null, lines: null, markers: null, mappedPositions: null,
     };
   }
-  const shouldUpdateCoord = flight.waypoints?.length && flight.waypoints[0].lon < 0;
-
   const mappedPositions = flight?.positions
     ?.map(({ lon, lat }) => {
-      if (lon < 0 && shouldUpdateCoord) {
+      if (lon < 0) {
         return [updateMeridianCord(lon), lat];
       }
 
       return [lon, lat];
     }) || [];
-  const updatedFlight = updateWP(flight, shouldUpdateCoord);
+  const updatedFlight = updateWP(flight);
   const markers = getMarkersByStatus(updatedFlight, mappedPositions, departureAirport, destinationAirport);
   const lines = getLinesByStatus(updatedFlight, mappedPositions);
 
