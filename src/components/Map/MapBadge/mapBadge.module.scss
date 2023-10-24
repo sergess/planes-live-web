@@ -7,6 +7,10 @@
   padding: 12px;
   border-radius: 12px;
   gap: 8px;
+
+  @media (min-width: $mobile-breakpoint) {
+    position: fixed;
+  }
 }
 .link {
   color: inherit;

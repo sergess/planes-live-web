@@ -2,6 +2,7 @@ import React from 'react';
 
 import SearchFlight from '@/components/SearchFlight';
 import SearchHeader from '@/components/Header/searchHeader';
+import MapBadge from '@/components/Map/MapBadge';
 
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
@@ -23,6 +24,7 @@ export default function Search() {
           <SearchHeader autoFocus />
         </div>
         <CustomMap />
+        <MapBadge />
       </div>
     </>
   );
