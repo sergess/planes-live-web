@@ -6,7 +6,8 @@ import { STATUS } from '@/constants/flight';
 import { transformLineToGeodesic } from '@/utils/geodesicLine';
 
 const updateMeridianCord = (longitude) => {
-  if (longitude < 0) {
+  // disable temporary
+  if (false && longitude < 0) {
     return longitude + 360;
   }
 
