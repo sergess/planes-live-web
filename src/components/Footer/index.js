@@ -57,13 +57,6 @@ export default function Footer() {
       >
         Terms
       </Link>
-      <span className={styles.separator}> | </span>
-      <Link
-        href="/privacyPolicy#h"
-        className={`${styles.privacy} analytic__california_privacy_policy`}
-      >
-        California Privacy Rights
-      </Link>
     </footer>
   );
 }
