@@ -8,11 +8,10 @@ import Map, {
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAPBOX_TOKEN } from '@/constants/index';
 
-import MapBadge from '@/components/Map/MapBadge';
 import styles from './map.module.scss';
 
 const DEFAULT_MARKER_SIZE = '24px';
-const MAP_PADDING = 100;
+const MAP_PADDING = 150;
 const DEFAULT_ZOOM = 3.5;
 
 export default async function MapBox({
@@ -107,7 +106,6 @@ export default async function MapBox({
           </Marker>
         ))}
         <NavigationControl />
-        <MapBadge />
       </Map>
     </div>
   );

@@ -19,6 +19,9 @@
     width: desktopPreviewWidth;
     transform: translate(-50%, 0);
   }
+  @media (max-width: $lg-breakpoint) {
+    bottom: 10rem;
+  }
 }
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {

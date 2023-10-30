@@ -6,7 +6,8 @@ import { STATUS } from '@/constants/flight';
 import { transformLineToGeodesic } from '@/utils/geodesicLine';
 
 const updateMeridianCord = (longitude) => {
-  if (longitude < 0) {
+  // disable temporary
+  if (false && longitude < 0) {
     return longitude + 360;
   }
 
@@ -21,7 +22,7 @@ const getPositionsForAngle = (waypoints, positions = []) => {
   return { current: positions[positions.length - 1], next: waypoints[1] };
 };
 const updateWP = (flight) => {
-  const updated = { ...flight };
+  const updated = JSON.parse(JSON.stringify(flight));
 
   if (updated?.waypoints.length === 2) {
     updated.waypoints[0].lon = updateMeridianCord(updated.waypoints[0].lon);
@@ -59,14 +60,10 @@ const getLinesByStatus = (flight, mappedPositions = []) => {
         id: 'source1',
         layerId: 'layer1',
         // if we have positions we show it, if not we show geoline
-        coordinates: !mappedPositions.length ? transformLineToGeodesic([
+        coordinates: transformLineToGeodesic([
           [flight.waypoints[0].lon, flight.waypoints[0].lat],
           [flight.waypoints[1].lon, flight.waypoints[1].lat],
-        ]) : [
-          [flight.waypoints[0].lon, flight.waypoints[0].lat],
-          ...mappedPositions,
-          [flight.waypoints[1].lon, flight.waypoints[1].lat],
-        ],
+        ]), /* Todo: possibly add mappedPositions */
       },
     ];
   }
@@ -148,7 +145,6 @@ export default ({ flight, departureAirport, destinationAirport }) => {
       initialView: null, lines: null, markers: null, mappedPositions: null,
     };
   }
-
   const mappedPositions = flight?.positions
     ?.map(({ lon, lat }) => {
       if (lon < 0) {
