@@ -20,11 +20,12 @@ import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
 import withFlightPageData from '@/middlewares/get-server-side-data/with-flight-page-data';
 import withFlightIdPageData from '@/middlewares/get-server-side-data/with-flight-id-page-data';
-
 import { getAirline, getAirport } from '@/utils/helpers';
+import { isEmptyObject } from '@/utils/isEmptyObject';
 import {
   getAppDeeplink,
 } from '@/utils/serverDeviceType';
+
 import styles from './page.module.scss';
 
 const MapWithFlightData = dynamic(
@@ -87,6 +88,7 @@ export const generateMetadata = async ({ params }) => {
 };
 
 export default async function Page({ params }) {
+  const isHome = isEmptyObject(params);
   const { slug } = params;
 
   if (slug.length > 2) {
@@ -137,8 +139,8 @@ export default async function Page({ params }) {
               {false && <DelayHistoryCard />}
               {/* applyMobile,landingBanners - classes for flight page styles */}
               <div className={`${styles.mobContent} landingBanners applyMobile`}>
-                <Features isMobileView id={flightNumber} />
-                <Traffic />
+                <Features isHome={isHome} isMobileView id={flightNumber} />
+                <Traffic isHome={isHome} />
                 <Slider />
                 <NotificationBanner />
                 <AirportBanner />
