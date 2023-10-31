@@ -42,6 +42,7 @@ export default function Home() {
             </p>
             <p>
               California residents, please see
+              {' '}
               <strong>section 8</strong>
               {' '}
               for more information on Your California Privacy
