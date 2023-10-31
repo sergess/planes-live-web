@@ -53,7 +53,9 @@ const BANNER_MAP = [
   },
 ];
 
-export default function Features({ id }) {
+export default function Features({ id, isHome = true }) {
+  const positionNumber = isHome ? 2 : 1;
+
   return (
     <div className={styles.container}>
       <div className={styles.anchor} id={FEATURES_ANCHOR} />
@@ -88,10 +90,10 @@ export default function Features({ id }) {
         ))}
       </div>
       <div className={styles.button}>
-        <PrimaryButton analyticSelector="analytic__download_app_2">Download app</PrimaryButton>
+        <PrimaryButton analyticSelector={`analytic__download_app_${positionNumber}`}>Download app</PrimaryButton>
         <StoreBadge
-          iosAnalyticSelector="analytic__download_appstore_2"
-          androidAnalyticSelector="analytic__download_gp_2"
+          iosAnalyticSelector={`analytic__download_appstore_${positionNumber}`}
+          androidAnalyticSelector={`analytic__download_gp_${positionNumber}`}
         />
       </div>
     </div>
