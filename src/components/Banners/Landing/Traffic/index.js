@@ -7,7 +7,9 @@ import styles from './traffic.module.scss';
 
 const PrimaryButton = dynamic(() => import('@/components/Controls/Buttons/primaryWithModal'), { ssr: false });
 
-export default function Traffic() {
+export default function Traffic({ isHome = true }) {
+  const positionNumber = isHome ? 1 : 2;
+
   return (
     <div className={styles.container}>
       <h2 className={styles.header}>
@@ -17,10 +19,10 @@ export default function Traffic() {
       </h2>
       <p className={styles.text}>See flight routes across the globe in real time</p>
       <div className={styles.buttonContainer}>
-        <PrimaryButton analyticSelector="analytic__download_app_1">Download app</PrimaryButton>
+        <PrimaryButton analyticSelector={`analytic__download_app_${positionNumber}`}>Download app</PrimaryButton>
         <StoreBadge
-          iosAnalyticSelector="analytic__download_appstore_1"
-          androidAnalyticSelector="analytic__download_gp_1"
+          iosAnalyticSelector={`analytic__download_appstore_${positionNumber}`}
+          androidAnalyticSelector={`analytic__download_gp_${positionNumber}`}
         />
       </div>
     </div>
