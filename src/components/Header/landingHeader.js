@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 import { ANDROID_DOWNLOAD_LINK, BUTTON_SIZE, IOS_DOWNLOAD_LINK } from '@/constants/index';
 import CustomButton from '@/components/Controls/Buttons/custom';
@@ -13,13 +14,15 @@ export default function LandingHeader() {
   return (
     <header className={styles.header}>
       <div className={styles.labelWrapper}>
-        <Image
-          src="/svg/app_icon.svg"
-          priority
-          width={40}
-          height={41}
-          alt="Planes Live - Flight Tracker app"
-        />
+        <Link href="/" className={styles.logoLink}>
+          <Image
+            src="/svg/app_icon.svg"
+            priority
+            width={40}
+            height={41}
+            alt="Planes Live - Flight Tracker app"
+          />
+        </Link>
         <p className={styles.label}>Planes Live</p>
       </div>
       <div className={styles.mobile}>
