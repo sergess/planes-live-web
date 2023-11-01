@@ -19,7 +19,7 @@
     width: desktopPreviewWidth;
     transform: translate(-50%, 0);
   }
-  @media (max-width: $lg-breakpoint) {
+  @media (min-width: $mobile-breakpoint) and (max-width: $lg-breakpoint) {
     bottom: 10rem;
   }
 }
