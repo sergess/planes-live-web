@@ -15,11 +15,13 @@
   @media (min-width: $mobile-breakpoint) {
     position: fixed;
     left: calc((100% + var(--left-panel-width)) / 2);
-    bottom: 10rem;
+    bottom: 2.4rem;
     width: desktopPreviewWidth;
     transform: translate(-50%, 0);
   }
-
+  @media (min-width: $mobile-breakpoint) and (max-width: $lg-breakpoint) {
+    bottom: 10rem;
+  }
 }
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
