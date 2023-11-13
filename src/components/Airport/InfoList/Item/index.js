@@ -18,7 +18,7 @@ export default function Item({
 }) {
   const actual_date = actualDateValue ? dayjs(actualDateValue) : null;
   const date = dayjs(dateValue);
-  const actualDateDifference = getDateDifference(dateValue, actualDateValue).minutes();
+  const actualDateDifference = actual_date ? getDateDifference(dateValue, actualDateValue).minutes() : 0;
   const href = `/flight/${iata}/${id}`;
 
   return (
