@@ -7,4 +7,4 @@ Disallow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://planeslive.com/sitemaps/sitemap.xml
+Sitemap: https://planeslive.com/sitemap/sitemap.xml
