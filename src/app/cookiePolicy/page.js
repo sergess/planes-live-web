@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 
-import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
@@ -17,7 +16,6 @@ export default function Home() {
   return (
     <ModalProvider>
       <div className={`${styles.wrapper} landingBanners`}>
-        <LandingHeader />
         <main className={styles.main}>
           <h1>Last Updated: November 23, 2022</h1>
           <div className={styles.content}>
