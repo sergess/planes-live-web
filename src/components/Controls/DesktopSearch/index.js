@@ -76,6 +76,9 @@ export default function DesktopSearch({
                   key={value}
                   className={`${styles.option} analytic__search_option`}
                   href={`/${ROUTE_BY_TYPE[type]}/${value}`}
+                  onClick={() => {
+                    setIsShow(false);
+                  }}
                   data-analytic-code={value}
                 >
                   {getMatchedLabel(label, text)}
