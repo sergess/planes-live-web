@@ -7,12 +7,12 @@ import styles from './better.module.scss';
 export default function Better() {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
+      <div className={styles.title}>
         Planes Live is better
         {' '}
         <br />
         with the app
-      </h1>
+      </div>
       <OutlineButton
         href={`#${FEATURES_ANCHOR}`}
         analyticSelector="analytic__find_out"

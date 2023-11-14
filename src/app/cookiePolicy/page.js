@@ -7,6 +7,12 @@ import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
 import styles from './page.module.scss';
 
+export const metadata = {
+  title: 'Cookie Policy - Planes Live',
+  description: 'Explore our Cookie Policy to understand what cookies are, what types of cookies are placed on your device when you visit our website and how we use them.',
+  colorScheme: 'light dark',
+};
+
 export default function Home() {
   return (
     <ModalProvider>

@@ -7,6 +7,12 @@ import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
 import styles from './page.module.scss';
 
+export const metadata = {
+  title: 'Terms of Service - Planes Live',
+  description: 'These Terms explain the rules for using our website. By using the website, you confirm that you accept these Terms and that you agree to comply with them.',
+  colorScheme: 'light dark',
+};
+
 export default function Home() {
   return (
     <ModalProvider>

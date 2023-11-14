@@ -80,9 +80,9 @@ export default function Features({ id, isHome = true }) {
               height={28}
               alt={icoAlt}
             />
-            <div className={styles.title}>
+            <h3 className={styles.title}>
               {text}
-            </div>
+            </h3>
             <div className={styles.description}>
               {description}
             </div>

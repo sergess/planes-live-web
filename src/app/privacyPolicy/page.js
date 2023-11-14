@@ -7,6 +7,12 @@ import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
 import styles from './page.module.scss';
 
+export const metadata = {
+  title: 'Privacy Policy - Planes Live',
+  description: 'Explore our Privacy Policy to understand how we prioritize and protect your data. Learn about the information we collect, how it’s used, and your rights.',
+  colorScheme: 'light dark',
+};
+
 export default function Home() {
   return (
     <ModalProvider>
