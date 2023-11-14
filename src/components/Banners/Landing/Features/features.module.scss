@@ -11,6 +11,10 @@
     position: relative;
     margin: 9.6rem 2.5rem 0 2.5rem;
 }
+.title {
+  font-size: var(--font-h1);
+  font-weight: 600;
+}
 .description {
     display: none;
     color: var(--color-dark);

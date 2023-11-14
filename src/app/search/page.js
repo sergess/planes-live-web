@@ -11,6 +11,12 @@ import styles from './page.module.scss';
 const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
 
+export const metadata = {
+  title: 'Search for a Flight or Airport - Planes Live',
+  description: 'Search for detailed aircraft and flight data. Track live flights worldwide on a map, check real time flight status and airport information.',
+  colorScheme: 'light dark',
+};
+
 export default function Search() {
   return (
     <>
