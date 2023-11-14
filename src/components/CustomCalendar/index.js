@@ -139,6 +139,7 @@ export default function CustomCalendar({ flightData, setFlightData }) {
         )}
         tileClassName={selectFlightDay}
         value={currentDate}
+        tileDisabled={({ activeStartDate, date }) => dayjs(activeStartDate).month() !== dayjs(date).month()}
         maxDetail="month"
         minDate={getMinDate()}
         maxDate={maxDate}
