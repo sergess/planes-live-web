@@ -96,6 +96,7 @@
 .react-calendar__tile:disabled {
     background: white;
     color: var(--color-dark-10);
+    visibility: hidden;
 }
 
 button.react-calendar__tile--active {
