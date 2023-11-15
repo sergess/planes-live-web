@@ -3,6 +3,10 @@
 
   header {
     background: var(--surfaces-base);
+
+    div:nth-of-type(2) {
+      display: none;
+    }
   }
 }
 
