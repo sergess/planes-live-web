@@ -55,6 +55,11 @@ module.exports = {
         destination: 'https://app.adjust.com/15zzlugx_159kqd79',
         permanent: true,
       },
+      {
+        source: '/app-ads.txt',
+        destination: 'https://apalon.com/app-ads.txt',
+        permanent: true,
+      },
     ];
   },
 };
