@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import TrafficBanner from '@/components/Banners/Landing/Traffic';
 import BetterBanner from '@/components/Banners/Landing/Better';
@@ -14,16 +15,15 @@ import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
-import dynamic from 'next/dynamic';
 import styles from './page.module.scss';
 
 const ClientAnchorScript = dynamic(() => import('@/components/ClientScript'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
 
-export default function Home() {
+export default async function Home({ searchParams }) {
   return (
-    <ModalProvider>
+    <ModalProvider token={searchParams?.token}>
       <div className="landingBanners">
         <LandingHeader />
         <main className={`${styles.main} ${inter.className}`}>

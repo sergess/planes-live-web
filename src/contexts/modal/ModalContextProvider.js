@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 
 import Modal from '@/components/Modal';
+import ResetPassword from '@/components/ResetPassword';
 import { ModalContext } from './ModalContext';
 
-export default function ModalProvider({ children }) {
+export default function ModalProvider({ children, token }) {
   const [modalOpened, setModalOpened] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
@@ -18,7 +19,16 @@ export default function ModalProvider({ children }) {
     setModalOpened(false);
   };
 
+  useEffect(() => {
+    if (token) {
+      openModal({
+        content: <ResetPassword />,
+      });
+    }
+  }, [token]);
+
   const valueModalProvider = useMemo(() => ({
+    token,
     openModal,
     closeModal,
   }), []);
