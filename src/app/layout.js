@@ -13,6 +13,7 @@ export const metadata = {
   description: 'Track planes on an air traffic map, check aircraft flights, airline '
     + 'flight delays & cancellations, airport arrival & departure times and other flight info!',
   colorScheme: 'light dark',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
 };
 
 export default function RootLayout({ children }) {
