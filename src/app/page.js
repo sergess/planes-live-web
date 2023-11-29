@@ -15,6 +15,7 @@ import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
+import CheckIfResetPassword from '@/components/CheckIfReset';
 import styles from './page.module.scss';
 
 const ClientAnchorScript = dynamic(() => import('@/components/ClientScript'), { ssr: false });
@@ -23,7 +24,8 @@ const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '
 
 export default async function Home({ searchParams }) {
   return (
-    <ModalProvider token={searchParams?.token}>
+    <ModalProvider>
+      <CheckIfResetPassword token={searchParams?.token} />
       <div className="landingBanners">
         <LandingHeader />
         <main className={`${styles.main} ${inter.className}`}>

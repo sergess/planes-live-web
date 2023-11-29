@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import Modal from '@/components/Modal';
-import ResetPassword from '@/components/ResetPassword';
+import ErrorPopup from '@/components/Modal/errorPopup';
+import { MODAL_TYPE } from '@/constants/index';
 import { ModalContext } from './ModalContext';
 
-export default function ModalProvider({ children, token }) {
+export default function ModalProvider({ children, type = MODAL_TYPE.DIALOG }) {
   const [modalOpened, setModalOpened] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
@@ -19,23 +20,16 @@ export default function ModalProvider({ children, token }) {
     setModalOpened(false);
   };
 
-  useEffect(() => {
-    if (token) {
-      openModal({
-        content: <ResetPassword />,
-      });
-    }
-  }, [token]);
-
   const valueModalProvider = useMemo(() => ({
-    token,
     openModal,
     closeModal,
   }), []);
 
   return (
     <ModalContext.Provider value={valueModalProvider}>
-      {modalOpened && <Modal {...modalContent} />}
+      {modalOpened && (type === MODAL_TYPE.DIALOG
+        ? <Modal {...modalContent} />
+        : <ErrorPopup {...modalContent} />)}
       {children}
     </ModalContext.Provider>
   );
