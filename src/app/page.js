@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { redirect } from 'next/navigation';
+import { Inter } from 'next/font/google';
 
 import TrafficBanner from '@/components/Banners/Landing/Traffic';
 import BetterBanner from '@/components/Banners/Landing/Better';
@@ -9,13 +11,11 @@ import NotificationBanner from '@/components/Banners/Landing/Notification';
 import AirportBanner from '@/components/Banners/Landing/Airport';
 import Slider from '@/components/Slider';
 import KnowMore from '@/components/Banners/Landing/KnowMore';
-import { Inter } from 'next/font/google';
 import SearchRedirect from '@/components/SearchRedirect';
 import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
-import { redirect } from 'next/navigation';
 import styles from './page.module.scss';
 
 const ClientAnchorScript = dynamic(() => import('@/components/ClientScript'), { ssr: false });
