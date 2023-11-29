@@ -22,6 +22,5 @@ export default function CompletedScreen() {
         </h1>
       </div>
     </div>
-
   );
 }
