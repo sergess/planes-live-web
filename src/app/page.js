@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { redirect } from 'next/navigation';
 import { Inter } from 'next/font/google';
 
 import TrafficBanner from '@/components/Banners/Landing/Traffic';
@@ -22,11 +21,7 @@ const ClientAnchorScript = dynamic(() => import('@/components/ClientScript'), { 
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'] });
 
-export default async function Home({ searchParams }) {
-  if (searchParams?.token) {
-    redirect(`/reset-password?token=${searchParams?.token}`);
-  }
-
+export default async function Home() {
   return (
     <ModalProvider>
       <div className="landingBanners">

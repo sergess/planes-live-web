@@ -60,6 +60,18 @@ module.exports = {
         destination: 'https://apalon.com/app-ads.txt',
         permanent: true,
       },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'token',
+            value: '',
+          },
+        ],
+        destination: '/reset-password',
+        permanent: false,
+      },
     ];
   },
 };

@@ -12,6 +12,7 @@ import CompletedScreen from '@/components/CompletedScreen';
 import InputPassword from '@/components/InputPassword';
 import styles from './page.module.scss';
 
+const NO_CONTENT_STATUS = 204;
 const authService = new AuthSDK({ apiKey: process.env.X_API_KEY });
 
 const getError = (password, confirm) => {
@@ -51,15 +52,16 @@ export default function Page({ searchParams }) {
         password,
         token,
       },
-    ).then((res) => {
-      if (res.ok) {
-        setIsCompleted(true);
-      } else {
-        openErrorPopup(res.message);
-      }
-    }).finally(() => {
-      setLoading(false);
-    });
+    ).then(JSON.parse)
+      .then((res) => {
+        if (res.status === NO_CONTENT_STATUS) {
+          setIsCompleted(true);
+        } else {
+          openErrorPopup(res.message);
+        }
+      }).finally(() => {
+        setLoading(false);
+      });
   };
 
   if (isCompleted) {
