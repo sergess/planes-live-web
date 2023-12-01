@@ -200,10 +200,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@platforms-web/mosaic-auth-js-sdk@^1.0.1":
-  version "1.0.1"
-  resolved "https://git.herewetest.com/api/v4/projects/1193/packages/npm/@platforms-web/mosaic-auth-js-sdk/-/@platforms-web/mosaic-auth-js-sdk-1.0.1.tgz#b9a311dd015db9fdbe34206c99850f566365b255"
-  integrity sha1-uaMR3QFduf2+NCBsmYUPVmNlslU=
+"@platforms-web/mosaic-auth-js-sdk@^1.0.2":
+  version "1.0.2"
+  resolved "https://git.herewetest.com/api/v4/projects/1193/packages/npm/@platforms-web/mosaic-auth-js-sdk/-/@platforms-web/mosaic-auth-js-sdk-1.0.2.tgz#23a53c57ab0793ff577f651f91e99f9d904a0800"
+  integrity sha1-I6U8V6sHk/9Xf2UfkemfnZBKCAA=
 
 "@rushstack/eslint-patch@^1.1.3":
   version "1.5.1"
