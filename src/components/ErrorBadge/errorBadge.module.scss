@@ -9,11 +9,14 @@
   color: #382828;
   padding: 1.6rem;
   box-shadow: 0 15px 30px 0 #36374229;
+  width: 34.3rem;
   max-width: 34.3rem;
   position: absolute;
-  top: 40rem;
+  top: 45rem;
 }
 .message {
+  display: flex;
+  flex: 1;
   padding-right: 1rem;
 }
 /* Tablet and Smaller Desktop */

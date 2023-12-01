@@ -14,10 +14,15 @@ import styles from './page.module.scss';
 
 const NO_CONTENT_STATUS = 204;
 const authService = new AuthSDK({ apiKey: process.env.X_API_KEY });
+const ERROR_MESSAGE = {
+  SERVER: 'Something went wrong. Try reloading the page or coming back later. If it doesn’t help, contact us.',
+  PASSWORD_DONT_MATCH: 'Passwords do not match. Please check and try again.',
+  DONT_MEET_REQUIREMENTS: 'Password does not meet the requirements. Try another one.',
+};
 
 const getError = (password, confirm) => {
   if (password !== confirm) {
-    return 'Passwords do not match. Please re-enter the password';
+    return ERROR_MESSAGE.PASSWORD_DONT_MATCH;
   }
 
   return false;
@@ -59,6 +64,8 @@ export default function Page({ searchParams }) {
         } else {
           openErrorPopup(res.message);
         }
+      }, () => {
+        openErrorPopup(ERROR_MESSAGE.SERVER);
       }).finally(() => {
         setLoading(false);
       });
@@ -72,8 +79,8 @@ export default function Page({ searchParams }) {
     <form className={styles.form} onSubmit={onResetPassword}>
       <div className={styles.container}>
         <h1 className={styles.heading}>Change password</h1>
-        <InputPassword setValue={setPassword} name="password" />
-        <InputPassword setValue={setConfirmPassword} name="confirmPassword" />
+        <InputPassword setValue={setPassword} name="password" placeholder="" label="New password" />
+        <InputPassword setValue={setConfirmPassword} name="confirmPassword" placeholder="" label="Verify new password" />
         <div className={styles.note}>
           Your password must be at least 8 characters long, include a number, an uppercase letter and a lowercase letter.
         </div>
