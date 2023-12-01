@@ -34,6 +34,10 @@ export const ERROR_CODE = {
   NOT_FOUND: 404,
   SERVER: 500,
 };
+export const MODAL_TYPE = {
+  DIALOG: 'dialog',
+  ERROR: 'error',
+};
 export const ERROR_TEXT = {
   [ERROR_CODE.SERVER]: {
     title: 'The server',

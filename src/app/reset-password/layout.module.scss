@@ -1,0 +1,47 @@
+.label {
+  font-weight: 700;
+  font-size: var(--font-h1);
+}
+.labelWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  padding-top: 2.8rem;
+}
+.logoLink {
+  line-height: .5;
+}
+.footer {
+  font-size: var(--font-caption);
+  font-weight: 400;
+  line-height: 15px;
+  text-align: center;
+  color: var(--color-dark-70);
+  padding-bottom: 1.2rem;
+
+  a {
+    color: var(--color-dark-70)
+  }
+}
+.container {
+  background: #EEEFF5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+/* Tablet and Smaller Desktop */
+@media (max-width: $mobile-breakpoint) {
+  .footer {
+    margin-top: auto;
+  }
+  .header {
+    padding-top: .8rem;
+  }
+}

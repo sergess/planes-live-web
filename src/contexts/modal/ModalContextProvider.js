@@ -3,9 +3,11 @@
 import React, { useMemo, useState } from 'react';
 
 import Modal from '@/components/Modal';
+import ErrorPopup from '@/components/Modal/errorPopup';
+import { MODAL_TYPE } from '@/constants/index';
 import { ModalContext } from './ModalContext';
 
-export default function ModalProvider({ children }) {
+export default function ModalProvider({ children, type = MODAL_TYPE.DIALOG }) {
   const [modalOpened, setModalOpened] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
@@ -25,7 +27,9 @@ export default function ModalProvider({ children }) {
 
   return (
     <ModalContext.Provider value={valueModalProvider}>
-      {modalOpened && <Modal {...modalContent} />}
+      {modalOpened && (type === MODAL_TYPE.DIALOG
+        ? <Modal {...modalContent} />
+        : <ErrorPopup {...modalContent} />)}
       {children}
     </ModalContext.Provider>
   );
