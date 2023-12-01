@@ -9,7 +9,7 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
-    "@platforms-web/mosaic-auth-js-sdk": "^1.0.1",
+    "@platforms-web/mosaic-auth-js-sdk": "1.0.0",
     "arc": "^0.1.4",
     "dayjs": "^1.11.9",
     "fs": "^0.0.1-security",
