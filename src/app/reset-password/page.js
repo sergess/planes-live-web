@@ -63,7 +63,7 @@ export default function Page({ searchParams }) {
         password,
         token,
       },
-    ).then(JSON.parse)
+    )
       .then((res) => {
         if (res.status === NO_CONTENT_STATUS) {
           setIsCompleted(true);
