@@ -74,4 +74,7 @@ module.exports = {
       },
     ];
   },
+  env: {
+    X_API_KEY: 'JGZE8xU8ex',
+  },
 };

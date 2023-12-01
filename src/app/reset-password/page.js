@@ -15,7 +15,13 @@ import styles from './page.module.scss';
 const NO_CONTENT_STATUS = 204;
 const authService = new AuthSDK({ apiKey: process.env.X_API_KEY });
 const ERROR_MESSAGE = {
-  SERVER: 'Something went wrong. Try reloading the page or coming back later. If it doesn’t help, contact us.',
+  SERVER:
+  <div>
+    Something went wrong. Try reloading the page or coming back later. If it doesn’t help,
+    {' '}
+    <a style={{ textDecoration: 'none' }} href="mailto:support@planeslive.com">contact us</a>
+    .
+  </div>,
   PASSWORD_DONT_MATCH: 'Passwords do not match. Please check and try again.',
   DONT_MEET_REQUIREMENTS: 'Password does not meet the requirements. Try another one.',
 };
