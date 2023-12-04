@@ -17,7 +17,6 @@ export const BUTTON_SIZE = {
   LG: 'lg',
 };
 export const INPUT_DEBOUNCE = 200;
-export const MAPBOX_TOKEN = 'pk.eyJ1IjoicGxhbmVzeXVyeSIsImEiOiJjbGtpZm9wd2cwMDFvM25uNjd2cnM3MDhsIn0.19JwNwLX4T9BhA1V5-m29g';
 
 export const FEATURES_ANCHOR = 'features';
 export const OPTION_TYPE = {
