@@ -6,7 +6,6 @@ import Map, {
 } from 'react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { MAPBOX_TOKEN } from '@/constants/index';
 
 import styles from './map.module.scss';
 
@@ -40,7 +39,7 @@ export default async function MapBox({
             geoControlRef.current?.trigger();
           }
         }}
-        mapboxAccessToken={MAPBOX_TOKEN}
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         initialViewState={{
           ...initialViewState,
           zoom: zoom || DEFAULT_ZOOM,

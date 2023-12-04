@@ -1,0 +1,30 @@
+@value desktopHeaderSize: 69px;
+@value headerSize: 49px;
+@value footerSize: 27px;
+
+.successContainer {
+  display: flex;
+  align-items: center;
+  height: calc(100vh - desktopHeaderSize - footerSize);
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 25rem;
+    align-items: center;
+    .img {
+      margin-bottom: 1rem;
+    }
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+/* Tablet and Smaller Desktop */
+@media (max-width: $mobile-breakpoint) {
+  .successContainer {
+    height: calc(100vh - headerSize - footerSize);
+  }
+}

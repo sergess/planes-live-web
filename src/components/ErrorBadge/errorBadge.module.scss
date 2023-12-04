@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  border: thin solid var(--color-secondary-yellow);
+  background: #FCEDD0;
+  font-size: var(--font-body-1);
+  font-weight: 400;
+  line-height: 1.7rem;
+  letter-spacing: -0.0041em;
+  color: #382828;
+  padding: 1.6rem;
+  box-shadow: 0 15px 30px 0 #36374229;
+  width: 34.3rem;
+  max-width: 34.3rem;
+  position: absolute;
+  top: 45rem;
+}
+.message {
+  display: flex;
+  flex: 1;
+  padding-right: 1rem;
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: $mobile-breakpoint) {
+  .container {
+    top: 20rem;
+  }
+}
