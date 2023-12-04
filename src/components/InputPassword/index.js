@@ -35,6 +35,7 @@ export default function InputPassword({ setValue, name, label }) {
           placeholder=""
           pattern={PASSWORD_VALIDATION_REGEXP}
           required
+          minLength={8}
           onFocus={() => {
             setIsFocused(true);
           }}

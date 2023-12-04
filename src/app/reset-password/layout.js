@@ -31,7 +31,7 @@ export default function Layout({ children }) {
           {children}
         </main>
         <footer className={styles.footer}>
-          Need help?
+          Need help? Let us know at
           {' '}
           <a href="mailto:support@planeslive.com">support@planeslive.com</a>
         </footer>

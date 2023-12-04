@@ -77,18 +77,24 @@ export default function Page({ searchParams }) {
       });
   };
 
-  if (isCompleted) {
+  if (!isCompleted) {
     return (<CompletedScreen />);
   }
 
   return (
     <form className={styles.form} onSubmit={onResetPassword}>
       <div className={styles.container}>
-        <h1 className={styles.heading}>Change password</h1>
-        <InputPassword setValue={setPassword} name="password" placeholder="" label="New password" />
-        <InputPassword setValue={setConfirmPassword} name="confirmPassword" placeholder="" label="Verify new password" />
+        <h1 className={styles.heading}>Set a new password</h1>
+        <InputPassword setValue={setPassword} name="password" placeholder="" label="Password" />
+        <InputPassword setValue={setConfirmPassword} name="confirmPassword" placeholder="" label="Confirm password" />
         <div className={styles.note}>
-          Your password must be at least 8 characters long, include a number, an uppercase letter and a lowercase letter.
+          Make sure your password has:
+          <ul className={styles.ul}>
+            <li>8 characters or more</li>
+            <li>a number</li>
+            <li>an uppercase letter</li>
+            <li>a lowercase letter</li>
+          </ul>
         </div>
         {loading ? (
           <div className={styles.spinWrapper}>
@@ -105,7 +111,7 @@ export default function Page({ searchParams }) {
             type="submit"
             className={styles.button}
           >
-            Change password
+            Set password
           </button>
         )}
       </div>
