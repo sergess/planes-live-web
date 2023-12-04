@@ -4,7 +4,9 @@ import React, {
   useState, useRef,
 } from 'react';
 
+// eslint-disable-next-line import/no-unresolved
 import EyeOpen from 'public/svg/eyeOpen';
+// eslint-disable-next-line import/no-unresolved
 import EyeClosed from 'public/svg/eyeClosed';
 import styles from './InputPassword.module.scss';
 
