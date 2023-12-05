@@ -77,7 +77,7 @@ export default function Page({ searchParams }) {
       });
   };
 
-  if (!isCompleted) {
+  if (isCompleted) {
     return (<CompletedScreen />);
   }
 
