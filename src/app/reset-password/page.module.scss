@@ -5,7 +5,6 @@
 
 .heading {
   font-size: var(--font-h1);
-  cursor: pointer;
   font-weight: 600;
   line-height: 2.4rem;
   letter-spacing: -0.4699999988079071px;
@@ -35,6 +34,7 @@
   outline: none;
   margin-bottom: 8.4rem;
   align-self: center;
+  cursor: pointer;
 }
 .button:hover {
   background: var(--color-primary-hovered);
