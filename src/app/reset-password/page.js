@@ -22,6 +22,13 @@ const ERROR_MESSAGE = {
     <a style={{ textDecoration: 'none' }} href="mailto:support@planeslive.com">contact us</a>
     .
   </div>,
+  NOT_FOUND:
+  <div>
+    Sorry, we could not save your new password. Try resetting it again from the app. If it doesn’t help,
+    {' '}
+    <a style={{ textDecoration: 'none' }} href="mailto:support@planeslive.com">contact us</a>
+    .
+  </div>,
   PASSWORD_DONT_MATCH: 'Passwords do not match. Please check and try again.',
   DONT_MEET_REQUIREMENTS: 'Password does not meet the requirements. Try another one.',
 };
@@ -67,6 +74,8 @@ export default function Page({ searchParams }) {
       .then((res) => {
         if (res.status === NO_CONTENT_STATUS) {
           setIsCompleted(true);
+        } else if (res?.code === 404) {
+          openErrorPopup(ERROR_MESSAGE.NOT_FOUND);
         } else {
           openErrorPopup(res.message);
         }
