@@ -27,7 +27,11 @@
   font-weight: 400;
   letter-spacing: -0.44px;
   text-align: center;
-  padding: 4rem 0;
+  padding: 4rem 0 1.5rem;
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: 4rem 0;
+  }
 
   br {
     @media (min-width: $mobile-breakpoint) {
@@ -54,13 +58,15 @@
     div {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
 
       @media (max-width: $mobile-breakpoint) {
         display: none;
       }
 
       div {
+        display: flex;
+        flex-wrap: nowrap;
         width: 100%;
         padding-top: 1.6rem;
       }
