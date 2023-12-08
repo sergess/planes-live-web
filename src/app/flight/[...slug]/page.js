@@ -16,6 +16,7 @@ import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 import FlightPreview from '@/components/Swipe/FlightPreview';
 import MapBadge from '@/components/Map/MapBadge';
+import AdBanner from '@/components/AdBanner';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
 import withFlightPageData from '@/middlewares/get-server-side-data/with-flight-page-data';
@@ -126,6 +127,7 @@ export default async function Page({ params }) {
       <ModalProvider>
         <MapWithFlightData />
         <div className={styles.container}>
+          <AdBanner adId="div-for-slot" css={{ position: 'absolute', right: '0' }} />
           <FlightPreview />
           <Swipe id={flightNumber}>
             <div className={styles.body}>

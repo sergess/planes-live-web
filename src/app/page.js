@@ -13,6 +13,7 @@ import KnowMore from '@/components/Banners/Landing/KnowMore';
 import SearchRedirect from '@/components/SearchRedirect';
 import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
+import AdBanner from '@/components/AdBanner';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
 import styles from './page.module.scss';
@@ -26,6 +27,7 @@ export default async function Home() {
     <ModalProvider>
       <div className="landingBanners">
         <LandingHeader />
+        <AdBanner adId="div-gpt-ad-1701869771790-0" css={{ position: 'sticky', top: '120px' }} />
         <main className={`${styles.main} ${inter.className}`}>
           <h1 className={styles.searchWrapper}>
             Track

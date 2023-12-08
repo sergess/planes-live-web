@@ -13,7 +13,7 @@ export default function ErrorPopup({ content }) {
   };
 
   return (
-    <div className={`${styles.backdropTransparent}`} onClick={onClose}>
+    <div className={styles.backdropTransparent} onClick={onClose}>
       {content}
     </div>
   );
