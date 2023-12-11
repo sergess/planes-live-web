@@ -18,7 +18,7 @@ export default function StoreBadge({
       >
         <Image
           src="/svg/badge_apple_resting.svg"
-          width="172"
+          width="153"
           height="52"
           alt="Download on the App Store"
         />
