@@ -27,9 +27,10 @@ export default async function Home() {
     <ModalProvider>
       <div className="landingBanners">
         <LandingHeader />
-        <AdBanner adId="div-for-slot" css={{ position: 'sticky', top: '120px' }} />
-        <AdBanner adId="banner-ad" css={{ position: 'sticky', top: '120px' }} />
+        <AdBanner adId="div-gpt-ad-1702304851401-0" />
+        <AdBanner adId="div-gpt-ad-1702305175369-0" />
         <main className={`${styles.main} ${inter.className}`}>
+          <AdBanner adId="div-gpt-ad-1702305328903-0" />
           <h1 className={styles.searchWrapper}>
             Track
             {' '}
@@ -49,6 +50,7 @@ export default async function Home() {
             worldwide
           </h1>
           <SearchRedirect />
+          <AdBanner adId="div-gpt-ad-1702305273711-0" />
           <BetterBanner />
           <TrafficBanner />
           <Slider />
