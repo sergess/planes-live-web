@@ -27,7 +27,8 @@ export default async function Home() {
     <ModalProvider>
       <div className="landingBanners">
         <LandingHeader />
-        <AdBanner adId="div-gpt-ad-1701869771790-0" css={{ position: 'sticky', top: '120px' }} />
+        <AdBanner adId="div-for-slot" css={{ position: 'sticky', top: '120px' }} />
+        <AdBanner adId="banner-ad" css={{ position: 'sticky', top: '120px' }} />
         <main className={`${styles.main} ${inter.className}`}>
           <h1 className={styles.searchWrapper}>
             Track

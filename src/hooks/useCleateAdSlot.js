@@ -9,26 +9,11 @@ export const useCleateAdSlot = ({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const destroySlots = useCallback((slots) => {
-    window.googletag.cmd.push(() => {
-      window.googletag.destroySlots(slots);
-    });
-  }, []);
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const { googletag } = window;
 
       googletag.cmd.push(() => {
-        const adIds = Object.keys(AD_OPTIONS);
-        const removeSlots = googletag
-          .pubads()
-          .getSlots()
-          .filter((item) => adIds.includes(item.getSlotElementId()));
-        if (destroySlots.length > 0) {
-          destroySlots(removeSlots);
-        }
-
         const adMapping = googletag.sizeMapping();
         Object.keys(mapping).forEach((breakpoint) => {
           adMapping.addSize([Number(breakpoint), 0], mapping[breakpoint]);
@@ -53,6 +38,12 @@ export const useCleateAdSlot = ({
         googletag.display(id);
       });
     }
+    return () => {
+      const { googletag } = window;
+      googletag.cmd.push(function () {
+        googletag.destroySlots();
+      });
+    };
   }, [mapping, sizes, id, pathname, searchParams]);
 };
 

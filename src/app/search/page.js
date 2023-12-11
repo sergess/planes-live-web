@@ -30,7 +30,7 @@ export default function Search() {
           {/* desktop version */}
           <SearchHeader autoFocus />
         </div>
-        <AdBanner adId="div-for-slot" css={{ position: 'absolute', right: '0' }} />
+        <AdBanner adId="div-for-slot" css={{ position: 'absolute', left: '300px' }} />
         <CustomMap />
         <MapBadge />
       </div>
