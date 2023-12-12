@@ -6,7 +6,6 @@ import MapBadge from '@/components/Map/MapBadge';
 
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
-import AdBanner from '@/components/AdBanner';
 import styles from './page.module.scss';
 
 const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
@@ -30,7 +29,6 @@ export default function Search() {
           {/* desktop version */}
           <SearchHeader autoFocus />
         </div>
-        <AdBanner adId="div-for-slot" css={{ position: 'absolute', left: '300px' }} />
         <CustomMap />
         <MapBadge />
       </div>

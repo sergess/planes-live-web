@@ -17,7 +17,9 @@ export default function AdBanner({ adId, css = {} }) {
     id: adId,
   });
 
-  return (<div style={css} className={`${styles.banner} ${styles[ad.selector]}`}>
-    <div id={adId} />
-  </div>);
+  return (
+    <div style={css} className={`${styles.banner} ${styles[ad.selector]}`}>
+      <div id={adId} />
+    </div>
+  );
 }

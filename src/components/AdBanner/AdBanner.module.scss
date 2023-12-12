@@ -2,12 +2,11 @@
   position: relative;
   z-index: 1000;
   width: fit-content;
-  background: red;
   display: flex;
   overflow: hidden;
 }
 
-.adhome {
+.spot-home-left {
   position: fixed;
   top: 226px;
   left: 75px;
@@ -17,7 +16,7 @@
   }
 }
 
-.adhome2 {
+.spot-home-right {
   position: fixed;
   top: 226px;
   right: 75px;
@@ -27,7 +26,7 @@
   }
 }
 
-.adhome3 {
+.spot-home-center {
   display: flex;
   justify-content: center;
   transform: translateY(129px);
@@ -36,20 +35,22 @@
   height: 90px;
 
   @media (max-width: $ad-mobile-breakpoint) {
+    transform: translateY(60px);
     width: 320px;
     height: 50px;
   }
 }
 
-.adhome4 {
-  position: absolute;
-  top: 226px;
-  left: 50%;
-  transform: translateX(-50%);
+.spot-home-center2 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  transform: translateY(114px);
   width: 728px;
   height: 90px;
 
   @media (max-width: $ad-mobile-breakpoint) {
+    transform: translateY(30px);
     width: 320px;
     height: 50px;
   }

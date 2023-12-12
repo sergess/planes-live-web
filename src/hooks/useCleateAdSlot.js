@@ -1,7 +1,5 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-
-import { AD_OPTIONS } from '@/constants/adOptions';
 
 export const useCleateAdSlot = ({
   mapping, sizes, slot, id,
@@ -38,9 +36,10 @@ export const useCleateAdSlot = ({
         googletag.display(id);
       });
     }
+
     return () => {
       const { googletag } = window;
-      googletag.cmd.push(function () {
+      googletag.cmd.push(() => {
         googletag.destroySlots();
       });
     };
