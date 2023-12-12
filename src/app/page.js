@@ -52,11 +52,15 @@ export default async function Home() {
           <SearchRedirect />
           <AdBanner adId="div-gpt-ad-1702305273711-0" />
           <BetterBanner />
+          <AdBanner adId="div-gpt-ad-1702387091622-0" />
           <TrafficBanner />
           <Slider />
           <FeaturesBanner />
+          <AdBanner adId="div-gpt-ad-1702387224332-0" />
           <NotificationBanner />
+          <AdBanner adId="div-gpt-ad-1702387987050-0" />
           <AirportBanner />
+          <AdBanner adId="div-gpt-ad-1702388062757-0" />
           <KnowMore />
         </main>
         <Footer />
