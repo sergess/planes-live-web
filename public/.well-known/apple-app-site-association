@@ -1,7 +1,14 @@
 {
     "applinks": {
         "details": [
-
+            {
+                "appIDs": ["H93M8946AV.com.apalonapps.wlf", "9JUVGJ9JRL.com.apalonapps.planesfree"],
+                "components": [
+                    {
+                        "/": "/uni/*"
+                    }
+                ]
+            }
         ]
     }
 }

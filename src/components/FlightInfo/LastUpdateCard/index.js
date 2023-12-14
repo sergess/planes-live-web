@@ -6,9 +6,9 @@ import Image from 'next/image';
 import { BUTTON_SIZE } from '@/constants/index';
 import { UPDATE_LABELS } from '@/constants/flight';
 import { formatDate, getLastUpdateTimeText } from '@/utils/date';
-import CustomButton from '@/components/Controls/Buttons/custom';
 import { M_TIME_FORMAT } from '@/constants/date';
 import flightContext from '@/contexts/flight/FlightContext';
+import PrimaryButton from '@/components/Controls/Buttons/primaryWithModal';
 import styles from './lastUpdateCard.module.css';
 
 const DATE_VALUES = [
@@ -92,18 +92,14 @@ export default function LastUpdateCard() {
               : action.value}
           </p>
         </div>
-        <CustomButton
+        <PrimaryButton
           size={BUTTON_SIZE.SM}
-          analyticSelectors={{
-            iosAnalyticSelector: 'analytic__download_app_store_modal_in_update',
-            androidAnalyticSelector: 'analytic__download_gp_modal_in_update',
-          }}
           analyticSelector="analytic__view_all"
         >
           View all updates (
           {actions?.length || 0}
           )
-        </CustomButton>
+        </PrimaryButton>
       </div>
     </div>
   );
