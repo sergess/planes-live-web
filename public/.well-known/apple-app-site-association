@@ -1,14 +1,14 @@
 {
     "applinks": {
         "details": [
-                {
-                    "appIDs": ["9JUVGJ9JRL.com.apalonapps.planesfree"],
-                    "components": [
-                        {
-                            "/": "/uni/*"
-                        }
-                    ]
-                }
-            ]
+            {
+                "appIDs": ["9JUVGJ9JRL.com.apalonapps.planesfree"],
+                "components": [
+                    {
+                        "/": "/uni/*"
+                    }
+                ]
+            }
+        ]
     }
 }
