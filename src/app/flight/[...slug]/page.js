@@ -127,7 +127,6 @@ export default async function Page({ params }) {
       <ModalProvider>
         <MapWithFlightData />
         <div className={styles.container}>
-          <AdBanner adId="div-for-slot" css={{ position: 'absolute', right: '0' }} />
           <FlightPreview />
           <Swipe id={flightNumber}>
             <div className={styles.body}>
