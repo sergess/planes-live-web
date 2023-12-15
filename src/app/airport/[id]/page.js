@@ -10,7 +10,7 @@ import { Airport } from '@/services/index';
 import { withAirportsPageData } from '@/middlewares/get-server-side-data/with-airports-page-data';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import MapBadge from '@/components/Map/MapBadge';
-import { AdBanner } from '@/components/AdBanner';
+import { AdBanner, RequestAds } from '@/components/AdBanner';
 
 import styles from './page.module.scss';
 
@@ -91,6 +91,7 @@ export default async function Page({ params }) {
       />
       <MapBadge />
       <AdBanner adId="div-gpt-ad-1702388746229-0" />
+      <RequestAds />
     </ModalProvider>
   );
 }

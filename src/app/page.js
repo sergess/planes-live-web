@@ -13,7 +13,7 @@ import KnowMore from '@/components/Banners/Landing/KnowMore';
 import SearchRedirect from '@/components/SearchRedirect';
 import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
-import { AdBanner } from '@/components/AdBanner';
+import { AdBanner, RequestAds } from '@/components/AdBanner';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
 import styles from './page.module.scss';
@@ -66,6 +66,7 @@ export default async function Home() {
         <Footer />
         <ClientAnchorScript />
       </div>
+      <RequestAds />
     </ModalProvider>
   );
 }

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import SearchFlight from '@/components/SearchFlight';
 import SearchHeader from '@/components/Header/searchHeader';
 import MapBadge from '@/components/Map/MapBadge';
-import { AdBanner } from '@/components/AdBanner';
+import { AdBanner, RequestAds } from '@/components/AdBanner';
 
 import { Inter } from 'next/font/google';
 import styles from './page.module.scss';
@@ -35,6 +35,7 @@ export default function Search() {
         <AdBanner adId="div-gpt-ad-1702388746229-0" />
       </div>
       <AdBanner adId="div-gpt-ad-1702398586595-0" />
+      <RequestAds />
     </>
   );
 }
