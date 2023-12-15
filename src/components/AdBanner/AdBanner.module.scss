@@ -4,6 +4,10 @@
   width: fit-content;
   display: flex;
   overflow: hidden;
+
+  div {
+    width: 100%;
+  }
 }
 
 .spot-home-left {
@@ -117,12 +121,12 @@
 }
 
 .spot-map-right {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
   right: 75px;
   height: 600px;
-  width: fit-content;
+  width: 160px;
 
   @media (max-width: 702px) {
     display: none;
@@ -142,4 +146,22 @@
     left: 50%;
     transform: translateX(-50%);
   }
+}
+
+.spot-flight-right {
+  width: 336px;
+  height: 280px;
+  margin: 0 auto;
+
+  @media (max-width: 702px) {
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.spot-flight-sm-right {
+  width: 320px;
+  height: 50px;
+  margin: 0 auto;
+  transform: translateY(45px);
 }

@@ -16,7 +16,7 @@ import LastUpdateCard from '@/components/FlightInfo/LastUpdateCard';
 import DelayHistoryCard from '@/components/FlightInfo/DelayHistoryCard';
 import FlightPreview from '@/components/Swipe/FlightPreview';
 import MapBadge from '@/components/Map/MapBadge';
-import AdBanner from '@/components/AdBanner';
+import { AdBanner } from '@/components/AdBanner';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import FlightProvider from '@/contexts/flight/FlightContextProvider';
 import withFlightPageData from '@/middlewares/get-server-side-data/with-flight-page-data';
@@ -137,14 +137,17 @@ export default async function Page({ params }) {
                 logoUrl={airline?.logo_url_s}
               />
               <LastUpdateCard />
+              <AdBanner adId="div-gpt-ad-1702574552152-0" />
               {false && <DelayHistoryCard />}
               {/* applyMobile,landingBanners - classes for flight page styles */}
               <div className={`${styles.mobContent} landingBanners applyMobile`}>
                 <Features isHome={isHome} isMobileView id={flightNumber} />
                 <Traffic isHome={isHome} />
                 <Slider />
+                <AdBanner adId="div-gpt-ad-1702574638070-0" />
                 <NotificationBanner />
                 <AirportBanner />
+                <AdBanner adId="div-gpt-ad-1702574704358-0" />
                 <KnowMore />
                 <Footer />
               </div>
@@ -152,6 +155,7 @@ export default async function Page({ params }) {
           </Swipe>
         </div>
         <MapBadge />
+        <AdBanner adId="div-gpt-ad-1702388746229-0" />
       </ModalProvider>
     </FlightProvider>
   );

@@ -95,6 +95,31 @@ export const AD_OPTIONS = {
       0: [320, 50],
     },
   },
+  'div-gpt-ad-1702574552152-0': {
+    selector: 'spot-flight-right',
+    slot: '/22654782375/ca-pub-2575005206305234-tag/PlanesLive_Flight_Airport_336x280_320x50_2',
+    sizes: [[320, 50], [336, 280]],
+    mapping: {
+      702: [336, 280],
+      0: [320, 50],
+    },
+  },
+  'div-gpt-ad-1702574638070-0': {
+    selector: 'spot-flight-sm-right',
+    slot: '/22654782375/ca-pub-2575005206305234-tag/PlanesLive_Flight_320x50',
+    sizes: [[320, 50]],
+    mapping: {
+      0: [320, 50],
+    },
+  },
+  'div-gpt-ad-1702574704358-0': {
+    selector: 'spot-flight-sm-right',
+    slot: '/22654782375/ca-pub-2575005206305234-tag/PlanesLive_Flight_320x50_2',
+    sizes: [[320, 50]],
+    mapping: {
+      0: [320, 50],
+    },
+  },
 };
 
 export default AD_OPTIONS;

@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import SearchFlight from '@/components/SearchFlight';
 import SearchHeader from '@/components/Header/searchHeader';
 import MapBadge from '@/components/Map/MapBadge';
-import AdBanner from '@/components/AdBanner';
+import { AdBanner } from '@/components/AdBanner';
 
 import { Inter } from 'next/font/google';
 import styles from './page.module.scss';

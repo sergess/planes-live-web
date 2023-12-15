@@ -5,6 +5,7 @@ import Script from 'next/script';
 import SWRProvider from '@/contexts/swr/SWRProvider';
 
 import '@/styles/globals.scss';
+import { RequestAds } from '@/components/AdBanner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/*<Script id="google-tag-manager" strategy="afterInteractive">*/}
+      {/* <Script id="google-tag-manager" strategy="afterInteractive"> */}
       {/*  {` */}
       {/*  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': */}
       {/*  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], */}
@@ -27,16 +28,13 @@ export default function RootLayout({ children }) {
       {/*  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); */}
       {/*  })(window,document,'script','dataLayer','${process.env.GOOGLE_TAG_MANAGER_ID}'); */}
       {/*  function gtag(){dataLayer.push(arguments);} */}
-      {/*  `}*/}
-      {/*</Script>*/}
+      {/*  `} */}
+      {/* </Script> */}
       <Script
         async
         src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         strategy="afterInteractive"
       />
-      <Script id="google-publisher-tags" strategy="afterInteractive">
-        {'var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];'}
-      </Script>
       <body className={inter.className}>
         <div>
           <SWRProvider>
@@ -48,6 +46,7 @@ export default function RootLayout({ children }) {
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GOOGLE_TAG_MANAGER_ID}" height="0" width="0" style="display: none; visibility: hidden;"></iframe>`,
           }}
         />
+        <RequestAds />
       </body>
     </html>
   );

@@ -5,8 +5,6 @@ import Map, {
   Marker, GeolocateControl, Source, Layer, NavigationControl,
 } from 'react-map-gl';
 
-import AdBanner from "@/components/AdBanner";
-
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import styles from './map.module.scss';
@@ -108,7 +106,6 @@ export default async function MapBox({
         ))}
         <NavigationControl />
       </Map>
-      <AdBanner adId="div-gpt-ad-1702388746229-0" />
     </div>
   );
 }
