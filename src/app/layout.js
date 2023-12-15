@@ -5,6 +5,7 @@ import Script from 'next/script';
 import SWRProvider from '@/contexts/swr/SWRProvider';
 
 import '@/styles/globals.scss';
+import { RequestAds } from '@/components/AdBanner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -34,9 +35,6 @@ export default function RootLayout({ children }) {
         src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
         strategy="afterInteractive"
       />
-      <Script id="google-publisher-tags" strategy="afterInteractive">
-        {'var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];'}
-      </Script>
       <body className={inter.className}>
         <div>
           <SWRProvider>
@@ -48,6 +46,7 @@ export default function RootLayout({ children }) {
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GOOGLE_TAG_MANAGER_ID}" height="0" width="0" style="display: none; visibility: hidden;"></iframe>`,
           }}
         />
+        <RequestAds />
       </body>
     </html>
   );
