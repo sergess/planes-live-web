@@ -32,9 +32,9 @@ export default function SubscriptionPopup({ analyticSelectors }) {
         <Button analyticSelector="analytic__download_app_mobile">Download app</Button>
         <div>
           <Image
-            src="/qr-universal.png"
+            src="/qr-universal-new.png"
             width={200}
-            height={200}
+            height={247}
             alt="QR"
           />
           <StoreBadge
