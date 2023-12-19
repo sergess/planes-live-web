@@ -142,6 +142,7 @@ export default async function Page({ params }) {
               {/* applyMobile,landingBanners - classes for flight page styles */}
               <div className={`${styles.mobContent} landingBanners applyMobile`}>
                 <Features isHome={isHome} isMobileView id={flightNumber} />
+                <AdBanner adId="div-gpt-ad-1702913927292-0" css={{ transform: 'translateY(-45px)' }} />
                 <Traffic isHome={isHome} />
                 <Slider />
                 <AdBanner adId="div-gpt-ad-1702574638070-0" />
@@ -149,6 +150,7 @@ export default async function Page({ params }) {
                 <AirportBanner />
                 <AdBanner adId="div-gpt-ad-1702574704358-0" />
                 <KnowMore />
+                <AdBanner adId="div-gpt-ad-1702914024079-0" css={{ transform: 'translateY(-30px)' }} />
                 <Footer />
               </div>
             </div>

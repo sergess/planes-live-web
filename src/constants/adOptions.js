@@ -120,6 +120,22 @@ export const AD_OPTIONS = {
       0: [320, 50],
     },
   },
+  'div-gpt-ad-1702913927292-0': {
+    selector: 'spot-flight-sm-right',
+    slot: '/22654782375/ca-pub-2575005206305234-tag/PlanesLive_Flight_320x50_3',
+    sizes: [[320, 50]],
+    mapping: {
+      0: [320, 50],
+    },
+  },
+  'div-gpt-ad-1702914024079-0': {
+    selector: 'spot-flight-sm-right',
+    slot: '/22654782375/ca-pub-2575005206305234-tag/PlanesLive_Flight_320x50_4',
+    sizes: [[320, 50]],
+    mapping: {
+      0: [320, 50],
+    },
+  },
 };
 
 export default AD_OPTIONS;

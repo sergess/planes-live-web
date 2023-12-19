@@ -30,7 +30,6 @@ export default async function Home() {
         <AdBanner adId="div-gpt-ad-1702304851401-0" />
         <AdBanner adId="div-gpt-ad-1702305175369-0" />
         <main className={`${styles.main} ${inter.className}`}>
-          {/* <AdBanner adId="div-gpt-ad-1702305328903-0" /> */}
           <h1 className={styles.searchWrapper}>
             Track
             {' '}
@@ -50,7 +49,6 @@ export default async function Home() {
             worldwide
           </h1>
           <SearchRedirect />
-          <AdBanner adId="div-gpt-ad-1702305273711-0" />
           <BetterBanner />
           <AdBanner adId="div-gpt-ad-1702387091622-0" />
           <TrafficBanner />
