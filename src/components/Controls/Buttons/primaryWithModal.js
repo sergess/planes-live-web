@@ -29,14 +29,14 @@ function WithModal(Component, Popup) {
 
     if (flightData?.id && isMobile) {
       href = getMobileOperatingSystem() === PLATFORM.IOS
-        ? `https://link.email.planeslive.com/uni/flight?flightId=${flightData.id}`
-        : `https://link.email.planeslive.com/uni/openScreen?screen=FlightInfo&flightId=${flightData.id}`;
+        ? `https://7zfc.adj.st/openScreen?screen=FlightInfo&flightId=${flightData.id}&adj_t=17vtzarm&adj_fallback=https%3A%2F%2Fplaneslive.com%2F&adj_redirect_macos=https%3A%2F%2Fplaneslive.com%2F`
+        : `https://app.adjust.com/17vyoxsh?deep_link=planeslive-app%3A%2F%2Fcom.apalon.flight.tracker%2Fflight%3FflightId%3D${flightData.id}&fallback=https%3A%2F%2Fplaneslive.com%2F&redirect_macos=https%3A%2F%2Fplaneslive.com%2F`;
     }
 
     if (props?.airport && isMobile) {
       href = getMobileOperatingSystem() === PLATFORM.IOS
-        ? `https://link.email.planeslive.com/uni/airport_details?icao=${props.airport}&isFull=true`
-        : `https://link.email.planeslive.com/uni/openScreen?screen=AirportInfo&airportId=${props.airport}`;
+        ? `https://7zfc.adj.st/openScreen?screen=AirportInfo&airportId=${props.airport}&adj_t=17vtzarm&adj_fallback=https%3A%2F%2Fplaneslive.com%2F&adj_redirect_macos=https%3A%2F%2Fplaneslive.com%2F`
+        : `https://app.adjust.com/17vyoxsh?deep_link=planeslive-app%3A%2F%2Fcom.apalon.flight.tracker%2Fairport_details%3Ficao%3D${props.airport}%26isFull%3Dtrue&fallback=https%3A%2F%2Fplaneslive.com%2F&redirect_macos=https%3A%2F%2Fplaneslive.com%2F`;
     }
 
     return (
