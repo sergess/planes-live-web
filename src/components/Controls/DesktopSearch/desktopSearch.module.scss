@@ -58,7 +58,7 @@
 
     font-size: var(--font-body-2);
     background: var(--surfaces-base);
-    z-index: var(--option-list-index);
+    z-index: 102;
     overflow: auto;
     text-decoration: none;
 }

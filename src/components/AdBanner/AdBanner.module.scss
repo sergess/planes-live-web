@@ -1,6 +1,6 @@
 .banner {
   position: relative;
-  z-index: 1000;
+  z-index: 101;
   width: fit-content;
   display: flex;
   overflow: hidden;
@@ -135,6 +135,7 @@
 
 .spot-map-bot {
   position: absolute;
+  z-index: 103;
   bottom: 20px;
   left: 20px;
   width: 336px;
