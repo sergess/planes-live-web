@@ -75,7 +75,7 @@ export default async function Page({ params }) {
         <AdBanner adId="div-gpt-ad-1702574704358-0" css={{ transform: 'translateY(15px)' }} />
         <Statistics {...statistic} />
         <AdBanner adId="div-gpt-ad-1702913927292-0" css={{ transform: 'translateY(15px)' }} />
-        <Security />
+        <Security airport={params?.id} />
         <AdBanner adId="div-gpt-ad-1702914024079-0" css={{ transform: 'translateY(15px)' }} />
       </div>
       <CustomMap

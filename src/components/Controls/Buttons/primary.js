@@ -15,7 +15,7 @@ export default function Button({
   return (
     <a
       target="_blank"
-      className={`${styles.primary} ${size === BUTTON_SIZE.LG
+      className={`${styles.primary} analytic__get-app ${size === BUTTON_SIZE.LG
         ? styles.large : styles.small} ${analyticSelector}`}
       rel="noreferrer"
       href={href}
