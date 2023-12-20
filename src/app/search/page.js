@@ -1,10 +1,11 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
 import SearchFlight from '@/components/SearchFlight';
 import SearchHeader from '@/components/Header/searchHeader';
 import MapBadge from '@/components/Map/MapBadge';
+import { AdBanner, RequestAds } from '@/components/AdBanner';
 
-import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import styles from './page.module.scss';
 
@@ -31,7 +32,10 @@ export default function Search() {
         </div>
         <CustomMap />
         <MapBadge />
+        <AdBanner adId="div-gpt-ad-1702388746229-0" />
       </div>
+      <AdBanner adId="div-gpt-ad-1702398586595-0" />
+      <RequestAds />
     </>
   );
 }

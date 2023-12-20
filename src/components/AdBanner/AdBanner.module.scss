@@ -1,0 +1,168 @@
+.banner {
+  position: relative;
+  z-index: 101;
+  width: fit-content;
+  display: flex;
+  overflow: hidden;
+
+  div {
+    width: 100%;
+  }
+}
+
+.spot-home-left {
+  position: fixed;
+  top: 226px;
+  left: 75px;
+
+  @media (max-width: $ad-lg-breakpoint) {
+    display: none;
+  }
+}
+
+.spot-home-right {
+  position: fixed;
+  top: 226px;
+  right: 75px;
+
+  @media (max-width: $ad-lg-breakpoint) {
+    display: none;
+  }
+}
+
+.spot-home-center {
+  display: flex;
+  justify-content: center;
+  transform: translateY(129px);
+  margin: 0 auto;
+  width: 728px;
+  height: 90px;
+
+  @media (max-width: $ad-mobile-breakpoint) {
+    transform: translateY(60px);
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.spot-home-center2 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  transform: translateY(114px);
+  width: 728px;
+  height: 90px;
+
+  @media (max-width: $ad-mobile-breakpoint) {
+    transform: translateY(30px);
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.spot-home-center3 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  transform: translateY(70px);
+  width: 728px;
+  height: 90px;
+
+  @media (max-width: $ad-mobile-breakpoint) {
+    transform: translateY(10px);
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.spot-home-center4 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  transform: translateY(160px);
+  width: 728px;
+  height: 90px;
+
+  @media (max-width: $ad-mobile-breakpoint) {
+    transform: translateY(100px);
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.spot-home-center5 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  transform: translateY(150px);
+  width: 728px;
+  height: 90px;
+
+  @media (max-width: $ad-mobile-breakpoint) {
+    transform: translateY(60px);
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.spot-home-center6 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  transform: translateY(130px);
+  width: 728px;
+  height: 90px;
+
+  @media (max-width: $ad-mobile-breakpoint) {
+    transform: translateY(50px);
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.spot-map-right {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 75px;
+  height: 600px;
+  width: 160px;
+
+  @media (max-width: 702px) {
+    display: none;
+  }
+}
+
+.spot-map-bot {
+  position: absolute;
+  z-index: 103;
+  bottom: 20px;
+  left: 20px;
+  width: 336px;
+  height: 280px;
+
+  @media (max-width: 702px) {
+    width: 320px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.spot-flight-right {
+  width: 336px;
+  height: 280px;
+  margin: 0 auto;
+
+  @media (max-width: 702px) {
+    width: 320px;
+    height: 50px;
+  }
+}
+
+.spot-flight-sm-right {
+  width: 320px;
+  height: 50px;
+  margin: 0 auto;
+  transform: translateY(45px);
+}

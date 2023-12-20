@@ -10,6 +10,8 @@ import { Airport } from '@/services/index';
 import { withAirportsPageData } from '@/middlewares/get-server-side-data/with-airports-page-data';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 import MapBadge from '@/components/Map/MapBadge';
+import { AdBanner, RequestAds } from '@/components/AdBanner';
+
 import styles from './page.module.scss';
 
 const CustomMap = dynamic(() => import('@/components/CustomMap'), { ssr: false });
@@ -50,6 +52,7 @@ export default async function Page({ params }) {
           phone={airport.phone}
           tz={airport.timezone_name}
         />
+        <AdBanner adId="div-gpt-ad-1702574552152-0" css={{ transform: 'translateY(15px)' }} />
         <InfoList
           label="ARRIVALS"
           code={params.id}
@@ -59,6 +62,7 @@ export default async function Page({ params }) {
           mapAirportField="origin"
           tz={airport.timezone_name}
         />
+        <AdBanner adId="div-gpt-ad-1702574638070-0" css={{ transform: 'translateY(15px)' }} />
         <InfoList
           label="DEPARTURES"
           code={params.id}
@@ -68,8 +72,11 @@ export default async function Page({ params }) {
           mapAirportField="destination"
           tz={airport.timezone_name}
         />
+        <AdBanner adId="div-gpt-ad-1702574704358-0" css={{ transform: 'translateY(15px)' }} />
         <Statistics {...statistic} />
+        <AdBanner adId="div-gpt-ad-1702913927292-0" css={{ transform: 'translateY(15px)' }} />
         <Security airport={params?.id} />
+        <AdBanner adId="div-gpt-ad-1702914024079-0" css={{ transform: 'translateY(15px)' }} />
       </div>
       <CustomMap
         markers={[{
@@ -85,6 +92,8 @@ export default async function Page({ params }) {
         zoom={10}
       />
       <MapBadge />
+      <AdBanner adId="div-gpt-ad-1702388746229-0" />
+      <RequestAds />
     </ModalProvider>
   );
 }
