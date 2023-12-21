@@ -69,7 +69,7 @@ export default async function Page({ params }) {
           tz={airport.timezone_name}
         />
         <Statistics {...statistic} />
-        <Security />
+        <Security airport={params?.id} />
       </div>
       <CustomMap
         markers={[{

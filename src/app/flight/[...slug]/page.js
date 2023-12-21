@@ -114,13 +114,15 @@ export default async function Page({ params }) {
   const airlineIcao = flight.airline_icao || flight.icao.slice(0, 4);
   const airline = getAirline(commonDataResponse, airlineIcao);
 
+  const id = flightId || flightResponse[0].id;
+
   if (!destinationAirport || !departureAirport) {
     notFound();
   }
 
   return (
     <FlightProvider value={{
-      flight, destinationAirport, departureAirport, date: currentDate, position,
+      flight, destinationAirport, departureAirport, date: currentDate, position, id,
     }}
     >
       <ModalProvider>
