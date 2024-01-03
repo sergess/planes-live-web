@@ -75,7 +75,7 @@
     --option-list-index: 3;
     --map-z-index: 0;
     --airport-container-z-index: 4;
-    --header-z-index: 2;
+    --header-z-index: 105;
     --show-all-z-index: 2;
     --mobile-search-z-index: 3;
     --desktop-search-z-index: 3;
