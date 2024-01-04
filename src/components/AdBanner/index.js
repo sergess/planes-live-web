@@ -38,6 +38,7 @@ export function AdBanner({ adId, css = {} }) {
         const slot = googletag.defineSlot(ad.slot, ad.sizes, adId);
         if (slot) {
           slot.defineSizeMapping(map);
+          slot.setCollapseEmptyDiv(true);
           slot.addService(googletag.pubads());
           googletag.display(slot);
           adSlots[adId] = slot;
