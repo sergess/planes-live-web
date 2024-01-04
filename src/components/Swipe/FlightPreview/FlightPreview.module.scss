@@ -33,6 +33,9 @@
 .image {
   width: 10rem;
   height: 100%;
+  position: relative;
+  border-radius: 1.2rem;
+  overflow: hidden;
 }
 .wrapper {
   display: flex;
