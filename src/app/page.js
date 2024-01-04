@@ -13,6 +13,7 @@ import KnowMore from '@/components/Banners/Landing/KnowMore';
 import SearchRedirect from '@/components/SearchRedirect';
 import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
+import { AdBanner, RequestAds } from '@/components/AdBanner';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
 
 import styles from './page.module.scss';
@@ -26,6 +27,8 @@ export default async function Home() {
     <ModalProvider>
       <div className="landingBanners">
         <LandingHeader />
+        <AdBanner adId="div-gpt-ad-1702304851401-0" />
+        <AdBanner adId="div-gpt-ad-1702305175369-0" />
         <main className={`${styles.main} ${inter.className}`}>
           <h1 className={styles.searchWrapper}>
             Track
@@ -47,16 +50,21 @@ export default async function Home() {
           </h1>
           <SearchRedirect />
           <BetterBanner />
+          <AdBanner adId="div-gpt-ad-1702387091622-0" />
           <TrafficBanner />
           <Slider />
           <FeaturesBanner />
+          <AdBanner adId="div-gpt-ad-1702387224332-0" />
           <NotificationBanner />
+          <AdBanner adId="div-gpt-ad-1702387987050-0" />
           <AirportBanner />
+          <AdBanner adId="div-gpt-ad-1702388062757-0" />
           <KnowMore />
         </main>
         <Footer />
         <ClientAnchorScript />
       </div>
+      <RequestAds />
     </ModalProvider>
   );
 }

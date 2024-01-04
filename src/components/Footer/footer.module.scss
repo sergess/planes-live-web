@@ -2,6 +2,8 @@
     background: var(--color-dark);
     color: var(--color-white);
     padding: 0 2rem 1rem 2rem;
+    z-index: 1000;
+    position: relative;
 }
 .logo {
     display: flex;
