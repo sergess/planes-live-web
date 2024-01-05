@@ -5,6 +5,8 @@ import Map, {
   Marker, GeolocateControl, Source, Layer, NavigationControl,
 } from 'react-map-gl';
 
+import MapAttribution from '@/components/Map/MapAttribution';
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import styles from './map.module.scss';
@@ -105,6 +107,7 @@ export default async function MapBox({
           </Marker>
         ))}
         <NavigationControl />
+        <MapAttribution />
       </Map>
     </div>
   );

@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  padding: 1rem 2.5rem 1rem 1rem;
+  box-sizing: border-box;
+  bottom: 0;
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: 1rem 1.8rem 1rem 1rem;
+    bottom: calc(14rem + 1.6rem - var(--banner-height) + 4.7rem);
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  :global(.smartbanner-show) .container {
+    bottom: calc(14rem + 1.6rem - var(--banner-height) + 2rem);
+  }
+}
+
+.logo {
+  img {
+    display: block;
+  }
+}
+
+.attribution {
+  color: #007afc;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0 5px;
+  white-space: nowrap;
+
+  a {
+    color: #007afc;
+  }
+}

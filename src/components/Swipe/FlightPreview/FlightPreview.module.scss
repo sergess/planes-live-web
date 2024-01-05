@@ -4,7 +4,7 @@
 .planePanel {
   position: absolute;
   left: 50%;
-  bottom: calc(bottomHeight + previewSpace);
+  bottom: calc(bottomHeight + 5.5rem);
   height: previewHeight;
   display: flex;
   background: var(--plane-panel-bg);
@@ -15,7 +15,7 @@
   @media (min-width: $mobile-breakpoint) {
     position: fixed;
     left: calc((100% + var(--left-panel-width)) / 2);
-    bottom: 2.4rem;
+    bottom: 3.9rem;
     width: desktopPreviewWidth;
     transform: translate(-50%, 0);
   }
@@ -26,7 +26,7 @@
 /* Mobile */
 @media (max-width: $mobile-breakpoint) {
   :global(.smartbanner-show) .planePanel {
-    bottom: calc(bottomHeight + previewSpace - var(--banner-height) + bottomBannerSpace);
+    bottom: calc(bottomHeight + previewSpace - var(--banner-height) + 6.5rem);
   }
 }
 
