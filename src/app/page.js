@@ -15,6 +15,7 @@ import LandingHeader from '@/components/Header/landingHeader';
 import Footer from '@/components/Footer';
 import { AdBanner, RequestAds } from '@/components/AdBanner';
 import ModalProvider from '@/contexts/modal/ModalContextProvider';
+import LoginButton from '@/components/LoginButton';
 
 import styles from './page.module.scss';
 
@@ -27,6 +28,7 @@ export default async function Home() {
     <ModalProvider>
       <div className="landingBanners">
         <LandingHeader />
+        <LoginButton />
         <AdBanner adId="div-gpt-ad-1702304851401-0" />
         <AdBanner adId="div-gpt-ad-1702305175369-0" />
         <main className={`${styles.main} ${inter.className}`}>
