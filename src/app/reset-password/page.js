@@ -4,16 +4,16 @@ import React, {
   useState, useContext,
 } from 'react';
 import Image from 'next/image';
-import { AuthSDK } from '@platforms-web/mosaic-auth-js-sdk';
 
 import { ModalContext } from '@/contexts/modal/ModalContext';
 import ErrorBadge from '@/components/ErrorBadge';
 import CompletedScreen from '@/components/CompletedScreen';
 import InputPassword from '@/components/InputPassword';
+import authService from '@/services/auth';
+
 import styles from './page.module.scss';
 
 const NO_CONTENT_STATUS = 204;
-const authService = new AuthSDK({ apiKey: process.env.X_API_KEY });
 const ERROR_MESSAGE = {
   SERVER:
   <div>
